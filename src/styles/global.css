@@ -11,6 +11,12 @@ body {
 }
 
 
+.font-secondary {
+  font-family: "Poppins", sans-serif;
+}
+
+
+
 @theme inline {
   --color-n-50: var(--color-n-50);
   --color-n-100: var(--color-n-100);
