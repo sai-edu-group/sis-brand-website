@@ -1,0 +1,78 @@
+---
+import FaqItem from "../../components/FaqItem.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+import Layout from "../../layouts/Layout.astro";
+
+// OTHERS //
+
+const faqData = [
+  {
+    question: "What documents are required for admission?",
+    answer:
+      "Students must meet the prescribed age requirement as of 31st March of the academic year. For example, a child seeking admission to Grade 1 should be 6 years old by 31st March. Students must meet the prescribed age requirement as of 31st March of the academic year. For example, a child seeking admission to Grade 1 should be 6 years old by 31st March.",
+  },
+  {
+    question: "How are you?",
+    answer: "I am fine",
+  },
+  {
+    question: "How are you?",
+    answer: "I am fine",
+  },
+];
+---
+
+<section>
+  <SectionHeader title="Frequently Asked Questions" />
+
+  <div id="faq" class="space-y-4">
+    {
+      faqData.map((faq, i) => {
+        return (
+          <FaqItem
+            question={faq.question}
+            answer={faq.answer}
+            isOpen={i === 0}
+          />
+        );
+      })
+    }
+  </div>
+</section>
+
+<script is:inline>
+  const accordions = document.querySelectorAll("[data-accordion]");
+
+  accordions.forEach((accordion) => {
+    const trigger = accordion.querySelector("[data-accordion-trigger]");
+    const content = accordion.querySelector("[data-accordion-content]");
+    const arrow = accordion.querySelector("[data-accordion-arrow]");
+
+    trigger.addEventListener("click", () => {
+      const isOpen = accordion.getAttribute("data-open") === "true";
+
+      // Close all accordions first
+      accordions.forEach((acc) => {
+        acc.setAttribute("data-open", "false");
+        acc.querySelector("[data-accordion-content]").style.height = 0;
+        acc
+          .querySelector("[data-accordion-arrow]")
+          .classList.remove("rotate-45");
+      });
+
+      // Toggle clicked accordion
+      if (!isOpen) {
+        accordion.setAttribute("data-open", "true");
+        content.style.height = content.scrollHeight + "px";
+        arrow.classList.add("rotate-45");
+      }
+    });
+
+    // Initialize height if already open (Astro handles the initial rotation)
+    if (accordion.getAttribute("data-open") === "true") {
+      content.style.height = content.scrollHeight + "px";
+    } else {
+      content.style.height = 0;
+    }
+  });
+</script>
