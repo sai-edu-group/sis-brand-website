@@ -7,13 +7,12 @@ interface Props {
 
 // Props default values
 const { question, answer, isOpen = false } = Astro.props;
-const openAttr = isOpen ? "true" : "false";
 ---
 
 <div
   class="border-n-200 bg-n-50 cursor-pointer rounded-lg border"
   data-accordion
-  data-open={openAttr}
+  data-open={isOpen}
 >
   <div class="flex w-full flex-col">
     <!-- Faq Wrapper -->
