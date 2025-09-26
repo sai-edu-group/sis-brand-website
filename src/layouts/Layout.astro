@@ -1,13 +1,27 @@
 ---
+import Head from "../components/layout/Head.astro";
 import "../styles/global.css";
 
-const title = "Sai International";
+const {
+  title = "Sai International School",
+  description = "Join Sai International School",
+  ogImage = "",
+  ogUrl = "",
+} = Astro.props;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Metadata -->
+    <Head
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      ogUrl={ogUrl}
+    />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
