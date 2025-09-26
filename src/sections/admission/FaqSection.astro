@@ -1,12 +1,12 @@
 ---
+// Components //
 import Button from "../../components/Button.astro";
 import FaqItem from "../../components/FaqItem.astro";
 import SectionHeader from "../../components/SectionHeader.astro";
-import Layout from "../../layouts/Layout.astro";
 
 // OTHERS //
 
-const faqData = [
+const faqDetails = [
   {
     question: "What documents are required for admission?",
     answer:
@@ -32,9 +32,7 @@ const faqData = [
 ---
 
 <section>
-  <div
-    class="container mx-auto space-y-10 px-6 py-12 md:py-24 lg:px-12 xl:px-6"
-  >
+  <div class="container mx-auto space-y-10 px-6 py-12 md:py-24">
     <!-- Section header component -->
     <SectionHeader title="Frequently Asked Questions" />
 
@@ -42,7 +40,7 @@ const faqData = [
       <!-- Faq wrapper -->
       <div id="faq" class="w-full space-y-2 md:space-y-4">
         {
-          faqData.map((faq, i) => {
+          faqDetails.map((faq, i) => {
             return (
               <FaqItem
                 question={faq.question}
