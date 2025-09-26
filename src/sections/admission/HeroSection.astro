@@ -1,0 +1,48 @@
+---
+// COMPONENTS //
+import Button from "../../components/Button.astro";
+---
+
+<section class="relative">
+  <div
+    class="flex h-screen flex-col bg-[url('/images/school-bg.png')] bg-cover bg-center bg-no-repeat xl:flex-row"
+  >
+    <!-- Content wrapper -->
+    <div
+      class="container mx-auto flex h-[70vh] flex-col px-6 py-12 lg:h-full lg:px-14 xl:px-6"
+    >
+      <!-- Left column -->
+      <div
+        class="flex h-full w-full flex-col items-start justify-center gap-6 lg:gap-12 xl:w-1/2"
+      >
+        <!-- Main heading -->
+        <h2
+          class="text-n-800 text-4xl leading-tight font-medium md:text-6xl lg:text-8xl"
+        >
+          Begin Your Child’s Journey <span class="text-orange-500"
+            >at SAI
+          </span>
+        </h2>
+
+        <!-- Supporting text -->
+        <p class="text-n-600 text-base leading-normal font-medium lg:text-xl">
+          We’re here to guide you every step of the way — from your first
+          inquiry to the moment your child walks into our world.
+        </p>
+        <!-- Call to action button  -->
+        <Button text="Scroll to Admission Form" />
+      </div>
+    </div>
+
+    <!-- Inline image (mobile & tablet) -->
+    <div class="block self-end xl:hidden">
+      <img src="/images/parent-hero.png" alt="" />
+    </div>
+  </div>
+
+  <!-- Right aligned image -->
+  <img
+    class="absolute right-0 bottom-0 hidden w-[50%] xl:block"
+    src="/images/parent-hero.png"
+  />
+</section>
