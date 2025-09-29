@@ -1,0 +1,37 @@
+---
+interface Props {
+  label: string;
+  name: string;
+  required?: boolean;
+  type?: string;
+  value?: string;
+  placeholder?: string;
+}
+
+const {
+  label,
+  name,
+  required = false,
+  type = "text",
+  value = "",
+  placeholder = "Enter Input",
+} = Astro.props;
+---
+
+<div class="flex w-full flex-col gap-4">
+  <!-- Label -->
+  <label for={name} class="text-n-700 text-2xl font-medium">
+    {label}{required && <span class="text-red-500">*</span>}
+  </label>
+
+  <!-- Input -->
+  <input
+    type={type}
+    placeholder={placeholder}
+    id={name}
+    name={name}
+    value={value}
+    required={required}
+    class="text-n-600 focus:border-n-600 font-secondary border-n-950 w-full border-b bg-transparent px-0 pb-1 text-3xl font-semibold focus:ring-0 focus:outline-none"
+  />
+</div>

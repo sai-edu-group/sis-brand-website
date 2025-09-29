@@ -1,0 +1,338 @@
+---
+import Input from "../../components/Input.astro";
+import StepCard from "../../components/FormStepsCard.astro";
+import Select from "../../components/Select.astro";
+import Button from "../../components/Button.astro";
+// If you built Select.astro earlier, you can use it. Keeping native <select> here.
+
+const STEP_TITLES = ["About Your Child", "About You", "Boarding Preference"];
+const ACCENT = "#C9443A";
+---
+
+<section class="bg-n-100 mx-auto w-full space-y-6 p-4 sm:p-6">
+  <div class="container mx-auto space-y-8">
+    <div class="space-y-2 font-semibold">
+      <h2 class="text-6xl text-orange-500">Begin Your Child’s Journey Here</h2>
+      <p class="font-secondary text-n-600 text-xl">
+        A few details from you, and we’ll be in touch with care, clarity, and
+        guidance.
+      </p>
+    </div>
+    <!-- ONE form for all steps -->
+    <form id="admission-form" novalidate class="space-y-6">
+      <!-- STEP 1 -->
+      <StepCard
+        id="step-1"
+        step={1}
+        total={3}
+        title={STEP_TITLES[0]}
+        accent={ACCENT}
+      >
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <!-- Academic Year -->
+          <Select
+            label="Admission for Academic Year"
+            name="acadYear"
+            required
+            options={[
+              { label: "2025–2026", value: "2025-26" },
+              { label: "2026–2027", value: "2026-27" },
+            ]}
+          />
+
+          <!-- Student Name -->
+          <div class="flex flex-col gap-2" data-field>
+            <Input label="Student’s Full Name" name="studentName" required />
+            <p class="mt-1 hidden text-xs text-red-600" data-error>
+              Student name is required.
+            </p>
+          </div>
+
+          <!-- DOB -->
+          <div class="flex flex-col gap-2 sm:col-span-1" data-field>
+            <Input
+              label="Student’s Date of Birth"
+              name="dob"
+              type="date"
+              required
+            />
+            <p class="mt-1 hidden text-xs text-red-600" data-error>
+              Date of birth is required.
+            </p>
+            <p class="text-n-600 mt-2 text-xs">
+              We welcome learners from all backgrounds and cities.
+            </p>
+          </div>
+
+          <!-- Class -->
+          <Select
+            label="Admission for Class"
+            name="admissionClass"
+            required
+            options={[
+              { label: "XII Hum", value: "12-hum" },
+              { label: "XI Sci", value: "11-sci" },
+            ]}
+          />
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <Button
+            id="next-1"
+            type="button"
+            text="Continue to Parent Info"
+            variant="solid"
+            size="medium"
+          />
+        </div>
+      </StepCard>
+
+      <!-- STEP 2 -->
+      <StepCard
+        id="step-2"
+        step={2}
+        total={3}
+        title={STEP_TITLES[1]}
+        accent={ACCENT}
+        hidden
+      >
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <!-- Input Component -->
+          <div class="flex flex-col gap-2" data-field>
+            <Input
+              label="Parent / Guardian’s Full Name"
+              name="parentName"
+              required
+            />
+            <p class="mt-1 hidden text-xs text-red-600" data-error>
+              Parent/Guardian name is required.
+            </p>
+          </div>
+
+          <!-- Input component -->
+          <div class="flex flex-col gap-2" data-field>
+            <Input label="Phone Number" name="phone" type="tel" required />
+            <p class="mt-1 hidden text-xs text-red-600" data-error>
+              Enter a valid 10-digit number.
+            </p>
+          </div>
+
+          <!-- Input component -->
+          <div class="flex flex-col gap-2 sm:col-span-2" data-field>
+            <Input label="Email ID" name="email" type="email" required />
+            <p class="mt-1 hidden text-xs text-red-600" data-error>
+              Enter a valid email address.
+            </p>
+            <p class="text-n-600 mt-2 text-xs">
+              This is how we’ll get in touch with you. We don’t spam, promise.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <Button
+            id="back-2"
+            type="button"
+            text="Back to Child Details"
+            variant="ghost"
+            size="medium"
+            extraClasses="border border-n-300 bg-white text-n-800 hover:bg-n-100"
+          />
+          <Button
+            id="next-2"
+            type="button"
+            text="Continue to Preferences"
+            variant="solid"
+            size="medium"
+          />
+        </div>
+      </StepCard>
+
+      <!-- STEP 3 -->
+      <StepCard
+        id="step-3"
+        step={3}
+        total={3}
+        title={STEP_TITLES[2]}
+        accent={ACCENT}
+        hidden
+      >
+        <!-- Select component -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <Select
+            label="Hostel Required"
+            name="hostel"
+            required
+            options={[
+              { label: "Not Sure Yet", value: "maybe" },
+              { label: "Yes", value: "yes" },
+              { label: "No", value: "no" },
+            ]}
+          />
+
+          <div class="sm:col-span-2">
+            <p class="text-n-600 mt-2 text-xs">
+              Let us know if you’d like your child to avail hostel facilities.
+              This helps us guide you better.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <Button
+            id="back-3"
+            type="button"
+            text="Back to Parent Info"
+            variant="ghost"
+            size="medium"
+            extraClasses="border border-n-300 bg-n-50 text-n-800 hover:bg-n-100"
+          />
+          <Button
+            id="submit"
+            type="submit"
+            text="Submit Inquiry"
+            variant="solid"
+            size="medium"
+            extraClasses="bg-[#C9443A]/80 hover:bg-orange-500 text-n-50"
+          />
+        </div>
+      </StepCard>
+    </form>
+
+    <!-- THANK YOU -->
+    <article
+      id="thank-you"
+      class="border-n-200 bg-n-50 hidden rounded-xl border p-6 text-center"
+    >
+      <div class="mx-auto mb-4 h-10 w-10 text-orange-500">✈️</div>
+      <h3 class="text-n-900 text-2xl font-semibold">
+        We’re excited to begin this journey with you — where your child is not
+        just admitted, but truly welcomed.
+      </h3>
+      <p class="text-n-600 mx-auto mt-3 max-w-2xl text-sm">
+        We’ve received your inquiry and our admissions team will be in touch
+        with you shortly.
+      </p>
+      <a
+        href="/brochure.pdf"
+        class="hover:bg-800/5 mx-auto mt-6 inline-block rounded border border-orange-500 px-4 py-2 text-sm font-medium text-orange-500"
+      >
+        Download Brochure
+      </a>
+    </article>
+  </div>
+</section>
+
+<script>
+  // ====== ELEMENTS ======
+  const form = document.getElementById("admission-form") as HTMLFormElement;
+  const steps = [
+    document.getElementById("step-1") as HTMLElement,
+    document.getElementById("step-2") as HTMLElement,
+    document.getElementById("step-3") as HTMLElement,
+  ];
+  const thankYouPanel = document.getElementById("thank-you") as HTMLElement;
+
+  // action buttons (ensure these ids exist on your Button components)
+  const btnNext1 = document.getElementById("next-1");
+  const btnNext2 = document.getElementById("next-2");
+  const btnBack2 = document.getElementById("back-2");
+  const btnBack3 = document.getElementById("back-3");
+  const btnSubmit = document.getElementById("submit");
+
+  // Testing toggle: true = skip API, just show thank-you
+  const TEST_MODE = true;
+
+  // ====== STATE ======
+  let currentStepIndex = 0;
+
+  // ====== HELPERS ======
+  function showStep(item) {
+    steps.forEach((element, idx) =>
+      element.classList.toggle("hidden", idx !== item)
+    );
+    thankYouPanel.classList.add("hidden");
+    currentStepIndex = item;
+  }
+
+  // Validate only visible step; show inline errors under each field
+  function validateCurrentStep() {
+    // Current step card
+    const stepEl = steps[currentStepIndex];
+    const phoneRe = /^[0-9]{10}$/;
+    let allValid = true;
+
+    // Fields in current steps
+    const controls = stepEl.querySelectorAll("input, select, textarea");
+    controls.forEach((ctrl) => {
+      const field = ctrl.closest("[data-field]") || ctrl.parentElement;
+      const errorEl = field.querySelector("[data-error]");
+      //   Hide old error and clear
+      if (errorEl) errorEl.classList.add("hidden");
+      ctrl.classList.remove("!border-red-500");
+
+      let ok = ctrl.checkValidity();
+      if (ok && ctrl.name === "phone")
+        ok = phoneRe.test((ctrl.value || "").trim());
+
+      if (!ok) {
+        allValid = false;
+        // Show error message
+        if (errorEl) errorEl.classList.remove("hidden");
+        ctrl.classList.add("!border-red-500");
+      }
+    });
+
+    return allValid;
+  }
+
+  async function submitOnce() {
+    const fd = new FormData(form);
+    // Convert to plain object
+    const payload = Object.fromEntries(fd.entries());
+
+    // FOR TESTING: just log and show thank-you
+    if (TEST_MODE) {
+      console.log("[TEST] Submission payload:", payload);
+      steps.forEach((el) => el.classList.add("hidden"));
+      thankYouPanel.classList.remove("hidden");
+      return;
+    }
+
+    // REAL CALL (uncomment and set your endpoint)
+    /*
+    const res = await fetch("/api/admissions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error("Submit failed");
+    steps.forEach((el) => el.classList.add("hidden"));
+    thankYouPanel.classList.remove("hidden");
+    */
+  }
+
+  // ====== NAV ======
+  btnNext1?.addEventListener("click", () => {
+    if (!validateCurrentStep()) return;
+    showStep(1);
+  });
+
+  btnNext2?.addEventListener("click", () => {
+    if (!validateCurrentStep()) return;
+    showStep(2);
+  });
+
+  btnBack2?.addEventListener("click", () => showStep(0));
+  btnBack3?.addEventListener("click", () => showStep(1));
+
+  // final submit (single call after last step)
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (!validateCurrentStep()) return;
+    submitOnce();
+  });
+
+  // init
+  showStep(0);
+</script>

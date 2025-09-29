@@ -1,0 +1,40 @@
+---
+interface Option {
+  label: string;
+  value: string;
+}
+interface Props {
+  label: string;
+  name: string;
+  required?: boolean;
+  value?: string;
+  options: Option[];
+}
+
+const { label, name, required = false, value = "", options = [] } = Astro.props;
+---
+
+<div class="flex w-full flex-col gap-4" data-field>
+  <!-- Select label -->
+  <label for={name} class="text-n-700 text-2xl font-medium">
+    {label}{required && <span class="text-red-500">*</span>}
+  </label>
+
+  <!-- Dropdown -->
+  <select
+    id={name}
+    name={name}
+    required={required}
+    value={value}
+    class="border-n-300 text-n-600 focus:border-n-600 font-secondary w-full border-0 border-b bg-transparent px-0 pb-1 text-3xl font-semibold focus:outline-none"
+  >
+    <!-- Options list -->
+    <option value="">Select</option>
+    {options.map((opt) => <option value={opt.value}>{opt.label}</option>)}
+  </select>
+
+  <!-- Error message  -->
+  <p class="mt-1 hidden text-xs text-red-600" data-error>
+    This field is required.
+  </p>
+</div>
