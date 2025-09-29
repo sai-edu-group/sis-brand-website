@@ -1,0 +1,31 @@
+<!-- Hamburger button -->
+<button
+  id="open-mobile-menu-button"
+  aria-label="Open menu button"
+  class="group flex w-7 cursor-pointer flex-col justify-center gap-1.5 lg:hidden"
+>
+  <!-- Top bar -->
+  <span
+    class="bg-n-950 block h-0.75 w-full rounded-sm transition-all duration-300 ease-in-out group-[.open]:translate-y-[9px] group-[.open]:rotate-45"
+  ></span>
+
+  <!-- Middle bar -->
+  <span
+    class="bg-n-950 block h-0.75 w-full rounded-sm transition-all duration-300 ease-in-out group-[.open]:opacity-0"
+  ></span>
+
+  <!-- Bottom bar -->
+  <span
+    class="bg-n-950 block h-0.75 w-full rounded-sm transition-all duration-300 ease-in-out group-[.open]:-translate-y-[9px] group-[.open]:-rotate-45"
+  ></span>
+</button>
+
+<script>
+  // Get the Hamburger button element
+  const btn = document.getElementById("open-mobile-menu-button") as HTMLElement;
+  //  Add event listener
+  btn.addEventListener("click", () => {
+    // Toggle open and close
+    btn.classList.toggle("open");
+  });
+</script>
