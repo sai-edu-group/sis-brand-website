@@ -1,0 +1,90 @@
+---
+export interface Props {
+  icon: string; // e.g. "mail.svg"
+  title: string;
+  kind: "email" | "phone" | "location";
+  infoText: string[];
+  backdropOpacity?: string;
+}
+
+const {
+  icon,
+  title,
+  kind,
+  infoText = [],
+  backdropOpacity = "10",
+} = Astro.props;
+---
+
+<div
+  class="border-n-200 relative flex flex-col gap-4 overflow-hidden rounded-3xl border p-8"
+>
+  <!-- Backdrop icon -->
+  <img
+    src={`/icons/${icon}`}
+    alt=""
+    aria-hidden="true"
+    class={`pointer-events-none select-none absolute -right-[30%] -bottom-[15%] w-[300px] object-contain opacity-${backdropOpacity}`}
+  />
+
+  <!-- Foreground icon -->
+  <div>
+    <img
+      src={`/icons/${icon}`}
+      alt=""
+      class="h-12 w-12 object-contain"
+      loading="lazy"
+      decoding="async"
+      aria-hidden="true"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="text-n-800 space-y-3 md:space-y-6">
+    <!-- Card title -->
+    <p class="text-xl font-semibold md:text-3xl">{title}</p>
+
+    <!-- Email / Phone list -->
+    {
+      kind !== "location" && (
+        <ul class="space-y-1.5">
+          {infoText.map((value, index) => {
+            const trimmed = value.toString().trim();
+            const href =
+              kind === "email"
+                ? `mailto:${trimmed}`
+                : `tel:${trimmed.replace(/\s+/g, "")}`;
+            const baseLink =
+              "font-bold text-n-500 text-base md:text-xl underline";
+            const linkClass =
+              index === 0 ? `text-orange-500 ${baseLink}` : baseLink;
+
+            return (
+              <li>
+                <a href={href} class={linkClass}>
+                  {trimmed}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
+
+    <!-- Location -->
+    {
+      kind === "location" && (
+        <div class="space-y-1">
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-secondary text-n-500 text-base font-semibold underline md:text-xl"
+          >
+            {infoText[0]}
+          </a>
+        </div>
+      )
+    }
+  </div>
+</div>
