@@ -10,10 +10,13 @@ const ACCENT = "#C9443A";
 ---
 
 <section class="bg-n-100 mx-auto w-full space-y-6 p-4 sm:p-6">
-  <div class="container mx-auto space-y-8">
-    <div class="space-y-2 font-semibold">
-      <h2 class="text-6xl text-orange-500">Begin Your Child’s Journey Here</h2>
-      <p class="font-secondary text-n-600 text-xl">
+  <div class="container mx-auto py-12 md:py-24">
+    <!-- Form titles wrapper -->
+    <div class="space-y-2 pb-9 font-semibold">
+      <h2 class="text-4xl text-orange-500 md:text-6xl">
+        Begin Your Child’s Journey Here
+      </h2>
+      <p class="font-secondary text-n-600 text-base md:text-xl">
         A few details from you, and we’ll be in touch with care, clarity, and
         guidance.
       </p>
@@ -28,11 +31,27 @@ const ACCENT = "#C9443A";
         title={STEP_TITLES[0]}
         accent={ACCENT}
       >
-        <div class="grid grid-cols-1 gap-x-20 gap-y-9 py-8 sm:grid-cols-2">
-          <!-- Academic Year -->
+        <div
+          class="grid grid-cols-1 gap-x-20 gap-y-6 py-8 sm:grid-cols-2 md:gap-y-9"
+        >
+          <!-- Student Name Input -->
+          <div class="flex flex-col gap-2" data-field>
+            <Input
+              label="Student’s Full Name"
+              name="studentName"
+              required
+              placeholder="Enter Full Name"
+            />
+            <p class="hidden text-sm text-red-600" data-error>
+              Student name is required.
+            </p>
+          </div>
+
+          <!-- Academic Year Select -->
           <Select
             label="Admission for Academic Year"
-            name="acadYear"
+            name="academicYear"
+            placeholder="Select Year"
             required
             options={[
               { label: "2025–2026", value: "2025-26" },
@@ -40,15 +59,7 @@ const ACCENT = "#C9443A";
             ]}
           />
 
-          <!-- Student Name -->
-          <div class="flex flex-col gap-2" data-field>
-            <Input label="Student’s Full Name" name="studentName" required />
-            <p class="mt-1 hidden text-xs text-red-600" data-error>
-              Student name is required.
-            </p>
-          </div>
-
-          <!-- DOB -->
+          <!-- DOB Input -->
           <div class="flex flex-col gap-2 sm:col-span-1" data-field>
             <Input
               label="Student’s Date of Birth"
@@ -56,16 +67,17 @@ const ACCENT = "#C9443A";
               type="date"
               required
             />
-            <p class="mt-1 hidden text-xs text-red-600" data-error>
+            <p class="hidden text-sm text-red-600" data-error>
               Date of birth is required.
             </p>
           </div>
 
-          <!-- Class -->
+          <!-- Class Select -->
           <Select
             label="Admission for Class"
             name="admissionClass"
             required
+            placeholder="Select Class"
             options={[
               { label: "XII Hum", value: "12-hum" },
               { label: "XI Sci", value: "11-sci" },
@@ -74,9 +86,10 @@ const ACCENT = "#C9443A";
         </div>
 
         <div class="flex flex-col flex-wrap gap-8">
-          <p class="text-n-600 text-xs">
+          <p class="text-n-500 text-base font-medium md:text-xl">
             We welcome learners from all backgrounds and cities.
           </p>
+          <!-- Button: Continue to next step -->
           <Button
             id="next-1"
             type="button"
@@ -96,41 +109,44 @@ const ACCENT = "#C9443A";
         accent={ACCENT}
         hidden
       >
-        <div class="grid grid-cols-1 gap-x-20 gap-y-9 py-8 sm:grid-cols-2">
-          <!-- Input Component -->
+        <div
+          class="grid grid-cols-1 gap-x-20 gap-y-6 py-8 sm:grid-cols-2 md:gap-y-9"
+        >
+          <!-- Parent/Guardian Input -->
           <div class="flex flex-col gap-2" data-field>
             <Input
               label="Parent / Guardian’s Full Name"
               name="parentName"
               required
             />
-            <p class="mt-1 hidden text-xs text-red-600" data-error>
+            <p class="hidden text-sm text-red-600" data-error>
               Parent/Guardian name is required.
             </p>
           </div>
 
-          <!-- Input component -->
+          <!-- Phone Input -->
           <div class="flex flex-col gap-2" data-field>
             <Input label="Phone Number" name="phone" type="tel" required />
-            <p class="mt-1 hidden text-xs text-red-600" data-error>
+            <p class="hidden text-sm text-red-600" data-error>
               Enter a valid 10-digit number.
             </p>
           </div>
 
-          <!-- Input component -->
+          <!-- Email Input -->
           <div class="flex flex-col gap-2 sm:col-span-2" data-field>
             <Input label="Email ID" name="email" type="email" required />
-            <p class="mt-1 hidden text-xs text-red-600" data-error>
+            <p class="hidden text-sm text-red-600" data-error>
               Enter a valid email address.
             </p>
           </div>
         </div>
 
         <div class="flex flex-col flex-wrap gap-8">
-          <p class="text-n-600 mt-2 text-xs">
+          <p class="text-n-500 text-base font-medium md:text-xl">
             This is how we’ll get in touch with you. We don’t spam, promise.
           </p>
           <div class="flex flex-wrap gap-3">
+            <!-- Back button -->
             <Button
               id="back-2"
               type="button"
@@ -139,6 +155,7 @@ const ACCENT = "#C9443A";
               size="medium"
               extraClasses="border border-n-300 bg-white text-n-800 hover:bg-n-100"
             />
+            <!-- Continue button -->
             <Button
               id="next-2"
               type="button"
@@ -160,7 +177,9 @@ const ACCENT = "#C9443A";
         hidden
       >
         <!-- Select component -->
-        <div class="grid grid-cols-1 gap-x-20 gap-y-9 py-8 sm:grid-cols-2">
+        <div
+          class="grid grid-cols-1 gap-x-20 gap-y-6 py-8 sm:grid-cols-2 md:gap-y-9"
+        >
           <Select
             label="Hostel Required"
             name="hostel"
@@ -171,16 +190,15 @@ const ACCENT = "#C9443A";
               { label: "No", value: "no" },
             ]}
           />
-
-          <div class="sm:col-span-2"></div>
         </div>
 
         <div class="flex flex-col gap-8">
-          <p class="text-n-600 text-xs">
+          <p class="text-n-500 text-base font-medium md:text-xl">
             Let us know if you’d like your child to avail hostel facilities.
             This helps us guide you better.
           </p>
           <div class="flex flex-wrap gap-3">
+            <!-- Back button -->
             <Button
               id="back-3"
               type="button"
@@ -189,6 +207,7 @@ const ACCENT = "#C9443A";
               size="medium"
               extraClasses="border border-n-300 bg-n-50 text-n-800 hover:bg-n-100"
             />
+            <!-- Submit button -->
             <Button
               id="submit"
               type="submit"
@@ -205,132 +224,205 @@ const ACCENT = "#C9443A";
     <!-- THANK YOU -->
     <article
       id="thank-you"
-      class="border-n-200 bg-n-50 flex hidden flex-col items-center gap-16 rounded-3xl border p-6 text-center"
+      class="border-n-200 bg-n-50 flex flex-col items-center gap-8 rounded-3xl border p-6 text-center md:gap-16"
     >
-      <img src="/icons/paper-plane.svg" alt="" />
-      <h3 class="text-n-700 w-[65%] text-5xl font-medium">
+      <!-- Paper plan icon -->
+      <img src="/icons/paper-plane.svg" alt="" class="w-32 md:w-38" />
+      <!-- Success panel title -->
+      <h3
+        class="text-n-700 lg::w-[65%] w-[90%] text-2xl font-medium md:w-[80%] md:text-4xl"
+      >
         We’re excited to begin this journey with you — where your child is not
         just admitted, but truly welcomed.
       </h3>
-      <p class="text-n-600 font-secondary text-2xl font-semibold">
+      <!-- Success panel message -->
+      <p
+        class="text-n-600 font-secondary text-lg font-semibold md:w-[90%] md:text-2xl"
+      >
         We’ve received your inquiry and our admissions team will be in touch
         with you shortly.
       </p>
+      <!-- Download borchure button -->
       <Button text="Download Brochure" variant="outline" />
     </article>
   </div>
 </section>
 
 <script>
-  // ====== ELEMENTS ======
-  const form = document.getElementById("admission-form") as HTMLFormElement;
-  const steps = [
-    document.getElementById("step-1") as HTMLElement,
-    document.getElementById("step-2") as HTMLElement,
-    document.getElementById("step-3") as HTMLElement,
+  // CONFIG
+  const TEST_MODE = true; // set true to skip network call
+
+  // ELEMENTS
+  const formEl = document.getElementById("admission-form") as HTMLFormElement;
+  const stepPanels = [
+    document.getElementById("step-1"),
+    document.getElementById("step-2"),
+    document.getElementById("step-3"),
   ];
-  const thankYouPanel = document.getElementById("thank-you") as HTMLElement;
+  const thankYouSection = document.getElementById("thank-you");
 
-  // action buttons (ensure these ids exist on your Button components)
-  const btnNext1 = document.getElementById("next-1");
-  const btnNext2 = document.getElementById("next-2");
-  const btnBack2 = document.getElementById("back-2");
-  const btnBack3 = document.getElementById("back-3");
-  const btnSubmit = document.getElementById("submit");
+  const nextBtnStep1 = document.getElementById("next-1");
+  const nextBtnStep2 = document.getElementById("next-2");
+  const backBtnStep2 = document.getElementById("back-2");
+  const backBtnStep3 = document.getElementById("back-3");
+  const submitBtn = document.getElementById("submit");
 
-  // Testing toggle: true = skip API, just show thank-you
-  const TEST_MODE = true;
-
-  // ====== STATE ======
+  // STATE
   let currentStepIndex = 0;
+  let isSubmitting = false;
 
-  // ====== HELPERS ======
-  function showStep(item) {
-    steps.forEach((element, idx) =>
-      element.classList.toggle("hidden", idx !== item)
-    );
-    thankYouPanel.classList.add("hidden");
-    currentStepIndex = item;
+  // Show one step, hide others; toggle submit button loading state
+  function showStep(stepIndex: any) {
+    stepPanels.forEach((panel, idx) => {
+      // Hide non active
+      panel?.classList.toggle("hidden", idx !== stepIndex);
+    });
+    thankYouSection?.classList.add("hidden");
+    // Update state
+    currentStepIndex = stepIndex;
   }
 
-  // Validate only visible step; show inline errors under each field
+  function setSubmittingState(isLoading: boolean) {
+    if (!submitBtn) return;
+    // Prevent multiple submissions
+    submitBtn.toggleAttribute("disabled", isLoading);
+    submitBtn.setAttribute("aria-busy", String(isLoading));
+    submitBtn.classList.toggle("opacity-60", isLoading);
+    submitBtn.classList.toggle("cursor-not-allowed", isLoading);
+    isSubmitting = isLoading;
+  }
+
+  // VALIDATION (current step only)
+  const PHONE_REGEX = /^[0-9]{10}$/;
+
+  // Validate field in current step; show error messages
   function validateCurrentStep() {
-    // Current step card
-    const stepEl = steps[currentStepIndex];
-    const phoneRe = /^[0-9]{10}$/;
+    const activePanel = stepPanels[currentStepIndex];
+    const controls = activePanel?.querySelectorAll("input, select, textarea");
     let allValid = true;
 
-    // Fields in current steps
-    const controls = stepEl.querySelectorAll("input, select, textarea");
-    controls.forEach((ctrl) => {
-      const field = ctrl.closest("[data-field]") || ctrl.parentElement;
-      const errorEl = field.querySelector("[data-error]");
-      //   Hide old error and clear
-      if (errorEl) errorEl.classList.add("hidden");
-      ctrl.classList.remove("!border-red-500");
+    controls?.forEach((control) => {
+      const fieldWrapperEl =
+        control.closest("[data-field]") || control.parentElement;
+      const errorMessage = fieldWrapperEl?.querySelector?.("[data-error]");
 
-      let ok = ctrl.checkValidity();
-      if (ok && ctrl.name === "phone")
-        ok = phoneRe.test((ctrl.value || "").trim());
+      // Reset previous error state
+      if (errorMessage) errorMessage.classList.add("hidden");
+      control.classList.remove("!border-red-500");
 
-      if (!ok) {
+      // Normalize phone digits before checking
+      if (control.name === "phone") {
+        control.value = (control.value || "").replace(/\D+/g, "");
+      }
+
+      // Check validity
+      let isValid = control.checkValidity();
+      if (isValid && control.name === "phone") {
+        isValid = PHONE_REGEX.test(control.value);
+      }
+
+      if (!isValid) {
         allValid = false;
-        // Show error message
-        if (errorEl) errorEl.classList.remove("hidden");
-        ctrl.classList.add("!border-red-500");
+        // Show inline error
+        if (errorMessage) errorMessage.classList.remove("hidden");
+        control.classList.add("!border-red-500");
       }
     });
 
     return allValid;
   }
 
-  async function submitOnce() {
-    const fd = new FormData(form);
-    // Convert to plain object
-    const payload = Object.fromEntries(fd.entries());
+  // Payload
+  function buildPayload() {
+    // Read all fields
+    const formData = new FormData(formEl);
+    const raw = Object.fromEntries(formData.entries());
 
-    // FOR TESTING: just log and show thank-you
+    return {
+      name: (raw.parentName || "").toString().trim(),
+      emailId: (raw.email || "").toString().trim(),
+      mobileNo: (raw.phone || "").toString().trim(),
+      academicyear_name: (raw.academicYear || "").toString().trim(), // e.g. "2025-26"
+      className: (raw.admissionClass || "").toString().trim(),
+      dob: (raw.dob || "").toString().trim(), // e.g. "2010-05-15"
+      hostelRequired: (raw.hostel || "").toString().trim(), // e.g.
+    };
+  }
+
+  // Api Call to send form data
+  async function sendInquiry(payload: any) {
+    // --- OPTION A: Keep stubbed (no network), good for QA/UX ---
     if (TEST_MODE) {
-      console.log("[TEST] Submission payload:", payload);
-      steps.forEach((el) => el.classList.add("hidden"));
-      thankYouPanel.classList.remove("hidden");
-      return;
+      console.log("[TEST] Would send payload:", payload);
+      // Simulate latency
+      await new Promise((r) => setTimeout(r, 600));
+      return { ok: true, data: { message: "stubbed-success" } };
     }
 
-    // REAL CALL (uncomment and set your endpoint)
+    // --- OPTION B: When you’re ready, wire your real endpoint here ---
+    // Example using your own Astro route (recommended to keep keys server-side):
     /*
     const res = await fetch("/api/admissions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    if (!res.ok) throw new Error("Submit failed");
-    steps.forEach((el) => el.classList.add("hidden"));
-    thankYouPanel.classList.remove("hidden");
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err?.message || `Request failed (${res.status})`);
+    }
+    return { ok: true, data: await res.json() };
     */
+
+    // Remove this throw once you plug the real call above
+    throw new Error("sendInquiry() not wired to a real endpoint yet.");
   }
 
-  // ====== NAV ======
-  btnNext1?.addEventListener("click", () => {
-    // if (!validateCurrentStep()) return;
-    showStep(1);
+  // Submit from once
+  async function submitFormOnce() {
+    if (isSubmitting) return;
+    if (!validateCurrentStep()) return;
+
+    const payload = buildPayload();
+
+    setSubmittingState(true);
+    try {
+      const result = await sendInquiry(payload);
+
+      if (!result?.ok) {
+        throw new Error("Submission failed. Please try again.");
+      }
+
+      // success UX
+      stepPanels.forEach((panel) => panel?.classList.add("hidden"));
+      thankYouSection?.classList.remove("hidden");
+      formEl.reset();
+    } catch (error: any) {
+      console.error("❌ Submit Error:", error);
+      alert(
+        error?.message ||
+          "We couldn't submit your request right now. Please try again."
+      );
+    } finally {
+      setSubmittingState(false);
+    }
+  }
+
+  // NAV EVENTS
+  nextBtnStep1?.addEventListener("click", () => {
+    if (validateCurrentStep()) showStep(1);
+  });
+  nextBtnStep2?.addEventListener("click", () => {
+    if (validateCurrentStep()) showStep(2);
+  });
+  backBtnStep2?.addEventListener("click", () => showStep(0));
+  backBtnStep3?.addEventListener("click", () => showStep(1));
+
+  formEl.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    submitFormOnce();
   });
 
-  btnNext2?.addEventListener("click", () => {
-    // if (!validateCurrentStep()) return;
-    showStep(2);
-  });
-
-  btnBack2?.addEventListener("click", () => showStep(0));
-  btnBack3?.addEventListener("click", () => showStep(1));
-
-  // final submit (single call after last step)
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    // if (!validateCurrentStep()) return;
-    submitOnce();
-  });
-
-  // init
+  // INIT
   showStep(0);
 </script>

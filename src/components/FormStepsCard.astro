@@ -27,17 +27,17 @@ const Tag = as as any;
   id={id}
   data-step
   class:list={[
-    "border-n-200 bg-n-50 container mx-auto space-y-6 rounded-3xl border px-14 py-8",
+    "border-n-200 bg-n-50 container mx-auto space-y-3 rounded-3xl border p-6 md:space-y-6 md:px-14 md:py-8",
   ]}
 >
   <div class="flex items-center justify-between">
     <!-- Step label and current section title -->
-    <h3 class="text-n-600 text-3xl font-semibold">
+    <h3 class="text-n-600 text-lg font-semibold md:text-3xl">
       Step {step}/{total}: {title}
     </h3>
 
     <!-- Percentage text -->
-    <span class="text-n-600 text-3xl font-semibold">{percent}%</span>
+    <span class="text-n-600 text-lg font-semibold md:text-3xl">{percent}%</span>
   </div>
 
   <!-- Progress bar -->
