@@ -19,7 +19,7 @@ const ACCENT = "#C9443A";
       </p>
     </div>
     <!-- ONE form for all steps -->
-    <form id="admission-form" novalidate class="space-y-6">
+    <form id="admission-form" novalidate>
       <!-- STEP 1 -->
       <StepCard
         id="step-1"
@@ -28,7 +28,7 @@ const ACCENT = "#C9443A";
         title={STEP_TITLES[0]}
         accent={ACCENT}
       >
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div class="grid grid-cols-1 gap-x-20 gap-y-9 py-8 sm:grid-cols-2">
           <!-- Academic Year -->
           <Select
             label="Admission for Academic Year"
@@ -59,9 +59,6 @@ const ACCENT = "#C9443A";
             <p class="mt-1 hidden text-xs text-red-600" data-error>
               Date of birth is required.
             </p>
-            <p class="text-n-600 mt-2 text-xs">
-              We welcome learners from all backgrounds and cities.
-            </p>
           </div>
 
           <!-- Class -->
@@ -76,7 +73,10 @@ const ACCENT = "#C9443A";
           />
         </div>
 
-        <div class="mt-6 flex flex-wrap items-center gap-3">
+        <div class="flex flex-col flex-wrap gap-8">
+          <p class="text-n-600 text-xs">
+            We welcome learners from all backgrounds and cities.
+          </p>
           <Button
             id="next-1"
             type="button"
@@ -96,7 +96,7 @@ const ACCENT = "#C9443A";
         accent={ACCENT}
         hidden
       >
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div class="grid grid-cols-1 gap-x-20 gap-y-9 py-8 sm:grid-cols-2">
           <!-- Input Component -->
           <div class="flex flex-col gap-2" data-field>
             <Input
@@ -123,28 +123,30 @@ const ACCENT = "#C9443A";
             <p class="mt-1 hidden text-xs text-red-600" data-error>
               Enter a valid email address.
             </p>
-            <p class="text-n-600 mt-2 text-xs">
-              This is how we’ll get in touch with you. We don’t spam, promise.
-            </p>
           </div>
         </div>
 
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <Button
-            id="back-2"
-            type="button"
-            text="Back to Child Details"
-            variant="ghost"
-            size="medium"
-            extraClasses="border border-n-300 bg-white text-n-800 hover:bg-n-100"
-          />
-          <Button
-            id="next-2"
-            type="button"
-            text="Continue to Preferences"
-            variant="solid"
-            size="medium"
-          />
+        <div class="flex flex-col flex-wrap gap-8">
+          <p class="text-n-600 mt-2 text-xs">
+            This is how we’ll get in touch with you. We don’t spam, promise.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button
+              id="back-2"
+              type="button"
+              text="Back to Child Details"
+              variant="ghost"
+              size="medium"
+              extraClasses="border border-n-300 bg-white text-n-800 hover:bg-n-100"
+            />
+            <Button
+              id="next-2"
+              type="button"
+              text="Continue to Preferences"
+              variant="solid"
+              size="medium"
+            />
+          </div>
         </div>
       </StepCard>
 
@@ -158,7 +160,7 @@ const ACCENT = "#C9443A";
         hidden
       >
         <!-- Select component -->
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div class="grid grid-cols-1 gap-x-20 gap-y-9 py-8 sm:grid-cols-2">
           <Select
             label="Hostel Required"
             name="hostel"
@@ -170,31 +172,32 @@ const ACCENT = "#C9443A";
             ]}
           />
 
-          <div class="sm:col-span-2">
-            <p class="text-n-600 mt-2 text-xs">
-              Let us know if you’d like your child to avail hostel facilities.
-              This helps us guide you better.
-            </p>
-          </div>
+          <div class="sm:col-span-2"></div>
         </div>
 
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <Button
-            id="back-3"
-            type="button"
-            text="Back to Parent Info"
-            variant="ghost"
-            size="medium"
-            extraClasses="border border-n-300 bg-n-50 text-n-800 hover:bg-n-100"
-          />
-          <Button
-            id="submit"
-            type="submit"
-            text="Submit Inquiry"
-            variant="solid"
-            size="medium"
-            extraClasses="bg-[#C9443A]/80 hover:bg-orange-500 text-n-50"
-          />
+        <div class="flex flex-col gap-8">
+          <p class="text-n-600 text-xs">
+            Let us know if you’d like your child to avail hostel facilities.
+            This helps us guide you better.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <Button
+              id="back-3"
+              type="button"
+              text="Back to Parent Info"
+              variant="ghost"
+              size="medium"
+              extraClasses="border border-n-300 bg-n-50 text-n-800 hover:bg-n-100"
+            />
+            <Button
+              id="submit"
+              type="submit"
+              text="Submit Inquiry"
+              variant="solid"
+              size="medium"
+              extraClasses="bg-[#C9443A]/80 hover:bg-orange-500 text-n-50"
+            />
+          </div>
         </div>
       </StepCard>
     </form>
@@ -202,23 +205,18 @@ const ACCENT = "#C9443A";
     <!-- THANK YOU -->
     <article
       id="thank-you"
-      class="border-n-200 bg-n-50 hidden rounded-xl border p-6 text-center"
+      class="border-n-200 bg-n-50 flex hidden flex-col items-center gap-16 rounded-3xl border p-6 text-center"
     >
-      <div class="mx-auto mb-4 h-10 w-10 text-orange-500">✈️</div>
-      <h3 class="text-n-900 text-2xl font-semibold">
+      <img src="/icons/paper-plane.svg" alt="" />
+      <h3 class="text-n-700 w-[65%] text-5xl font-medium">
         We’re excited to begin this journey with you — where your child is not
         just admitted, but truly welcomed.
       </h3>
-      <p class="text-n-600 mx-auto mt-3 max-w-2xl text-sm">
+      <p class="text-n-600 font-secondary text-2xl font-semibold">
         We’ve received your inquiry and our admissions team will be in touch
         with you shortly.
       </p>
-      <a
-        href="/brochure.pdf"
-        class="hover:bg-800/5 mx-auto mt-6 inline-block rounded border border-orange-500 px-4 py-2 text-sm font-medium text-orange-500"
-      >
-        Download Brochure
-      </a>
+      <Button text="Download Brochure" variant="outline" />
     </article>
   </div>
 </section>
@@ -314,12 +312,12 @@ const ACCENT = "#C9443A";
 
   // ====== NAV ======
   btnNext1?.addEventListener("click", () => {
-    if (!validateCurrentStep()) return;
+    // if (!validateCurrentStep()) return;
     showStep(1);
   });
 
   btnNext2?.addEventListener("click", () => {
-    if (!validateCurrentStep()) return;
+    // if (!validateCurrentStep()) return;
     showStep(2);
   });
 
@@ -329,7 +327,7 @@ const ACCENT = "#C9443A";
   // final submit (single call after last step)
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (!validateCurrentStep()) return;
+    // if (!validateCurrentStep()) return;
     submitOnce();
   });
 

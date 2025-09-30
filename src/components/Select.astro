@@ -16,7 +16,7 @@ const { label, name, required = false, value = "", options = [] } = Astro.props;
 
 <div class="flex w-full flex-col gap-4" data-field>
   <!-- Select label -->
-  <label for={name} class="text-n-700 text-2xl font-medium">
+  <label for={name} class="text-n-600 text-2xl font-medium">
     {label}{required && <span class="text-red-500">*</span>}
   </label>
 
