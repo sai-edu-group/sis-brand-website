@@ -248,12 +248,11 @@ const ACCENT = "#C9443A";
   </div>
 </section>
 
-<script>
-  // CONFIG
-  const TEST_MODE = true; // set true to skip network call
+<script type="module">
+  import { admissionEnquiryRequest } from "../../services/api/enquiry.api.service";
 
   // ELEMENTS
-  const formEl = document.getElementById("admission-form") as HTMLFormElement;
+  const formEl = document.getElementById("admission-form");
   const stepPanels = [
     document.getElementById("step-1"),
     document.getElementById("step-2"),
@@ -271,20 +270,18 @@ const ACCENT = "#C9443A";
   let currentStepIndex = 0;
   let isSubmitting = false;
 
-  // Show one step, hide others; toggle submit button loading state
-  function showStep(stepIndex: any) {
+  // Show one step, hide others
+  function showStep(stepIndex) {
     stepPanels.forEach((panel, idx) => {
-      // Hide non active
       panel?.classList.toggle("hidden", idx !== stepIndex);
     });
+    // Keep thank-you hidden while navigating steps
     thankYouSection?.classList.add("hidden");
-    // Update state
     currentStepIndex = stepIndex;
   }
 
-  function setSubmittingState(isLoading: boolean) {
+  function setSubmittingState(isLoading) {
     if (!submitBtn) return;
-    // Prevent multiple submissions
     submitBtn.toggleAttribute("disabled", isLoading);
     submitBtn.setAttribute("aria-busy", String(isLoading));
     submitBtn.classList.toggle("opacity-60", isLoading);
@@ -295,7 +292,6 @@ const ACCENT = "#C9443A";
   // VALIDATION (current step only)
   const PHONE_REGEX = /^[0-9]{10}$/;
 
-  // Validate field in current step; show error messages
   function validateCurrentStep() {
     const activePanel = stepPanels[currentStepIndex];
     const controls = activePanel?.querySelectorAll("input, select, textarea");
@@ -306,16 +302,15 @@ const ACCENT = "#C9443A";
         control.closest("[data-field]") || control.parentElement;
       const errorMessage = fieldWrapperEl?.querySelector?.("[data-error]");
 
-      // Reset previous error state
+      // reset errors
       if (errorMessage) errorMessage.classList.add("hidden");
       control.classList.remove("!border-red-500");
 
-      // Normalize phone digits before checking
+      // phone normalization
       if (control.name === "phone") {
         control.value = (control.value || "").replace(/\D+/g, "");
       }
 
-      // Check validity
       let isValid = control.checkValidity();
       if (isValid && control.name === "phone") {
         isValid = PHONE_REGEX.test(control.value);
@@ -323,7 +318,6 @@ const ACCENT = "#C9443A";
 
       if (!isValid) {
         allValid = false;
-        // Show inline error
         if (errorMessage) errorMessage.classList.remove("hidden");
         control.classList.add("!border-red-500");
       }
@@ -332,9 +326,8 @@ const ACCENT = "#C9443A";
     return allValid;
   }
 
-  // Payload
+  // Build payload to match your API contract
   function buildPayload() {
-    // Read all fields
     const formData = new FormData(formEl);
     const raw = Object.fromEntries(formData.entries());
 
@@ -342,73 +335,55 @@ const ACCENT = "#C9443A";
       name: (raw.parentName || "").toString().trim(),
       emailId: (raw.email || "").toString().trim(),
       mobileNo: (raw.phone || "").toString().trim(),
-      academicyear_name: (raw.academicYear || "").toString().trim(), // e.g. "2025-26"
+      academicyear_name: (raw.academicYear || "").toString().trim(), // "2025-26"
       className: (raw.admissionClass || "").toString().trim(),
-      dob: (raw.dob || "").toString().trim(), // e.g. "2010-05-15"
-      hostelRequired: (raw.hostel || "").toString().trim(), // e.g.
+      dob: (raw.dob || "").toString().trim(),
+      hostelRequired: (raw.hostel || "").toString().trim(),
     };
   }
 
-  // Api Call to send form data
-  async function sendInquiry(payload: any) {
-    // --- OPTION A: Keep stubbed (no network), good for QA/UX ---
-    if (TEST_MODE) {
-      console.log("[TEST] Would send payload:", payload);
-      // Simulate latency
-      await new Promise((r) => setTimeout(r, 600));
-      return { ok: true, data: { message: "stubbed-success" } };
-    }
-
-    // --- OPTION B: When you’re ready, wire your real endpoint here ---
-    // Example using your own Astro route (recommended to keep keys server-side):
-    /*
-    const res = await fetch("/api/admissions", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      throw new Error(err?.message || `Request failed (${res.status})`);
-    }
-    return { ok: true, data: await res.json() };
-    */
-
-    // Remove this throw once you plug the real call above
-    throw new Error("sendInquiry() not wired to a real endpoint yet.");
+  // Function to send inquiry and make API call
+  function sendInquiry(payload) {
+    // Make API Call
+    return admissionEnquiryRequest(payload)
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        // Surface network/axios errors uniformly
+        return { success: false, message: error?.message || "Network error" };
+      });
   }
 
-  // Submit from once
+  // Submit after validation
   async function submitFormOnce() {
     if (isSubmitting) return;
     if (!validateCurrentStep()) return;
 
     const payload = buildPayload();
-
     setSubmittingState(true);
-    try {
-      const result = await sendInquiry(payload);
 
-      if (!result?.ok) {
-        throw new Error("Submission failed. Please try again.");
+    try {
+      const response = await sendInquiry(payload);
+
+      if (!response?.success) {
+        throw new Error(
+          response?.message || "Submission failed. Please try again."
+        );
       }
 
-      // success UX
+      // Success UI
       stepPanels.forEach((panel) => panel?.classList.add("hidden"));
       thankYouSection?.classList.remove("hidden");
       formEl.reset();
-    } catch (error: any) {
-      console.error("❌ Submit Error:", error);
-      alert(
-        error?.message ||
-          "We couldn't submit your request right now. Please try again."
-      );
+    } catch (error) {
+      console.error("Submit Error:", error);
     } finally {
       setSubmittingState(false);
     }
   }
 
-  // NAV EVENTS
+  // NAV
   nextBtnStep1?.addEventListener("click", () => {
     if (validateCurrentStep()) showStep(1);
   });
