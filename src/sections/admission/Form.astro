@@ -248,11 +248,11 @@ const ACCENT = "#C9443A";
   </div>
 </section>
 
-<script type="module">
+<script>
   import { admissionEnquiryRequest } from "../../services/api/enquiry.api.service";
 
   // ELEMENTS
-  const formEl = document.getElementById("admission-form");
+  const form = document.getElementById("admission-form") as HTMLFormElement;
   const stepPanels = [
     document.getElementById("step-1"),
     document.getElementById("step-2"),
@@ -271,17 +271,19 @@ const ACCENT = "#C9443A";
   let isSubmitting = false;
 
   // Show one step, hide others
-  function showStep(stepIndex) {
+  function showStep(stepIndex: any) {
     stepPanels.forEach((panel, idx) => {
+      // Hide non active
       panel?.classList.toggle("hidden", idx !== stepIndex);
     });
-    // Keep thank-you hidden while navigating steps
     thankYouSection?.classList.add("hidden");
+    // Update state
     currentStepIndex = stepIndex;
   }
 
-  function setSubmittingState(isLoading) {
+  function setSubmittingState(isLoading: boolean) {
     if (!submitBtn) return;
+    // Prevent multiple submissions
     submitBtn.toggleAttribute("disabled", isLoading);
     submitBtn.setAttribute("aria-busy", String(isLoading));
     submitBtn.classList.toggle("opacity-60", isLoading);
@@ -292,6 +294,7 @@ const ACCENT = "#C9443A";
   // VALIDATION (current step only)
   const PHONE_REGEX = /^[0-9]{10}$/;
 
+  // Validate field in current step; show error messages
   function validateCurrentStep() {
     const activePanel = stepPanels[currentStepIndex];
     const controls = activePanel?.querySelectorAll("input, select, textarea");
@@ -302,15 +305,16 @@ const ACCENT = "#C9443A";
         control.closest("[data-field]") || control.parentElement;
       const errorMessage = fieldWrapperEl?.querySelector?.("[data-error]");
 
-      // reset errors
+      // Reset previous error state
       if (errorMessage) errorMessage.classList.add("hidden");
       control.classList.remove("!border-red-500");
 
-      // phone normalization
+      // Normalize phone digits before checking
       if (control.name === "phone") {
         control.value = (control.value || "").replace(/\D+/g, "");
       }
 
+      // Check validity
       let isValid = control.checkValidity();
       if (isValid && control.name === "phone") {
         isValid = PHONE_REGEX.test(control.value);
@@ -318,6 +322,7 @@ const ACCENT = "#C9443A";
 
       if (!isValid) {
         allValid = false;
+        // Show inline error
         if (errorMessage) errorMessage.classList.remove("hidden");
         control.classList.add("!border-red-500");
       }
@@ -326,31 +331,34 @@ const ACCENT = "#C9443A";
     return allValid;
   }
 
-  // Build payload to match your API contract
+  // Payload
   function buildPayload() {
-    const formData = new FormData(formEl);
+    // Read all fields
+    const formData = new FormData(form);
     const raw = Object.fromEntries(formData.entries());
 
     return {
       name: (raw.parentName || "").toString().trim(),
       emailId: (raw.email || "").toString().trim(),
       mobileNo: (raw.phone || "").toString().trim(),
-      academicyear_name: (raw.academicYear || "").toString().trim(), // "2025-26"
+      // Format: "2025-26"
+      academicyear_name: (raw.academicYear || "").toString().trim(),
       className: (raw.admissionClass || "").toString().trim(),
+      // Format: "2010-05-15"
       dob: (raw.dob || "").toString().trim(),
       hostelRequired: (raw.hostel || "").toString().trim(),
     };
   }
 
   // Function to send inquiry and make API call
-  function sendInquiry(payload) {
+  function sendInquiry(payload: any) {
     // Make API Call
     return admissionEnquiryRequest(payload)
       .then((response) => {
         return response;
       })
       .catch((error) => {
-        // Surface network/axios errors uniformly
+        // Surface network/axios errors
         return { success: false, message: error?.message || "Network error" };
       });
   }
@@ -358,6 +366,7 @@ const ACCENT = "#C9443A";
   // Submit after validation
   async function submitFormOnce() {
     if (isSubmitting) return;
+    // Step 3 validation is the final one before submission
     if (!validateCurrentStep()) return;
 
     const payload = buildPayload();
@@ -367,6 +376,7 @@ const ACCENT = "#C9443A";
       const response = await sendInquiry(payload);
 
       if (!response?.success) {
+        // Throw to go to the catch block for unified error display
         throw new Error(
           response?.message || "Submission failed. Please try again."
         );
@@ -375,7 +385,7 @@ const ACCENT = "#C9443A";
       // Success UI
       stepPanels.forEach((panel) => panel?.classList.add("hidden"));
       thankYouSection?.classList.remove("hidden");
-      formEl.reset();
+      form.reset();
     } catch (error) {
       console.error("Submit Error:", error);
     } finally {
@@ -393,7 +403,7 @@ const ACCENT = "#C9443A";
   backBtnStep2?.addEventListener("click", () => showStep(0));
   backBtnStep3?.addEventListener("click", () => showStep(1));
 
-  formEl.addEventListener("submit", (evt) => {
+  form.addEventListener("submit", (evt) => {
     evt.preventDefault();
     submitFormOnce();
   });
