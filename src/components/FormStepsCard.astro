@@ -20,10 +20,9 @@ const {
 } = Astro.props;
 
 const percent = Math.round((step / total) * 100);
-const Tag = as as any;
 ---
 
-<Tag
+<div
   id={id}
   data-step
   class:list={[
@@ -36,9 +35,6 @@ const Tag = as as any;
     <h3 class="text-n-600 text-lg font-semibold md:text-2xl">
       Step {step}/{total}: {title}
     </h3>
-
-    <!-- Percentage text -->
-    <span class="text-n-600 text-lg font-semibold md:text-2xl">{percent}%</span>
   </div>
 
   <!-- Progress bar -->
@@ -51,4 +47,4 @@ const Tag = as as any;
   </div>
 
   <slot />
-</Tag>
+</div>
