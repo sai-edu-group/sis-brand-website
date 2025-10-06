@@ -2,6 +2,7 @@
 import Input from "../../components/Input.astro";
 import StepCard from "../../components/FormStepsCard.astro";
 import Select from "../../components/Select.astro";
+import Textarea from "../../components/Textarea.astro";
 import Button from "../../components/Button.astro";
 // If you built Select.astro earlier, you can use it. Keeping native <select> here.
 
@@ -12,7 +13,7 @@ const ACCENT = "#C9443A";
 <section class="bg-n-100 mx-auto w-full space-y-6 p-4 sm:p-6">
   <div class="container mx-auto py-12 md:py-24">
     <!-- Form titles wrapper -->
-    <div class="space-y-2 pb-9 font-semibold">
+    <div class="space-y-2.5 pb-9 font-semibold">
       <h2 class="text-4xl text-orange-500 md:text-6xl">
         Begin Your Child’s Journey Here
       </h2>
@@ -35,16 +36,14 @@ const ACCENT = "#C9443A";
           class="grid grid-cols-1 gap-x-20 gap-y-6 py-8 sm:grid-cols-2 md:gap-y-9"
         >
           <!-- Student Name Input -->
-          <div class="flex flex-col gap-2" data-field>
+          <div data-field>
             <Input
               label="Student’s Full Name"
               name="studentName"
               required
               placeholder="Enter Full Name"
+              errorMessage="Student name is required."
             />
-            <p class="hidden text-sm text-red-600" data-error>
-              Student name is required.
-            </p>
           </div>
 
           <!-- Academic Year Select -->
@@ -57,19 +56,18 @@ const ACCENT = "#C9443A";
               { label: "2025–2026", value: "2025-26" },
               { label: "2026–2027", value: "2026-27" },
             ]}
+            errorMessage="Please select the academic year."
           />
 
           <!-- DOB Input -->
-          <div class="flex flex-col gap-2 sm:col-span-1" data-field>
+          <div data-field>
             <Input
               label="Student’s Date of Birth"
               name="dob"
               type="date"
               required
+              errorMessage="Date of birth is required."
             />
-            <p class="hidden text-sm text-red-600" data-error>
-              Date of birth is required.
-            </p>
           </div>
 
           <!-- Class Select -->
@@ -82,10 +80,11 @@ const ACCENT = "#C9443A";
               { label: "XII Hum", value: "12-hum" },
               { label: "XI Sci", value: "11-sci" },
             ]}
+            errorMessage="Please select the class for admission."
           />
         </div>
 
-        <div class="flex flex-wrap justify-between gap-8">
+        <div class="flex flex-wrap items-end justify-between gap-8">
           <p class="text-n-500 text-base font-medium md:text-xl">
             We welcome learners from all backgrounds and cities.
           </p>
@@ -113,35 +112,39 @@ const ACCENT = "#C9443A";
           class="grid grid-cols-1 gap-x-20 gap-y-6 py-8 sm:grid-cols-2 md:gap-y-9"
         >
           <!-- Parent/Guardian Input -->
-          <div class="flex flex-col gap-2" data-field>
+          <div data-field>
             <Input
               label="Parent / Guardian’s Full Name"
               name="parentName"
               required
+              errorMessage="Parent/Guardian name is required."
             />
-            <p class="hidden text-sm text-red-600" data-error>
-              Parent/Guardian name is required.
-            </p>
           </div>
 
           <!-- Phone Input -->
-          <div class="flex flex-col gap-2" data-field>
-            <Input label="Phone Number" name="phone" type="tel" required />
-            <p class="hidden text-sm text-red-600" data-error>
-              Enter a valid 10-digit number.
-            </p>
+          <div data-field>
+            <Input
+              label="Phone Number"
+              name="phone"
+              type="tel"
+              required
+              errorMessage="Enter a valid 10-digit number."
+            />
           </div>
 
           <!-- Email Input -->
-          <div class="flex flex-col gap-2 sm:col-span-2" data-field>
-            <Input label="Email ID" name="email" type="email" required />
-            <p class="hidden text-sm text-red-600" data-error>
-              Enter a valid email address.
-            </p>
+          <div data-field>
+            <Input
+              label="Email ID"
+              name="email"
+              type="email"
+              required
+              errorMessage="Enter a valid email address."
+            />
           </div>
         </div>
 
-        <div class="flex flex-wrap justify-between gap-8">
+        <div class="flex flex-wrap items-end justify-between gap-8">
           <p class="text-n-500 text-base font-medium md:text-xl">
             This is how we’ll get in touch with you. We don’t spam, promise.
           </p>
@@ -176,10 +179,11 @@ const ACCENT = "#C9443A";
         accent={ACCENT}
         hidden
       >
-        <!-- Select component -->
+        <!-- Fields wrapper -->
         <div
           class="grid grid-cols-1 gap-x-20 gap-y-6 py-8 sm:grid-cols-2 md:gap-y-9"
         >
+          <!-- Hotel Required Select -->
           <Select
             label="Hostel Required"
             name="hostel"
@@ -189,10 +193,33 @@ const ACCENT = "#C9443A";
               { label: "Yes", value: "yes" },
               { label: "No", value: "no" },
             ]}
+            errorMessage="Please select an option."
+          />
+
+          <!-- Preferred time select -->
+          <Select
+            label="Preferred Time to Call"
+            name="time"
+            required
+            options={[
+              { label: "Morning", value: "morning" },
+              { label: "Afternoon", value: "afternoon" },
+              { label: "Evening", value: "evening" },
+            ]}
+            errorMessage="Please select an option."
+          />
+
+          <!-- Message textarea -->
+          <Textarea
+            label="Message"
+            name="message"
+            placeholder="Any specific concerns, requests, or child interests?"
+            errorMessage="Message is required."
+            rows={2}
           />
         </div>
 
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-wrap items-end justify-between gap-8">
           <p class="text-n-500 text-base font-medium md:text-xl">
             Let us know if you’d like your child to avail hostel facilities.
             This helps us guide you better.
@@ -242,7 +269,7 @@ const ACCENT = "#C9443A";
         We’ve received your inquiry and our admissions team will be in touch
         with you shortly.
       </p>
-      <!-- Download borchure button -->
+      <!-- Download brochure button -->
       <Button text="Download Brochure" variant="outline" />
     </article>
   </div>
@@ -325,6 +352,9 @@ const ACCENT = "#C9443A";
         // Show inline error
         if (errorMessage) errorMessage.classList.remove("hidden");
         control.classList.add("!border-red-500");
+        control.setAttribute("aria-invalid", "true");
+      } else {
+        control.setAttribute("aria-invalid", "false");
       }
     });
 

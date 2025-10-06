@@ -10,6 +10,8 @@ interface Props {
   value?: string;
   placeholder?: string;
   options: Option[];
+  errorMessage?: string;
+  hintText?: string;
 }
 
 const {
@@ -19,6 +21,8 @@ const {
   value = "",
   options = [],
   placeholder = "",
+  errorMessage = "Error message",
+  hintText,
 } = Astro.props;
 ---
 
@@ -38,6 +42,8 @@ const {
       name={name}
       required={required}
       value={value}
+      aria-invalid="false"
+      aria-describedby={`${name}-error ${hintText ? `${name}-hint` : ""}`}
       class="border-n-600 text-n-600 focus:border-n-600 font-secondary w-full appearance-none border-b bg-transparent px-0 pb-1 text-lg font-semibold focus:outline-none md:text-xl lg:text-2xl"
     >
       <!-- Options list -->
@@ -67,6 +73,16 @@ const {
     </span>
   </div>
 
+  {
+    hintText && (
+      <p id={`${name}-hint`} class="text-n-500 text-sm">
+        {hintText}
+      </p>
+    )
+  }
+
   <!-- Error message  -->
-  <p class="hidden text-sm text-red-600" data-error>This field is required.</p>
+  <p id={`${name}-error`} data-error class="hidden text-sm text-red-600">
+    {errorMessage}
+  </p>
 </div>

@@ -6,6 +6,8 @@ interface Props {
   type?: string;
   value?: string;
   placeholder?: string;
+  errorMessage?: string;
+  hintText?: string;
 }
 
 const {
@@ -15,6 +17,8 @@ const {
   type = "text",
   value = "",
   placeholder = "Enter Input",
+  errorMessage = "Error message",
+  hintText,
 } = Astro.props;
 ---
 
@@ -36,7 +40,8 @@ const {
       name={name}
       value={value}
       required={required}
-      class="text-n-700 focus:border-n-950 placeholder:text-n-700 font-secondary border-n-600 lg::text-3xl w-full border-b bg-transparent px-0 pb-1 text-lg font-semibold focus:ring-0 focus:outline-none md:text-xl lg:text-2xl"
+      aria-describedby={`${name}-error ${hintText ? `${name}-hint` : ""}`}
+      class=`text-n-700 focus:border-n-950 placeholder:text-n-700 font-secondary border-n-600 lg::text-3xl w-full border-b bg-transparent px-0 pb-1 text-lg font-semibold focus:ring-0 focus:outline-none md:text-xl lg:text-2xl ${type === "date" ? "pl-6 md:pl-8 lg:pl-10" : ""}`
     />
 
     {
@@ -74,15 +79,22 @@ const {
       )
     }
   </div>
+
+  <p id={`${name}-error`} data-error class="hidden text-sm text-red-600">
+    {errorMessage}
+  </p>
 </div>
 
 <style>
   input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
     opacity: 0;
-    display: none;
+    cursor: pointer;
   }
 
   input[type="date"] {
-    padding-left: 40px; /* adjust as needed */
   }
 </style>
