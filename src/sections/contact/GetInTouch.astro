@@ -1,11 +1,12 @@
 ---
+// COMPONENTS //
 import SectionHeader from "../../components/SectionHeader.astro";
 import GetInTouchCard from "../../components/GetInTouchCard.astro";
 
-const steps = [
+const contactDetails = [
   {
     id: 1,
-    icon: "mail.svg",
+    icon: "mail",
     title: "Talk to Admissions",
     kind: "email",
     infoText: [
@@ -15,14 +16,14 @@ const steps = [
   },
   {
     id: 2,
-    icon: "footer-phone.svg",
+    icon: "footer-phone",
     title: "Connect by Phone",
     kind: "phone",
     infoText: ["+91 09338169966", "+91 06747100200"],
   },
   {
     id: 3,
-    icon: "campus.svg",
+    icon: "campus",
     title: "Visit Our Campus",
     kind: "location",
     infoText: [
@@ -39,16 +40,15 @@ const steps = [
 
     <!-- Get in touch cards wrapper -->
     <div
-      class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+      class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:gap-6"
     >
       {
-        steps.map((step) => (
+        contactDetails.map((step) => (
           <GetInTouchCard
             icon={step.icon}
             title={step.title}
             infoText={step.infoText}
-            backdropOpacity="10"
-            kind={step.kind}
+            type={step.kind}
           />
         ))
       }
