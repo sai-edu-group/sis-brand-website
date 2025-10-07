@@ -18,6 +18,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+.line-break{
+  line-break: anywhere;
+}
+
 
 
 @theme inline {
