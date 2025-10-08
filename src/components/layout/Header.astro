@@ -6,7 +6,7 @@ import Hamburger from "../Hamburger.astro";
 const baseItems = [
   { name: "About Us", href: "/admission", active: true },
   { name: "School Tour", href: "/school-tour" },
-  { name: "News", href: "/news" },
+  { name: "News & Blogs", href: "/news" },
   { name: "Pay Fee", href: "/pay-fee" },
   { name: "Reach Us", href: "/reach-us" },
 ];
@@ -36,16 +36,16 @@ const navItemWithActive = baseItems.map((item) => {
 ---
 
 <!-- Header Component -->
-<header class="flex justify-center md:py-6">
+<header class="flex justify-center px-5 py-5 md:py-6 lg:px-0">
   <div
-    class="bg-n-50 border-n-200 flex w-full justify-between rounded-xl border px-6 py-4 md:w-auto md:gap-36"
+    class="bg-n-50 border-n-200 mx-auto flex w-full justify-between rounded-xl border px-6 py-4 max-lg:container md:w-auto md:gap-36"
   >
     <!-- Brand logo -->
     <a href="/" class="">
       <img src="/images/sai-brand-logo.png" alt="" class="w-22 lg:w-26" />
     </a>
 
-    <div class="flex items-center gap-11">
+    <div class="flex items-center gap-3.5">
       <!-- Navbar component -->
       <Navbar navItems={navItemWithActive} />
 

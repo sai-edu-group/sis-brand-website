@@ -9,11 +9,9 @@ interface Props {
 const { navItems } = Astro.props;
 ---
 
-<nav class="font-secondary flex items-center gap-11">
+<nav class="font-secondary flex items-center gap-6 xl:gap-11">
   <!-- Pages Links -->
-  <ul
-    class="container mx-auto hidden items-center gap-11 text-base font-medium lg:flex"
-  >
+  <ul class="hidden items-center gap-6 text-base font-medium lg:flex xl:gap-11">
     {
       navItems.map((navItem) => (
         <li>
@@ -31,8 +29,15 @@ const { navItems } = Astro.props;
       ))
     }
   </ul>
-  <!-- Button Component -->
-  <a href="/contact-us" class="shrink-0">
-    <Button text="Apply Now" variant="solid" rightArrow size="small" />
-  </a>
+  <div class="flex gap-3.5">
+    <!-- Apply Now button -->
+    <a href="/contact-us" class="hidden sm:block">
+      <Button text="Apply Now" variant="solid" rightArrow />
+    </a>
+
+    <!-- Explore button -->
+    <a href="/" class="hidden lg:flex">
+      <Button text="Explore" leftIcon variant="ghost" />
+    </a>
+  </div>
 </nav>
