@@ -11,6 +11,7 @@ import CommonHeader from "../../components/CommonHeader.astro";
       <div class="flex flex-col items-start justify-between gap-14 sm:flex-row">
         <CommonHeader eyebrow="Our" title="Founder" />
 
+        <!-- Founder Name -->
         <div class="relative z-1">
           <p
             class="text-n-900 mb-1 text-2xl leading-none font-medium whitespace-pre md:mb-0"
@@ -71,8 +72,10 @@ import CommonHeader from "../../components/CommonHeader.astro";
       </div>
     </div>
   </div>
+
+  <!-- Rath Image -->
   <div
-    class="absolute bottom-0 z-0 w-[160px] md:w-[300px] lg:w-[400px] 2xl:w-[500px]"
+    class="animate-rath-drive absolute bottom-0 z-0 w-[160px] md:w-[300px] lg:w-[400px] 2xl:w-[500px]"
   >
     <img src="/images/rath.png" alt="" />
   </div>
@@ -83,3 +86,25 @@ import CommonHeader from "../../components/CommonHeader.astro";
     class="absolute right-0 bottom-0 z-0 h-auto w-1/2 min-w-[305px] object-cover md:min-w-[600px] lg:min-w-[700px]"
   />
 </section>
+
+<style>
+  @keyframes rathDrive {
+    0% {
+      transform: translateX(-30vw);
+    }
+    100% {
+      transform: translateX(110vw);
+    }
+  }
+
+  .animate-rath-drive {
+    animation: rathDrive 45s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-rath-drive {
+      animation: none;
+    }
+  }
+</style>
