@@ -16,11 +16,11 @@ const {
 
 <div class="relative flex w-full flex-col items-start gap-10">
   <!-- Text Content -->
-  <div class="space-y-1 md:space-y-3">
+  <div class="space-y-2.5 md:space-y-3">
     <!-- Eyebrow text -->
     {
       eyebrowText && (
-        <p class="text-n-600 text-base font-normal md:text-xl">{eyebrowText}</p>
+        <p class="text-n-600 text-sm font-normal md:text-xl">{eyebrowText}</p>
       )
     }
     <div class="relative flex flex-col gap-4">
@@ -31,7 +31,7 @@ const {
       <!-- Section subtitle -->
       {
         subtitle && (
-          <p class="font-secondary text-n-600 text-2xl font-semibold">
+          <p class="font-secondary text-n-600 text-base font-semibold md:text-2xl">
             {subtitle}
           </p>
         )
