@@ -6,18 +6,12 @@ interface Props {
   title: string;
   subtitle?: string;
   ctaText?: string;
-  showEyebrow?: boolean;
-  showSubtitle?: boolean;
-  showCta?: boolean;
 }
 const {
-  eyebrowText = "Eyebrow",
-  title = "Title",
-  subtitle = "Subtitle",
-  ctaText = "Button",
-  showEyebrow = true,
-  showSubtitle = false,
-  showCta = false,
+  eyebrowText = "",
+  title = "",
+  subtitle = "",
+  ctaText = "",
 } = Astro.props;
 ---
 
@@ -26,7 +20,7 @@ const {
   <div class="space-y-1 md:space-y-3">
     <!-- Eyebrow text -->
     {
-      showEyebrow && (
+      eyebrowText && (
         <p class="text-n-600 text-base font-normal md:text-xl">{eyebrowText}</p>
       )
     }
@@ -43,7 +37,7 @@ const {
       />
       <!-- Section subtitle -->
       {
-        showSubtitle && (
+        subtitle && (
           <p class="font-secondary text-n-600 text-2xl font-semibold">
             {subtitle}
           </p>
@@ -53,5 +47,5 @@ const {
   </div>
 
   <!-- Cta Button -->
-  {showCta && <Button text={ctaText} variant="solid" size="large" />}
+  {ctaText && <Button text={ctaText} variant="solid" size="large" />}
 </div>
