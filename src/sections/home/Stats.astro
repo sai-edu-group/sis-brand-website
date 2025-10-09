@@ -1,0 +1,88 @@
+---
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
+import StatsCard from "../../components/StatsCard.astro";
+
+const statsDetails = {
+  statsCard: [
+    {
+      title: "of students score above 90%",
+      statsCount: "90%",
+      img: "/images/stats-image-1.png",
+    },
+    {
+      title: "Competitive Exam Qualifiers",
+      statsCount: "180+",
+      subTitle: "(JEE/NEET/CLAT/SAT)",
+      img: "/images/stats-image-2.png",
+    },
+    {
+      title: "Ranked for 5 consecutive years nationally",
+      statsCount: "#1",
+      img: "/images/stats-image-3.png",
+    },
+    {
+      title: "sq. ft. of world-class sports facilities",
+      statsCount: "100K+",
+      img: "/images/stats-image-4.png",
+    },
+    {
+      title: "co-curricular clubs & activities",
+      statsCount: "40+",
+      img: "/images/stats-image-1.png",
+    },
+    {
+      title: "Ivy League and top global universities",
+      statsCount: "20+",
+      img: "/images/stats-image-1.png",
+    },
+  ],
+};
+---
+
+<!-- Stats Card Component -->
+<section class="bg-n-50 relative">
+  <!-- Background Vector -->
+  <div class="absolute top-1/2 -translate-y-1/2">
+    <svg
+      class="h-full w-full"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1920"
+      height="970"
+      viewBox="0 0 1920 970"
+      fill="none"
+    >
+      <path
+        d="M2037.99 182.884C1962.08 170.483 1789.52 139.764 1739.71 265.434C1689.89 391.103 1578.74 559.769 1365.75 524.971C1152.76 490.174 1019.63 397.312 824.477 513.542C629.321 629.772 599.863 853.439 264.939 787.358C-3.00131 734.494 -6.5198 521.681 -64.3179 516.025"
+        stroke="#F1F5F9"
+        stroke-width="340"
+        stroke-linecap="round"></path>
+    </svg>
+  </div>
+
+  <!-- Container wrapper -->
+  <div
+    class="container mx-auto flex w-full flex-col items-center gap-12 px-5 py-40 md:gap-20"
+  >
+    <!-- Header with Lines -->
+    <SectionHeaderC
+      eyebrowText="Why Choose SAI"
+      title="Where Excellence Meets Belonging"
+    />
+
+    <!-- Stats Cards Grid -->
+    <div
+      class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10 xl:grid-cols-3"
+    >
+      {
+        statsDetails.statsCard.map((card) => (
+          <StatsCard
+            img={card.img}
+            title={card.title}
+            statsCount={card.statsCount}
+            subTitle={card.subTitle}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

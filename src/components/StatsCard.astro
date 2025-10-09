@@ -1,0 +1,73 @@
+---
+interface Props {
+  statsCount: string;
+  title: string;
+  subTitle?: string;
+  img: string;
+}
+
+const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
+---
+
+<div
+  class="border-n-200 bg-n-50 relative flex h-[230px] w-full items-center justify-between gap-6 overflow-hidden rounded-3xl border-2 p-3"
+>
+  <!-- Stat image -->
+  <div
+    class="relative h-full w-[180px] flex-1 rounded-xl"
+    data-name="stats-image"
+  >
+    <img
+      alt=""
+      class="pointer-events-none absolute inset-0 h-full w-full max-w-none rounded-xl object-cover"
+      src={img}
+    />
+  </div>
+
+  <!-- Stat content -->
+  <div
+    class="flex flex-1 flex-col items-start gap-3 md:gap-5 lg:pr-5"
+    data-name="stats-content"
+  >
+    <!-- Stat Number -->
+    <p class="text-n-700 w-min text-5xl font-bold xl:text-6xl 2xl:text-7xl">
+      {statsCount}
+    </p>
+    <!-- Stat card title -->
+    <div class="font-secondary space-y-3">
+      <p class="text-n-600 text-base font-semibold">{title}</p>
+      <!-- Stat card subtitle -->
+      <p class="text-n-500 text-xs font-medium">{subTitle}</p>
+    </div>
+  </div>
+
+  <!-- Backdrop illustration logo -->
+  <div class="absolute top-[-28.6px] right-[-13.33px] h-[157px] w-[157px]">
+    <!-- Illustration -->
+    <svg
+      class="h-full w-full"
+      xmlns="http://www.w3.org/2000/svg"
+      width="144"
+      height="130"
+      viewBox="0 0 144 130"
+      fill="none"
+    >
+      <path
+        d="M0 -27.7344H52.6646C65.8355 -27.7344 76.5127 -17.0572 76.5127 -3.88627V48.7783H23.8481C10.6772 48.7783 0 38.1011 0 24.9302V-27.7344Z"
+        fill="#CC554D"
+        fill-opacity="0.08"></path>
+      <path
+        d="M157 -27.7344H104.335C91.1645 -27.7344 80.4873 -17.0572 80.4873 -3.88627V48.7783H133.152C146.323 48.7783 157 38.1011 157 24.9302V-27.7344Z"
+        fill="#CC554D"
+        fill-opacity="0.08"></path>
+      <path
+        d="M0 129.266H52.6646C65.8355 129.266 76.5127 118.588 76.5127 105.418V52.753H23.8481C10.6772 52.753 0 63.4301 0 76.6011V129.266Z"
+        fill="#CC554D"
+        fill-opacity="0.08"></path>
+      <path
+        d="M157 129.266H104.335C91.1645 129.266 80.4873 118.588 80.4873 105.418V52.753H133.152C146.323 52.753 157 63.4301 157 76.6011V129.266Z"
+        fill="#CC554D"
+        fill-opacity="0.08"></path>
+    </svg>
+  </div>
+</div>
