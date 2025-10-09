@@ -40,9 +40,11 @@ const statsDetails = {
 ---
 
 <!-- Stats Card Component -->
-<section class="bg-n-50 relative">
+<section class="bg-n-50 relative z-1">
   <!-- Background Vector -->
-  <div class="absolute top-1/2 -translate-y-1/2">
+  <div
+    class="text-n-100 absolute top-1/2 z-2 origin-center -translate-y-1/2 scale-480 -rotate-50 sm:scale-280 sm:-rotate-45 md:scale-250 lg:scale-none lg:rotate-none"
+  >
     <svg
       class="h-full w-full"
       xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +55,7 @@ const statsDetails = {
     >
       <path
         d="M2037.99 182.884C1962.08 170.483 1789.52 139.764 1739.71 265.434C1689.89 391.103 1578.74 559.769 1365.75 524.971C1152.76 490.174 1019.63 397.312 824.477 513.542C629.321 629.772 599.863 853.439 264.939 787.358C-3.00131 734.494 -6.5198 521.681 -64.3179 516.025"
-        stroke="#F1F5F9"
+        stroke="currentColor"
         stroke-width="340"
         stroke-linecap="round"></path>
     </svg>
@@ -61,7 +63,7 @@ const statsDetails = {
 
   <!-- Container wrapper -->
   <div
-    class="container mx-auto flex w-full flex-col items-center gap-12 px-5 py-40 md:gap-20"
+    class="relative z-4 container mx-auto flex w-full flex-col items-center gap-12 px-5 py-16 md:gap-20 md:py-40"
   >
     <!-- Header with Lines -->
     <SectionHeaderC
@@ -71,7 +73,7 @@ const statsDetails = {
 
     <!-- Stats Cards Grid -->
     <div
-      class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:gap-10 xl:grid-cols-3"
+      class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 lg:gap-10 xl:grid-cols-3"
     >
       {
         statsDetails.statsCard.map((card) => (

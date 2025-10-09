@@ -10,11 +10,11 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
 ---
 
 <div
-  class="border-n-200 bg-n-50 relative flex h-[230px] w-full items-center justify-between gap-6 overflow-hidden rounded-3xl border-2 p-3"
+  class="border-n-200 bg-n-50 relative flex h-[140px] w-full items-center justify-between gap-6 overflow-hidden rounded-3xl border-2 p-1.5 md:h-[380px] md:flex-col md:p-3 lg:h-[230px] lg:flex-row"
 >
   <!-- Stat image -->
   <div
-    class="relative h-full w-[180px] flex-1 rounded-xl"
+    class="relative h-full w-[180px] flex-1 rounded-xl md:w-full lg:w-[180px]"
     data-name="stats-image"
   >
     <img
@@ -26,23 +26,29 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
 
   <!-- Stat content -->
   <div
-    class="flex flex-1 flex-col items-start gap-3 md:gap-5 lg:pr-5"
+    class="flex w-full flex-1 flex-col items-start gap-1 md:items-center md:gap-4 lg:items-start lg:gap-5 lg:pr-5"
     data-name="stats-content"
   >
     <!-- Stat Number -->
-    <p class="text-n-700 w-min text-5xl font-bold xl:text-6xl 2xl:text-7xl">
+    <p class="text-n-700 w-min text-4xl font-bold md:text-6xl 2xl:text-7xl">
       {statsCount}
     </p>
     <!-- Stat card title -->
-    <div class="font-secondary space-y-3">
-      <p class="text-n-600 text-base font-semibold">{title}</p>
+    <div
+      class="font-secondary space-y-3 md:w-[85%] md:text-center lg:text-left"
+    >
+      <p class="text-n-600 text-sm font-semibold md:text-lg lg:text-base">
+        {title}
+      </p>
       <!-- Stat card subtitle -->
-      <p class="text-n-500 text-xs font-medium">{subTitle}</p>
+      <p class="text-n-500 hidden text-xs font-medium md:block">{subTitle}</p>
     </div>
   </div>
 
   <!-- Backdrop illustration logo -->
-  <div class="absolute top-[-28.6px] right-[-13.33px] h-[157px] w-[157px]">
+  <div
+    class="absolute top-[-28.6px] right-[-13.33px] h-[127px] w-[127px] md:top-auto md:right-[-47px] md:bottom-[-22.3px] md:h-[157px] md:w-[157px] lg:top-[-28.6px] lg:right-[-13.33px]"
+  >
     <!-- Illustration -->
     <svg
       class="h-full w-full"
