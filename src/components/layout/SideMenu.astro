@@ -180,7 +180,7 @@ export const menu: MenuItem[] = [
                     />
                   </span>
                   {/* Menu title */}
-                  <span class="font-secondary text-base font-semibold text-white md:text-xl">
+                  <span class="font-secondary text-base text-white data-[open=true]:font-semibold md:text-xl">
                     {menuItem.title}
                   </span>
                 </span>
@@ -322,6 +322,11 @@ export const menu: MenuItem[] = [
     fill: var(--color-n-50);
     stroke: var(--color-n-50);
     stroke-width: 0.4;
+  }
+
+  /* Make the menu title semibold when submenu is open */
+  [data-menu-item][data-open="true"] [data-menu-header] span:last-child {
+    font-weight: 600; /* semibold */
   }
 
   /* Hide plus icon when open */
