@@ -109,6 +109,51 @@ body {
   --color-violet-800: #32213D;
   --color-violet-900: #24172C;
   --color-violet-950: #140C19;
+}
 
 
+/* Base fade-in setup */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-left {
+  transform: translateX(-20px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When element is visible */
+.fade-in.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* Base scale-in animation */
+.scale-in {
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+  will-change: transform, opacity;
+}
+
+/* When visible */
+.scale-in.in-view {
+  opacity: 1;
+  transform: scale(1);
 }
