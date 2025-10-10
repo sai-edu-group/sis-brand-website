@@ -38,15 +38,28 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <!-- Header -->
-
     <!-- Main Content -->
     <main>
       <slot />
-       <!-- Footer -->
-       <Footer />
+      <!-- Footer -->
+      <Footer />
     </main>
+  </body><script>
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
+        });
+      },
+      { threshold: 0.2 } // reveal when 20% visible
+    );
 
-   
-  </body>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".fade-in, .scale-in").forEach((el) => {
+        observer.observe(el);
+      });
+    });
+  </script>
 </html>
