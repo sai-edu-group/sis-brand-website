@@ -46,7 +46,7 @@ const statsDetails = {
     class="text-n-100 absolute top-1/2 z-2 origin-center -translate-y-1/2 scale-480 -rotate-50 sm:scale-280 sm:-rotate-45 md:scale-250 lg:scale-none lg:rotate-none"
   >
     <svg
-      class="h-full w-full"
+      class="path h-full w-full"
       xmlns="http://www.w3.org/2000/svg"
       width="1920"
       height="970"
@@ -76,15 +76,36 @@ const statsDetails = {
       class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 lg:gap-10 xl:grid-cols-3"
     >
       {
-        statsDetails.statsCard.map((card) => (
-          <StatsCard
-            img={card.img}
-            title={card.title}
-            statsCount={card.statsCount}
-            subTitle={card.subTitle}
-          />
+        statsDetails.statsCard.map((card, cardIndex) => (
+          <div
+            class="card-anim card-bottom"
+            style={`--delay: ${cardIndex * 0.1}s`}
+          >
+            <StatsCard
+              img={card.img}
+              title={card.title}
+              statsCount={card.statsCount}
+              subTitle={card.subTitle}
+            />
+          </div>
         ))
       }
     </div>
   </div>
 </section>
+<style>
+  path {
+    stroke-dasharray: 2460;
+    stroke-dashoffset: 2460;
+    animation: draw 2.5s linear forwards;
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: -2460;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
