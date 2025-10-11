@@ -37,18 +37,13 @@ const navItemWithActive = baseItems.map((item) => {
 
 <!-- Header Component -->
 <header
-  class="bg-n-50 border-n-200 fixed top-6 left-1/2 z-50 mx-auto flex -translate-x-1/2 items-center gap-25 rounded-xl border px-6 py-4 xl:gap-36"
+  class="bg-n-50 border-n-200 fixed top-6 left-1/2 z-50 mx-auto flex -translate-x-1/2 items-center gap-25 rounded-xl border px-6 py-4 md:z-48 xl:gap-36"
 >
   <!-- Brand logo -->
   <a href="/" class="w-22 xl:w-26">
     <img src="/images/sai-brand-logo.png" alt="" class="h-full w-full" />
   </a>
 
-  <div class="flex items-center gap-3.5">
-    <!-- Navbar component -->
-    <Navbar navItems={navItemWithActive} />
-
-    <!-- Hamburger  -->
-    <Hamburger />
-  </div>
+  <!-- Navbar component -->
+  <Navbar navItems={navItemWithActive} />
 </header>

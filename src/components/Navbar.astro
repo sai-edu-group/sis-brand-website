@@ -1,5 +1,6 @@
 ---
 import Button from "./Button.astro";
+import Hamburger from "./Hamburger.astro";
 
 // Props
 interface Props {
@@ -38,8 +39,11 @@ const { navItems } = Astro.props;
     </a>
 
     <!-- Explore button -->
-    <a href="/" class="hidden sm:flex">
+    <a href="/" id="explore-btn" class="hidden sm:flex">
       <Button text="Explore" leftIcon variant="ghost" />
     </a>
+
+    <!-- Hamburger  -->
+    <Hamburger />
   </div>
 </nav>
