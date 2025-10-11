@@ -1,0 +1,51 @@
+---
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
+import CampusCard from "../../components/CampusCard.astro";
+
+const campusDetails = {
+  campus: [
+    {
+      title: "SAI Angan",
+      img: "/images/sai-campus.png",
+      subTitle: "Preschool & Early Childhood",
+      gradeRange: "Playgroup – Grade 2 ",
+    },
+    {
+      title: "SAI Angan",
+      img: "/images/sai-campus.png",
+      subTitle: "Preschool & Early Childhood",
+      gradeRange: "Playgroup – Grade 2 ",
+    },
+  ],
+};
+---
+
+<section class="bg-n-100">
+  <div
+    class="container mx-auto flex flex-col gap-11 px-6 py-24 md:gap-12 md:px-0 lg:gap-16 lg:px-8 lg:py-28"
+  >
+    <!-- Section Header -->
+    <SectionHeaderC
+      eyebrowText="Our Campuses"
+      title="Learning Beyond One Campus"
+    />
+
+    <!-- Campus card wrapper -->
+    <div
+      class="flex flex-col justify-center gap-8 md:flex-row md:gap-5 lg:gap-12"
+    >
+      {
+        campusDetails.campus.map((card) => (
+          <div class="w-full lg:w-[46%]">
+            <CampusCard
+              title={card.title}
+              img={card.img}
+              subTitle={card.subTitle}
+              gradeRange={card.gradeRange}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
