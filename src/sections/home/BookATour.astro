@@ -1,27 +1,9 @@
----
-import Button from "../../components/Button.astro";
-
-interface Props {
-  title?: string;
-  subtitle?: string;
-  buttonText?: string;
-  youtubeVideoId?: string;
-  fallbackImage?: string;
-}
-
-const {
-  title = "Experience Education beyond the Classroom",
-  youtubeVideoId = "26RLzXfQu4s", // Replace with your actual YouTube video ID
-  fallbackImage = "/images/school-bg.png",
-} = Astro.props as Props;
----
-
 <section class="relative w-full" data-name="book-a-tour-section">
   <!-- YouTube Video Background -->
   <div class="bg-n-950 absolute inset-0 h-full w-full">
     <iframe
       id="tour-video"
-      src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&disablekb=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&cc_load_policy=0&enablejsapi=1`}
+      src={`https://www.youtube.com/embed/26RLzXfQu4s?autoplay=1&mute=1&controls=0&disablekb=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&cc_load_policy=0&enablejsapi=1`}
       class="pointer-events-none absolute inset-0 h-full w-full object-cover"
       allow="autoplay; encrypted-media"
       allowfullscreen
