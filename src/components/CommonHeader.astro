@@ -1,0 +1,17 @@
+---
+const { eyebrow, title } = Astro.props;
+---
+
+<div class="relative">
+  <p class="text-n-800 text-lg leading-none font-medium md:text-4xl">
+    {eyebrow}
+  </p>
+  <p class="text-n-800 text-5xl leading-none font-medium md:text-7xl">
+    {title}
+  </p>
+  <img
+    src={"/icons/double-lines.svg"}
+    alt=""
+    class="absolute -bottom-[32px] -left-1 h-[19px] w-[130px] md:h-[34px] md:w-[232px]"
+  />
+</div>
