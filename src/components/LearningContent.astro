@@ -1,0 +1,261 @@
+---
+import ProgressBar from "./ProgressBar.astro";
+
+const imgCFixedWidthImage =
+  "http://localhost:3845/assets/0d2de40e256227cc0489cb78f0c496e21d97a1c5.png";
+const imgCIcon =
+  "http://localhost:3845/assets/cda1a7220bb94a586399b323a49e07fd1e3f2509.svg";
+const imgCIcon1 =
+  "http://localhost:3845/assets/5f232bccd43b6423bb64a517bab434194a6c017e.svg";
+
+// Accordion data
+const items = [
+  {
+    title: "Smart Classrooms",
+    description:
+      "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
+    progress: 80,
+    isOpen: true,
+  },
+  {
+    title: "Future-Ready Curriculum",
+    description:
+      "Curriculum designed to equip students with skills for tomorrow.",
+    progress: 60,
+  },
+  {
+    title: "Labs & Experiential Learning",
+    description:
+      "Hands-on labs and real-world experiences for deeper understanding.",
+    progress: 70,
+  },
+  {
+    title: "Assessment & Remediation",
+    description:
+      "Continuous assessment and personalized remediation for every learner.",
+    progress: 90,
+  },
+];
+---
+
+<div
+  class="box-border flex w-full flex-col items-start gap-2.5 rounded-3xl bg-white px-3.5 py-4 md:gap-12 md:p-6 lg:flex-row-reverse lg:gap-14 lg:p-12"
+>
+  <!-- Image Section -->
+  <div
+    class="h-[169px] w-full shrink-0 md:h-[360px] lg:h-[430px] lg:w-[480px] xl:w-[530px] 2xl:w-[670px]"
+  >
+    <img
+      src={imgCFixedWidthImage}
+      alt=""
+      class="pointer-events-none inset-0 h-full w-full rounded-xl object-cover"
+    />
+  </div>
+
+  <!-- Accordion -->
+  <div
+    class="flex w-full flex-col items-start gap-7 py-4 md:gap-8 md:py-0 lg:flex-1"
+    id="learning-accordion"
+  >
+    {
+      items.map((item, idx) => (
+        <div
+          class="w-full"
+          data-accordion-item
+          data-open={idx === 0 ? "true" : "false"}
+        >
+          <div class="flex flex-col">
+            <div
+              class="flex w-full cursor-pointer items-center"
+              data-accordion-toggle
+              aria-label="Toggle"
+              aria-expanded={idx === 0 ? "true" : "false"}
+            >
+              <p
+                class="w-full text-base leading-none"
+                data-accordion-title
+                data-index={idx}
+              >
+                {item.title}
+              </p>
+
+              <div class="flex h-6 w-6 flex-col items-center justify-center">
+                {/* <!-- Icon swap is handled by CSS using [data-open] --> */}
+                <img
+                  src={imgCIcon}
+                  alt=""
+                  class="block h-full w-full"
+                  data-icon-plus
+                />
+                <div
+                  class="bg-n-600 border-n-600 hidden h-[1.006px] w-2 rounded-xs border-[0.4px] border-solid"
+                  data-icon-minus
+                />
+              </div>
+            </div>
+
+            {/* <!-- Panel --> */}
+            <div
+              class="accordion-panel overflow-hidden"
+              style={item.isOpen ? "max-height: auto;" : "max-height: 0px;"}
+              data-accordion-panel
+              data-index={idx}
+            >
+              <div class="flex flex-col items-start gap-5 pt-2.5 md:gap-7">
+                <p class="text-n-500 font-secondary w-[95%] text-sm leading-[1.2] md:text-base md:leading-[1.4]">
+                  {item.description}
+                </p>
+                <div class="w-full">
+                  <ProgressBar value={item.progress} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+    <!-- Button -->
+    <div
+      class="flex items-center justify-center gap-0.5 rounded-lg bg-orange-50 px-4 py-2.5"
+    >
+      <p
+        class="font-secondary text-base font-semibold whitespace-nowrap text-orange-500"
+      >
+        Explore Smart Academics
+      </p>
+      <div class="h-4 w-4">
+        <img src={imgCIcon1} alt="" class="block h-full w-full" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Smooth height + fade; visuals driven entirely by [data-open] */
+
+  #learning-accordion [data-accordion-panel] {
+    opacity: 0;
+    transition:
+      max-height 300ms ease,
+      opacity 300ms ease;
+  }
+
+  #learning-accordion
+    [data-accordion-item][data-open="true"]
+    [data-accordion-panel] {
+    opacity: 1;
+  }
+
+  /* Title styling when open/closed */
+  #learning-accordion
+    [data-accordion-item][data-open="true"]
+    [data-accordion-title] {
+    font-size: 1.125rem; /* ~text-lg */
+    font-weight: 600; /* font-semibold */
+    color: var(--color-orange-500); /* text-orange-500 */
+  }
+  #learning-accordion
+    [data-accordion-item]:not([data-open="true"])
+    [data-accordion-title] {
+    color: var(--color-n-600); /* text-n-600 */
+  }
+
+  /* Icon swap (plus -> minus line) */
+  #learning-accordion [data-icon-minus] {
+    display: none;
+  }
+  #learning-accordion [data-accordion-item][data-open="true"] [data-icon-plus] {
+    display: none;
+  }
+  #learning-accordion
+    [data-accordion-item][data-open="true"]
+    [data-icon-minus] {
+    display: block;
+  }
+
+  /* Motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    #learning-accordion [data-accordion-panel] {
+      transition: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #learning-accordion [data-accordion-title] {
+      font-size: 1.25rem; /* ~text-xl */
+    }
+    #learning-accordion
+      [data-accordion-item][data-open="true"]
+      [data-accordion-title] {
+      font-size: 1.5rem; /* ~text-2xl */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #learning-accordion [data-accordion-title] {
+      font-size: 1.5rem; /* ~text-2xl */
+    }
+    #learning-accordion
+      [data-accordion-item][data-open="true"]
+      [data-accordion-title] {
+      font-size: 1.875rem; /* ~text-3xl */
+    }
+  }
+</style>
+
+<script is:inline>
+  const accordion = document.getElementById("learning-accordion");
+  let openIndex = 0; // first is open by default
+
+  function setOpen(idx) {
+    const items = accordion.querySelectorAll("[data-accordion-item]");
+    const panels = accordion.querySelectorAll("[data-accordion-panel]");
+    const toggles = accordion.querySelectorAll("[data-accordion-toggle]");
+
+    items.forEach((item, i) => {
+      const panel = panels[i];
+      const btn = toggles[i];
+      const open = i === idx;
+
+      // Attribute drives all CSS state
+      item.setAttribute("data-open", open ? "true" : "false");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+
+      // JS manages only the height
+      if (open) {
+        // set to its scroll height so we can transition
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      } else {
+        panel.style.maxHeight = "0px";
+      }
+    });
+
+    openIndex = idx;
+  }
+
+  function toggleAccordion(idx) {
+    if (openIndex === idx) {
+      // Close currently open item
+      const item = accordion.querySelectorAll("[data-accordion-item]")[idx];
+      const panel = accordion.querySelectorAll("[data-accordion-panel]")[idx];
+      const btn = accordion.querySelectorAll("[data-accordion-toggle]")[idx];
+
+      item.setAttribute("data-open", "false");
+      btn.setAttribute("aria-expanded", "false");
+      panel.style.maxHeight = "0px";
+      openIndex = null;
+    } else {
+      setOpen(idx);
+    }
+  }
+
+  // Wire up toggles
+  accordion.querySelectorAll("[data-accordion-toggle]").forEach((btn, idx) => {
+    btn.addEventListener("click", () => toggleAccordion(idx));
+  });
+
+  // Initialize the first item as open (ensures correct height on load)
+  window.addEventListener("DOMContentLoaded", () => {
+    setOpen(0);
+  });
+</script>
