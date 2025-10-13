@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/layout/Footer.astro";
 import Head from "../components/layout/Head.astro";
+import SocialStickyBar from "../components/SocialStickyBar.astro";
 import "../styles/global.css";
 
 const {
@@ -38,28 +39,31 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <!-- Header -->
-
     <!-- Main Content -->
     <main>
       <slot />
       <!-- Footer -->
       <Footer />
     </main>
+    <SocialStickyBar />
   </body><script>
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("in-view");
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
         });
       },
-      { threshold: 0.2 } // reveal when 20% visible
+      { threshold: 0.2 }, // reveal when 20% visible
     );
 
     document.addEventListener("DOMContentLoaded", () => {
       document
-        .querySelectorAll(".fade-in, .scale-in, .card-anim")
-        .forEach((el) => observer.observe(el));
+        .querySelectorAll(".fade-in, .scale-in,  .card-anim")
+        .forEach((el) => {
+          observer.observe(el);
+        });
     });
   </script>
 </html>

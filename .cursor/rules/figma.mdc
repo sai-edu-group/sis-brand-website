@@ -1,0 +1,142 @@
+# Tailwind UI Code Generation Context for Figma Nodes
+
+## 🎯 Objective
+
+Convert Figma components into clean, reusable **TSX (React)** components using **Tailwind CSS utility classes**, based on the token system defined below. Layouts follow Figma structure (Auto Layout = Flex), and all spacing, colors, font sizes, font weights, and radii must follow the provided mappings.
+
+---
+
+## 🎨 1. Color Tokens → Tailwind Utility Classes
+
+| Color Name | Use Examples                   |
+| ---------- | ------------------------------ |
+| `blue-500` | `bg-blue-600`, `text-blue-600` |
+| `n-950`    | `bg-n-950`, `text-n-950`       |
+| `n-900`    | `bg-n-900`, `text-n-900`       |
+| `n-800`    | `bg-n-800`, `text-n-800`       |
+| `n-700`    | `bg-n-700`, `text-n-700`       |
+
+and so on
+
+💡 **Use the correct prefix**: `bg-`, `text-`, `border-`, or `stroke-` based on how the color is applied.
+
+---
+
+## 🔠 2. Font Sizes
+
+| Class       | Pixel Size |
+| ----------- | ---------- |
+| `text-xs`   | 12px       |
+| `text-sm`   | 14px       |
+| `text-base` | 16px       |
+| `text-lg`   | 18px       |
+| `text-xl`   | 20px       |
+| `text-2xl`  | 24px       |
+| `text-3xl`  | 30px       |
+| `text-4xl`  | 36px       |
+| `text-5xl`  | 48px       |
+| `text-6xl`  | 60px       |
+| `text-7xl`  | 72px       |
+| `text-8xl`  | 96px       |
+| `text-9xl`  | 128px      |
+
+---
+
+## 🏋️ 3. Font Weights
+
+| Class             | Weight |
+| ----------------- | ------ |
+| `font-extralight` | 250    |
+| `font-thin`       | 265    |
+| `font-light`      | 300    |
+| `font-normal`     | 400    |
+| `font-medium`     | 500    |
+| `font-semibold`   | 600    |
+| `font-bold`       | 700    |
+| `font-extrabold`  | 800    |
+| `font-black`      | 900    |
+
+---
+
+## 📦 4. Spacing (Padding, Margin, Gap)
+
+| Class | Pixel Value |
+| ----- | ----------- |
+| `0`   | 0px         |
+| `px`  | 1px         |
+| `0.5` | 2px         |
+| `1`   | 4px         |
+| `1.5` | 6px         |
+| `2`   | 8px         |
+| `2.5` | 10px        |
+| `3`   | 12px        |
+| `3.5` | 14px        |
+| `4`   | 16px        |
+| `5`   | 20px        |
+| `6`   | 24px        |
+| `7`   | 28px        |
+| `8`   | 32px        |
+| `9`   | 36px        |
+| `10`  | 40px        |
+| `11`  | 44px        |
+| `12`  | 48px        |
+| `14`  | 56px        |
+| `16`  | 64px        |
+| `20`  | 80px        |
+| `24`  | 96px        |
+| `28`  | 112px       |
+| `32`  | 128px       |
+| `36`  | 144px       |
+| `44`  | 176px       |
+| `48`  | 192px       |
+| `52`  | 208px       |
+| `56`  | 224px       |
+| `60`  | 240px       |
+| `64`  | 256px       |
+| `72`  | 288px       |
+| `80`  | 320px       |
+| `96`  | 384px       |
+
+💡 Use `p-`, `pt-`, `pb-`, `pl-`, `pr-`, `px-`, `py-`, `m-`, `gap-` etc., depending on the direction.
+
+---
+
+## 🧼 5. Border Radius
+
+| Class         | Value |
+| ------------- | ----- |
+| `rounded-xs`  | 2px   |
+| `rounded-sm`  | 4px   |
+| `rounded-md`  | 6px   |
+| `rounded-lg`  | 8px   |
+| `rounded-xl`  | 12px  |
+| `rounded-2xl` | 16px  |
+| `rounded-3xl` | 24px  |
+| `rounded-4xl` | 32px  |
+
+---
+
+## 🧩 Layout Rules
+
+- **Figma Auto Layout** → `flex` container
+  - Use `flex-row` or `flex-col` as per Figma direction
+- Maintain hierarchy: convert **frame/group nesting** into `div` wrappers
+- Respect alignment, spacing, padding, and gaps
+- Use semantic tags (`h1`, `button`, `label`, etc.) when appropriate
+- Convert corner radius, color fills, font styles using the above maps only
+- If you see a node name the starts with a capital C like this "C:DeploymentStatus", then this means to use the component instead of building the HTML. And the part after the colon ":" is the Component Name. In the above exmple you will just put <DeploymentStatus />
+
+---
+
+## ⚠️ Do / Don't
+
+✅ DO:
+
+- Use only token-mapped Tailwind classes
+- Preserve nesting and hierarchy
+
+❌ DON'T:
+
+- Don't use arbitrary pixel values (e.g., `style="padding: 17px"`)
+- Don't use lorem ipsum — use actual text from Figma
+- Don't guess colors or fonts — stick to the mappings provided
