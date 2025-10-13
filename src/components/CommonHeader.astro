@@ -1,17 +1,27 @@
 ---
 const { eyebrow, title } = Astro.props;
+
+// Split the title into words
+const words = title ? title.trim().split(" ") : [];
+const lastWord = words.length > 0 ? words[words.length - 1] : "";
+const firstPart = words.length > 1 ? words.slice(0, -1).join(" ") + " " : "";
 ---
 
-<div class="relative">
-  <p class="text-n-800 text-lg leading-none font-medium md:text-4xl">
-    {eyebrow}
+<div class="relative inline-block">
+  {
+    eyebrow && (
+      <span class="from-p-500 to-p-300 absolute -top-7 left-0 h-1.5 w-16 rounded-full bg-gradient-to-r md:-top-9 md:h-2 md:w-24" />
+    )
+  }
+  <p class="text-n-800 text-4xl/11 font-medium md:text-6xl/20 2xl:text-7xl/24">
+    {firstPart}
+    <span class="relative inline-block">
+      {lastWord}
+      <img
+        src="/icons/double-lines.svg"
+        alt=""
+        class="absolute -bottom-[20px] left-0 h-[19px] w-[130px] md:h-[34px] md:w-[232px]"
+      />
+    </span>
   </p>
-  <p class="text-n-800 text-5xl leading-none font-medium md:text-7xl">
-    {title}
-  </p>
-  <img
-    src={"/icons/double-lines.svg"}
-    alt=""
-    class="absolute -bottom-[32px] -left-1 h-[19px] w-[130px] md:h-[34px] md:w-[232px]"
-  />
 </div>
