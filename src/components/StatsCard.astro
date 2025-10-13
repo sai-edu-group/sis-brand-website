@@ -14,12 +14,12 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
 >
   <!-- Stat image -->
   <div
-    class="relative h-full w-[180px] flex-1 rounded-xl md:w-full lg:w-[180px]"
+    class="relative h-full w-[115px] rounded-xl md:h-[190px] md:w-full lg:h-full lg:w-[180px]"
     data-name="stats-image"
   >
     <img
       alt=""
-      class="pointer-events-none absolute inset-0 h-full w-full max-w-none rounded-xl object-cover"
+      class="pointer-events-none h-full w-full rounded-xl object-cover"
       src={img}
     />
   </div>
@@ -33,13 +33,15 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
     <p class="text-n-700 w-min text-4xl font-bold md:text-6xl 2xl:text-7xl">
       {statsCount}
     </p>
+
     <!-- Stat card title -->
     <div
-      class="font-secondary space-y-3 md:w-[85%] md:text-center lg:text-left"
+      class="font-secondary flex flex-col gap-3 md:w-[85%] md:text-center lg:w-[92%] lg:text-left"
     >
-      <p class="text-n-600 text-sm font-semibold md:text-lg lg:text-base">
+      <p class="text-n-600 text-sm font-medium md:text-lg lg:text-base">
         {title}
       </p>
+
       <!-- Stat card subtitle -->
       <p class="text-n-500 hidden text-xs font-medium md:block">{subTitle}</p>
     </div>
@@ -47,31 +49,31 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
 
   <!-- Backdrop illustration logo -->
   <div
-    class="absolute top-[-28.6px] right-[-13.33px] h-[127px] w-[127px] md:top-auto md:right-[-47px] md:bottom-[-22.3px] md:h-[157px] md:w-[157px] lg:top-[-28.6px] lg:right-[-13.33px]"
+    class="absolute top-[-46px] right-[-40px] text-orange-500/80 md:top-auto md:right-[-47px] md:bottom-[-22.3px] lg:top-[-28.6px] lg:right-[-13.33px]"
   >
     <!-- Illustration -->
     <svg
-      class="h-full w-full"
-      xmlns="http://www.w3.org/2000/svg"
-      width="144"
-      height="130"
-      viewBox="0 0 144 130"
+      class="size-[127px] md:size-[157px]"
+      width="157"
+      height="157"
+      viewBox="0 0 157 157"
       fill="none"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0 -27.7344H52.6646C65.8355 -27.7344 76.5127 -17.0572 76.5127 -3.88627V48.7783H23.8481C10.6772 48.7783 0 38.1011 0 24.9302V-27.7344Z"
+        d="M0 0H52.6646C65.8355 0 76.5127 10.6772 76.5127 23.8481V76.5127H23.8481C10.6772 76.5127 0 65.8355 0 52.6646V0Z"
         fill="#CC554D"
         fill-opacity="0.08"></path>
       <path
-        d="M157 -27.7344H104.335C91.1645 -27.7344 80.4873 -17.0572 80.4873 -3.88627V48.7783H133.152C146.323 48.7783 157 38.1011 157 24.9302V-27.7344Z"
+        d="M157 0H104.335C91.1645 0 80.4873 10.6772 80.4873 23.8481V76.5127H133.152C146.323 76.5127 157 65.8355 157 52.6646V0Z"
         fill="#CC554D"
         fill-opacity="0.08"></path>
       <path
-        d="M0 129.266H52.6646C65.8355 129.266 76.5127 118.588 76.5127 105.418V52.753H23.8481C10.6772 52.753 0 63.4301 0 76.6011V129.266Z"
+        d="M0 157H52.6646C65.8355 157 76.5127 146.323 76.5127 133.152V80.4873H23.8481C10.6772 80.4873 0 91.1645 0 104.335V157Z"
         fill="#CC554D"
         fill-opacity="0.08"></path>
       <path
-        d="M157 129.266H104.335C91.1645 129.266 80.4873 118.588 80.4873 105.418V52.753H133.152C146.323 52.753 157 63.4301 157 76.6011V129.266Z"
+        d="M157 157H104.335C91.1645 157 80.4873 146.323 80.4873 133.152V80.4873H133.152C146.323 80.4873 157 91.1645 157 104.335V157Z"
         fill="#CC554D"
         fill-opacity="0.08"></path>
     </svg>

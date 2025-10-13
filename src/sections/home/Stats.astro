@@ -63,7 +63,7 @@ const statsDetails = {
 
   <!-- Container wrapper -->
   <div
-    class="relative z-4 container mx-auto flex w-full flex-col items-center gap-12 px-5 py-16 md:gap-20 md:py-40"
+    class="relative z-4 container mx-auto flex w-full flex-col items-center gap-12 px-6 py-16 md:gap-20 md:py-40 lg:px-8 xl:px-0"
   >
     <!-- Header with Lines -->
     <SectionHeaderC
@@ -73,7 +73,7 @@ const statsDetails = {
 
     <!-- Stats Cards Grid -->
     <div
-      class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 lg:gap-10 xl:grid-cols-3"
+      class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 md:gap-x-6 lg:gap-10 xl:grid-cols-3 xl:gap-x-14 xl:gap-y-8"
     >
       {
         statsDetails.statsCard.map((card, cardIndex) => (
