@@ -1,5 +1,5 @@
 ---
-import SectionHeaderC from "../../components/SectionHeaderC.astro";
+import CommonHeader from "../../components/CommonHeader.astro";
 import StatsCard from "../../components/StatsCard.astro";
 
 const statsDetails = {
@@ -40,7 +40,7 @@ const statsDetails = {
 ---
 
 <!-- Stats Card Component -->
-<section class="bg-n-50 relative z-1">
+<section class="bg-n-50 relative z-1 overflow-hidden">
   <!-- Background Vector -->
   <div
     class="text-n-100 absolute top-1/2 z-2 origin-center -translate-y-1/2 scale-480 -rotate-50 sm:scale-280 sm:-rotate-45 md:scale-250 lg:scale-none lg:rotate-none"
@@ -63,17 +63,19 @@ const statsDetails = {
 
   <!-- Container wrapper -->
   <div
-    class="relative z-4 container mx-auto flex w-full flex-col items-center gap-12 px-6 py-16 md:gap-20 md:py-40 lg:px-8 xl:px-0"
+    class="relative z-4 container mx-auto flex w-full flex-col items-center gap-12 px-6 py-16 md:gap-20 md:py-40 lg:px-8"
   >
     <!-- Header with Lines -->
-    <SectionHeaderC
-      eyebrowText="Why Choose SAI"
-      title="Where Excellence Meets Belonging"
-    />
+    <div class="self-start">
+      <CommonHeader
+        eyebrowText="Why Choose SAI"
+        title="Where Excellence Meets Belonging"
+      />
+    </div>
 
     <!-- Stats Cards Grid -->
     <div
-      class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 md:gap-x-6 lg:gap-10 xl:grid-cols-3 xl:gap-x-14 xl:gap-y-8"
+      class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 md:gap-x-6 lg:gap-10 xl:grid-cols-3 2xl:gap-x-14 2xl:gap-y-8"
     >
       {
         statsDetails.statsCard.map((card, cardIndex) => (
