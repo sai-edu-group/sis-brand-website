@@ -16,17 +16,17 @@ const ethosDetails = {
 };
 ---
 
-<section class="relative z-10 bg-white">
+<section class="relative z-10 overflow-hidden bg-white">
   <div
-    class="container mx-auto flex flex-col items-center justify-between gap-16 px-6 py-24 md:gap-20 md:px-0 md:py-44 lg:flex-row lg:gap-0 lg:px-8 lg:py-48 xl:px-0"
+    class="container mx-auto flex flex-col items-center justify-between gap-16 px-6 py-24 md:gap-20 md:py-44 lg:flex-row lg:gap-0 lg:px-8 lg:py-48 xl:px-6 2xl:px-0"
   >
     <!-- Left side Sai Baba -->
     <div class="relative flex w-full flex-col gap-5 md:gap-6 lg:w-[42%]">
       <!-- Backdrop image -->
       <div
-        class="absolute -top-[10%] -right-[42%] -z-4 w-full sm:-top-[35%] sm:w-[94%] md:-top-[45%] md:-right-[30%] md:w-[84%] lg:-top-[24%] lg:-left-[30%] lg:w-full xl:-top-[35%]"
+        class="absolute -top-[10%] left-[50%] -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:w-[600px] lg:-left-[20%] lg:w-[450px] xl:-left-[30%] xl:w-[600px]"
       >
-        <img src={ethosDetails.left.backdrop} alt="" class="w-full" />
+        <img src={ethosDetails.left.backdrop} alt="" class="" />
       </div>
 
       <!-- Header wrapper -->
@@ -57,15 +57,17 @@ const ethosDetails = {
 
       <!-- Description -->
       <p
-        class="font-secondary text-n-600 text-base leading-relaxed font-light md:text-xl"
+        class="font-secondary text-n-600 text-base leading-6 font-light md:text-xl md:leading-8"
       >
         {ethosDetails.left.description}
       </p>
 
       <!-- Read More text -->
-      <p class="font-secondary text-n-600 text-lg font-medium underline">
+      <a
+        class="font-secondary text-n-600 cursor-pointer text-lg font-medium underline"
+      >
         Read More
-      </p>
+      </a>
     </div>
 
     {/* Desktop Vertical Divider */}
@@ -120,9 +122,9 @@ const ethosDetails = {
     <div class="relative flex flex-col gap-5 md:gap-6 lg:w-[42%]">
       <!-- Backdrop image -->
       <div
-        class="absolute -top-[5%] -right-[6%] -z-3 w-[82%] sm:-top-[28%] sm:w-[65%] md:-top-[34%] md:-right-[4%] lg:-top-[16%] lg:-right-[30%] lg:w-full xl:-top-[26%]"
+        class="absolute -top-[10%] right-0 -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:w-[600px] lg:-right-[10%] lg:w-[450px] xl:right-0 xl:w-[600px]"
       >
-        <img src={ethosDetails.right.backdrop} alt="" class="w-full" />
+        <img src={ethosDetails.right.backdrop} alt="" class="h-full w-full" />
       </div>
 
       <!-- Header wrapper -->
@@ -153,15 +155,17 @@ const ethosDetails = {
 
       <!-- Description -->
       <p
-        class="font-secondary text-n-600 text-base leading-relaxed font-light md:text-xl"
+        class="font-secondary text-n-600 text-base leading-6 font-light md:text-xl md:leading-8"
       >
         {ethosDetails.right.description}
       </p>
 
       <!-- Read More text -->
-      <p class="font-secondary text-n-600 text-lg font-medium underline">
+      <a
+        class="font-secondary text-n-600 cursor-pointer text-lg font-medium underline"
+      >
         Read More
-      </p>
+      </a>
     </div>
   </div>
 </section>
