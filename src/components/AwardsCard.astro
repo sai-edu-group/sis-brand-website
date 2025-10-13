@@ -1,0 +1,51 @@
+---
+import Button from "./Button.astro";
+import IconButton from "./IconButton.astro";
+interface Props {
+  img: string;
+  title: string;
+  subTitle: string;
+  href?: string;
+  year: string;
+}
+const {
+  img,
+  title = "",
+  subTitle = "",
+  href = "#",
+  year = "",
+} = Astro.props as Props;
+---
+
+<div
+  class="bg-n-50 border-n-200 flex w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 xl:flex-row xl:gap-6"
+>
+  <!-- Campus image -->
+  <div class="w-full overflow-hidden rounded-xl">
+    <img src={img} alt="" class="h-full w-full object-cover" />
+  </div>
+
+  <div class="flex flex-col gap-3 md:gap-6 lg:gap-10 xl:gap-14">
+    <!-- Campus title -->
+    <div class="flex items-center justify-between">
+      <!-- Year -->
+      <p class="text-n-500 text-xl font-light md:text-2xl lg:text-3xl">
+        {year}
+      </p>
+      <!-- Icon Button  -->
+      <IconButton href={href} />
+    </div>
+    <div class="flex flex-col gap-1 md:gap-2 xl:gap-3.5">
+      <!-- Title -->
+      <p
+        class="text-2xl leading-tight font-semibold text-orange-500 md:text-3xl lg:text-4xl"
+      >
+        {title}
+      </p>
+      <!-- Subtitle -->
+      <span class="font-secondary text-n-500 text-xs font-normal md:text-sm"
+        >{subTitle}</span
+      >
+    </div>
+  </div>
+</div>
