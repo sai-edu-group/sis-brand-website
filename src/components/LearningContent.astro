@@ -1,0 +1,191 @@
+---
+import ProgressBar from "./ProgressBar.astro";
+
+// Accordion data
+const { items } = Astro.props;
+---
+
+<div
+  class="box-border flex w-full flex-col items-start gap-2.5 rounded-3xl bg-white px-3.5 py-4 md:gap-12 md:p-6 lg:flex-row-reverse lg:gap-14 lg:p-12"
+>
+  <!-- Image Section -->
+  <div
+    class="h-[169px] w-full shrink-0 md:h-[360px] lg:h-[430px] lg:w-[480px] xl:w-[530px] 2xl:w-[670px]"
+  >
+    <img
+      src={"/images/learning.png"}
+      alt=""
+      class="pointer-events-none inset-0 h-full w-full rounded-xl object-cover"
+    />
+  </div>
+
+  <!-- Accordion -->
+  <div
+    class="flex w-full flex-col items-start gap-7 py-4 md:gap-8 md:py-0 lg:flex-1"
+    data-accordion
+    data-accordion-autoplay="true"
+  >
+    {
+      items.map((item: any, idx: number) => (
+        <div
+          class="w-full"
+          data-accordion-item
+          data-open={idx === 0 ? "true" : "false"}
+        >
+          <div class="flex flex-col">
+            <div
+              class="flex w-full cursor-pointer items-center"
+              data-accordion-toggle
+              aria-label="Toggle"
+              aria-expanded={idx === 0 ? "true" : "false"}
+            >
+              <p
+                class="w-full text-base leading-none"
+                data-accordion-title
+                data-index={idx}
+              >
+                {item.title}
+              </p>
+
+              <div class="flex h-6 w-6 flex-col items-center justify-center">
+                {/* <!-- Icon swap is handled by CSS using [data-open] --> */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  data-icon-plus
+                >
+                  <path
+                    d="M6 0.799805C6.38661 0.799805 6.7002 1.11341 6.7002 1.5V5.2998H10.5C10.8866 5.2998 11.2002 5.61339 11.2002 6C11.2002 6.38661 10.8866 6.7002 10.5 6.7002H6.7002V10.5C6.7002 10.8866 6.38661 11.2002 6 11.2002C5.61339 11.2002 5.2998 10.8866 5.2998 10.5V6.7002H1.5C1.11341 6.7002 0.799805 6.38661 0.799805 6C0.799805 5.61339 1.11341 5.2998 1.5 5.2998H5.2998V1.5C5.2998 1.11341 5.61339 0.799805 6 0.799805Z"
+                    fill="#45556C"
+                    stroke="#45556C"
+                    stroke-width="0.4"
+                  />
+                </svg>
+                <div
+                  class="bg-n-600 border-n-600 hidden h-[2px] w-2 rounded-xs border-[0.4px] border-solid"
+                  data-icon-minus
+                />
+              </div>
+            </div>
+
+            {/* <!-- Panel --> */}
+            <div
+              class="accordion-panel overflow-hidden"
+              style={item.isOpen ? "max-height: auto;" : "max-height: 0px;"}
+              data-accordion-panel
+              data-index={idx}
+            >
+              <div class="flex flex-col items-start gap-5 pt-2.5 md:gap-7">
+                <p class="text-n-500 font-secondary w-[95%] text-sm leading-[120%] md:text-base md:leading-[140%]">
+                  {item.description}
+                </p>
+                <div class="w-full">
+                  <ProgressBar value={item.progress} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+    <!-- Button -->
+    <div
+      class="flex items-center justify-center gap-0.5 rounded-lg bg-orange-50 px-4 py-2.5"
+    >
+      <p
+        class="font-secondary text-base font-semibold whitespace-nowrap text-orange-500"
+      >
+        Explore Smart Academics
+      </p>
+      <div class="h-4 w-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.04951 3.05834C5.96476 3.23742 5.96367 3.3809 6.04561 3.56508C6.09725 3.68111 6.23942 3.80581 6.37188 3.85125C6.5102 3.89867 6.62612 3.89143 6.85303 3.82115C7.44037 3.63923 7.9989 3.53134 8.66257 3.47162C9.54816 3.39195 10.4565 3.42303 11.3094 3.5622L11.572 3.60506L7.19541 7.99302C3.74702 11.4504 2.81326 12.3925 2.79253 12.4354C2.75511 12.5128 2.73268 12.6643 2.74409 12.7623C2.77359 13.0155 2.99096 13.2307 3.24795 13.2611C3.32927 13.2707 3.47752 13.246 3.56657 13.2079C3.61372 13.1877 4.27993 12.528 8.00974 8.80778L12.3974 4.43139L12.4345 4.65453C12.5977 5.63677 12.6183 6.70921 12.4933 7.71112C12.4373 8.15952 12.3303 8.65905 12.1945 9.10534C12.1542 9.23784 12.1205 9.38816 12.1195 9.43939C12.1171 9.57573 12.1674 9.70771 12.2633 9.81675C12.36 9.92674 12.4392 9.97317 12.5828 10.004C12.7088 10.0311 12.8229 10.0144 12.9528 9.94995C13.1321 9.86102 13.1933 9.76646 13.3003 9.41286C13.5782 8.49458 13.709 7.57424 13.7182 6.47179C13.7281 5.28948 13.5885 4.27421 13.279 3.27827C13.1496 2.8618 13.09 2.8175 12.4093 2.63196C11.5094 2.38666 10.5987 2.27676 9.53072 2.28456C8.4352 2.29258 7.52456 2.42185 6.59164 2.70177C6.23682 2.80823 6.13667 2.8741 6.04951 3.05834Z"
+            fill="#CC554D"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* Smooth height + fade; visuals driven entirely by [data-open] */
+
+  [data-accordion] [data-accordion-panel] {
+    opacity: 0;
+    transition:
+      max-height 300ms ease,
+      opacity 300ms ease;
+  }
+
+  [data-accordion]
+    [data-accordion-item][data-open="true"]
+    [data-accordion-panel] {
+    opacity: 1;
+  }
+
+  /* Title styling when open/closed */
+  [data-accordion]
+    [data-accordion-item][data-open="true"]
+    [data-accordion-title] {
+    font-size: 1.125rem; /* ~text-lg */
+    font-weight: 600; /* font-semibold */
+    color: var(--color-orange-500); /* text-orange-500 */
+  }
+  [data-accordion]
+    [data-accordion-item]:not([data-open="true"])
+    [data-accordion-title] {
+    color: var(--color-n-600); /* text-n-600 */
+  }
+
+  /* Icon swap (plus -> minus line) */
+  [data-accordion] [data-icon-minus] {
+    display: none;
+  }
+  [data-accordion] [data-accordion-item][data-open="true"] [data-icon-plus] {
+    display: none;
+  }
+  [data-accordion] [data-accordion-item][data-open="true"] [data-icon-minus] {
+    display: block;
+  }
+
+  /* Motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    [data-accordion] [data-accordion-panel] {
+      transition: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    [data-accordion] [data-accordion-title] {
+      font-size: 1.25rem; /* ~text-xl */
+    }
+    [data-accordion]
+      [data-accordion-item][data-open="true"]
+      [data-accordion-title] {
+      font-size: 1.5rem; /* ~text-2xl */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    [data-accordion] [data-accordion-title] {
+      font-size: 1.5rem; /* ~text-2xl */
+    }
+    [data-accordion]
+      [data-accordion-item][data-open="true"]
+      [data-accordion-title] {
+      font-size: 1.875rem; /* ~text-3xl */
+    }
+  }
+</style>
