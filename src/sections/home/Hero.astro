@@ -28,7 +28,7 @@ const {
 ---
 
 <section
-  class="bg-n-50 relative mt-24 w-full overflow-hidden bg-[url('/images/school-background.png')] bg-cover bg-center md:mt-36"
+  class="bg-n-50 relative w-full overflow-hidden bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-36"
   data-name="hero-section"
 >
   <!-- Main Content -->
@@ -45,7 +45,7 @@ const {
 
         <!-- Form Card -->
         <div
-          class="border-n-200 rounded-lg border bg-white p-3.5 shadow-sm md:px-6 md:py-5 lg:w-[55%] 2xl:w-[49%]"
+          class="border-n-200 rounded-lg border bg-white p-3.5 shadow-sm md:px-6 md:py-5 lg:w-[55%]"
         >
           <div class="space-y-3.5">
             <h2 class="text-n-800 text-xl md:text-3xl">
@@ -227,13 +227,6 @@ const {
       const studentName = form.querySelector('input[type="text"]').value;
       const grade = form.querySelector("select").value;
       const phone = form.querySelector('input[type="tel"]').value;
-
-      // Create WhatsApp message
-      const message = `Hi! I'm interested in SAI International School for my child ${studentName} (Grade: ${grade}). Please send me the brochure. My contact: ${phone}`;
-      const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
-
-      // Open WhatsApp
-      window.open(whatsappUrl, "_blank");
     });
   }
 </script>
