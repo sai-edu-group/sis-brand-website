@@ -59,9 +59,11 @@ const {
     );
 
     document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".fade-in, .scale-in").forEach((el) => {
-        observer.observe(el);
-      });
+      document
+        .querySelectorAll(".fade-in, .scale-in,  .card-anim")
+        .forEach((el) => {
+          observer.observe(el);
+        });
     });
   </script>
 </html>
