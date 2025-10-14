@@ -111,36 +111,40 @@ export const menu: MenuItem[] = [
   class="fixed inset-y-0 right-0 z-49 w-full translate-x-full transform bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
   <nav class="flex h-full flex-col overflow-y-auto" data-accordion>
-    <div class="pt-32 pb-10">
+    <div class="pt-38 pb-10 md:pt-10">
       <!-- Close Button for Sidebar -->
       <div
-        class="bg-n-50/10 hover:bg-n-50/20 absolute top-10 right-10 hidden cursor-pointer items-center justify-center rounded-xl p-3 transition md:inline-flex md:p-5 lg:right-24"
-        id="menu-close"
-        role="button"
-        tabindex="0"
+        class="z-3 mb-10 hidden w-full justify-end bg-violet-600 pr-10 md:flex"
       >
-        <!-- Close (X) Icon SVG -->
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
+        <div
+          class="bg-n-50/10 hover:bg-n-50/20 cursor-pointer items-center justify-center rounded-xl p-3 transition md:p-5"
+          id="menu-close"
+          role="button"
+          tabindex="0"
         >
-          <g clip-path="url(#clip0_3871_1253)">
-            <path
-              d="M0.958597 0.67093C1.19644 0.463586 1.55755 0.488367 1.76496 0.726175C5.97244 5.55037 10.4491 10.0271 15.2733 14.2345C15.5111 14.442 15.5359 14.8031 15.3286 15.0409C15.1212 15.2787 14.7601 15.3035 14.5222 15.0962C9.65879 10.8545 5.14504 6.34072 0.903352 1.47729C0.696008 1.23945 0.720789 0.878337 0.958597 0.67093Z"
-              fill="white"></path>
-            <path
-              d="M14.2345 0.726176C14.442 0.488366 14.8031 0.463586 15.0409 0.67093C15.2787 0.878337 15.3035 1.23945 15.0962 1.47729C10.8545 6.34073 6.34072 10.8545 1.47729 15.0962C1.23945 15.3035 0.878338 15.2787 0.670931 15.0409C0.463585 14.8031 0.488367 14.442 0.726177 14.2345C5.55037 10.0271 10.0271 5.55038 14.2345 0.726176Z"
-              fill="white"></path>
-          </g>
-          <defs>
-            <clipPath id="clip0_3871_1253">
-              <rect width="16" height="16" fill="white"></rect>
-            </clipPath>
-          </defs>
-        </svg>
+          <!-- Close (X) Icon SVG -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <g clip-path="url(#clip0_3871_1253)">
+              <path
+                d="M0.958597 0.67093C1.19644 0.463586 1.55755 0.488367 1.76496 0.726175C5.97244 5.55037 10.4491 10.0271 15.2733 14.2345C15.5111 14.442 15.5359 14.8031 15.3286 15.0409C15.1212 15.2787 14.7601 15.3035 14.5222 15.0962C9.65879 10.8545 5.14504 6.34072 0.903352 1.47729C0.696008 1.23945 0.720789 0.878337 0.958597 0.67093Z"
+                fill="white"></path>
+              <path
+                d="M14.2345 0.726176C14.442 0.488366 14.8031 0.463586 15.0409 0.67093C15.2787 0.878337 15.3035 1.23945 15.0962 1.47729C10.8545 6.34073 6.34072 10.8545 1.47729 15.0962C1.23945 15.3035 0.878338 15.2787 0.670931 15.0409C0.463585 14.8031 0.488367 14.442 0.726177 14.2345C5.55037 10.0271 10.0271 5.55038 14.2345 0.726176Z"
+                fill="white"></path>
+            </g>
+            <defs>
+              <clipPath id="clip0_3871_1253">
+                <rect width="16" height="16" fill="white"></rect>
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
       </div>
       {
         // Render each main menu item
@@ -210,7 +214,8 @@ export const menu: MenuItem[] = [
               <div
                 data-menu-submenu
                 data-open={open ? "true" : "false"}
-                class="flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out data-[open=false]:max-h-0 data-[open=false]:pt-0 data-[open=false]:pb-0 data-[open=false]:opacity-0 data-[open=true]:max-h-[999px] data-[open=true]:pt-5 md:data-[open=true]:pt-7"
+                style={open ? "height:auto" : "height:0"}
+                class="flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out data-[open=false]:pt-0 data-[open=false]:pb-0 data-[open=false]:opacity-0 data-[open=true]:pt-5 md:data-[open=true]:pt-7"
               >
                 {menuItem.submenu?.map((subMenu) => (
                   // Submenu item
@@ -283,46 +288,66 @@ export const menu: MenuItem[] = [
 
   // Accordion logic for expanding/collapsing menu sections
   if (container) {
-    container.addEventListener("click", (e) => {
-      // Find the clicked menu header
-      const header = e.target.closest?.("[data-menu-header]");
-      if (!header) return;
+    const openSection = (section) => {
+      const submenu = section.querySelector("[data-menu-submenu]");
+      if (!submenu) return;
+      section.setAttribute("data-open", "true");
+      submenu.setAttribute("data-open", "true");
+      const h = submenu.scrollHeight;
+      submenu.style.height = h + "px";
+      const onEnd = (ev) => {
+        if (ev.propertyName !== "height") return;
+        submenu.removeEventListener("transitionend", onEnd);
+      };
+      submenu.addEventListener("transitionend", onEnd);
+      const btn = section.querySelector("[data-menu-header]");
+      btn && btn.setAttribute("aria-expanded", "true");
+    };
 
-      // Find the parent menu item section
+    const closeSection = (section) => {
+      const submenu = section.querySelector("[data-menu-submenu]");
+      if (!submenu) return;
+      // if height is auto, set to pixel height first to enable transition
+      if (
+        getComputedStyle(submenu).height === "auto" ||
+        submenu.style.height === "auto"
+      ) {
+        submenu.style.height = submenu.scrollHeight + "px";
+      }
+      submenu.style.height = "0px";
+      section.setAttribute("data-open", "false");
+      submenu.setAttribute("data-open", "false");
+      const btn = section.querySelector("[data-menu-header]");
+      btn && btn.setAttribute("aria-expanded", "false");
+    };
+
+    container.addEventListener("click", (e) => {
+      const header = e.target.closest
+        ? e.target.closest("[data-menu-header]")
+        : null;
+      if (!header) return;
       const item = header.closest("[data-menu-item]");
       if (!item) return;
-
-      // Check if this menu item is already open
       const isOpen = item.getAttribute("data-open") === "true";
 
-      // Close all menu items
+      // Close all
       container.querySelectorAll("[data-menu-item]").forEach((el) => {
-        el.setAttribute("data-open", "false");
-        const submenu = el.querySelector("[data-menu-submenu]");
-        submenu?.setAttribute("data-open", "false");
-        const btn = el.querySelector("[data-menu-header]");
-        btn?.setAttribute("aria-expanded", "false");
+        closeSection(el);
       });
 
-      // If not already open, open the clicked menu item
-      if (!isOpen) {
-        item.setAttribute("data-open", "true");
-        item
-          .querySelector("[data-menu-submenu]")
-          ?.setAttribute("data-open", "true");
-        header.setAttribute("aria-expanded", "true");
-      }
+      if (!isOpen) openSection(item);
     });
   }
 </script>
 
 <style>
-  /* Transition for submenu open/close */
+  /* Transition for submenu open/close using height for smooth auto-size */
   [data-menu-submenu] {
     transition:
-      max-height 0.3s ease,
+      height 0.3s ease,
       opacity 0.3s ease,
       padding 0.3s ease;
+    will-change: height;
   }
 
   /* Icon color styling */
