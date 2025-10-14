@@ -20,26 +20,18 @@ const {
     <!-- Eyebrow text -->
     {
       eyebrowText && (
-        <p class="text-n-600 text-sm font-normal md:text-base lg:text-xl">
-          {eyebrowText}
-        </p>
+        <p class="text-n-600 text-sm font-light md:text-xl">{eyebrowText}</p>
       )
     }
-    <div class="relative flex flex-col gap-1 md:gap-4">
+    <div class="relative flex flex-col gap-1 md:gap-1.5 lg:gap-4">
       <!-- Section title -->
-      <p class="text-n-800 text-3xl font-semibold md:text-5xl lg:text-6xl">
+      <p class="text-n-800 text-3xl font-medium md:text-5xl lg:text-6xl">
         {title}
       </p>
-      <!-- Lines -->
-      <img
-        src={"/icons/double-lines.svg"}
-        alt=""
-        class="absolute right-[2%] -bottom-[50%] h-[19px] w-[130px] md:h-[34px] md:w-[232px]"
-      />
       <!-- Section subtitle -->
       {
         subtitle && (
-          <p class="font-secondary text-n-600 text-xs leading-normal font-semibold md:text-2xl">
+          <p class="font-secondary text-n-600 text-xs font-medium md:text-xl lg:text-2xl">
             {subtitle}
           </p>
         )
