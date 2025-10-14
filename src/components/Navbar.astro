@@ -20,7 +20,7 @@ const { navItems } = Astro.props;
         <li class="text-nowrap">
           <a
             href={navItem.href}
-            class={`relative transition-colors duration-200 ${
+            class={`relative transition-colors duration-200 hover:text-orange-500 ${
               navItem.active
                 ? "font-medium text-orange-500"
                 : "text-n-800 hover:text-n-900"
@@ -34,7 +34,7 @@ const { navItems } = Astro.props;
   </ul>
   <div class="flex gap-3.5">
     <!-- Apply Now button -->
-    <a href="/contact-us" class="hidden sm:block">
+    <a href="/admission" class="hidden sm:block">
       <Button text="Apply Now" variant="solid" rightArrow />
     </a>
 
