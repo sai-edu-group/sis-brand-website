@@ -215,17 +215,21 @@ export const menu: MenuItem[] = [
                 data-menu-submenu
                 data-open={open ? "true" : "false"}
                 style={open ? "height:auto" : "height:0"}
-                class="flex flex-col gap-2 overflow-hidden transition-all duration-300 ease-in-out data-[open=false]:pt-0 data-[open=false]:pb-0 data-[open=false]:opacity-0 data-[open=true]:pt-5 md:data-[open=true]:pt-7"
+                class="overflow-hidden transition-[height] duration-300 ease-in-out"
               >
-                {menuItem.submenu?.map((subMenu) => (
-                  // Submenu item
-                  <div class="group flex h-[34px] cursor-pointer flex-col gap-1.5 md:gap-2">
-                    <p class="text-n-100 font-secondary text-sm tracking-[1.28px] uppercase transition-all duration-300 ease-in-out group-hover:font-semibold group-hover:text-orange-500 md:text-base">
-                      {subMenu.title}
-                    </p>
-                    <div class="bg-n-50/10 h-px w-[73px] transition-all duration-300 ease-in-out group-hover:h-0.5 group-hover:bg-orange-500" />
-                  </div>
-                ))}
+                <div
+                  data-menu-submenu-inner
+                  class="flex flex-col gap-2 pt-5 md:pt-7"
+                >
+                  {menuItem.submenu?.map((subMenu) => (
+                    <div class="group flex h-[34px] cursor-pointer flex-col gap-1.5 md:gap-2">
+                      <p class="text-n-100 font-secondary text-sm tracking-[1.28px] uppercase transition-all duration-300 ease-in-out group-hover:font-semibold group-hover:text-orange-500 md:text-base">
+                        {subMenu.title}
+                      </p>
+                      <div class="bg-n-50/10 h-px w-[73px] transition-all duration-300 ease-in-out group-hover:h-0.5 group-hover:bg-orange-500" />
+                    </div>
+                  ))}
+                </div>
               </div>
             </section>
           );
@@ -290,16 +294,26 @@ export const menu: MenuItem[] = [
   if (container) {
     const openSection = (section) => {
       const submenu = section.querySelector("[data-menu-submenu]");
-      if (!submenu) return;
+      const inner = section.querySelector("[data-menu-submenu-inner]");
+      if (!submenu || !inner) return;
+
       section.setAttribute("data-open", "true");
       submenu.setAttribute("data-open", "true");
-      const h = submenu.scrollHeight;
-      submenu.style.height = h + "px";
+
+      // Start collapsed, then force reflow so the next height sticks
+      submenu.style.height = "0px";
+      submenu.offsetHeight; // force reflow
+
+      const target = inner.scrollHeight; // gap/padding now included correctly
+      submenu.style.height = target + "px";
+
       const onEnd = (ev) => {
         if (ev.propertyName !== "height") return;
         submenu.removeEventListener("transitionend", onEnd);
+        submenu.style.height = "auto"; // allow dynamic content afterwards
       };
       submenu.addEventListener("transitionend", onEnd);
+
       const btn = section.querySelector("[data-menu-header]");
       btn && btn.setAttribute("aria-expanded", "true");
     };
@@ -307,34 +321,32 @@ export const menu: MenuItem[] = [
     const closeSection = (section) => {
       const submenu = section.querySelector("[data-menu-submenu]");
       if (!submenu) return;
-      // if height is auto, set to pixel height first to enable transition
+
+      // If currently auto, lock current pixel height first
       if (
         getComputedStyle(submenu).height === "auto" ||
         submenu.style.height === "auto"
       ) {
         submenu.style.height = submenu.scrollHeight + "px";
+        submenu.offsetHeight; // reflow
       }
+
       submenu.style.height = "0px";
       section.setAttribute("data-open", "false");
       submenu.setAttribute("data-open", "false");
+
       const btn = section.querySelector("[data-menu-header]");
       btn && btn.setAttribute("aria-expanded", "false");
     };
 
     container.addEventListener("click", (e) => {
-      const header = e.target.closest
-        ? e.target.closest("[data-menu-header]")
-        : null;
+      const header = e.target.closest?.("[data-menu-header]");
       if (!header) return;
       const item = header.closest("[data-menu-item]");
       if (!item) return;
+
       const isOpen = item.getAttribute("data-open") === "true";
-
-      // Close all
-      container.querySelectorAll("[data-menu-item]").forEach((el) => {
-        closeSection(el);
-      });
-
+      container.querySelectorAll("[data-menu-item]").forEach(closeSection);
       if (!isOpen) openSection(item);
     });
   }
