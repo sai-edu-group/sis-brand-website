@@ -5,34 +5,36 @@ import SectionHeaderC from "../../components/SectionHeaderC.astro";
 const newsDetails = {
   articleCards: [
     {
-      title: "SAI Angan",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
       img: "/images/news-article-image.png",
-      subTitle: "Preschool & Early Childhood",
-      gradeRange: "Playgroup – Grade 2 ",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
     {
-      title: "SAI Angan",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
       img: "/images/news-article-image.png",
-      subTitle: "Preschool & Early Childhood",
-      gradeRange: "Playgroup – Grade 2 ",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
     {
-      title: "SAI Angan",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
       img: "/images/news-article-image.png",
-      subTitle: "Preschool & Early Childhood",
-      gradeRange: "Playgroup – Grade 2 ",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
     {
-      title: "SAI Angan",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
       img: "/images/news-article-image.png",
-      subTitle: "Preschool & Early Childhood",
-      gradeRange: "Playgroup – Grade 2 ",
-    },
-    {
-      title: "SAI Angan",
-      img: "/images/news-article-image.png",
-      subTitle: "Preschool & Early Childhood",
-      gradeRange: "Playgroup – Grade 2 ",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
   ],
 };
@@ -55,15 +57,16 @@ const uid = "embla-news";
       <!-- Viewport -->
       <div id={uid} class="overflow-hidden">
         <!-- Container -->
-        <div class="flex items-stretch gap-7" data-embla-container>
+        <div class="flex gap-7" data-embla-container>
           {
             newsDetails.articleCards.map((card) => (
               <div class="ns-slide" data-embla-slide>
                 <ArticleCard
                   title={card.title}
                   img={card.img}
-                  subTitle={card.subTitle}
-                  gradeRange={card.gradeRange}
+                  topText={card.topText}
+                  date={card.date}
+                  tags={card.tags}
                 />
               </div>
             ))

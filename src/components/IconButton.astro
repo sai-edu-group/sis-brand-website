@@ -1,4 +1,12 @@
-<div
+---
+interface Props {
+  href: string;
+}
+const { href = "#" } = Astro.props as Props;
+---
+
+<a
+  href={href}
   class="group flex size-11 items-center justify-center rounded-full bg-orange-500 md:size-14 lg:rounded-3xl"
 >
   <span class="text-n-50 transition-all group-hover:rotate-45">
@@ -29,4 +37,4 @@
       </defs>
     </svg>
   </span>
-</div>
+</a>
