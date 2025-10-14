@@ -104,6 +104,50 @@ body {
 }
 
 
+
+
+/* Base animation setup */
+.card-anim {
+  opacity: 0;
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.card-anim.in-view {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+
+/* Direction variants */
+.card-left {
+  transform: translateX(-40px);
+}
+
+.card-right {
+  transform: translateX(40px);
+}
+
+.card-top {
+  transform: translateY(-40px);
+}
+
+.card-bottom {
+  transform: translateY(40px);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .card-anim,
+  .card-anim.in-view {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
 /* Base fade-in setup */
 .fade-in {
   opacity: 0;
