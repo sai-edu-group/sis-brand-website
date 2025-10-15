@@ -25,15 +25,19 @@ const active = 2;
     />
 
     <!-- Slider wrapper -->
-    <div class="flex flex-col items-center gap-6 md:gap-10">
+    <div class="flex flex-col items-center gap-6 md:gap-10" id="results-slider">
       <!-- Viewport -->
-      <div class="overflow-hidden rounded-xl" id="data-embla-viewport">
+      <div
+        class="overflow-hidden rounded-xl"
+        id="data-embla-viewport"
+        data-embla-viewport
+      >
         <!-- Container -->
         <div class="flex" data-embla-container>
           {
             slides.map((src, i) => (
               <div
-                class="max-h-[454px] w-full min-w-0 shrink-0 md:max-h-[75vh]"
+                class="max-h-[454px] w-full min-w-0 shrink-0 lg:max-h-[937px]"
                 data-embla-slide
               >
                 <img
@@ -55,7 +59,7 @@ const active = 2;
           type="button"
           id="prevButton"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-6 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
-          data-prev
+          data-embla-prev
           aria-label="Previous"
         >
           <span class="inline-flex">
@@ -77,18 +81,11 @@ const active = 2;
         </button>
 
         <!-- Dots -->
-        <div id="emblaDots" class="flex items-center gap-1 md:gap-2">
-          {
-            slides.map((_, i) => (
-              <button
-                type="button"
-                class="embla-dot bg-n-300 size-1.5 cursor-pointer rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500 md:size-2.5"
-                aria-label={`Go to slide ${i + 1}`}
-                aria-selected="false"
-                data-dot-index={i}
-              />
-            ))
-          }
+        <div
+          id="emblaDots"
+          data-embla-dots
+          class="flex items-center gap-1 md:gap-2"
+        >
         </div>
 
         <!-- Next button -->
@@ -96,6 +93,7 @@ const active = 2;
           type="button"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-6 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
           id="nextButton"
+          data-embla-next
         >
           <span class="inline-flex rotate-180">
             <svg
@@ -119,56 +117,12 @@ const active = 2;
   </div>
 </section>
 
-<script>
-  import EmblaCarousel from "embla-carousel";
+<!-- Component-level init: scoped to this slider only -->
+<script type="module">
+  import { initEmblaRoot } from "/js/embla.js";
 
   window.addEventListener("DOMContentLoaded", () => {
-    // Get the viewport element that contains the carousel
-    const viewport = document.getElementById("data-embla-viewport");
-
-    // Stop execution if viewport is missing
-    if (!viewport) return;
-
-    // Initialize Embla Carousel
-    const embla = EmblaCarousel(viewport, {
-      align: "start",
-      loop: false,
-      containScroll: "trimSnaps",
-      dragFree: true,
-    });
-
-    const prevBtn = document.getElementById("prevButton");
-    const nextBtn = document.getElementById("nextButton");
-
-    // Attach click events to navigation buttons
-    if (prevBtn) prevBtn.addEventListener("click", () => embla.scrollPrev());
-    if (nextBtn) nextBtn.addEventListener("click", () => embla.scrollNext());
-
-    // Dots
-    const dots = Array.from(document.querySelectorAll("[data-dot-index]"));
-
-    // Update selected dot state
-    const setSelectedDot = () => {
-      const selected = embla.selectedScrollSnap();
-
-      // Handle dot click navigation
-      dots.forEach((dot, i) => {
-        const isSelected = i === selected;
-        dot.setAttribute("aria-selected", isSelected ? "true" : "false");
-        dot.classList.toggle("scale-110", isSelected);
-      });
-    };
-
-    // Handle dot click navigation
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => embla.scrollTo(i));
-    });
-
-    // Attach Embla events to update dots dynamically
-    embla.on("select", setSelectedDot);
-    embla.on("reInit", setSelectedDot);
-
-    // Initialize dot state once Embla is ready
-    setSelectedDot();
+    const root = document.getElementById("results-slider");
+    initEmblaRoot(root);
   });
 </script>
