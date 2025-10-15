@@ -27,7 +27,11 @@ const active = 2;
     <!-- Slider wrapper -->
     <div class="flex flex-col items-center gap-6 md:gap-10" id="results-slider">
       <!-- Viewport -->
-      <div class="overflow-hidden rounded-xl" id="data-embla-viewport">
+      <div
+        class="overflow-hidden rounded-xl"
+        id="data-embla-viewport"
+        data-embla-viewport
+      >
         <!-- Container -->
         <div class="flex" data-embla-container>
           {
@@ -55,7 +59,7 @@ const active = 2;
           type="button"
           id="prevButton"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-6 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
-          data-prev
+          data-embla-prev
           aria-label="Previous"
         >
           <span class="inline-flex">
@@ -77,13 +81,19 @@ const active = 2;
         </button>
 
         <!-- Dots -->
-        <div id="emblaDots" class="flex items-center gap-1 md:gap-2"></div>
+        <div
+          id="emblaDots"
+          data-embla-dots
+          class="flex items-center gap-1 md:gap-2"
+        >
+        </div>
 
         <!-- Next button -->
         <button
           type="button"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-6 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
           id="nextButton"
+          data-embla-next
         >
           <span class="inline-flex rotate-180">
             <svg
@@ -113,9 +123,6 @@ const active = 2;
 
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("results-slider");
-    initEmblaRoot(root, {
-      align: "start",
-      dragFree: true,
-    });
+    initEmblaRoot(root);
   });
 </script>

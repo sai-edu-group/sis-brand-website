@@ -16,7 +16,7 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
 
     <div class="flex flex-col gap-10 overflow-hidden" id="testimonial-slider">
       <!-- Embla slider -->
-      <div class="" id="data-embla-viewport">
+      <div class="" id="data-embla-viewport" data-embla-viewport>
         <div class="flex" data-embla-container>
           {
             slides.map((imgSrc) => (
@@ -100,6 +100,7 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-11 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
           data-prev
           aria-label="Previous"
+          data-embla-prev
         >
           <span class="inline-flex">
             <svg
@@ -120,13 +121,14 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
         </button>
 
         <!-- Dots -->
-        <div id="emblaDots" class="flex items-center gap-1.5 md:gap-2"></div>
+        <div class="flex items-center gap-1.5 md:gap-2" data-embla-dots></div>
 
         <!-- Next button -->
         <button
           type="button"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-11 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
           id="nextButton"
+          data-embla-next
         >
           <span class="inline-flex rotate-180">
             <svg
@@ -155,10 +157,8 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
   import { initEmblaRoot } from "../src/utils/embla.js";
 
   window.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("testimonialSlider");
-    initEmblaRoot(root, {
-      align: "start",
-      dragFree: true,
-    });
+    const root = document.getElementById("testimonial-slider");
+
+    initEmblaRoot(root);
   });
 </script>
