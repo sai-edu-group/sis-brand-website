@@ -1,12 +1,12 @@
 ---
 interface Props {
-  id: string; // e.g., "step-1"
+  id?: string; // e.g., "step-1"
   step: number; // 1..total
   total: number; // e.g., 3
   title: string;
-  hidden?: boolean;
   accent?: string;
   as?: string; // 'article' by default
+  class?: string;
 }
 
 const {
@@ -14,9 +14,9 @@ const {
   step,
   total,
   title,
-  hidden = false,
   accent = "#C9443A",
   as = "article",
+  class: extra = "",
 } = Astro.props;
 
 const percent = Math.round((step / total) * 100);
@@ -25,24 +25,27 @@ const percent = Math.round((step / total) * 100);
 <div
   id={id}
   data-step
-  class:list={[
-    "border-n-200 bg-n-50 container mx-auto space-y-3 rounded-3xl border p-6 md:space-y-5 md:px-14 md:py-8",
-    hidden && "hidden",
-  ]}
+  class={`border-n-200 flex flex-col bg-n-50 container mx-auto gap-8 md:gap-12 rounded-xl border p-6 lg:px-16 md:px-10 md:py-8 lg:py-14
+     ${extra}`}
 >
-  <div class="flex items-center justify-between">
-    <!-- Step label and current section title -->
-    <h3 class="text-n-600 text-lg font-semibold md:text-2xl">
-      Step {step}/{total}: {title}
-    </h3>
-  </div>
+  <div class="space-y-4 lg:space-y-8">
+    <div class="flex items-center justify-between">
+      <!-- Step label and current section title -->
+      <h3 class="text-n-600 text-lg font-normal md:text-2xl">
+        Step {step}/{total}: <span class="font-semibold">{title}</span>
+      </h3>
+    </div>
 
-  <!-- Progress bar -->
-  <div class="h-2.5 w-full rounded-4xl" style={`background-color:${accent}33;`}>
+    <!-- Progress bar -->
     <div
-      class="h-2.5 rounded-4xl"
-      style={`width:${percent}%; background-color:${accent}`}
+      class="h-2.5 w-full rounded-4xl"
+      style={`background-color:${accent}33;`}
     >
+      <div
+        class="h-2.5 rounded-4xl"
+        style={`width:${percent}%; background-color:${accent}`}
+      >
+      </div>
     </div>
   </div>
 

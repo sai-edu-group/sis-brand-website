@@ -26,11 +26,11 @@ const {
 } = Astro.props;
 ---
 
-<div class="flex w-full flex-col gap-2 md:gap-4" data-field>
+<div class="flex w-full flex-col gap-2 md:gap-3.5" data-field>
   <!-- Select label -->
   <label
     for={name}
-    class="text-n-600 text-base font-medium md:text-lg lg:text-xl"
+    class="text-n-600 text-base font-normal md:text-lg lg:text-xl"
   >
     {label}{required && <span class="text-red-500">*</span>}
   </label>
@@ -44,7 +44,7 @@ const {
       value={value}
       aria-invalid="false"
       aria-describedby={`${name}-error ${hintText ? `${name}-hint` : ""}`}
-      class="border-n-600 text-n-600 focus:border-n-600 font-secondary w-full appearance-none border-b bg-transparent px-0 pb-1 text-lg font-semibold focus:outline-none md:text-xl lg:text-2xl"
+      class="border-n-600 text-n-600 focus:border-n-600 font-secondary w-full appearance-none border-b bg-transparent px-0 pb-1 text-lg font-medium focus:outline-none md:pb-3.5 md:text-xl lg:text-2xl"
     >
       <!-- Options list -->
       <option value="">{placeholder}</option>
