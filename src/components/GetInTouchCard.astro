@@ -1,0 +1,90 @@
+---
+export interface Props {
+  icon: string; // e.g. "mail.svg"
+  title: string;
+  type: "email" | "phone" | "location";
+  infoText: string[];
+}
+
+const { icon, title, type, infoText = [] } = Astro.props;
+---
+
+<div
+  class="border-n-200 relative flex flex-col gap-2 overflow-hidden rounded-3xl border px-4 py-6 md:gap-6 2xl:gap-9 2xl:px-8 2xl:py-9"
+>
+  <!-- Backdrop icon -->
+  <img
+    src={`/icons/${icon}`}
+    alt=""
+    aria-hidden="true"
+    class={`pointer-events-none select-none absolute -right-[15%] w-[240px] -bottom-[15%] md:w-[280px] object-contain opacity-10`}
+  />
+
+  <!-- Foreground icon -->
+  <div>
+    <img
+      src={`/icons/${icon}.svg`}
+      alt=""
+      class="h-12 w-12 object-contain"
+      loading="lazy"
+      decoding="async"
+      aria-hidden="true"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="text-n-800 space-y-5 md:space-y-6 2xl:space-y-9">
+    <!-- Card title -->
+    <p class="text-xl font-semibold xl:text-2xl 2xl:text-3xl">{title}</p>
+
+    <!-- Email / Phone list -->
+    {
+      type !== "location" && (
+        <ul class="space-y-1.5">
+          {infoText.map((value, index) => {
+            const href =
+              type === "email"
+                ? `mailto:${value}`
+                : `tel:${value.replace(/\s+/g, "")}`;
+            const baseLink =
+              "font-bold text-n-500 text-base xl:text-lg 2xl:text-xl underline";
+            const linkClass =
+              index === 0 ? `text-orange-500 ${baseLink}` : baseLink;
+
+            return (
+              <li>
+                <a href={href} class={linkClass}>
+                  {value}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      )
+    }
+
+    <!-- Location -->
+    {
+      type === "location" && (
+        <div class="space-y-1">
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-secondary text-n-500 text-base font-semibold underline xl:text-lg 2xl:text-xl"
+          >
+            {infoText[0]}
+          </a>
+        </div>
+      )
+    }
+  </div>
+
+  <!-- Backdrop icon -->
+  <img
+    src={`/icons/${icon}.svg`}
+    alt=""
+    aria-hidden="true"
+    class={`pointer-events-none select-none absolute -right-12 md:-right-20 -bottom-12 w-[200px] md:w-[230px] 2xl:w-[300px] object-contain opacity-[0.1]`}
+  />
+</div>
