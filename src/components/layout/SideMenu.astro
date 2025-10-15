@@ -254,6 +254,9 @@ export const menu: MenuItem[] = [
     backdrop.classList.remove("opacity-0", "invisible");
     backdrop.classList.add("opacity-100", "visible");
     hamburgerBtn?.classList.add("is-open");
+
+    // ⛔ Disable body scroll
+    document.body.style.overflowY = "hidden";
   }
 
   // Function to close the sidebar menu
@@ -262,6 +265,8 @@ export const menu: MenuItem[] = [
     backdrop.classList.add("opacity-0", "invisible");
     backdrop.classList.remove("opacity-100", "visible");
     hamburgerBtn?.classList.remove("is-open");
+    // ✅ Re-enable body scroll
+    document.body.style.overflowY = "";
   }
 
   // Open sidebar when clicking Explore button
