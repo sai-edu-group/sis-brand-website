@@ -1,0 +1,47 @@
+---
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
+
+const partnersImages = [
+  "/images/partners/ausa.png",
+  "/images/partners/leader.png",
+  "/images/partners/sat.png",
+  "/images/partners/Univariety.png",
+  "/images/partners/icai.png",
+  "/images/partners/IDS.png",
+  "/images/partners/microsoft.png",
+  "/images/partners/roundsq.png",
+  "/images/partners/showcase-sis.png",
+  "/images/partners/google-1.png",
+  "/images/partners/cambrdige.png",
+  "/images/partners/cbse-sis.png",
+  "/images/partners/adobe.png",
+  "/images/partners/bridgeu-sis.png",
+  "/images/partners/kindness.png",
+];
+---
+
+<section>
+  <div
+    class="container mx-auto flex flex-col gap-12 px-8 py-16 md:gap-20 md:px-4 md:py-32 lg:px-8 lg:py-40 2xl:px-0"
+  >
+    <!-- Header with lines -->
+    <SectionHeaderC
+      eyebrowText="Our Accreditations and Learning Partners"
+      title="Trusted by the World’s Leading Institutions"
+    />
+
+    <!-- Partners card wrapper -->
+    <div
+      class="flex flex-wrap justify-center gap-7 md:gap-5 lg:gap-x-5 lg:gap-y-7"
+    >
+      {
+        partnersImages.map((partner) => (
+          // Partner image
+          <div class="w-20 md:w-32 lg:w-[170px]">
+            <img src={partner} alt="" class="w-full object-contain" />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
