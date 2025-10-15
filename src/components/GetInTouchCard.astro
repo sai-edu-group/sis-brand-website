@@ -4,16 +4,9 @@ export interface Props {
   title: string;
   kind: "email" | "phone" | "location";
   infoText: string[];
-  backdropOpacity?: string;
 }
 
-const {
-  icon,
-  title,
-  kind,
-  infoText = [],
-  backdropOpacity = "10",
-} = Astro.props;
+const { icon, title, kind, infoText = [] } = Astro.props;
 ---
 
 <div
@@ -24,7 +17,7 @@ const {
     src={`/icons/${icon}`}
     alt=""
     aria-hidden="true"
-    class={`pointer-events-none select-none absolute -right-[30%] -bottom-[15%] w-[300px] object-contain opacity-${backdropOpacity}`}
+    class={`pointer-events-none select-none absolute -right-[15%] w-[240px] -bottom-[15%] md:w-[280px] object-contain opacity-10`}
   />
 
   <!-- Foreground icon -->
