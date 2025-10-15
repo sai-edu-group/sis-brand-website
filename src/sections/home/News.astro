@@ -1,54 +1,57 @@
 ---
-import AwardsCard from "../../components/AwardsCard.astro";
+import ArticleCard from "../../components/ArticleCard.astro";
 import Button from "../../components/Button.astro";
 import SectionHeaderC from "../../components/SectionHeaderC.astro";
 
-// Unique ID per instance (so multiple sliders can live on the same page)
-const uid = "embla-awards";
-
-// Data (sample)
-const awardsDetails = {
-  awardsCard: [
+const newsDetails = {
+  articleCards: [
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
+      img: "/images/news-article-image.png",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
+      img: "/images/news-article-image.png",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
+      img: "/images/news-article-image.png",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "SAI International School Ranked Among Top 3 Schools in India",
+      img: "/images/news-article-image.png",
+      topText: "By Admissions Desk",
+      tags: ["Awrds", "CBSE"],
+      href: "#",
+      date: "12 Sept 2025",
     },
   ],
 };
+
+const uid = "embla-news";
 ---
 
-<section class="ns-slider">
+<section class="ns-slider bg-n-100">
   <div
-    class="container mx-auto flex flex-col gap-9 px-6 py-14 md:gap-16 md:px-0 md:py-20 lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-9 px-6 py-14 md:py-20 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
   >
-    <!-- Section header -->
+    <!-- Section header title -->
     <SectionHeaderC
-      eyebrowText="Achievements & Recognition"
-      title="Celebrating Excellence, Year After Year"
+      eyebrowText="SAI News"
+      subtitle="Discover the latest updates, thought leadership, and inspiring stories from the SAI community."
+      title=" The SAI Chronicle"
     />
 
     <!-- Slider root: keep viewport + controls inside this wrapper -->
@@ -56,19 +59,16 @@ const awardsDetails = {
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
-        <div
-          class="flex items-stretch gap-4"
-          data-embla-container
-          style="gap: var(--gap)"
-        >
+        <div class="flex gap-7" data-embla-container>
           {
-            awardsDetails.awardsCard.map((card) => (
+            newsDetails.articleCards.map((card) => (
               <div class="ns-slide" data-embla-slide>
-                <AwardsCard
+                <ArticleCard
                   title={card.title}
                   img={card.img}
-                  subTitle={card.subTitle}
-                  year={card.year}
+                  topText={card.topText}
+                  date={card.date}
+                  tags={card.tags}
                 />
               </div>
             ))
@@ -80,31 +80,24 @@ const awardsDetails = {
       <div
         class="relative flex items-center justify-center gap-8 md:gap-12 lg:gap-20"
       >
-        <div class="absolute left-0 max-sm:top-[20px]">
-          <Button
-            text="View All Rewards"
-            rightArrow
-            variant="soft"
-            size="small"
-          />
-        </div>
-
         <!-- Dots -->
         <div class="flex items-center gap-1.5 md:gap-2" data-embla-dots></div>
 
-        <!-- Prev / Next -->
-        <div class="absolute right-0 flex gap-2 md:gap-6">
+        <div class="absolute right-0 flex gap-4 md:gap-6">
+          <!--  Prev button -->
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            id="prevButton"
+            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-prev
             aria-label="Previous"
           >
             <span class="inline-flex">
-              <!-- your left chevron svg -->
               <svg
-                class="size-3.5 md:size-7"
+                class="size-5 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="29"
                 viewBox="0 0 29 29"
                 fill="none"
               >
@@ -117,17 +110,19 @@ const awardsDetails = {
             </span>
           </button>
 
+          <!-- Next button -->
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-next
             aria-label="Next"
           >
             <span class="inline-flex rotate-180">
-              <!-- your right chevron svg (rotated) -->
               <svg
-                class="size-3.5 md:size-7"
+                class="size-5 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="29"
                 viewBox="0 0 29 29"
                 fill="none"
               >
@@ -143,21 +138,67 @@ const awardsDetails = {
       </div>
     </div>
   </div>
-</section>
 
+  <!-- News letter -->
+  <div
+    class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
+  >
+    <div>
+      <img
+        src="/images/news-letter.png"
+        alt=""
+        class="w-[327px] object-contain md:w-[674px] lg:w-[600px]"
+      />
+    </div>
+    <div class="flex flex-col gap-8 md:gap-11">
+      <div class="space-y-2 md:space-y-2.5">
+        <!-- Eyebrow text -->
+        <p class="text-n-600 text-base font-light md:text-2xl">
+          News & Updates
+        </p>
+        <div class="space-y-1">
+          <!-- Title text -->
+          <p class="text-n-800 text-3xl leading-[120%] font-medium md:text-6xl">
+            Don’t Miss a Moment at SAI International
+          </p>
+
+          <!-- Subtitle text -->
+          <p
+            class="text-n-500 font-secondary text-sm font-normal md:text-xl md:leading-[140%] lg:leading-[120%]"
+          >
+            Receive updates on events, achievements, and important announcements
+            directly in your inbox.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cta button -->
+      <Button text="Subscribe to Newsletter" />
+    </div>
+  </div>
+</section>
 <style>
-  /* Slider-level variables */
+  /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 16px; /* match the visual 'gap' above (gap-4 = 16px) */
+    --gap: 16px; /* match the gap-7 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
+
   @media (min-width: 640px) {
     .ns-slider {
       --slides: 2;
       --peek: 0px;
     }
   }
+
+  @media (min-width: 1024px) {
+    .ns-slider {
+      --slides: 3;
+      --peek: 0px;
+    } /* set to 60px to reveal a peek */
+  }
+
   /* Each slide width: ((100% - total gaps - peek) / slides) */
   .ns-slide {
     flex: 0 0
@@ -173,7 +214,7 @@ const awardsDetails = {
   import { initEmblaRoot } from "/js/embla.js";
 
   window.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("embla-awards");
+    const root = document.getElementById("embla-news");
     initEmblaRoot(root, {
       align: "start",
       dragFree: true,
