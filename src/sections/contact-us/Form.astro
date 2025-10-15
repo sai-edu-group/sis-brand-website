@@ -1,0 +1,154 @@
+---
+import Input from "../../components/Input.astro";
+import StepCard from "../../components/FormStepsCard.astro";
+import Select from "../../components/Select.astro";
+import Textarea from "../../components/Textarea.astro";
+import Button from "../../components/Button.astro";
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
+---
+
+<section class="bg-n-100 mx-auto w-full space-y-6">
+  <div
+    class="container mx-auto flex flex-col gap-16 px-6 py-12 md:py-24 lg:px-8 2xl:px-0"
+  >
+    <!-- Section Header -->
+    <SectionHeaderC
+      title="Got a Question? Just Ask."
+      subtitle="Fill in your details, and one of our team members will reach out shortly."
+    />
+
+    <!-- ONE form for all steps -->
+    <form id="admission-form" novalidate>
+      <!-- STEP 1 -->
+      <StepCard id="step-1" total={3}>
+        <div class="flex flex-col gap-14 md:gap-20">
+          <div
+            class="grid grid-cols-1 gap-x-20 gap-y-6 sm:grid-cols-2 md:gap-y-9"
+          >
+            <!-- Name Input -->
+            <div data-field>
+              <Input
+                label="Full Name"
+                name="studentName"
+                required
+                placeholder="Enter full name"
+                errorMessage="Full name is required."
+              />
+            </div>
+
+            <!-- Phone number -->
+            <div data-field>
+              <Input
+                label="Phone Number"
+                name="number"
+                required
+                placeholder="Enter phone number"
+                errorMessage="Phone number is required."
+              />
+            </div>
+
+            <!-- Email Input -->
+            <div data-field>
+              <Input
+                label="Email Address*"
+                name="email"
+                required
+                placeholder="Enter email address"
+                errorMessage="Email is required."
+              />
+            </div>
+
+            <!-- Reason for contact -->
+            <Select
+              label="Reason for contact"
+              name="reason"
+              placeholder="Select reason"
+              required
+              options={[
+                {
+                  label: "Want to understand school processes",
+                  value: "Want to understand school processes",
+                },
+                {
+                  label: "Understand school processes",
+                  value: "Understand school processes",
+                },
+              ]}
+              errorMessage="Please select the reason"
+            />
+
+            <!-- Message textarea -->
+            <div class="sm:col-span-2" data-field>
+              <Textarea
+                label="Message"
+                name="message"
+                placeholder="Any specific concerns, requests, or child interests?"
+                errorMessage="Message is required."
+                required
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-end justify-between gap-8 self-end">
+            <!-- Button: Continue to next step -->
+            <Button
+              id="next-1"
+              type="button"
+              text="Send Message"
+              variant="solid"
+              size="medium"
+            />
+          </div>
+        </div>
+      </StepCard>
+
+      <!-- THANK YOU -->
+      <article
+        id="thank-you"
+        class="border-n-200 bg-n-50 flex flex-col items-center gap-6 rounded-3xl border px-6 py-8 text-center md:gap-8 md:py-12 lg:gap-10 lg:py-24"
+      >
+        <!-- Paper plan icon -->
+        <img
+          src="/icons/paper-plane.svg"
+          alt=""
+          class="h-12 -rotate-10 md:h-24 lg:h-32"
+        />
+        <div class="flex flex-col items-center gap-2">
+          <!-- Success panel title -->
+          <p
+            class="text-n-700 w-full text-center text-2xl leading-tight font-normal md:text-4xl lg:text-5xl"
+          >
+            Thank you for reaching out.
+          </p>
+        </div>
+
+        <!-- Success panel message -->
+        <p
+          class="text-n-600 font-secondary text-sm font-medium md:text-lg lg:text-2xl"
+        >
+          We’ve received your message and our team will be in touch with you
+          shortly.
+        </p>
+        <!-- Download brochure button -->
+        <Button text="Back to Home" variant="outline" />
+      </article>
+    </form>
+  </div>
+</section>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const step1 = document.getElementById("step-1");
+    const thankYou = document.getElementById("thank-you");
+    const next1 = document.getElementById("next-1");
+
+    // ensure initial state
+    step1?.classList.remove("hidden");
+    thankYou?.classList.add("hidden");
+
+    next1?.addEventListener("click", () => {
+      // simple route: hide step, show thank you
+      step1?.classList.add("hidden");
+      thankYou?.classList.remove("hidden");
+    });
+  });
+</script>
