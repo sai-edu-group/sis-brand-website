@@ -1,5 +1,6 @@
 ---
 import ArticleCard from "../../components/ArticleCard.astro";
+import Button from "../../components/Button.astro";
 import SectionHeaderC from "../../components/SectionHeaderC.astro";
 
 const newsDetails = {
@@ -44,7 +45,7 @@ const uid = "embla-news";
 
 <section class="ns-slider bg-n-100">
   <div
-    class="container mx-auto flex flex-col gap-9 px-6 py-14 md:px-0 md:py-20 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-9 px-6 py-14 md:py-20 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
   >
     <!-- Section header title -->
     <SectionHeaderC
@@ -145,6 +146,44 @@ const uid = "embla-news";
           </button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- News letter -->
+  <div
+    class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
+  >
+    <div>
+      <img
+        src="/images/news-letter.png"
+        alt=""
+        class="w-[327px] object-contain md:w-[674px] lg:w-[600px]"
+      />
+    </div>
+    <div class="flex flex-col gap-8 md:gap-11">
+      <div class="space-y-2 md:space-y-2.5">
+        <!-- Eyebrow text -->
+        <p class="text-n-600 text-base font-light md:text-2xl">
+          News & Updates
+        </p>
+        <div class="space-y-1">
+          <!-- Title text -->
+          <p class="text-n-800 text-3xl leading-[120%] font-medium md:text-6xl">
+            Don’t Miss a Moment at SAI International
+          </p>
+
+          <!-- Subtitle text -->
+          <p
+            class="text-n-500 font-secondary text-sm font-normal md:text-xl md:leading-[140%] lg:leading-[120%]"
+          >
+            Receive updates on events, achievements, and important announcements
+            directly in your inbox.
+          </p>
+        </div>
+      </div>
+
+      <!-- Cta button -->
+      <Button text="Subscribe to Newsletter" />
     </div>
   </div>
 </section>
