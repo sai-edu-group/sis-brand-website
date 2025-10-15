@@ -6,67 +6,68 @@ const steps = [
   {
     id: 1,
     number: "1",
-    icon: "icon-1.svg", // or keep inline SVG if you want
-    title: "Submit Your Inquiry",
+    icon: "/icons/form.svg", // or keep inline SVG if you want
+    title: "Fill In An Inquiry Form",
     description:
-      "Fill out the admission inquiry form and let us know about your child’s interests and needs.",
+      "Your journey begins here — just a few quick details so we can guide you better.",
   },
   {
     id: 2,
     number: "2",
-    icon: "icon-2.svg",
-    title: "Schedule a Campus Visit",
+    icon: "/icons/headphone.svg",
+    title: "Get Tailor Made Counselling",
     description:
-      "Our team will invite you to explore the campus and meet our faculty.",
+      "Our friendly admissions team will reach out to understand your needs and answer any questions.",
   },
   {
     id: 3,
     number: "3",
-    icon: "icon-3.svg",
-    title: "Talk to Our Counselor",
+    icon: "/icons/campus.svg",
+    title: "Welcomed to experience the world class campus of SAI",
     description:
-      "Our friendly admissions team will reach out to understand your needs and answer any questions.",
+      "Experience SAI first-hand — in person or online — and see where your child will thrive.",
   },
   {
     id: 4,
     number: "4",
-    icon: "icon-2.svg",
-    title: "Schedule a Campus Visit",
+    icon: "/icons/doc.svg",
+    title: "Application & Documents",
     description:
-      "Our team will invite you to explore the campus and meet our faculty.",
+      "We’ll provide the application form, checklist, and everything you need to proceed with ease.",
   },
   {
     id: 5,
     number: "5",
-    icon: "icon-3.svg",
-    title: "Talk to Our Counselor",
+    icon: "/icons/interaction.svg",
+    title: "Assessment & Interaction",
     description:
-      "Our friendly admissions team will reach out to understand your needs and answer any questions.",
+      "A warm, age-appropriate conversation to get to know your child and help them feel at home.",
   },
   {
     id: 6,
     number: "6",
-    icon: "icon-3.svg",
-    title: "Talk to Our Counselor",
+    icon: "/icons/offer-letter.svg",
+    title: "Offer of admission",
     description:
-      "Our friendly admissions team will reach out to understand your needs and answer any questions.",
+      "We’ll share the final outcome and guide you through the next steps — warmly and clearly.",
   },
 ];
 ---
 
 <section>
-  <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+  <div class="mx-auto max-w-screen-xl px-6 py-16 lg:py-24 2xl:px-0">
     <SectionHeader
       title="How it Works"
       subtitle="We’re here to guide you every step of the way - from your first inquiry to the moment your child walks into our world."
     />
 
     <div
-      class="mt-10 grid grid-cols-1 gap-4 lg:gap-8 md:grid-cols-2 lg:grid-cols-3"
+      class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
     >
       {
         steps.map((step) => (
           <AdmissionStepsCard
+            icon={step.icon}
             number={step.number}
             title={step.title}
             description={step.description}
