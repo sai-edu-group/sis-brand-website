@@ -14,9 +14,9 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
       title="Stories of Trust and Transformation"
     />
 
-    <div class="flex flex-col gap-10 overflow-hidden">
+    <div class="flex flex-col gap-10 overflow-hidden" id="testimonial-slider">
       <!-- Embla slider -->
-      <div class="" id="data-embla-testimonial-viewport">
+      <div class="" id="data-embla-viewport">
         <div class="flex" data-embla-container>
           {
             slides.map((imgSrc) => (
@@ -96,7 +96,7 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
         <!--  Prev button -->
         <button
           type="button"
-          id="prevTestimonialButton"
+          id="prevButton"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-11 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
           data-prev
           aria-label="Previous"
@@ -120,25 +120,13 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
         </button>
 
         <!-- Dots -->
-        <div id="emblaDots" class="flex items-center gap-1.5 md:gap-2">
-          {
-            slides.map((_, i) => (
-              <button
-                type="button"
-                class="embla-dot bg-n-300 size-2 cursor-pointer rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500 md:size-2.5"
-                aria-label={`Go to slide ${i + 1}`}
-                aria-selected="false"
-                testimonial-dot-index={i}
-              />
-            ))
-          }
-        </div>
+        <div id="emblaDots" class="flex items-center gap-1.5 md:gap-2"></div>
 
         <!-- Next button -->
         <button
           type="button"
           class="bg-n-100 border-n-200 hover:bg-n-200 flex size-11 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
-          id="nextTestimonialButton"
+          id="nextButton"
         >
           <span class="inline-flex rotate-180">
             <svg
@@ -162,58 +150,15 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
   </div>
 </section>
 
-<script>
-  import EmblaCarousel from "embla-carousel";
+<!-- Component-level init: scoped to this slider only -->
+<script type="module">
+  import { initEmblaRoot } from "../src/utils/embla.js";
 
   window.addEventListener("DOMContentLoaded", () => {
-    // Get the viewport element that contains the carousel
-    const viewport = document.getElementById("data-embla-testimonial-viewport");
-
-    // Stop execution if viewport is missing
-    if (!viewport) return;
-
-    // Initialize Embla Carousel
-    const embla = EmblaCarousel(viewport, {
+    const root = document.getElementById("testimonialSlider");
+    initEmblaRoot(root, {
       align: "start",
-      loop: true,
-      containScroll: "trimSnaps",
-      dragFree: false,
+      dragFree: true,
     });
-
-    const prevBtn = document.getElementById("prevTestimonialButton");
-    const nextBtn = document.getElementById("nextTestimonialButton");
-
-    // Attach click events to navigation buttons
-    if (prevBtn) prevBtn.addEventListener("click", () => embla.scrollPrev());
-    if (nextBtn) nextBtn.addEventListener("click", () => embla.scrollNext());
-
-    // Dots
-    const dots = Array.from(
-      document.querySelectorAll("[testimonial-dot-index]"),
-    );
-
-    // Update selected dot state
-    const setSelectedDot = () => {
-      const selected = embla.selectedScrollSnap();
-
-      // Handle dot click navigation
-      dots.forEach((dot, i) => {
-        const isSelected = i === selected;
-        dot.setAttribute("aria-selected", isSelected ? "true" : "false");
-        dot.classList.toggle("scale-110", isSelected);
-      });
-    };
-
-    // Handle dot click navigation
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => embla.scrollTo(i));
-    });
-
-    // Attach Embla events to update dots dynamically
-    embla.on("select", setSelectedDot);
-    embla.on("reInit", setSelectedDot);
-
-    // Initialize dot state once Embla is ready
-    setSelectedDot();
   });
 </script>
