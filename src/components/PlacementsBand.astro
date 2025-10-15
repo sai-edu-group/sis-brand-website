@@ -51,11 +51,13 @@ const animDirection = direction === "rtl" ? "normal" : "reverse";
     <!-- Marquee (duplicate list for seamless loop) -->
     <div class="group w-full overflow-hidden">
       <div
-        class="flex items-center gap-6 will-change-transform md:gap-14"
+        class="flex items-center gap-6 whitespace-nowrap will-change-transform md:gap-14"
         style={`transform:${startTransform}; animation: pb-marquee ${speedSec}s linear infinite; animation-direction:${animDirection};`}
       >
         <!-- GROUP 1 -->
-        <ul class="flex min-w-max items-center gap-6 md:gap-14">
+        <ul
+          class="flex min-w-max items-center gap-6 whitespace-nowrap md:gap-14"
+        >
           {
             logos.map((logo) => (
               <li>
@@ -70,11 +72,8 @@ const animDirection = direction === "rtl" ? "normal" : "reverse";
             ))
           }
         </ul>
-
-        <!-- GROUP 2 (duplicate, decorative) -->
         <ul
-          class="flex min-w-max items-center gap-6 md:gap-14"
-          aria-hidden="true"
+          class="flex min-w-max items-center gap-6 whitespace-nowrap md:gap-14"
         >
           {
             logos.map((logo) => (
@@ -82,7 +81,24 @@ const animDirection = direction === "rtl" ? "normal" : "reverse";
                 <img
                   class="h-20 w-full object-contain lg:h-[100px] lg:w-full"
                   src={logo.src}
-                  alt=""
+                  alt={logo.alt ?? ""}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))
+          }
+        </ul>
+        <ul
+          class="flex min-w-max items-center gap-6 whitespace-nowrap md:gap-14"
+        >
+          {
+            logos.map((logo) => (
+              <li>
+                <img
+                  class="h-20 w-full object-contain lg:h-[100px] lg:w-full"
+                  src={logo.src}
+                  alt={logo.alt ?? ""}
                   loading="lazy"
                   decoding="async"
                 />
