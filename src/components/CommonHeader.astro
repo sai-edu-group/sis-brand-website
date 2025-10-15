@@ -1,5 +1,5 @@
 ---
-const { eyebrow, title } = Astro.props;
+const { eyebrowText, title } = Astro.props;
 // Split the title into words
 const words = title ? title.trim().split(" ") : [];
 const lastWord = words.length > 0 ? words[words.length - 1] : "";
@@ -8,19 +8,33 @@ const firstPart = words.length > 1 ? words.slice(0, -1).join(" ") + " " : "";
 
 <div class="relative inline-block">
   {
-    eyebrow && (
-      <span class="from-p-500 to-p-300 absolute -top-7 left-0 h-1.5 w-16 rounded-full bg-gradient-to-r md:-top-9 md:h-2 md:w-24" />
+    eyebrowText && (
+      <p class="text-n-600 mb-2.5 text-sm font-light md:mb-1 md:text-xl">
+        {eyebrowText}
+      </p>
     )
   }
-  <p class="text-n-800 text-4xl/11 font-medium md:text-6xl/20 2xl:text-7xl/24">
+  <p
+    class="text-n-800 text-4xl/11 font-medium md:text-6xl/20 md:leading-[73px] 2xl:text-7xl/24"
+  >
     {firstPart}
     <span class="relative inline-block">
       {lastWord}
-      <img
-        src="/icons/double-lines.svg"
-        alt=""
-        class="absolute -bottom-[20px] left-0 h-[19px] w-[130px] md:h-[34px] md:w-[232px]"
-      />
+      <svg
+        class="absolute -right-[20px] -bottom-[15px] -z-1 h-[19px] w-[130px] md:right-0 md:h-[34px] md:w-[232px] lg:-bottom-[30px] xl:h-[47px] xl:w-[300px]"
+        xmlns="http://www.w3.org/2000/svg"
+        width="353"
+        height="48"
+        viewBox="0 0 353 48"
+        fill="none"
+      >
+        <path
+          d="M2.65652 37.4603C45.9947 21.9917 176.227 -18.7211 349.157 10.0033C351.336 10.3653 352.809 12.4257 352.448 14.6049C352.086 16.7841 350.025 18.2578 347.846 17.8959C176.775 -10.5199 48.0079 29.7673 5.34598 44.9945C3.2654 45.7371 0.976289 44.6523 0.233671 42.5717C-0.508594 40.4913 0.576181 38.2029 2.65652 37.4603Z"
+          fill="#CC554D"></path>
+        <path
+          d="M78.627 39.415C111.297 27.4685 218.007 8.01076 330.684 27.5283C332.86 27.9053 334.319 29.9757 333.942 32.1523C333.565 34.329 331.495 35.7881 329.318 35.4111C217.996 16.1281 112.706 35.4711 81.375 46.9277C79.3002 47.6864 77.0028 46.6197 76.2441 44.5449C75.4857 42.4703 76.5525 40.1738 78.627 39.415Z"
+          fill="#CC554D"></path>
+      </svg>
     </span>
   </p>
 </div>
