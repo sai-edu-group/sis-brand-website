@@ -8,27 +8,26 @@ import Button from "../../components/Button.astro";
 >
   <!-- Main Content -->
   <div
-    class="relative z-10 container mx-auto mb-15 px-4 pt-10 md:mb-30 md:px-6 lg:pb-[91px] xl:mb-0 2xl:px-0 2xl:pt-32"
+    class="flex h-screen flex-col bg-[url('/images/school-background.png')] bg-cover bg-center bg-no-repeat pt-24 md:pt-36 xl:flex-row"
   >
     <div class="flex flex-col lg:flex-row lg:items-center lg:gap-0">
       <!-- Left column -->
-      <div class="flex flex-col gap-6 md:gap-7">
-        <!-- Hero Text -->
-        <div class="w-full md:w-[80%] lg:w-[50%] lg:text-xl xl:w-[52%]">
-          <h2
-            class="text-n-800 text-4xl leading-tight font-medium md:text-6xl lg:text-7xl 2xl:text-8xl"
-          >
-            Begin Your Child’s Journey <span class="text-orange-500"
-              >at SAI
-            </span>
-          </h2>
-        </div>
+      <div
+        class="flex h-full w-full flex-col items-start justify-center gap-6 lg:gap-12 xl:w-[65%]"
+      >
+        <!-- Main heading -->
+        <h2
+          class="text-n-800 text-4xl leading-tight md:text-6xl lg:text-7xl 2xl:text-8xl 2xl:leading-[112px]"
+        >
+          Begin Your <br />Child’s Journey
+          <br /><span class="text-orange-500">at SAI </span>
+        </h2>
 
         <!-- Supporting text -->
         <p
-          class="text-n-600 w-full text-base leading-normal font-medium md:w-[80%] lg:w-[50%] lg:text-xl xl:w-[45%]"
+          class="text-n-600 font-secondary text-base leading-normal lg:w-[70%] lg:text-xl lg:leading-[32px]"
         >
-          We’re here to guide you every step of the way — <br /> from your first
+          We’re here to guide you every step of the way — from your first
           inquiry to the moment your child walks into our world.
         </p>
 
