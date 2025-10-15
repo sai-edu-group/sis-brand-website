@@ -5,7 +5,7 @@ export interface Props {
   title: string;
   description: string;
 }
-const { number, icon, title, description } = Astro.props;
+const { number, icon = "", title, description } = Astro.props;
 ---
 
 <div
@@ -19,7 +19,8 @@ const { number, icon, title, description } = Astro.props;
   </p>
   <!-- Icon -->
   <div>
-    <svg
+    <img src={icon} alt="" />
+    <!-- <svg
       class="size-10 md:size-16"
       width="48"
       height="48"
@@ -36,11 +37,11 @@ const { number, icon, title, description } = Astro.props;
       <path
         d="M28.922 27.6598C29.4715 24.4327 32.6545 20.8753 37.562 21.3953C42.404 21.9087 45.0261 26.0061 44.9247 29.3339C44.7968 33.5218 44.508 34.6643 43.8299 38.647C43.2974 41.7731 40.2956 45.209 35.6468 44.9483L35.1915 44.9115C30.3493 44.3983 27.7274 40.301 27.8288 36.9729C27.9566 32.7851 28.2437 31.6423 28.922 27.6598ZM37.2004 24.8055C34.3515 24.5036 32.5938 26.5227 32.302 28.234C31.62 32.2386 31.3752 33.1594 31.2557 37.0767C31.2043 38.7602 32.6384 41.1924 35.5531 41.5013C38.4026 41.8028 40.1584 39.7824 40.4499 38.0711C41.1316 34.067 41.3781 33.147 41.4978 29.2301C41.5492 27.5468 40.115 25.1144 37.2004 24.8055Z"
         fill="#CC554D"></path>
-    </svg>
+    </svg> -->
   </div>
   <!-- Text wrapper -->
   <div class="text-n-800 z-2 space-y-3 md:space-y-6">
-    <p class="w-[60%] text-xl font-semibold md:text-3xl">{title}</p>
+    <p class="w-[90%] text-xl font-semibold md:text-3xl">{title}</p>
     <p class="text-base font-medium lg:text-lg">{description}</p>
   </div>
 </div>
