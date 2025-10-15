@@ -1,5 +1,3 @@
-import EmblaCarousel from "embla-carousel";
-
 export const initEmblaRoot = (root, options) => {
   const viewport = root.querySelector("[data-embla-viewport]");
   if (!viewport) return;
