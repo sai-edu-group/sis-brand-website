@@ -12,6 +12,14 @@ const { icon, title, type, infoText = [] } = Astro.props;
 <div
   class="border-n-200 relative flex flex-col gap-2 overflow-hidden rounded-3xl border px-4 py-6 md:gap-6 2xl:gap-9 2xl:px-8 2xl:py-9"
 >
+  <!-- Backdrop icon -->
+  <img
+    src={`/icons/${icon}`}
+    alt=""
+    aria-hidden="true"
+    class={`pointer-events-none select-none absolute -right-[15%] w-[240px] -bottom-[15%] md:w-[280px] object-contain opacity-10`}
+  />
+
   <!-- Foreground icon -->
   <div>
     <img
