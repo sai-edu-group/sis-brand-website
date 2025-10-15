@@ -9,6 +9,7 @@ interface Props {
   extraClasses?: string;
   type?: "button" | "submit" | "reset";
   mode?: "inline" | "block";
+  [key: string]: any;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   extraClasses = "",
   type = "button",
   mode = "inline",
+  ...rest
 } = Astro.props;
 
 // Base skeleton
@@ -54,7 +56,7 @@ const modes = {
 const classes = `${base} ${variants[variant]} ${sizes[size]} ${modes[mode]} ${extraClasses}`;
 ---
 
-<button type={type} onclick={onClick} class={classes}>
+<button type={type} onclick={onClick} class={classes} {...rest}>
   {
     leftIcon && (
       <span class="inline-flex">

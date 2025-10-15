@@ -1,0 +1,486 @@
+---
+import Input from "../../components/Input.astro";
+import StepCard from "../../components/FormStepsCard.astro";
+import Select from "../../components/Select.astro";
+import Textarea from "../../components/Textarea.astro";
+import Button from "../../components/Button.astro";
+import SectionHeader from "../../components/SectionHeader.astro";
+
+const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
+---
+
+<section class="bg-n-100 mx-auto w-full space-y-6">
+  <div
+    class="container mx-auto flex flex-col gap-16 px-6 py-12 md:py-24 lg:px-8 2xl:px-6"
+  >
+    <!-- Section Header -->
+    <SectionHeader
+      title="Now what are you waiting for? Let’s Begin Your SAI Journey"
+      subtitle="A few details from you, and we’ll be in touch with care, clarity, and guidance."
+    />
+
+    <!-- ONE form for all steps -->
+    <form id="admission-form" novalidate>
+      <!-- STEP 1 -->
+
+      <StepCard id="step-1" step={1} total={3} title={STEP_TITLES[0]}>
+        <div class="flex flex-col gap-14 md:gap-24">
+          <div
+            class="grid grid-cols-1 gap-x-20 gap-y-6 sm:grid-cols-2 md:gap-y-9"
+          >
+            <!-- Student Name Input -->
+            <div data-field>
+              <Input
+                label="Student’s Full Name"
+                name="studentName"
+                required
+                placeholder="Enter Full Name"
+                errorMessage="Student name is required."
+              />
+            </div>
+
+            <!-- Academic Year Select -->
+            <Select
+              label="Admission for Academic Year"
+              name="academicYear"
+              placeholder="Select Year"
+              required
+              options={[
+                { label: "2025–2026", value: "2025-26" },
+                { label: "2026–2027", value: "2026-27" },
+              ]}
+              errorMessage="Please select the academic year."
+            />
+
+            <!-- DOB Input -->
+            <div data-field>
+              <Input
+                label="Student’s Date of Birth"
+                name="dob"
+                type="date"
+                required
+                errorMessage="Date of birth is required."
+              />
+            </div>
+
+            <!-- Class Select -->
+            <Select
+              label="Admission for Class"
+              name="admissionClass"
+              required
+              placeholder="Select Class"
+              options={[
+                { label: "XII Hum", value: "12-hum" },
+                { label: "XI Sci", value: "11-sci" },
+              ]}
+              errorMessage="Please select the class for admission."
+            />
+          </div>
+
+          <div class="flex flex-wrap items-end justify-between gap-8">
+            <p class="text-n-500 text-base font-normal md:text-xl">
+              We welcome learners from all backgrounds and cities.
+            </p>
+            <!-- Button: Continue to next step -->
+            <Button
+              id="next-1"
+              type="button"
+              text="Continue to Parent Info"
+              variant="solid"
+              size="medium"
+            />
+          </div>
+        </div>
+      </StepCard>
+
+      <!-- STEP 2 -->
+      <StepCard
+        id="step-2"
+        step={2}
+        total={3}
+        title={STEP_TITLES[1]}
+        class={"hidden"}
+      >
+        <div class="flex flex-col gap-14 md:gap-24">
+          <div
+            class="grid grid-cols-1 gap-x-20 gap-y-6 sm:grid-cols-2 md:gap-y-9"
+          >
+            <!-- Parent/Guardian Input -->
+            <div data-field>
+              <Input
+                label="Parent / Guardian’s Full Name"
+                name="parentName"
+                required
+                errorMessage="Parent/Guardian name is required."
+              />
+            </div>
+
+            <!-- Phone Input -->
+            <div data-field>
+              <Input
+                label="Phone Number"
+                name="phone"
+                type="tel"
+                required
+                errorMessage="Enter a valid 10-digit number."
+              />
+            </div>
+
+            <!-- Email Input -->
+            <div data-field>
+              <Input
+                label="Email ID"
+                name="email"
+                type="email"
+                required
+                errorMessage="Enter a valid email address."
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-8">
+            <p
+              class="text-n-500 text-base font-medium md:text-xl xl:flex xl:flex-1"
+            >
+              This is how we’ll get in touch with you. We don’t spam, promise.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <!-- Back button -->
+              <Button
+                id="back-2"
+                type="button"
+                text="Back to Child Details"
+                variant="ghost"
+                size="medium"
+                extraClasses="border border-n-300 bg-white text-n-800 hover:bg-n-100"
+              />
+              <!-- Continue button -->
+              <Button
+                id="next-2"
+                type="button"
+                text="Continue to Preferences"
+                variant="solid"
+                size="medium"
+              />
+            </div>
+          </div>
+        </div>
+      </StepCard>
+
+      <!-- STEP 3 -->
+      <StepCard
+        id="step-3"
+        step={3}
+        total={3}
+        title={STEP_TITLES[2]}
+        class={"hidden"}
+      >
+        <!-- Fields wrapper -->
+        <div class="flex flex-col gap-14 md:gap-24">
+          <div
+            class="grid grid-cols-1 gap-x-20 gap-y-6 sm:grid-cols-2 md:gap-y-9"
+          >
+            <!-- Hotel Required Select -->
+            <Select
+              label="Hostel Required"
+              name="hostel"
+              placeholder="Select"
+              required
+              options={[
+                { label: "Not Sure Yet", value: "maybe" },
+                { label: "Yes", value: "yes" },
+                { label: "No", value: "no" },
+              ]}
+              errorMessage="Please select an option."
+            />
+
+            <!-- Message textarea -->
+            <Textarea
+              label="Message"
+              name="message"
+              placeholder="Any specific concerns, requests, or child interests?"
+              errorMessage="Message is required."
+              required
+              rows={2}
+            />
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-8">
+            <p
+              class="text-n-500 flex text-base font-medium md:text-xl xl:flex-1"
+            >
+              Let us know if you’d like your child to avail hostel facilities.
+              This helps us guide you better.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              <!-- Back button -->
+              <Button
+                id="back-3"
+                type="button"
+                text="Back to Parent Info"
+                variant="ghost"
+                size="medium"
+                extraClasses="border border-n-300 bg-n-50 text-n-800 hover:bg-n-100"
+              />
+              <!-- Submit button -->
+              <Button
+                id="submit"
+                type="submit"
+                text="Submit Inquiry"
+                variant="solid"
+                size="medium"
+                extraClasses="bg-[#C9443A]/80 hover:bg-orange-500 text-n-50"
+              />
+            </div>
+          </div>
+        </div>
+      </StepCard>
+
+      <!-- THANK YOU -->
+      <article
+        id="thank-you"
+        class="border-n-200 bg-n-50 flex flex-col items-center gap-8 rounded-3xl border px-6 py-8 text-center md:gap-10 md:py-12 lg:gap-12 lg:py-24"
+      >
+        <!-- Paper plan icon -->
+        <img
+          src="/icons/paper-plane.svg"
+          alt=""
+          class="h-12 -rotate-10 md:h-24 lg:h-32"
+        />
+        <div class="flex flex-col items-center gap-2">
+          <!-- Success panel title -->
+          <p
+            class="text-n-700 font-secondary text-sm font-light md:text-lg lg:text-2xl"
+          >
+            We’re excited to begin this journey with you.
+          </p>
+          <p
+            class="text-n-700 lg::w-[65%] w-[90%] text-center text-2xl leading-tight font-normal md:w-[75%] md:text-4xl lg:text-5xl lg:leading-[56px]"
+          >
+            At SAI International, your child is not just admitted, but truly
+            welcomed.
+          </p>
+        </div>
+
+        <!-- Success panel message -->
+        <p
+          class="text-n-600 font-secondary text-sm font-medium md:text-lg lg:text-2xl"
+        >
+          Our admissions team will be in touch with you shortly.
+        </p>
+        <!-- Download brochure button -->
+        <Button text="Download Brochure" variant="outline" />
+      </article>
+    </form>
+  </div>
+</section>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const steps = [
+      document.getElementById("step-1"),
+      document.getElementById("step-2"),
+      document.getElementById("step-3"),
+    ];
+    const thankYou = document.getElementById("thank-you");
+
+    // Show only one step at a time
+    const showStep = (idx: number) => {
+      steps.forEach((el, i) => el?.classList.toggle("hidden", i !== idx));
+      thankYou?.classList.add("hidden");
+    };
+
+    // Init
+    showStep(0);
+
+    // Next / Back wiring
+    document
+      .getElementById("next-1")
+      ?.addEventListener("click", () => showStep(1));
+    document
+      .getElementById("next-2")
+      ?.addEventListener("click", () => showStep(2));
+    document
+      .getElementById("back-2")
+      ?.addEventListener("click", () => showStep(0));
+    document
+      .getElementById("back-3")
+      ?.addEventListener("click", () => showStep(1));
+
+    // Submit just shows the Thank You and hides steps
+    document.getElementById("submit")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      steps.forEach((el) => el?.classList.add("hidden"));
+      thankYou?.classList.remove("hidden");
+    });
+  });
+</script>
+
+<!-- <script>
+  import { admissionEnquiryRequest } from "../../services/api/enquiry.api.service";
+
+  // ELEMENTS
+  const form = document.getElementById("admission-form") as HTMLFormElement;
+  const stepPanels = [
+    document.getElementById("step-1"),
+    document.getElementById("step-2"),
+    document.getElementById("step-3"),
+  ];
+  const thankYouSection = document.getElementById("thank-you");
+
+  const nextBtnStep1 = document.getElementById("next-1");
+  const nextBtnStep2 = document.getElementById("next-2");
+  const backBtnStep2 = document.getElementById("back-2");
+  const backBtnStep3 = document.getElementById("back-3");
+  const submitBtn = document.getElementById("submit");
+
+  // STATE
+  let currentStepIndex = 0;
+  let isSubmitting = false;
+
+  // Show one step, hide others
+  function showStep(stepIndex: any) {
+    stepPanels.forEach((panel, idx) => {
+      // Hide non active
+      panel?.classList.toggle("hidden", idx !== stepIndex);
+    });
+    thankYouSection?.classList.add("hidden");
+    // Update state
+    currentStepIndex = stepIndex;
+  }
+
+  function setSubmittingState(isLoading: boolean) {
+    if (!submitBtn) return;
+    // Prevent multiple submissions
+    submitBtn.toggleAttribute("disabled", isLoading);
+    submitBtn.setAttribute("aria-busy", String(isLoading));
+    submitBtn.classList.toggle("opacity-60", isLoading);
+    submitBtn.classList.toggle("cursor-not-allowed", isLoading);
+    isSubmitting = isLoading;
+  }
+
+  // VALIDATION (current step only)
+  const PHONE_REGEX = /^[0-9]{10}$/;
+
+  // Validate field in current step; show error messages
+  function validateCurrentStep() {
+    const activePanel = stepPanels[currentStepIndex];
+    const controls = activePanel?.querySelectorAll("input, select, textarea");
+    let allValid = true;
+
+    controls?.forEach((control) => {
+      const fieldWrapperEl =
+        control.closest("[data-field]") || control.parentElement;
+      const errorMessage = fieldWrapperEl?.querySelector?.("[data-error]");
+
+      // Reset previous error state
+      if (errorMessage) errorMessage.classList.add("hidden");
+      control.classList.remove("!border-red-500");
+
+      // Normalize phone digits before checking
+      if (control.name === "phone") {
+        control.value = (control.value || "").replace(/\D+/g, "");
+      }
+
+      // Check validity
+      let isValid = control.checkValidity();
+      if (isValid && control.name === "phone") {
+        isValid = PHONE_REGEX.test(control.value);
+      }
+
+      if (!isValid) {
+        allValid = false;
+        // Show inline error
+        if (errorMessage) errorMessage.classList.remove("hidden");
+        control.classList.add("!border-red-500");
+        control.setAttribute("aria-invalid", "true");
+      } else {
+        control.setAttribute("aria-invalid", "false");
+      }
+    });
+
+    return allValid;
+  }
+
+  // Payload
+  function buildPayload() {
+    // Read all fields
+    const formData = new FormData(form);
+    const raw = Object.fromEntries(formData.entries());
+
+    return {
+      name: (raw.parentName || "").toString().trim(),
+      emailId: (raw.email || "").toString().trim(),
+      mobileNo: (raw.phone || "").toString().trim(),
+      // Format: "2025-26"
+      academicyear_name: (raw.academicYear || "").toString().trim(),
+      className: (raw.admissionClass || "").toString().trim(),
+      // Format: "2010-05-15"
+      dob: (raw.dob || "").toString().trim(),
+      hostelRequired: (raw.hostel || "").toString().trim(),
+    };
+  }
+
+  // Function to send inquiry and make API call
+  function sendInquiry(payload: any) {
+    // Make API Call
+    return admissionEnquiryRequest(payload)
+      .then((response) => {
+        return response;
+      })
+      .catch((error) => {
+        // Surface network/axios errors
+        return {
+          success: false,
+          message: error?.message || "Network error",
+        };
+      });
+  }
+
+  // Submit after validation
+  async function submitFormOnce() {
+    if (isSubmitting) return;
+    // Step 3 validation is the final one before submission
+    if (!validateCurrentStep()) return;
+
+    const payload = buildPayload();
+    setSubmittingState(true);
+
+    try {
+      const response = await sendInquiry(payload);
+
+      if (!response?.success) {
+        // Throw to go to the catch block for unified error display
+        throw new Error(
+          response?.message || "Submission failed. Please try again."
+        );
+      }
+
+      // Success UI
+      stepPanels.forEach((panel) => panel?.classList.add("hidden"));
+      thankYouSection?.classList.remove("hidden");
+      form.reset();
+    } catch (error) {
+      console.error("Submit Error:", error);
+    } finally {
+      setSubmittingState(false);
+    }
+  }
+
+  // NAV
+  nextBtnStep1?.addEventListener("click", () => {
+    if (validateCurrentStep()) showStep(1);
+  });
+  nextBtnStep2?.addEventListener("click", () => {
+    if (validateCurrentStep()) showStep(2);
+  });
+  backBtnStep2?.addEventListener("click", () => showStep(0));
+  backBtnStep3?.addEventListener("click", () => showStep(1));
+
+  form.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    submitFormOnce();
+  });
+
+  // INIT
+  showStep(0);
+</script> -->
