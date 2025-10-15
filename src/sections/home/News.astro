@@ -54,9 +54,10 @@ const uid = "embla-news";
       title=" The SAI Chronicle"
     />
 
-    <div class="space-y-7 md:space-y-9">
+    <!-- Slider root: keep viewport + controls inside this wrapper -->
+    <div data-embla-root id={uid} class="space-y-7 md:space-y-9">
       <!-- Viewport -->
-      <div id={uid} class="overflow-hidden">
+      <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
         <div class="flex gap-7" data-embla-container>
           {
@@ -75,24 +76,12 @@ const uid = "embla-news";
         </div>
       </div>
 
-      <!-- Buttons Controls -->
+      <!-- Controls + Dots -->
       <div
         class="relative flex items-center justify-center gap-8 md:gap-12 lg:gap-20"
       >
-        <!-- Dots (auto-render same count as cards) -->
-        <div id="emblaDots" class="flex items-center gap-1.5 md:gap-2">
-          {
-            newsDetails.articleCards.map((_, i) => (
-              <button
-                type="button"
-                class="embla-dot bg-n-300 size-2 cursor-pointer rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500 md:size-2.5"
-                aria-selected="false"
-                aria-label={`Go to slide ${i + 1}`}
-                data-dot-index={i}
-              />
-            ))
-          }
-        </div>
+        <!-- Dots -->
+        <div class="flex items-center gap-1.5 md:gap-2" data-embla-dots></div>
 
         <div class="absolute right-0 flex gap-4 md:gap-6">
           <!--  Prev button -->
@@ -100,7 +89,7 @@ const uid = "embla-news";
             type="button"
             id="prevButton"
             class="bg-n-50 border-n-200 hover:bg-n-200 flex size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
-            data-prev
+            data-embla-prev
             aria-label="Previous"
           >
             <span class="inline-flex">
@@ -125,7 +114,8 @@ const uid = "embla-news";
           <button
             type="button"
             class="bg-n-50 border-n-200 hover:bg-n-200 flex size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
-            id="nextButton"
+            data-embla-next
+            aria-label="Next"
           >
             <span class="inline-flex rotate-180">
               <svg
@@ -187,50 +177,11 @@ const uid = "embla-news";
     </div>
   </div>
 </section>
-<script>
-  import EmblaCarousel from "embla-carousel";
-
-  window.addEventListener("DOMContentLoaded", () => {
-    const viewport = document.getElementById("embla-news");
-    if (!viewport) return;
-
-    const embla = EmblaCarousel(viewport, {
-      align: "start",
-      containScroll: "trimSnaps",
-      loop: false,
-      dragFree: false, // snapping works best with fixed slide widths
-    });
-
-    document
-      .getElementById("prevButton")
-      ?.addEventListener("click", () => embla.scrollPrev());
-    document
-      .getElementById("nextButton")
-      ?.addEventListener("click", () => embla.scrollNext());
-
-    // Dots sync
-    const dots = Array.from(document.querySelectorAll("[data-dot-index]"));
-    const setSelectedDot = () => {
-      const snap = embla.selectedScrollSnap();
-      dots.forEach((dot, i) => {
-        const active = i === snap;
-        dot.setAttribute("aria-selected", active ? "true" : "false");
-        dot.classList.toggle("scale-110", active);
-      });
-    };
-    dots.forEach((dot, i) =>
-      dot.addEventListener("click", () => embla.scrollTo(i))
-    );
-    embla.on("select", setSelectedDot);
-    embla.on("reInit", setSelectedDot);
-    setSelectedDot();
-  });
-</script>
 <style>
   /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 28px; /* match the gap-7 above */
+    --gap: 16px; /* match the gap-7 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
 
@@ -257,3 +208,17 @@ const uid = "embla-news";
       );
   }
 </style>
+
+<!-- Component-level init: scoped to this slider only -->
+<script type="module">
+  import { initEmblaRoot } from "../src/utils/embla.js";
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const root = document.getElementById("embla-news");
+    initEmblaRoot(root, {
+      align: "start",
+      dragFree: true,
+      slidesToScroll: "2",
+    });
+  });
+</script>

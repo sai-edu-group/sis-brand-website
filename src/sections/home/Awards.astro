@@ -181,28 +181,3 @@ const awardsDetails = {
     });
   });
 </script>
-
-<style>
-  /* Slider-level variables (like your tb-slider reference) */
-  .ns-slider {
-    --slides: 1; /* default: mobile shows 1 */
-    --gap: 28px; /* match the gap-7 above */
-    --peek: 0px; /* extra visible width to “peek” next slide */
-  }
-
-  @media (min-width: 640px) {
-    .ns-slider {
-      --slides: 2;
-      --peek: 0px;
-    }
-  }
-
-  /* Each slide width: ((100% - total gaps - peek) / slides) */
-  .ns-slide {
-    flex: 0 0
-      calc(
-        (100% - (var(--gap) * (var(--slides) - 1)) - var(--peek)) /
-          var(--slides)
-      );
-  }
-</style>
