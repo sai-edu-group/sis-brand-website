@@ -116,7 +116,7 @@ const tabs = [
         {
           tabs.map((tab, idx) => (
             <div
-              class={`tab-item flex cursor-pointer flex-col items-center rounded-xl p-3 transition-colors md:px-3.5 md:py-4 ${
+              class={`tab-item flex cursor-pointer flex-col items-center rounded-xl border-2 border-transparent p-3 transition-colors hover:border-orange-500 md:px-3.5 md:py-4 ${
                 idx === 0 ? "bg-orange-500" : "bg-white"
               }`}
               data-index={idx}

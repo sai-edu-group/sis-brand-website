@@ -18,13 +18,22 @@ const {
 ---
 
 <div
-  class="bg-n-50 border-n-300 flex w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 xl:flex-row xl:gap-6"
+  class="group bg-n-50 border-n-300 flex w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 xl:flex-row xl:gap-6"
 >
   <!-- Campus image -->
   <div
-    class="h-[224px] w-full overflow-hidden rounded-xl md:h-[282px] lg:h-auto xl:w-[320px]"
+    class="relative h-[224px] w-full overflow-hidden rounded-xl md:h-[282px] lg:h-auto xl:w-[320px]"
   >
-    <img src={img} alt="" class="h-full w-full object-cover" />
+    <img
+      src={img}
+      alt=""
+      class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+    />
+
+    <!-- Overlay animation -->
+    <span
+      class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+    ></span>
   </div>
 
   <div class="flex flex-1 flex-col gap-3 md:gap-6 lg:gap-10 xl:gap-14">
