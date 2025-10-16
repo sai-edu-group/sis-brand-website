@@ -32,48 +32,18 @@ const firstPart = words.join(" ");
       <svg
         class="absolute -right-[20px] -bottom-[15px] -z-1 h-[19px] w-[130px] md:right-0 md:h-[34px] md:w-[232px] lg:-bottom-[30px] xl:h-[47px] xl:w-[300px]"
         xmlns="http://www.w3.org/2000/svg"
+        width="353"
+        height="48"
         viewBox="0 0 353 48"
         fill="none"
       >
         <path
-          d="M2.65652 37.4603C45.9947 21.9917 176.227 -18.7211 349.157 10.0033C351.336 10.3653 352.809 12.4257 352.448 14.6049C352.086 16.7841 350.025 18.2578 347.846 17.8959C176.775 -10.5199 48.0079 29.7673 5.34598 44.9945C3.2654 45.7371 0.976289 44.6523 0.233671 42.5717C-0.508594 40.4913 0.576181 38.2029 2.65652 37.4603Z"
+          d="M2.65555 37.4599C45.9937 21.9912 176.227 -18.7216 349.156 10.0028C351.335 10.3648 352.808 12.4252 352.447 14.6044C352.085 16.7836 350.024 18.2573 347.845 17.8954C176.774 -10.5203 48.0069 29.7668 5.345 44.994C3.26442 45.7367 0.975312 44.6518 0.232694 42.5712C-0.509571 40.4908 0.575204 38.2025 2.65555 37.4599Z"
           fill="#CC554D"></path>
         <path
-          d="M78.627 39.415C111.297 27.4685 218.007 8.01076 330.684 27.5283C332.86 27.9053 334.319 29.9757 333.942 32.1523C333.565 34.329 331.495 35.7881 329.318 35.4111C217.996 16.1281 112.706 35.4711 81.375 46.9277C79.3002 47.6864 77.0028 46.6197 76.2441 44.5449C75.4857 42.4703 76.5525 40.1738 78.627 39.415Z"
+          d="M78.626 39.4146C111.296 27.468 218.006 8.01027 330.683 27.5278C332.859 27.9049 334.318 29.9752 333.941 32.1519C333.564 34.3286 331.494 35.7876 329.317 35.4106C217.995 16.1276 112.705 35.4706 81.374 46.9272C79.2992 47.6859 77.0019 46.6192 76.2432 44.5444C75.4847 42.4699 76.5515 40.1733 78.626 39.4146Z"
           fill="#CC554D"></path>
       </svg>
     </span>
   </p>
 </div>
-
-<script>
-  import { animate, stagger } from "motion";
-
-  // Select all containers
-  const containers = Array.from(document.querySelectorAll(".animatedText"));
-  console.log(containers);
-
-  const once = new WeakSet();
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !once.has(entry.target)) {
-          once.add(entry.target);
-
-          // Animate spans inside the currently observed container
-          const spans = entry.target.querySelectorAll("span");
-
-          animate(
-            spans,
-            { opacity: [0, 1], y: [20, 0] },
-            { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
-          );
-        }
-      });
-    },
-    { threshold: 0.3 }, // trigger when ~30% visible
-  );
-
-  containers.forEach((el) => io.observe(el));
-</script>
