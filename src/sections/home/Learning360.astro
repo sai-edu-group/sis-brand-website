@@ -141,7 +141,7 @@ const tabs = [
               class={`learning-section ${idx === 0 ? "block" : "hidden"}`}
               data-index={idx}
             >
-              <LearningContent items={tab.items} />
+              <LearningContent items={tab.items} title={tab.title} />
             </div>
           ))
         }
