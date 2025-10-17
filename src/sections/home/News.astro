@@ -59,7 +59,7 @@ const uid = "embla-news";
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
-        <div class="flex gap-4" data-embla-container>
+        <div class="flex gap-7" data-embla-container>
           {
             newsDetails.articleCards.map((card) => (
               <div class="ns-slide" data-embla-slide>
@@ -143,14 +143,14 @@ const uid = "embla-news";
   <div
     class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
   >
-    <div>
+    <div class="h-[208px] md:h-[430px] lg:h-auto lg:w-[40%] 2xl:w-[46%]">
       <img
         src="/images/news-letter.png"
         alt=""
-        class="w-[327px] object-contain md:w-[674px] lg:w-[600px]"
+        class="h-full w-full object-cover"
       />
     </div>
-    <div class="flex flex-col gap-8 md:gap-11">
+    <div class="flex flex-1 flex-col gap-8 md:gap-11">
       <div class="space-y-2 md:space-y-2.5">
         <!-- Eyebrow text -->
         <p class="text-n-600 text-base font-light md:text-2xl">
