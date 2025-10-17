@@ -20,7 +20,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     />
 
     <!-- ONE form for all steps -->
-    <form id="admission-form" novalidate>
+    <form id="admission-form">
       <!-- STEP 1 -->
 
       <StepCard id="step-1" step={1} total={3} title={STEP_TITLES[0]}>
@@ -32,7 +32,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             <div data-field>
               <Input
                 label="Student’s Full Name"
-                name="studentName"
+                name="name"
                 required
                 placeholder="Enter Full Name"
                 errorMessage="Student name is required."
@@ -42,7 +42,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             <!-- Academic Year Select -->
             <Select
               label="Admission for Academic Year"
-              name="academicYear"
+              name="academicyear_name"
               placeholder="Select Year"
               required
               options={[
@@ -66,7 +66,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             <!-- Class Select -->
             <Select
               label="Admission for Class"
-              name="admissionClass"
+              name="className"
               required
               placeholder="Select Class"
               options={[
@@ -119,7 +119,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             <div data-field>
               <Input
                 label="Phone Number"
-                name="phone"
+                name="mobileNo"
                 type="tel"
                 required
                 errorMessage="Enter a valid 10-digit number."
@@ -130,7 +130,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             <div data-field>
               <Input
                 label="Email ID"
-                name="email"
+                name="emailId"
                 type="email"
                 required
                 errorMessage="Enter a valid email address."
@@ -157,7 +157,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
               <!-- Continue button -->
               <Button
                 id="next-2"
-                type="button"
+                type="submit"
                 text="Continue to Preferences"
                 variant="solid"
                 size="medium"
@@ -274,7 +274,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     </form>
   </div>
 </section>
-<script>
+<script is:inline type="module">
+  import { admissionEnquiryRequest } from "/js/form.js";
   window.addEventListener("DOMContentLoaded", () => {
     const steps = [
       document.getElementById("step-1"),
@@ -283,22 +284,56 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     ];
     const thankYou = document.getElementById("thank-you");
 
-    // Show only one step at a time
-    const showStep = (idx: number) => {
+    const showStep = (idx) => {
       steps.forEach((el, i) => el?.classList.toggle("hidden", i !== idx));
       thankYou?.classList.add("hidden");
     };
 
-    // Init
+    // Initially show step 1
     showStep(0);
 
-    // Next / Back wiring
-    document
-      .getElementById("next-1")
-      ?.addEventListener("click", () => showStep(1));
-    document
-      .getElementById("next-2")
-      ?.addEventListener("click", () => showStep(2));
+    // ✅ Validation
+    const validateStep = (stepEl) => {
+      if (!stepEl) return false;
+      const fields = stepEl.querySelectorAll("input, select, textarea");
+      let valid = true;
+
+      fields.forEach((el) => {
+        const errorText = el
+          .closest("[data-field]")
+          ?.querySelector("[data-error]");
+        let fieldValid = true;
+
+        if (el.hasAttribute("required") && !el.value.trim()) fieldValid = false;
+
+        if (el.type === "email" && el.value.trim() !== "") {
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(el.value.trim())) fieldValid = false;
+        }
+
+        if (!fieldValid) {
+          valid = false;
+          el.classList.add("border-red-500", "focus:ring-red-500");
+          errorText?.classList.remove("hidden");
+        } else {
+          el.classList.remove("border-red-500", "focus:ring-red-500");
+          errorText?.classList.add("hidden");
+        }
+      });
+
+      return valid;
+    };
+
+    // ✅ Step navigation
+    document.getElementById("next-1")?.addEventListener("click", () => {
+      if (validateStep(steps[0])) showStep(1);
+    });
+
+    document.getElementById("next-2")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (validateStep(steps[1])) showStep(2);
+    });
+
     document
       .getElementById("back-2")
       ?.addEventListener("click", () => showStep(0));
@@ -306,181 +341,34 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       .getElementById("back-3")
       ?.addEventListener("click", () => showStep(1));
 
-    // Submit just shows the Thank You and hides steps
-    document.getElementById("submit")?.addEventListener("click", (e) => {
+    // ✅ Submit handler
+    document.getElementById("submit")?.addEventListener("click", async (e) => {
       e.preventDefault();
-      steps.forEach((el) => el?.classList.add("hidden"));
-      thankYou?.classList.remove("hidden");
+      if (!validateStep(steps[2])) return;
+
+      const form = document.querySelector("form");
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await admissionEnquiryRequest(payload);
+        console.log("✅ Enquiry submitted:", response);
+
+        if (response.status === false) {
+          alert(
+            "Something went wrong while submitting your enquiry. Please try again.",
+          );
+          return;
+        }
+
+        steps.forEach((el) => el?.classList.add("hidden"));
+        thankYou?.classList.remove("hidden");
+      } catch (err) {
+        console.error("❌ Failed to submit enquiry:", err);
+        alert(
+          "Something went wrong while submitting your enquiry. Please try again.",
+        );
+      }
     });
   });
 </script>
-
-<!-- <script>
-  import { admissionEnquiryRequest } from "../../services/api/enquiry.api.service";
-
-  // ELEMENTS
-  const form = document.getElementById("admission-form") as HTMLFormElement;
-  const stepPanels = [
-    document.getElementById("step-1"),
-    document.getElementById("step-2"),
-    document.getElementById("step-3"),
-  ];
-  const thankYouSection = document.getElementById("thank-you");
-
-  const nextBtnStep1 = document.getElementById("next-1");
-  const nextBtnStep2 = document.getElementById("next-2");
-  const backBtnStep2 = document.getElementById("back-2");
-  const backBtnStep3 = document.getElementById("back-3");
-  const submitBtn = document.getElementById("submit");
-
-  // STATE
-  let currentStepIndex = 0;
-  let isSubmitting = false;
-
-  // Show one step, hide others
-  function showStep(stepIndex: any) {
-    stepPanels.forEach((panel, idx) => {
-      // Hide non active
-      panel?.classList.toggle("hidden", idx !== stepIndex);
-    });
-    thankYouSection?.classList.add("hidden");
-    // Update state
-    currentStepIndex = stepIndex;
-  }
-
-  function setSubmittingState(isLoading: boolean) {
-    if (!submitBtn) return;
-    // Prevent multiple submissions
-    submitBtn.toggleAttribute("disabled", isLoading);
-    submitBtn.setAttribute("aria-busy", String(isLoading));
-    submitBtn.classList.toggle("opacity-60", isLoading);
-    submitBtn.classList.toggle("cursor-not-allowed", isLoading);
-    isSubmitting = isLoading;
-  }
-
-  // VALIDATION (current step only)
-  const PHONE_REGEX = /^[0-9]{10}$/;
-
-  // Validate field in current step; show error messages
-  function validateCurrentStep() {
-    const activePanel = stepPanels[currentStepIndex];
-    const controls = activePanel?.querySelectorAll("input, select, textarea");
-    let allValid = true;
-
-    controls?.forEach((control) => {
-      const fieldWrapperEl =
-        control.closest("[data-field]") || control.parentElement;
-      const errorMessage = fieldWrapperEl?.querySelector?.("[data-error]");
-
-      // Reset previous error state
-      if (errorMessage) errorMessage.classList.add("hidden");
-      control.classList.remove("!border-red-500");
-
-      // Normalize phone digits before checking
-      if (control.name === "phone") {
-        control.value = (control.value || "").replace(/\D+/g, "");
-      }
-
-      // Check validity
-      let isValid = control.checkValidity();
-      if (isValid && control.name === "phone") {
-        isValid = PHONE_REGEX.test(control.value);
-      }
-
-      if (!isValid) {
-        allValid = false;
-        // Show inline error
-        if (errorMessage) errorMessage.classList.remove("hidden");
-        control.classList.add("!border-red-500");
-        control.setAttribute("aria-invalid", "true");
-      } else {
-        control.setAttribute("aria-invalid", "false");
-      }
-    });
-
-    return allValid;
-  }
-
-  // Payload
-  function buildPayload() {
-    // Read all fields
-    const formData = new FormData(form);
-    const raw = Object.fromEntries(formData.entries());
-
-    return {
-      name: (raw.parentName || "").toString().trim(),
-      emailId: (raw.email || "").toString().trim(),
-      mobileNo: (raw.phone || "").toString().trim(),
-      // Format: "2025-26"
-      academicyear_name: (raw.academicYear || "").toString().trim(),
-      className: (raw.admissionClass || "").toString().trim(),
-      // Format: "2010-05-15"
-      dob: (raw.dob || "").toString().trim(),
-      hostelRequired: (raw.hostel || "").toString().trim(),
-    };
-  }
-
-  // Function to send inquiry and make API call
-  function sendInquiry(payload: any) {
-    // Make API Call
-    return admissionEnquiryRequest(payload)
-      .then((response) => {
-        return response;
-      })
-      .catch((error) => {
-        // Surface network/axios errors
-        return {
-          success: false,
-          message: error?.message || "Network error",
-        };
-      });
-  }
-
-  // Submit after validation
-  async function submitFormOnce() {
-    if (isSubmitting) return;
-    // Step 3 validation is the final one before submission
-    if (!validateCurrentStep()) return;
-
-    const payload = buildPayload();
-    setSubmittingState(true);
-
-    try {
-      const response = await sendInquiry(payload);
-
-      if (!response?.success) {
-        // Throw to go to the catch block for unified error display
-        throw new Error(
-          response?.message || "Submission failed. Please try again."
-        );
-      }
-
-      // Success UI
-      stepPanels.forEach((panel) => panel?.classList.add("hidden"));
-      thankYouSection?.classList.remove("hidden");
-      form.reset();
-    } catch (error) {
-      console.error("Submit Error:", error);
-    } finally {
-      setSubmittingState(false);
-    }
-  }
-
-  // NAV
-  nextBtnStep1?.addEventListener("click", () => {
-    if (validateCurrentStep()) showStep(1);
-  });
-  nextBtnStep2?.addEventListener("click", () => {
-    if (validateCurrentStep()) showStep(2);
-  });
-  backBtnStep2?.addEventListener("click", () => showStep(0));
-  backBtnStep3?.addEventListener("click", () => showStep(1));
-
-  form.addEventListener("submit", (evt) => {
-    evt.preventDefault();
-    submitFormOnce();
-  });
-
-  // INIT
-  showStep(0);
-</script> -->
