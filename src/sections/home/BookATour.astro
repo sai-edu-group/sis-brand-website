@@ -97,19 +97,21 @@
     if (!fallback) return;
     fallback.style.opacity = "0";
     // fully remove from hit-testing after fade
-    setTimeout(() => (fallback.style.display = "none"), 500);
+    fallback.style.display = "none";
   }
 
   // YouTube Iframe API callback
   window.onYouTubeIframeAPIReady = function () {
     player = new YT.Player("tour-video", {
       events: {
-        onReady: (e) => {
+        onStateChange: (e) => {
           // ensure muted autoplay & hide fallback once ready
-          try {
-            e.target.mute();
-            e.target.playVideo();
-          } catch {}
+          if (e.data == 1) {
+            try {
+              e.target.mute();
+              e.target.playVideo();
+            } catch {}
+          }
           hideFallback();
         },
         onError: hideFallback, // don't block UI if YT errors
@@ -121,11 +123,6 @@
   const tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   document.head.appendChild(tag);
-
-  // As a safety, also hide fallback once the iframe 'load' fires
-  document
-    .getElementById("tour-video")
-    ?.addEventListener("load", hideFallback, { once: true });
 
   // Play/Pause toggle
   toggleBtn?.addEventListener("click", () => {
