@@ -194,6 +194,21 @@ body {
   transform: scale(1);
 }
 
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-down.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* 🩵 Custom container fix for 1536–1600px gap */
 @media (min-width: 1536px) and (max-width: 1599px) {
   .container {

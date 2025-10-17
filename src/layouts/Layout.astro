@@ -58,12 +58,12 @@ const {
           }
         });
       },
-      { threshold: 0.2 }, // reveal when 20% visible
+      { threshold: 0.2 } // reveal when 20% visible
     );
 
     document.addEventListener("DOMContentLoaded", () => {
       document
-        .querySelectorAll(".fade-in, .scale-in,  .card-anim")
+        .querySelectorAll(".fade-in, .scale-in, .card-anim, .fade-in-down")
         .forEach((el) => {
           observer.observe(el);
         });
