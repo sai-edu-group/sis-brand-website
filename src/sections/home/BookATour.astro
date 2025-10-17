@@ -1,6 +1,13 @@
 <section class="relative w-full" data-name="book-a-tour-section">
   <!-- YouTube Video Background -->
   <div class="bg-n-950 absolute inset-0 h-full w-full">
+    <img
+      id="video-fallback"
+      src="/images/book-a-tour-fallback.png"
+      alt="Campus tour"
+      class="absolute inset-0 h-full w-full object-cover transition-opacity duration-500"
+    />
+
     <iframe
       id="tour-video"
       src={`https://www.youtube.com/embed/26RLzXfQu4s?autoplay=1&loop=1&playlist=26RLzXfQu4s&mute=1&controls=0&disablekb=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&cc_load_policy=0&enablejsapi=1`}
@@ -83,27 +90,54 @@
   const toggleBtn = document.getElementById("toggle-video");
   const playIcon = document.getElementById("icon-play");
   const pauseIcon = document.getElementById("icon-pause");
+  const fallback = document.getElementById("video-fallback");
   let isPlaying = true;
 
-  // Load YouTube Iframe API
+  function hideFallback() {
+    if (!fallback) return;
+    fallback.style.opacity = "0";
+    // fully remove from hit-testing after fade
+    setTimeout(() => (fallback.style.display = "none"), 500);
+  }
+
+  // YouTube Iframe API callback
   window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player("tour-video");
+    player = new YT.Player("tour-video", {
+      events: {
+        onReady: (e) => {
+          // ensure muted autoplay & hide fallback once ready
+          try {
+            e.target.mute();
+            e.target.playVideo();
+          } catch {}
+          hideFallback();
+        },
+        onError: hideFallback, // don't block UI if YT errors
+      },
+    });
   };
 
+  // Load the Iframe API
   const tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   document.head.appendChild(tag);
 
-  toggleBtn.addEventListener("click", () => {
+  // As a safety, also hide fallback once the iframe 'load' fires
+  document
+    .getElementById("tour-video")
+    ?.addEventListener("load", hideFallback, { once: true });
+
+  // Play/Pause toggle
+  toggleBtn?.addEventListener("click", () => {
     if (!player) return;
     if (isPlaying) {
       player.pauseVideo();
-      playIcon.classList.remove("hidden");
-      pauseIcon.classList.add("hidden");
+      playIcon?.classList.remove("hidden");
+      pauseIcon?.classList.add("hidden");
     } else {
       player.playVideo();
-      playIcon.classList.add("hidden");
-      pauseIcon.classList.remove("hidden");
+      playIcon?.classList.add("hidden");
+      pauseIcon?.classList.remove("hidden");
     }
     isPlaying = !isPlaying;
   });
