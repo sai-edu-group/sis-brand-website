@@ -18,7 +18,7 @@ import SectionHeaderC from "../../components/SectionHeaderC.astro";
     />
 
     <!-- ONE form for all steps -->
-    <form id="admission-form" novalidate>
+    <form id="contact-form" novalidate>
       <!-- STEP 1 -->
       <StepCard id="step-1" total={3}>
         <div class="flex flex-col gap-14 md:gap-20">
@@ -52,9 +52,10 @@ import SectionHeaderC from "../../components/SectionHeaderC.astro";
               <Input
                 label="Email Address*"
                 name="email"
+                type="email"
                 required
                 placeholder="Enter email address"
-                errorMessage="Email is required."
+                errorMessage="A valid Email is required."
               />
             </div>
 
@@ -93,7 +94,7 @@ import SectionHeaderC from "../../components/SectionHeaderC.astro";
             <!-- Button: Continue to next step -->
             <Button
               id="next-1"
-              type="button"
+              type="submit"
               text="Send Message"
               variant="solid"
               size="medium"
@@ -135,20 +136,88 @@ import SectionHeaderC from "../../components/SectionHeaderC.astro";
     </form>
   </div>
 </section>
-<script>
+<script is:inline type="module">
+  import { contactEnquiryRequest } from "/js/form.js";
+
   window.addEventListener("DOMContentLoaded", () => {
     const step1 = document.getElementById("step-1");
     const thankYou = document.getElementById("thank-you");
     const next1 = document.getElementById("next-1");
 
-    // ensure initial state
+    // ✅ Ensure initial state
     step1?.classList.remove("hidden");
     thankYou?.classList.add("hidden");
 
-    next1?.addEventListener("click", () => {
-      // simple route: hide step, show thank you
-      step1?.classList.add("hidden");
-      thankYou?.classList.remove("hidden");
+    // ✅ Validation function (same as admission form)
+    const validateStep = (stepEl) => {
+      if (!stepEl) return false;
+      const fields = stepEl.querySelectorAll("input, select, textarea");
+      let valid = true;
+
+      fields.forEach((el) => {
+        const errorText = el
+          .closest("[data-field]")
+          ?.querySelector("[data-error]");
+        let fieldValid = true;
+
+        // Required check
+        if (el.hasAttribute("required") && !el.value.trim()) fieldValid = false;
+
+        console.log("hi", el);
+
+        // Email check
+        if (el.type === "email" && el.value.trim() !== "") {
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailPattern.test(el.value.trim())) fieldValid = false;
+        }
+
+        // Update styles
+        if (!fieldValid) {
+          valid = false;
+          el.classList.add("border-red-500", "focus:ring-red-500");
+          errorText?.classList.remove("hidden");
+        } else {
+          el.classList.remove("border-red-500", "focus:ring-red-500");
+          errorText?.classList.add("hidden");
+        }
+      });
+
+      return valid;
+    };
+
+    // ✅ Submit handler (Send Message)
+    next1?.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      // Validate step
+      if (!validateStep(step1)) return;
+
+      // Collect form data
+      const form = document.querySelector("#contact-form");
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        // Call API
+        const response = await admissionEnquiryRequest(payload);
+        console.log("✅ Enquiry submitted:", response);
+
+        if (response.status === false) {
+          alert(
+            "Something went wrong while submitting your enquiry. Please try again.",
+          );
+          return;
+        }
+
+        // Show thank you screen
+        step1?.classList.add("hidden");
+        thankYou?.classList.remove("hidden");
+      } catch (err) {
+        console.error("❌ Failed to submit enquiry:", err);
+        alert(
+          "Something went wrong while submitting your enquiry. Please try again.",
+        );
+      }
     });
   });
 </script>

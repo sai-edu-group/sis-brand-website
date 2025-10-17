@@ -274,7 +274,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     </form>
   </div>
 </section>
-<script is:inline>
+<script is:inline type="module">
+  import { admissionEnquiryRequest } from "/js/form.js";
   window.addEventListener("DOMContentLoaded", () => {
     const steps = [
       document.getElementById("step-1"),
@@ -339,27 +340,6 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     document
       .getElementById("back-3")
       ?.addEventListener("click", () => showStep(1));
-
-    // ✅ Admission Enquiry API Call (axios)
-    const admissionEnquiryRequest = async (data) => {
-      try {
-        const config = {
-          method: "post",
-          url: "https://sis.simplyadmission.com/",
-          headers: {
-            "x-api-key": "aAKb2GZ4O5O69NZ6SxFe9BrA69z1RhQy5hULNcpSt8QiStzY83",
-            "Content-Type": "application/json",
-          },
-          data,
-        };
-
-        const response = await axios.request(config);
-        return response.data;
-      } catch (error) {
-        console.error("❌ API error:", error);
-        return { status: false, message: error.message };
-      }
-    };
 
     // ✅ Submit handler
     document.getElementById("submit")?.addEventListener("click", async (e) => {
