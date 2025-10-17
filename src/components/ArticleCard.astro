@@ -19,8 +19,10 @@ const {
 } = Astro.props as Props;
 ---
 
-<div class="bg-n-50 border-n-200 w-full overflow-hidden rounded-2xl border-2">
-  <!-- Campus image -->
+<div
+  class="group bg-n-50 border-n-200 w-full overflow-hidden rounded-2xl border-2"
+>
+  <!-- Article image -->
   <div class="relative">
     <img
       src={img}
@@ -41,7 +43,7 @@ const {
   <div
     class="relative flex flex-col gap-4 px-4 pt-4 pb-8 md:px-5 md:pt-5 md:pb-10 lg:gap-6 lg:px-6 lg:pt-6 lg:pb-11"
   >
-    <!-- Campus title -->
+    <!-- Article title -->
     <div class="flex flex-col gap-3 lg:gap-5">
       <div class="flex items-center gap-3">
         <span class="text-orange-500">

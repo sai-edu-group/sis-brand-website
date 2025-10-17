@@ -1,6 +1,7 @@
 ---
 import Button from "./Button.astro";
 import Hamburger from "./Hamburger.astro";
+import IconButton from "./IconButton.astro";
 
 // Props
 interface Props {
@@ -37,6 +38,11 @@ const { navItems } = Astro.props;
     <a href="/admission" class="hidden sm:block">
       <Button text="Apply Now" variant="solid" rightArrow />
     </a>
+
+    <!-- Apply Now Icon Button on mobile -->
+    <div class="block sm:hidden">
+      <IconButton href="/admission" extraClasses="!rounded-lg" />
+    </div>
 
     <!-- Explore button -->
     <a href="/" id="explore-btn" class="hidden sm:flex">

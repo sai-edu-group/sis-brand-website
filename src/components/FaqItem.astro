@@ -2,11 +2,12 @@
 interface Props {
   question: string;
   answer: string;
+  pointers?: string[];
   isOpen?: boolean;
 }
 
 // Props default values
-const { question, answer, isOpen = false } = Astro.props;
+const { question, answer, isOpen = false, pointers = [] } = Astro.props;
 ---
 
 <div
@@ -64,10 +65,25 @@ const { question, answer, isOpen = false } = Astro.props;
       data-accordion-content
       style={`height:${isOpen ? "auto" : "0px"}`}
     >
-      <!-- Answer -->
-      <p class="text-n-600 w-[90%] pb-5 text-sm font-normal md:pb-7 md:text-lg">
-        {answer}
-      </p>
+      <div class="font-secondary pb-5 font-light md:pb-7">
+        <!-- Answer -->
+        <p class="text-n-600 w-[90%] text-sm md:text-base">
+          {answer}
+        </p>
+        <!-- Pointers -->
+        {
+          pointers?.length > 0 && (
+            <ol
+              class="text-n-600 list-decimal space-y-2 pt-3 pl-5 text-sm md:text-base"
+              style="order"
+            >
+              {pointers.map((pointer) => (
+                <li>{pointer}</li>
+              ))}
+            </ol>
+          )
+        }
+      </div>
     </div>
   </div>
 </div>

@@ -1,6 +1,7 @@
 ---
 import Button from "../../components/Button.astro";
 import LearningContent from "../../components/LearningContent.astro";
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
 
 // Dummy tab + accordion data
 const tabs = [
@@ -83,29 +84,11 @@ const tabs = [
     class="container mx-auto flex flex-col gap-10 px-3 py-14 md:gap-11 md:py-20 lg:gap-12 lg:py-24"
   >
     <!-- Header -->
-    <div
-      class="flex flex-col gap-6 md:gap-7 lg:flex-row lg:items-end lg:gap-16"
-    >
-      <div class="flex flex-col gap-1.5 md:gap-3 lg:flex-1 lg:gap-4">
-        <p class="text-n-600 text-sm md:text-xl">Learning @ 360</p>
-        <div class="flex flex-col gap-1 md:gap-2 lg:gap-4">
-          <p
-            class="text-n-800 text-3xl leading-[127%] md:text-4xl lg:w-[80%] xl:w-full xl:text-5xl xl:leading-[112%] 2xl:text-6xl"
-          >
-            Education That Shapes Every Side of a Child
-          </p>
-          <p
-            class="text-n-600 font-secondary text-xs font-medium md:text-lg lg:text-2xl lg:leading-[1.3]"
-          >
-            Shaping confident, compassionate, and
-            <span class="text-orange-500">future-ready learners.</span>
-          </p>
-        </div>
-      </div>
-      <div class="lg:w-[316px]">
-        <Button text="Scroll to Admission Form" />
-      </div>
-    </div>
+    <SectionHeaderC
+      eyebrowText="Learning @ 360"
+      title="Education That Shapes Every Side of a Child"
+      subtitle="Shaping confident, compassionate, and future-ready learners."
+    />
 
     <!-- Tabs -->
     <div class="flex w-full flex-col items-start gap-3.5 lg:gap-6">
@@ -116,7 +99,7 @@ const tabs = [
         {
           tabs.map((tab, idx) => (
             <div
-              class={`tab-item flex cursor-pointer flex-col items-center rounded-xl p-3 transition-colors md:px-3.5 md:py-4 ${
+              class={`tab-item flex cursor-pointer flex-col items-center rounded-xl border-2 border-transparent p-3 transition-colors hover:border-orange-500 md:px-3.5 md:py-4 ${
                 idx === 0 ? "bg-orange-500" : "bg-white"
               }`}
               data-index={idx}
@@ -141,7 +124,7 @@ const tabs = [
               class={`learning-section ${idx === 0 ? "block" : "hidden"}`}
               data-index={idx}
             >
-              <LearningContent items={tab.items} />
+              <LearningContent items={tab.items} title={tab.title} />
             </div>
           ))
         }
