@@ -42,7 +42,7 @@ const {
 
         <!-- Form Card -->
         <div
-          class="border-n-200 rounded-lg border bg-white p-3.5 shadow-sm md:px-6 md:py-5 lg:w-[55%]"
+          class="border-n-100 rounded-lg border bg-white p-3.5 md:px-6 md:py-5 lg:w-[55%]"
         >
           <div class="space-y-3.5">
             <h2 class="animatedText text-n-800 text-xl md:text-3xl">
@@ -52,30 +52,54 @@ const {
             <form
               class="flex flex-col gap-3.5 md:flex-row md:flex-wrap md:justify-between"
               data-hero-form
+              novalidate
             >
               <!-- Student Name Input -->
               <div class="space-y-1 md:w-[58%]">
                 <input
                   type="text"
+                  name="studentName"
                   placeholder="Student's Name"
                   class="border-n-500 text-n-500 placeholder-n-500 h-[50px] w-full rounded-lg border px-3 text-base font-medium focus:border-transparent focus:ring-2 focus:ring-orange-500 focus:outline-none"
                   required
                 />
+                <p
+                  id="studentName-error"
+                  data-error
+                  class="hidden text-sm text-red-600"
+                >
+                  Please enter the student's name.
+                </p>
               </div>
 
               <!-- Grade Select -->
               <div class="md:w-[39%]">
                 <CustomSelect />
+                <p
+                  id="grade-error"
+                  data-error
+                  class="hidden text-sm text-red-600"
+                >
+                  Please select a grade.
+                </p>
               </div>
 
               <!-- Phone Number Input -->
               <div class="space-y-1 md:w-[58%]">
                 <input
                   type="tel"
+                  name="phone"
                   placeholder="Phone Number"
                   class="border-n-500 text-n-500 placeholder-n-500 h-[50px] w-full rounded-lg border px-3 text-base font-medium focus:border-transparent focus:ring-2 focus:ring-orange-500 focus:outline-none"
                   required
                 />
+                <p
+                  id="phone-error"
+                  data-error
+                  class="hidden text-sm text-red-600"
+                >
+                  Please enter a valid 10-digit phone number.
+                </p>
               </div>
 
               <!-- Submit Button -->
@@ -192,16 +216,50 @@ const {
 </style>
 
 <script is:inline>
-  // Form submission handling
   const form = document.querySelector("[data-hero-form]");
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const formData = new FormData(form);
-      const studentName = form.querySelector('input[type="text"]').value;
-      const grade = form.querySelector("select").value;
-      const phone = form.querySelector('input[type="tel"]').value;
+      // Hide all previous errors
+      form
+        .querySelectorAll("[data-error]")
+        .forEach((p) => p.classList.add("hidden"));
+
+      const studentName = form
+        .querySelector('input[name="studentName"]')
+        .value.trim();
+      const grade = form.querySelector('input[name="grade"]').value.trim(); // ✅ hidden input from custom dropdown
+      const phone = form.querySelector('input[name="phone"]').value.trim();
+
+      let hasError = false;
+
+      // Student Name Validation
+      if (!studentName) {
+        form.querySelector("#studentName-error").classList.remove("hidden");
+        hasError = true;
+      }
+
+      // Grade Validation (from custom dropdown hidden input)
+      if (!grade) {
+        form.querySelector("#grade-error").classList.remove("hidden");
+        hasError = true;
+      }
+
+      // Phone Validation (10-digit)
+      const phoneRegex = /^[0-9]{10}$/;
+      if (!phoneRegex.test(phone)) {
+        form.querySelector("#phone-error").classList.remove("hidden");
+        hasError = true;
+      }
+
+      if (!hasError) {
+        // ✅ All good — you can call your API here
+        console.log("✅ Valid form data:", { studentName, grade, phone });
+
+        // Example placeholder for API call:
+        // await admissionEnquiryRequest({ studentName, grade, phone });
+      }
     });
   }
 </script>

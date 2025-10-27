@@ -181,7 +181,7 @@ const uid = "embla-news";
   /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 16px; /* match the gap-7 above */
+    --gap: 28px; /* match the gap-7 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
 
@@ -217,8 +217,7 @@ const uid = "embla-news";
     const root = document.getElementById("embla-news");
     initEmblaRoot(root, {
       align: "start",
-      dragFree: true,
-      slidesToScroll: "2",
+      dragFree: false,
     });
   });
 </script>

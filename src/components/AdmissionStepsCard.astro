@@ -9,7 +9,7 @@ const { number, icon = "", title, description } = Astro.props;
 ---
 
 <div
-  class="border-n-200 relative flex flex-col gap-3 overflow-hidden rounded-3xl border p-8"
+  class="border-n-200 relative flex flex-col gap-3 overflow-hidden rounded-3xl border p-8 lg:min-h-[270px] xl:min-h-[310px]"
 >
   <!-- Big backdrop number -->
   <p
@@ -23,7 +23,7 @@ const { number, icon = "", title, description } = Astro.props;
   </div>
   <!-- Text wrapper -->
   <div class="text-n-800 z-2 space-y-3 md:space-y-6">
-    <p class="w-[90%] text-xl font-medium md:text-3xl">{title}</p>
+    <p class="w-[90%] text-xl font-medium lg:text-2xl 2xl:text-3xl">{title}</p>
     <p class="font-secondary text-sm font-normal lg:text-base">{description}</p>
   </div>
 </div>

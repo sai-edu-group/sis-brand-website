@@ -68,7 +68,7 @@ const { icon, title, type, infoText = [] } = Astro.props;
       type === "location" && (
         <div class="space-y-1">
           <a
-            href="/"
+            href={`https://www.google.com/maps?q=SAI International School ${infoText[0]}`}
             target="_blank"
             rel="noopener noreferrer"
             class="font-secondary text-n-500 text-base font-semibold underline xl:text-lg 2xl:text-xl"
