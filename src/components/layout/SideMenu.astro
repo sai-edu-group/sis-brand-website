@@ -100,7 +100,7 @@ export const menu: MenuItem[] = [
 <!-- Backdrop --><!-- This is the dark overlay behind the sidebar when open -->
 <div
   id="menu-backdrop"
-  class="bg-n-950/50 invisible fixed inset-0 z-40 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
+  class="bg-n-950/50 invisible fixed inset-0 z-51 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
 >
 </div>
 
@@ -108,7 +108,7 @@ export const menu: MenuItem[] = [
 <!-- The main sidebar navigation -->
 <aside
   id="sidebar"
-  class="fixed inset-y-0 right-0 z-49 w-full translate-x-full transform bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
+  class="fixed inset-y-0 right-0 z-52 w-full translate-x-full transform bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
   <nav class="flex h-full flex-col overflow-y-auto" data-accordion>
     <div class="pt-38 pb-10 md:pt-10">
@@ -117,7 +117,7 @@ export const menu: MenuItem[] = [
         class="z-3 mb-10 hidden w-full justify-end bg-violet-600 pr-10 md:flex"
       >
         <div
-          class="bg-n-50/10 hover:bg-n-50/20 cursor-pointer items-center justify-center rounded-xl p-3 transition md:p-5"
+          class="bg-n-50/10 hover:bg-n-50/20 cursor-pointer items-center justify-center rounded-xl p-3 transition-all duration-300 hover:scale-110 md:p-5"
           id="menu-close"
           role="button"
           tabindex="0"
@@ -219,7 +219,7 @@ export const menu: MenuItem[] = [
               >
                 <div
                   data-menu-submenu-inner
-                  class="flex flex-col gap-2 pt-5 md:pt-7"
+                  class="flex flex-col gap-2 pt-7 lg:gap-4"
                 >
                   {menuItem.submenu?.map((subMenu) => (
                     <div class="group flex h-[34px] cursor-pointer flex-col gap-1.5 md:gap-2">

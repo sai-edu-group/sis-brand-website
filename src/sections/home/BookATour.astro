@@ -39,14 +39,15 @@
       <a
         href="https://www.youtube.com/watch?v=uG206thPuaA"
         target="_blank"
-        class="fade-in scale-in group text-n-950 hover:bg-n-200 font-secondary bg-n-50 mx-auto flex w-fit items-center gap-3 rounded-xl px-12 py-3.5 text-sm font-semibold transition-all duration-300 md:px-14 md:py-4 md:text-xl lg:px-32 lg:py-7 lg:text-2xl"
+        class="fade-in scale-in group text-n-950 font-secondary bg-n-50 hover:before:bg-n-900 hover:text-n-50 relative mx-auto flex w-fit items-center gap-3 overflow-hidden rounded-xl px-12 py-3.5 text-sm font-semibold transition-all duration-300 before:absolute before:inset-0 before:-z-10 before:origin-left before:scale-x-0 before:duration-300 before:ease-out before:content-[''] hover:before:scale-x-100 md:px-14 md:py-4 md:text-xl lg:px-32 lg:py-7 lg:text-2xl"
       >
         {"Take a tour"}
       </a>
+
       <!-- Play / Pause SVG -->
       <div
         id="toggle-video"
-        class="absolute top-[50%] right-0 flex -translate-y-1/2 cursor-pointer items-center justify-center"
+        class="transition-scale absolute top-[50%] right-0 flex -translate-y-1/2 cursor-pointer items-center justify-center duration-300 hover:scale-110"
       >
         <!-- Pause Icon (visible by default) -->
         <svg

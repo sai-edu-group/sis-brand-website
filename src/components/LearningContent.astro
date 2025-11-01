@@ -14,7 +14,9 @@ const { items, title } = Astro.props;
     class="h-[169px] w-full shrink-0 md:h-[360px] lg:h-[430px] lg:w-[480px] xl:w-[530px] 2xl:w-[670px]"
   >
     <img
-      src={"/images/learning.png"}
+      id="learning-active-image"
+      data-active-image
+      src={items[0].imageUrl}
       alt=""
       class="pointer-events-none inset-0 h-full w-full rounded-xl object-cover"
     />
@@ -32,6 +34,7 @@ const { items, title } = Astro.props;
           class="w-full"
           data-accordion-item
           data-open={idx === 0 ? "true" : "false"}
+          data-img={item.imageUrl}
         >
           <div class="flex flex-col">
             <div

@@ -1,7 +1,9 @@
 ---
-import Button from "../../components/Button.astro";
+// COMPONENTS //
 import LearningContent from "../../components/LearningContent.astro";
 import SectionHeaderC from "../../components/SectionHeaderC.astro";
+
+// OTHERS //
 
 // Dummy tab + accordion data
 const tabs = [
@@ -14,24 +16,28 @@ const tabs = [
           "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
         progress: 80,
         isOpen: true,
+        imageUrl: "/images/learning.png",
       },
       {
         title: "Future-Ready Curriculum",
         description:
           "Curriculum designed to equip students with skills for tomorrow.",
         progress: 60,
+        imageUrl: "/images/child.png",
       },
       {
         title: "Labs & Experiential Learning",
         description:
           "Hands-on labs and real-world experiences for deeper understanding.",
         progress: 70,
+        imageUrl: "/images/learning.png",
       },
       {
         title: "Assessment & Remediation",
         description:
           "Continuous assessment and personalized remediation for every learner.",
         progress: 90,
+        imageUrl: "/images/learning.png",
       },
     ],
   },
@@ -44,18 +50,21 @@ const tabs = [
           "Encouraging creativity through performing arts and self-expression.",
         progress: 85,
         isOpen: true,
+        imageUrl: "/images/learning.png",
       },
       {
         title: "Visual Arts",
         description:
           "Exploring imagination through painting, sculpture, and crafts.",
         progress: 75,
+        imageUrl: "/images/learning.png",
       },
       {
         title: "Drama & Theatre",
         description:
           "Building confidence and communication through stage performances.",
         progress: 65,
+        imageUrl: "/images/learning.png",
       },
     ],
   },
@@ -68,11 +77,13 @@ const tabs = [
           "Structured sports curriculum developing agility and team spirit.",
         progress: 90,
         isOpen: true,
+        imageUrl: "/images/learning.png",
       },
       {
         title: "Yoga & Fitness",
         description: "Balancing physical and mental well-being through yoga.",
         progress: 70,
+        imageUrl: "/images/learning.png",
       },
     ],
   },
@@ -137,93 +148,158 @@ const tabs = [
 <script type="module">
   import { initAccordion } from "/js/accordion.js";
 
-  const tabsEl = document.getElementById("learning-tabs");
-  const sections = Array.from(document.querySelectorAll(".learning-section"));
+  const tabsContainer = document.getElementById("learning-tabs");
+  const sectionEls = Array.from(document.querySelectorAll(".learning-section"));
 
-  function getAccordionInstance(sec) {
-    const root = sec.querySelector("[data-accordion]");
+  /* ---------- IMAGE SYNC ---------- */
+
+  // Updates the main image inside a section based on the active accordion item
+  function updateSectionImage(sectionEl) {
+    const activeImg = sectionEl.querySelector("[data-active-image]");
+    if (!activeImg) return;
+
+    const openItem =
+      sectionEl.querySelector('[data-accordion-item][data-open="true"]') ||
+      sectionEl.querySelector("[data-accordion-item]");
+
+    const newImgUrl = openItem?.dataset?.img;
+    if (!newImgUrl) return;
+
+    // Skip update if already showing this image
+    const currentSrc = activeImg.getAttribute("src");
+    if (currentSrc === newImgUrl) return;
+
+    // Fade transition
+    activeImg.style.transition = "opacity 220ms ease";
+    activeImg.style.opacity = 0;
+
+    setTimeout(() => {
+      activeImg.setAttribute("src", newImgUrl);
+      activeImg.style.opacity = 1;
+    }, 220);
+  }
+
+  // Attach listeners to keep image and accordion in sync
+  function enableImageSync(sectionEl) {
+    const accordionRoot = sectionEl.querySelector("[data-accordion]");
+    if (!accordionRoot) return;
+
+    updateSectionImage(sectionEl);
+
+    // When clicking toggle headers, recheck image
+    accordionRoot.addEventListener("click", (e) => {
+      if (e.target.closest("[data-accordion-toggle]")) {
+        setTimeout(() => updateSectionImage(sectionEl), 50);
+      }
+    });
+
+    // Watch for attribute changes (accordion open/close)
+    const accordionItems = sectionEl.querySelectorAll("[data-accordion-item]");
+    const observer = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        if (m.attributeName === "data-open") {
+          updateSectionImage(sectionEl);
+          break;
+        }
+      }
+    });
+
+    accordionItems.forEach((item) =>
+      observer.observe(item, {
+        attributes: true,
+        attributeFilter: ["data-open"],
+      }),
+    );
+
+    accordionRoot.__imgObserver = observer;
+  }
+
+  function disableImageSync(sectionEl) {
+    const accordionRoot = sectionEl.querySelector("[data-accordion]");
+    if (accordionRoot?.__imgObserver) {
+      accordionRoot.__imgObserver.disconnect();
+      accordionRoot.__imgObserver = null;
+    }
+  }
+
+  /* ---------- ACCORDION CONTROL ---------- */
+
+  function getAccordionAPI(sectionEl) {
+    const root = sectionEl.querySelector("[data-accordion]");
     return root ? root.__acc : null;
   }
 
-  function destroyAccordionsExcept(indexToKeep) {
-    sections.forEach((sec, i) => {
-      if (i === indexToKeep) return;
-      const root = sec.querySelector("[data-accordion]");
-      if (root && root.__acc) {
-        root.__acc.destroy();
-        root.__acc = null;
+  function destroyOtherSectionAccordions(activeIndex) {
+    sectionEls.forEach((sectionEl, i) => {
+      if (i === activeIndex) return;
+
+      const accordionRoot = sectionEl.querySelector("[data-accordion]");
+      if (accordionRoot?.__acc) {
+        accordionRoot.__acc.destroy();
+        accordionRoot.__acc = null;
       }
+
+      disableImageSync(sectionEl);
     });
   }
 
-  function initSectionAccordion(sec) {
-    const root = sec.querySelector("[data-accordion]");
-    if (!root) return;
-    // If already initialized, destroy before re-init to avoid duplicates
-    if (root.__acc) {
-      root.__acc.destroy();
-      root.__acc = null;
+  function setupSectionAccordion(sectionEl) {
+    const accordionRoot = sectionEl.querySelector("[data-accordion]");
+    if (!accordionRoot) return;
+
+    if (accordionRoot.__acc) {
+      accordionRoot.__acc.destroy();
+      accordionRoot.__acc = null;
     }
-    root.__acc = initAccordion(root, {
+
+    accordionRoot.__acc = initAccordion(accordionRoot, {
       autoplay: true,
       cycleMs: 6000,
       progressDurationMs: 6000,
     });
+
+    enableImageSync(sectionEl);
+    updateSectionImage(sectionEl);
   }
 
-  function activateTab(idx) {
-    const tabNodes = Array.from(tabsEl.querySelectorAll(".tab-item"));
+  /* ---------- TAB SWITCHING ---------- */
 
-    // Reset tabs
-    tabNodes.forEach((t) => {
-      t.classList.remove("bg-orange-500");
-      t.classList.add("bg-white");
-      const p = t.querySelector("p");
-      p && p.classList.remove("text-n-50");
-      p && p.classList.add("text-n-600");
+  function activateTab(tabIndex) {
+    const tabButtons = Array.from(tabsContainer.querySelectorAll(".tab-item"));
+
+    // Reset tab styles
+    tabButtons.forEach((btn) => {
+      btn.classList.remove("bg-orange-500");
+      btn.classList.add("bg-white");
+      btn.querySelector("p")?.classList.replace("text-n-50", "text-n-600");
     });
 
-    // Activate current
-    const current = tabNodes[idx];
-    if (current) {
-      current.classList.remove("bg-white");
-      current.classList.add("bg-orange-500");
-      const p = current.querySelector("p");
-      p && p.classList.remove("text-n-600");
-      p && p.classList.add("text-n-50");
-    }
+    // Highlight active tab
+    const activeBtn = tabButtons[tabIndex];
+    activeBtn.classList.replace("bg-white", "bg-orange-500");
+    activeBtn.querySelector("p").classList.replace("text-n-600", "text-n-50");
 
-    // Show correct section
-    sections.forEach((sec, i) => {
-      if (i === idx) {
-        sec.classList.remove("hidden");
-        sec.classList.add("block");
-      } else {
-        sec.classList.add("hidden");
-        sec.classList.remove("block");
-      }
+    // Show only this section
+    sectionEls.forEach((sectionEl, i) => {
+      sectionEl.classList.toggle("hidden", i !== tabIndex);
+      sectionEl.classList.toggle("block", i === tabIndex);
     });
 
-    // Clean up other sections' accordions first
-    destroyAccordionsExcept(idx);
+    destroyOtherSectionAccordions(tabIndex);
+    setupSectionAccordion(sectionEls[tabIndex]);
 
-    // (Re)initialize the active section's accordion
-    initSectionAccordion(sections[idx]);
-
-    // Optional: restart autoplay explicitly for the active one
-    const inst = getAccordionInstance(sections[idx]);
-    inst && inst.restartAutoplay && inst.restartAutoplay();
+    const accordionAPI = getAccordionAPI(sectionEls[tabIndex]);
+    accordionAPI && accordionAPI.restartAutoplay?.();
   }
 
-  // Delegate tab clicks
-  tabsEl &&
-    tabsEl.addEventListener("click", (e) => {
-      const item = e.target?.closest?.(".tab-item");
-      if (!item) return;
-      const idx = Number(item.dataset.index || 0);
-      activateTab(idx);
-    });
+  // Tab click events
+  tabsContainer.addEventListener("click", (e) => {
+    const tabButton = e.target.closest(".tab-item");
+    if (!tabButton) return;
+    const index = Number(tabButton.dataset.index || 0);
+    activateTab(index);
+  });
 
-  // Initial
+  // Initialize first tab
   activateTab(0);
 </script>

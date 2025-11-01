@@ -30,7 +30,7 @@ const {
     class={`flex flex-col gap-3 md:flex-row md:gap-14  md:items-center md:justify-between ${direction == "rtl" ? "md:flex-row-reverse" : ""}`}
   >
     <!-- Heading -->
-    <div class={`${direction == "rtl" ? "text-right" : ""}`}>
+    <div class={`${direction == "rtl" ? "md:text-right" : ""}`}>
       {
         kicker && (
           <p class="font-secondary text-sm font-medium text-slate-600 lg:text-xl">
@@ -49,7 +49,7 @@ const {
     <div class="group w-full overflow-hidden">
       <div
         class="flex items-center gap-6 whitespace-nowrap will-change-transform md:gap-14"
-        style={`transform:translateX(0); animation: pb-marquee ${speedSec}s linear infinite; animation-direction:alternate;animation-delay:${delay}`}
+        style={`transform:translateX(0); animation: pb-marquee ${speedSec}s linear infinite; animation-direction:alternate; animation-delay:${delay}s`}
       >
         <!-- GROUP 1 -->
         <ul

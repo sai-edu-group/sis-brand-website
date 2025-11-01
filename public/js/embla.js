@@ -19,7 +19,9 @@ export const initEmblaRoot = (root, options) => {
   // Build dots FROM SNAP LIST (groups), not slides
   const dotsHost = root.querySelector("[data-embla-dots]");
 
+  // Build Dots
   const buildDots = () => {
+    // If dots container is missing then return an empty array
     if (!dotsHost) return [];
     dotsHost.innerHTML = "";
     const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages

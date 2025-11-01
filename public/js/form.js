@@ -1,4 +1,4 @@
-// ✅ Admission Enquiry API Call (axios)
+/** ✅ Admission Enquiry API Call (axios) */
 export const admissionEnquiryRequest = async (data) => {
   try {
     const config = {
@@ -19,6 +19,7 @@ export const admissionEnquiryRequest = async (data) => {
   }
 };
 
+/** Contact Enquiry Request */
 export const contactEnquiryRequest = async (data) => {
   try {
     const config = {
