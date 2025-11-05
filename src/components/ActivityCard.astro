@@ -5,7 +5,7 @@ interface Props {
   subTitle: string;
   activityFor?: string;
   ctaText?: string;
-  onCtaClick?: () => void;
+  onCtaClick?: string;
   date: string;
   image: string;
 }
@@ -117,7 +117,7 @@ const {
       </div>
 
       <!-- Button  -->
-      <Button text={ctaText} mode="block" />
+      <Button text={ctaText} mode="block" onClick={onCtaClick} />
     </div>
   </div>
 </div>
