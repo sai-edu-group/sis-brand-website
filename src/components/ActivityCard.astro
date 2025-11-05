@@ -1,22 +1,22 @@
 ---
 import Button from "./Button.astro";
 interface Props {
-  img: string;
-  name: string;
-  description: string;
+  title: string;
+  subTitle: string;
+  activityFor?: string;
+  ctaText?: string;
+  onCtaClick?: () => void;
   date: string;
-  buttonText?: string;
-  ageGroupLabel?: string;
-  ageGroupValue?: string;
+  image: string;
 }
 const {
-  img,
-  name = "",
-  description = "",
+  title = "",
+  subTitle = "",
+  activityFor = "",
+  ctaText = "",
+  onCtaClick,
   date = "",
-  buttonText = "",
-  ageGroupLabel = "",
-  ageGroupValue = "",
+  image,
 } = Astro.props as Props;
 ---
 
@@ -28,7 +28,7 @@ const {
     class="relative overflow-hidden rounded-tl-xl rounded-tr-xl sm:w-1/2 sm:rounded-tr-none sm:rounded-bl-xl"
   >
     <img
-      src={img}
+      src={image}
       alt=""
       class="h-[207px] w-full object-cover sm:h-full"
       loading="lazy"
@@ -74,16 +74,16 @@ const {
 
   <div class="relative flex flex-col justify-between gap-6 sm:w-1/2">
     <div class="flex flex-col gap-2 md:gap-3.5">
-      <!-- Activity name -->
+      <!-- Activity title -->
       <p
         class="text-n-700 text-3xl leading-tight font-medium transition-colors duration-200 hover:text-orange-500 sm:text-4xl"
       >
-        {name}
+        {title}
       </p>
 
-      <!-- Activity description -->
+      <!-- Activity subTitle -->
       <p class="text-n-600 font-secondary text-lg font-medium sm:text-xl">
-        {description}
+        {subTitle}
       </p>
     </div>
 
@@ -107,17 +107,17 @@ const {
                 fill="#62748E"></path>
             </svg>
           </span>
-          <span class="text-sm font-medium sm:text-base">{ageGroupLabel}</span>
+          <span class="text-sm font-medium sm:text-base">Age Group</span>
         </div>
 
         <!-- Age -->
         <p class="text-n-600 text-base font-semibold sm:text-lg">
-          {ageGroupValue}
+          {activityFor}
         </p>
       </div>
 
       <!-- Button  -->
-      <Button text={buttonText} mode="block" />
+      <Button text={ctaText} mode="block" />
     </div>
   </div>
 </div>
