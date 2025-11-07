@@ -2,6 +2,7 @@
 import EmptyState from "../../components/EmptyState.astro";
 import Hero from "../../components/Hero.astro";
 import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 ---
 
 <Layout>
@@ -13,4 +14,10 @@ import Layout from "../../layouts/Layout.astro";
     imageName="result-image"
   />
   <EmptyState />
+  <Breadcrumbs
+    items={[
+      { label: "Home", href: "/" },
+      { label: "Components Library", href: "/components-library" },
+    ]}
+  />
 </Layout>
