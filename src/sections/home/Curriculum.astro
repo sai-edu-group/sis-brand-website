@@ -1,0 +1,81 @@
+---
+// COMPONENTS //
+import ArticleCard from "../../components/ArticleCard.astro";
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
+
+const articleCards = [
+  {
+    title: "Laboratories",
+    img: "/images/lab.png",
+    description:
+      "Hands-on labs integrate theory with practical learning for deeper concept understanding.",
+    href: "#",
+  },
+  {
+    title: "Learning Resource Centers",
+    img: "/images/learning-center.png",
+    description:
+      "Encourages reading to boost knowledge, language skills, and imagination.",
+    href: "#",
+  },
+  {
+    title: "Sports",
+    img: "/images/sports.png",
+    description:
+      "Offers diverse indoor and outdoor sports for fitness and holistic development.",
+    href: "#",
+  },
+  {
+    title: "Performing Arts",
+    img: "/images/arts.png",
+    description:
+      "Music and dance nurture creativity and support 360-degree student growth.",
+    href: "#",
+  },
+  {
+    title: "Fine Arts",
+    img: "/images/fine-arts.png",
+    description:
+      "Promotes creative expression through art and sculpting to develop imagination and aesthetics.",
+    href: "#",
+  },
+  {
+    title: "STEAM",
+    img: "/images/steam.png",
+    description:
+      "Integrates science, technology, engineering, art, and math for interdisciplinary, practical learning.",
+    href: "#",
+  },
+];
+---
+
+<section class="bg-n-100 relative w-full overflow-hidden">
+  <div
+    class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-28"
+  >
+    <!-- Section header title -->
+    <SectionHeaderC
+      eyebrowText="Advisory Board"
+      title="Education that Shapes Every Side of a Child"
+      subtitle="Our curriculum balances intellectual curiosity, emotional growth, and creative learning."
+    />
+
+    <!-- Curriculum Cards wrapper -->
+    <div
+      class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8 xl:grid-cols-3 xl:gap-9"
+    >
+      <!-- Curriculum Cards -->
+      {
+        articleCards.map((card) => (
+          <ArticleCard
+            title={card.title}
+            img={card.img}
+            href={card.href}
+            description={card.description}
+            badgeText=""
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
