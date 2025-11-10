@@ -1,0 +1,81 @@
+---
+// COMPONENTS //
+import ArticleCard from "../../components/ArticleCard.astro";
+import SectionHeaderC from "../../components/SectionHeaderC.astro";
+
+const amenitiesCards = [
+  {
+    title: "Hostel",
+    img: "/images/hostel.png",
+    description:
+      "Provides a nurturing, home-like environment that builds independence and lifelong friendships.",
+    href: "#",
+  },
+  {
+    title: "Cafeteria",
+    img: "/images/cafeteria.png",
+    description:
+      "Spacious and hygienic dining area designed for comfort and efficiency during busy hours.",
+    href: "#",
+  },
+  {
+    title: "Auditoriums",
+    img: "/images/auditoriums.png",
+    description:
+      "State-of-the-art auditoriums hosting events, performances, and assemblies for student engagement.",
+    href: "#",
+  },
+  {
+    title: "Infirmary",
+    img: "/images/infirmary.png",
+    description:
+      "Music and dance nurture creativity and support 360-degree student growth.",
+    href: "#",
+  },
+  {
+    title: "Sustainable Development",
+    img: "/images/sustainable.png",
+    description:
+      "Encourages eco-conscious learning through hands-on initiatives promoting global citizenship.",
+    href: "#",
+  },
+  {
+    title: "STEAM",
+    img: "/images/steam.png",
+    description:
+      "Integrates science, technology, engineering, art, and math for interdisciplinary, practical learning.",
+    href: "#",
+  },
+];
+---
+
+<section class="bg-n-100 relative w-full overflow-hidden">
+  <div
+    class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-28"
+  >
+    <!-- Section header title -->
+    <SectionHeaderC
+      eyebrowText="Advisory Board"
+      title="Education that Shapes Every Side of a Child"
+      subtitle="Our curriculum balances intellectual curiosity, emotional growth, and creative learning."
+    />
+
+    <!-- Curriculum Cards wrapper -->
+    <div
+      class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8 xl:grid-cols-3 xl:gap-9"
+    >
+      <!-- Amenities Cards -->
+      {
+        amenitiesCards.map((card) => (
+          <ArticleCard
+            title={card.title}
+            img={card.img}
+            href={card.href}
+            description={card.description}
+            badgeText=""
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
