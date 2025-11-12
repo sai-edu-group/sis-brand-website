@@ -60,7 +60,7 @@ const saiSevaDetails = {
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
-        <div class="flex gap-5.5" data-embla-container>
+        <div class="flex gap-9" data-embla-container>
           <!-- Sai Seva Slides -->
           {
             saiSevaDetails.saiSevaContent.map((saiSevaItem) => (
@@ -146,7 +146,7 @@ const saiSevaDetails = {
   /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 28px; /* match the gap-7 above */
+    --gap: 36px; /* match the gap-9 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
 
@@ -161,7 +161,7 @@ const saiSevaDetails = {
     .ns-slider {
       --slides: 3;
       --peek: 0px;
-    } /* set to 60px to reveal a peek */
+    }
   }
 
   /* Each slide width: ((100% - total gaps - peek) / slides) */
