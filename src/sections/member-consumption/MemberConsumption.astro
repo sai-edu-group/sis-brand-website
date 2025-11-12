@@ -1,0 +1,61 @@
+---
+// COMPONENTS //
+import Article from "../../components/Article.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+interface Props {
+  breadcrumbItems: { label: string; href: string }[];
+  sectionHeaderDetails?: {
+    title: string;
+    subtitle?: string;
+    eyebrowText?: string;
+  };
+  memberContent: {
+    imageSrc: string;
+    quoteText: string;
+    firstDetailText: string;
+    secondDetailText: string;
+  };
+}
+const { breadcrumbItems, sectionHeaderDetails, memberContent } =
+  Astro.props as Props;
+---
+
+<section class="bg-n-50 relative w-full overflow-hidden">
+  <div
+    class="container mx-auto flex flex-col gap-5 px-6 py-30 md:gap-8 md:py-40 lg:gap-9 2xl:px-0"
+  >
+    <!-- Breadcrumbs -->
+    <Breadcrumbs items={breadcrumbItems} />
+
+    <!-- Article Section -->
+    <Article
+      title={sectionHeaderDetails?.title}
+      subtitle={sectionHeaderDetails?.subtitle}
+      eyebrowText={sectionHeaderDetails?.eyebrowText}
+    >
+      <!-- Member Consumption Content -->
+      <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+        <!-- Member Image and Details -->
+        <img
+          src={memberContent.imageSrc}
+          alt="Member Consumption Image"
+          class="h-[257px] w-full rounded-3xl object-cover md:h-[524px]"
+        />
+
+        <!-- Member Quote and Description -->
+        <div class="flex flex-col gap-7 md:gap-8">
+          <h3>
+            “{memberContent.quoteText}”
+          </h3>
+          <p>
+            {memberContent.firstDetailText}
+          </p>
+          <p>
+            {memberContent.secondDetailText}
+          </p>
+        </div>
+      </div>
+    </Article>
+  </div>
+</section>

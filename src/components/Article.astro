@@ -17,7 +17,7 @@ const {
 } = Astro.props as Props;
 ---
 
-<div>
+<div class="flex flex-col gap-9">
   <!-- Header Container -->
   <div class="flex flex-col gap-9">
     <SectionHeaderC
@@ -95,5 +95,46 @@ const {
     font-weight: 500;
     letter-spacing: 0.2px;
     text-decoration-line: underline;
+  }
+
+  /* Tablet and up (≥768px) */
+  @media (min-width: 768px) {
+    .article-root p {
+      font-size: var(--text-lg);
+    }
+
+    .article-root ol {
+      font-size: var(--text-2xl);
+    }
+
+    .article-root a {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  /* Mobile (≤767px) */
+  @media (max-width: 767px) {
+    .article-root h3 {
+      font-size: var(--text-2xl);
+    }
+
+    .article-root p {
+      font-size: var(--text-base);
+    }
+  }
+
+  /* Desktop (≥1024px) */
+  @media (min-width: 1024px) {
+    .article-root p {
+      font-size: var(--text-2xl);
+    }
+
+    .article-root ol {
+      font-size: var(--text-2xl);
+    }
+
+    .article-root a {
+      font-size: var(--text-2xl);
+    }
   }
 </style>
