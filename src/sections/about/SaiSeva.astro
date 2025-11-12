@@ -1,74 +1,76 @@
 ---
-import AwardsCard from "../../components/AwardsCard.astro";
-import Button from "../../components/Button.astro";
+// COMPONENTS //
+import ArticleCard from "../../components/ArticleCard.astro";
 import SectionHeaderC from "../../components/SectionHeaderC.astro";
 
-// Unique ID per instance (so multiple sliders can live on the same page)
-const uid = "embla-awards";
-
-// Data (sample)
-const awardsDetails = {
-  awardsCard: [
+const saiSevaDetails = {
+  sectionHeaderContent: {
+    title: "Learning through Compassion and Service",
+    subtitle:
+      "SAI Seva helps students grow as kind, aware, and responsible citizens.",
+    eyebrowText: "SAI Seva (Community Outreach)",
+  },
+  saiSevaContent: [
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "Dr. B K Sahoo 100 Libraries",
+      img: "/images/saiseva/library.png",
+      description:
+        "An initiative by Dr. Bijaya Kumar Sahoo aimed at transforming education through widespread access to learning.",
+      href: "#",
     },
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "Dr. B K Sahoo 100 Libraries",
+      img: "/images/saiseva/library.png",
+      description:
+        "An initiative by Dr. Bijaya Kumar Sahoo aimed at transforming education through widespread access to learning.",
+      href: "#",
     },
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "Dr. B K Sahoo 100 Libraries",
+      img: "/images/saiseva/library.png",
+      description:
+        "An initiative by Dr. Bijaya Kumar Sahoo aimed at transforming education through widespread access to learning.",
+      href: "#",
     },
     {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
+      title: "Initiatives",
+      img: "/images/saiseva/library.png",
+      description:
+        "Promotes compassion as the essence of emotional maturity and personal growth.",
+      href: "#",
     },
   ],
 };
 ---
 
-<section class="ns-slider">
+<section class="bg-n-50 ns-slider relative w-full overflow-hidden">
   <div
-    class="container mx-auto flex flex-col gap-9 px-6 py-14 md:gap-16 md:px-0 md:py-20 lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-28 2xl:px-0"
   >
-    <!-- Section header -->
+    <!-- Section header title -->
     <SectionHeaderC
-      eyebrowText="Achievements & Recognition"
-      title="Celebrating Excellence, Year After Year"
+      eyebrowText={saiSevaDetails.sectionHeaderContent.eyebrowText}
+      title={saiSevaDetails.sectionHeaderContent.title}
+      subtitle={saiSevaDetails.sectionHeaderContent.subtitle}
     />
 
+    <!-- Sai Seva Slider for Mobile and Tablet -->
     <!-- Slider root: keep viewport + controls inside this wrapper -->
-    <div data-embla-root id={uid} class="space-y-7 md:space-y-9">
+    <div data-embla-root id={"sai-seva-slider"} class="space-y-7 md:space-y-9">
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
-        <div
-          class="flex items-stretch gap-4"
-          data-embla-container
-          style="gap: var(--gap)"
-        >
+        <div class="flex gap-5.5" data-embla-container>
+          <!-- Sai Seva Slides -->
           {
-            awardsDetails.awardsCard.map((card) => (
-              <div class="ns-slide" data-embla-slide>
-                <AwardsCard
-                  title={card.title}
-                  img={card.img}
-                  subTitle={card.subTitle}
-                  year={card.year}
+            saiSevaDetails.saiSevaContent.map((saiSevaItem) => (
+              <div class="ns-slide cursor-pointer" data-embla-slide>
+                <ArticleCard
+                  title={saiSevaItem.title}
+                  img={saiSevaItem.img}
+                  href={saiSevaItem.href}
+                  description={saiSevaItem.description}
+                  badgeText=""
                 />
               </div>
             ))
@@ -80,31 +82,24 @@ const awardsDetails = {
       <div
         class="relative flex items-center justify-center gap-8 md:gap-12 lg:gap-20"
       >
-        <div class="absolute left-0 max-sm:top-[20px]">
-          <Button
-            text="View All Rewards"
-            rightArrow
-            variant="soft"
-            size="small"
-          />
-        </div>
-
         <!-- Dots -->
         <div class="flex items-center gap-1.5 md:gap-2" data-embla-dots></div>
 
-        <!-- Prev / Next -->
-        <div class="absolute right-0 flex gap-2 md:gap-6">
+        <div class="absolute right-0 flex gap-4 md:gap-6">
+          <!--  Prev button -->
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            id="prevButton"
+            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-prev
             aria-label="Previous"
           >
             <span class="inline-flex">
-              <!-- your left chevron svg -->
               <svg
-                class="size-3.5 md:size-7"
+                class="size-5 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="29"
                 viewBox="0 0 29 29"
                 fill="none"
               >
@@ -117,17 +112,19 @@ const awardsDetails = {
             </span>
           </button>
 
+          <!-- Next button -->
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-next
             aria-label="Next"
           >
             <span class="inline-flex rotate-180">
-              <!-- your right chevron svg (rotated) -->
               <svg
-                class="size-3.5 md:size-7"
+                class="size-5 md:size-7"
                 xmlns="http://www.w3.org/2000/svg"
+                width="29"
+                height="29"
                 viewBox="0 0 29 29"
                 fill="none"
               >
@@ -146,18 +143,27 @@ const awardsDetails = {
 </section>
 
 <style>
-  /* Slider-level variables */
+  /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 16px; /* match the visual 'gap' above (gap-4 = 16px) */
+    --gap: 28px; /* match the gap-7 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
+
   @media (min-width: 640px) {
     .ns-slider {
       --slides: 2;
       --peek: 0px;
     }
   }
+
+  @media (min-width: 1280px) {
+    .ns-slider {
+      --slides: 3;
+      --peek: 0px;
+    } /* set to 60px to reveal a peek */
+  }
+
   /* Each slide width: ((100% - total gaps - peek) / slides) */
   .ns-slide {
     flex: 0 0
@@ -171,13 +177,12 @@ const awardsDetails = {
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
   import { initEmblaRoot } from "/js/embla.js";
-
   window.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("embla-awards");
+    const root = document.getElementById("sai-seva-slider");
     initEmblaRoot(root, {
       align: "start",
-      slidesToScroll: "2",
-      loop: false,
+      dragFree: false,
+      slidesToScroll: "auto",
     });
   });
 </script>
