@@ -6,6 +6,7 @@ const {
   personName = "Deven Bhagtani",
   designation = "8th B",
   href = "#",
+  imgType = "withBg",
 } = Astro.props;
 ---
 
@@ -14,7 +15,7 @@ const {
 >
   <!-- Image -->
   <div
-    class="relative w-full bg-[url('/images/school-background.png')] bg-cover bg-center pt-5"
+    class={`relative w-full bg-[url('/images/school-background.png')] bg-cover bg-center ${imgType === "withBg" ? "pt-5" : ""}`}
   >
     {
       image && (
