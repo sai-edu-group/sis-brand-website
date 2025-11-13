@@ -96,12 +96,13 @@ const {
           )
         }
 
+        <!-- Tags -->
         {
           tags && tags.length > 0 && (
             <div class="font-secondary text-n-600 flex gap-1.5 lg:gap-2">
-              {tags.map((tag) => (
+              {tags.map((tagItem) => (
                 <span class="bg-n-100 rounded-lg px-5 py-1.5 text-xs lg:text-sm">
-                  {tag}
+                  {tagItem}
                 </span>
               ))}
             </div>
@@ -110,6 +111,7 @@ const {
       </div>
     </div>
 
+    <!-- Date  -->
     {
       date && (
         <div class="flex items-center gap-2">

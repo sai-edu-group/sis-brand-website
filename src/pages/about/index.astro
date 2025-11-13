@@ -7,13 +7,15 @@ import Layout from "../../layouts/Layout.astro";
 
 // SECTIONS //
 import Amenities from "../../sections/about/Amenities.astro";
+
+const heroSectionDetails = {
+  title: "Nurturing Global Citizens with Indian Values",
+  subtitle: "We inspire curious minds to lead with compassion and confidence.",
+  imageName: "contact-hero",
+};
 ---
 
 <Layout>
-  <Hero
-    title="Nurturing Global Citizens with Indian Values"
-    subtitle="We inspire curious minds to lead with compassion and confidence."
-    imageName="contact-hero"
-  />
+  <Hero {...heroSectionDetails} />
   <Amenities />
 </Layout>
