@@ -1,54 +1,63 @@
 ---
+// COMPONENTS //
 import PersonCard from "../../components/PersonCard.astro";
-import SectionHeaderC from "../../components/SectionHeaderC.astro";
+import SectionHeaderMain from "../../components/SectionHeaderC.astro";
 
-const boardMembers = [
-  {
-    name: "Dr. C.B Satpathy",
-    position: "Spiritual Thinker, Writer and Philanthropist",
-    img: "/images/satpathy.png",
+const advisoryBoardDetails = {
+  sectionHeaderDetails: {
+    eyebrowText: "Advisory Board",
+    title: "Wisdom that Strengthens Our Vision",
+    subtitle:
+      "Distinguished educators and professionals who guide the institution with their expertise and insight.",
   },
-  {
-    name: "Dr. Prasant Mohapatra",
-    position: "Provost, University of South Florida",
-    img: "/images/satpathy.png",
-  },
-  {
-    name: "CA P. R. Ramesh",
-    position: "Former Chairman, Deloitte India",
-    img: "/images/panigrahi.png",
-  },
-  {
-    name: "Dr. Damodar Acharya",
-    position: "Former Director, IIT-Kharagpur & Former Chairman, AICTE",
-    img: "/images/satpathy.png",
-  },
-  {
-    name: "Dr. P. C. Jain",
-    position: "Central Council Member ICAI & Former Principal, SRCC",
-    img: "/images/panigrahi.png",
-  },
-  {
-    name: "Shri Amitabh Jhingan",
-    position: "Partner, Head of Education Centre of Excellence Parthenon–EY",
-    img: "/images/satpathy.png",
-  },
-  {
-    name: "Shri Rakesh Sethi",
-    position: "Former Chairman & Managing Director, Allahabad Bank",
-    img: "/images/satpathy.png",
-  },
-  {
-    name: "Ms. Ameeta Mulla Wattal",
-    position: "Former Chairperson, NPSC",
-    img: "/images/panigrahi.png",
-  },
-  {
-    name: "Shri Ronesh Puri",
-    position: "Managing Director, Executive Access",
-    img: "/images/satpathy.png",
-  },
-];
+  boardMembers: [
+    {
+      name: "Dr. C.B Satpathy",
+      position: "Spiritual Thinker, Writer and Philanthropist",
+      img: "/images/satpathy.png",
+    },
+    {
+      name: "Dr. Prasant Mohapatra",
+      position: "Provost, University of South Florida",
+      img: "/images/satpathy.png",
+    },
+    {
+      name: "CA P. R. Ramesh",
+      position: "Former Chairman, Deloitte India",
+      img: "/images/panigrahi.png",
+    },
+    {
+      name: "Dr. Damodar Acharya",
+      position: "Former Director, IIT-Kharagpur & Former Chairman, AICTE",
+      img: "/images/satpathy.png",
+    },
+    {
+      name: "Dr. P. C. Jain",
+      position: "Central Council Member ICAI & Former Principal, SRCC",
+      img: "/images/panigrahi.png",
+    },
+    {
+      name: "Shri Amitabh Jhingan",
+      position: "Partner, Head of Education Centre of Excellence Parthenon–EY",
+      img: "/images/satpathy.png",
+    },
+    {
+      name: "Shri Rakesh Sethi",
+      position: "Former Chairman & Managing Director, Allahabad Bank",
+      img: "/images/satpathy.png",
+    },
+    {
+      name: "Ms. Ameeta Mulla Wattal",
+      position: "Former Chairperson, NPSC",
+      img: "/images/panigrahi.png",
+    },
+    {
+      name: "Shri Ronesh Puri",
+      position: "Managing Director, Executive Access",
+      img: "/images/satpathy.png",
+    },
+  ],
+};
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
@@ -56,24 +65,25 @@ const boardMembers = [
     class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-24 2xl:px-0"
   >
     <!-- Section Header -->
-    <SectionHeaderC
-      eyebrowText="Advisory Board"
-      title="Wisdom that Strengthens Our Vision"
-      subtitle="Distinguished educators and professionals who guide the institution with their expertise and insight."
-    />
+    <SectionHeaderMain {...advisoryBoardDetails.sectionHeaderDetails} />
 
     <!-- Advisory Board Members Wrapper -->
     <div
       class="mx-auto hidden grid-cols-1 gap-8 md:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid-cols-4 2xl:gap-y-14"
     >
       {
-        boardMembers.map((member) => (
-          <PersonCard
-            personName={member.name}
-            designation={member.position}
-            image={member.img}
-            imgType={""}
-          />
+        advisoryBoardDetails.boardMembers.map((member, cardIndex) => (
+          <div
+            class="card-anim card-bottom"
+            style={`--delay: ${cardIndex * 0.1}s`}
+          >
+            <PersonCard
+              personName={member.name}
+              designation={member.position}
+              image={member.img}
+              imgType={""}
+            />
+          </div>
         ))
       }
     </div>
@@ -91,7 +101,7 @@ const boardMembers = [
         <div class="flex gap-5.5" data-embla-container>
           <!-- Board Members Slides -->
           {
-            boardMembers.map((card) => (
+            advisoryBoardDetails.boardMembers.map((card) => (
               <div class="ns-slide cursor-pointer" data-embla-slide>
                 <PersonCard
                   personName={card.name}
@@ -196,6 +206,7 @@ const boardMembers = [
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
   import { initEmblaRoot } from "/js/embla.js";
+
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("advisory-board-slider");
     initEmblaRoot(root, {
