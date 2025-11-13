@@ -168,6 +168,13 @@ const dropdownYears = years.slice(2);
     const sortSelected = document.getElementById("sort-selected");
     const sortArrow = document.getElementById("sort-arrow");
 
+    // Default-select first year button when no year in URL
+    if (!currentYear && yearButtons.length) {
+      const firstBtn = yearButtons[0];
+      firstBtn.classList.add("bg-orange-500", "text-white");
+      firstBtn.classList.remove("bg-n-50", "text-n-500");
+    }
+
     // Highlight Selected Year
     yearButtons.forEach((btn) => {
       if (btn.dataset.year === currentYear) {
