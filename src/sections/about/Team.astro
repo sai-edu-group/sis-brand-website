@@ -1,53 +1,64 @@
 ---
 // COMPONENTS //
 import Button from "../../components/Button.astro";
-import SectionHeaderC from "../../components/SectionHeaderC.astro";
+import SectionHeaderMain from "../../components/SectionHeaderC.astro";
 import Tooltip from "../../components/Tooltip.astro";
 import PersonCard from "../../components/PersonCard.astro";
 
-const teamMembers = [
-  {
-    name: "Shri Nilakantha Panigrahi",
-    position: "Director Academics & Senior Principal",
-    quote:
-      "Education is not just about imparting knowledge, it’s about igniting curiosity and nurturing the potential within every child.",
-    img: "/images/panigrahi.png",
-    bgImg: "/images/team-bg.png",
-    isActive: true,
+const teamDetails = {
+  sectionHeaderDetails: {
+    eyebrowText: "Key Personnel",
+    title: "Leading with Vision and Commitment",
   },
-  {
-    name: "Dr. Silpi Sahoo",
-    position: "Chairperson",
-    quote:
-      "Education is not just about imparting knowledge, it’s about igniting curiosity and nurturing the potential within every child.",
-    img: "/images/panigrahi.png",
-    bgImg: "/images/team-bg.png",
-  },
-  {
-    name: "Shri Prakash Sahoo",
-    position: "Associate Director & Principal Secondary",
-    quote:
-      "Education is not just about imparting knowledge, it’s about igniting curiosity and nurturing the potential within every child.",
-    img: "/images/panigrahi.png",
-    bgImg: "/images/team-bg.png",
-  },
-  {
-    name: "Smt Rashmi Pandey",
-    position: "Associate Director & Principal Primary",
-    quote: `"Education is not just about imparting knowledge, it’s about igniting curiosity and nurturing the potential within every child."`,
-    img: "/images/panigrahi.png",
-    bgImg: "/images/team-bg.png",
-  },
-];
+  teamMembers: [
+    {
+      name: "Shri Nilakantha Panigrahi",
+      position: "Director Academics & Senior Principal",
+      quote:
+        "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      img: "/images/panigrahi.png",
+      bgImg: "/images/team-bg.png",
+      isActive: true,
+    },
+    {
+      name: "Dr. Silpi Sahoo",
+      position: "Chairperson",
+      quote:
+        "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      img: "/images/panigrahi.png",
+      bgImg: "/images/team-bg.png",
+    },
+    {
+      name: "Shri Prakash Sahoo",
+      position: "Associate Director & Principal Secondary",
+      quote:
+        "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      img: "/images/panigrahi.png",
+      bgImg: "/images/team-bg.png",
+    },
+    {
+      name: "Smt Rashmi Pandey",
+      position: "Associate Director & Principal Primary",
+      quote: `"Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child."`,
+      img: "/images/panigrahi.png",
+      bgImg: "/images/team-bg.png",
+    },
+  ],
+};
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
-  <div id="team-data" data-members={JSON.stringify(teamMembers)} hidden></div>
+  <div
+    id="team-data"
+    data-members={JSON.stringify(teamDetails.teamMembers)}
+    hidden
+  >
+  </div>
   <div
     class="container mx-auto flex flex-col gap-8 px-6 py-20 lg:gap-15 lg:py-40 2xl:px-0"
   >
     <!-- Section Header -->
-    <SectionHeaderC
+    <SectionHeaderMain
       eyebrowText="Key Personnel"
       title="Leading with Vision and Commitment"
     />
@@ -58,27 +69,32 @@ const teamMembers = [
       <div
         class="flex flex-1 rounded-4xl bg-cover bg-center pt-24 pr-20 pl-14 2xl:pr-30"
         id="team-bg"
-        style={`background: linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${teamMembers[0].bgImg}') center/cover no-repeat;`}
+        style={`background: linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${teamDetails.teamMembers[0].bgImg}') center/cover no-repeat;`}
       >
-        <div class="self-end lg:w-0 xl:w-[450px] 2xl:w-[500px]">
+        <div
+          class="team-image-container self-end lg:w-0 xl:w-[450px] 2xl:w-[500px]"
+        >
           <img
             id="team-img"
-            src={teamMembers[0].img}
-            alt={teamMembers[0].name}
+            src={teamDetails.teamMembers[0].img}
+            alt={teamDetails.teamMembers[0].name}
+            class="team-img-animate"
           />
         </div>
         <div class="flex flex-1 flex-col gap-30 pb-15">
-          <div class="relative flex flex-col gap-7">
+          <div class="team-content-container relative flex flex-col gap-7">
             <!-- Quote -->
             <p
               id="team-quote"
-              class="text-n-700 w-[90%] text-3xl leading-normal font-medium"
+              class="text-n-700 team-quote-animate w-[90%] text-3xl leading-normal font-medium"
             >
-              {teamMembers[0].quote}
+              "{teamDetails.teamMembers[0].quote}"
             </p>
 
             <!-- Explore Button -->
-            <Button text="Explore his Journey" variant="outline" rightArrow />
+            <div class="team-button-animate">
+              <Button text="Explore his Journey" variant="outline" rightArrow />
+            </div>
 
             <!-- Appostrophe SVG -->
             <svg
@@ -97,15 +113,18 @@ const teamMembers = [
           </div>
 
           <!-- Name and Position -->
-          <div class="flex flex-col">
+          <div class="team-name-container flex flex-col">
             <p
               id="team-name"
-              class="text-4xl leading-[46px] font-bold text-orange-500"
+              class="team-name-animate text-4xl leading-[46px] font-bold text-orange-500"
             >
-              {teamMembers[0].name}
+              {teamDetails.teamMembers[0].name}
             </p>
-            <p id="team-position" class="font-secondary text-n-600 text-lg">
-              {teamMembers[0].position}
+            <p
+              id="team-position"
+              class="font-secondary text-n-600 team-position-animate text-lg"
+            >
+              {teamDetails.teamMembers[0].position}
             </p>
           </div>
         </div>
@@ -117,7 +136,7 @@ const teamMembers = [
         class="mr-10 flex w-[110px] flex-col gap-2.5 pt-24 pb-15"
       >
         {
-          teamMembers.map((member, index) => (
+          teamDetails.teamMembers.map((member, index) => (
             <div
               class="group relative flex cursor-pointer flex-col items-center gap-2"
               data-index={index}
@@ -161,7 +180,7 @@ const teamMembers = [
         <div class="flex gap-5.5" data-embla-container>
           <!-- Team Members Slides -->
           {
-            teamMembers.map((card) => (
+            teamDetails.teamMembers.map((card) => (
               <div class="ns-slide cursor-pointer" data-embla-slide>
                 <PersonCard
                   personName={card.name}
@@ -243,7 +262,7 @@ const teamMembers = [
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
     --gap: 22px; /* match the gap-5.5 above */
-    --peek: 0px; /* extra visible width to “peek” next slide */
+    --peek: 0px; /* extra visible width to "peek" next slide */
   }
 
   @media (min-width: 640px) {
@@ -260,6 +279,70 @@ const teamMembers = [
         (100% - (var(--gap) * (var(--slides) - 1)) - var(--peek)) /
           var(--slides)
       );
+  }
+
+  /* Animation Keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Initial state - hidden */
+  .team-img-animate,
+  .team-quote-animate,
+  .team-button-animate,
+  .team-name-animate,
+  .team-position-animate {
+    opacity: 0;
+  }
+
+  /* Animation classes that will be added dynamically */
+  .team-img-animate.animate {
+    animation: fadeInScale 0.6s ease-out forwards;
+  }
+
+  .team-quote-animate.animate {
+    animation: fadeInUp 0.6s ease-out 0.1s forwards;
+  }
+
+  .team-button-animate.animate {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+  }
+
+  .team-name-animate.animate {
+    animation: fadeInLeft 0.6s ease-out 0.15s forwards;
+  }
+
+  .team-position-animate.animate {
+    animation: fadeInLeft 0.6s ease-out 0.25s forwards;
   }
 </style>
 
@@ -283,8 +366,28 @@ const teamMembers = [
   let rafId = null;
   let startTime = 0;
 
+  /** Trigger animations for all animated elements */
+  function triggerAnimations() {
+    const animatedElements = document.querySelectorAll(
+      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate",
+    );
+
+    // Remove animate class first
+    animatedElements.forEach((el) => {
+      el.classList.remove("animate");
+    });
+
+    // Force reflow to restart animation
+    void document.body.offsetWidth;
+
+    // Add animate class back
+    animatedElements.forEach((el) => {
+      el.classList.add("animate");
+    });
+  }
+
   /** Set the active member by index */
-  function setActive(index, resetTimer = true) {
+  function setActiveMember(index, resetTimer = true) {
     const member = members[index];
     if (!member) return;
     currentIndex = index;
@@ -293,9 +396,12 @@ const teamMembers = [
     bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${member.bgImg}') center/cover no-repeat`;
     imgEl.setAttribute("src", member.img);
     imgEl.setAttribute("alt", member.name);
-    quoteEl.textContent = member.quote;
+    quoteEl.textContent = "" + member.quote + "";
     nameEl.textContent = member.name;
     posEl.textContent = member.position;
+
+    // Trigger enter animations
+    triggerAnimations();
 
     // Update active styles on right list and reset progress bars
     listEl.querySelectorAll("[data-index]").forEach((node, i) => {
@@ -324,11 +430,11 @@ const teamMembers = [
   function startTimer() {
     if (rafId) cancelAnimationFrame(rafId);
     startTime = performance.now();
-    tick(startTime);
+    updateProgressBar(startTime);
   }
 
   /** Animation frame callback to update progress bar */
-  function tick(now) {
+  function updateProgressBar(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / AUTO_DURATION_MS, 1);
     const activeFill = listEl.querySelector(
@@ -339,11 +445,11 @@ const teamMembers = [
     }
     if (progress >= 1) {
       const next = (currentIndex + 1) % members.length;
-      setActive(next, false);
+      setActiveMember(next, false);
       startTimer();
       return;
     }
-    rafId = requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(updateProgressBar);
   }
 
   if (listEl && bgEl && imgEl && quoteEl && nameEl && posEl) {
@@ -351,11 +457,11 @@ const teamMembers = [
     listEl.querySelectorAll("[data-index]").forEach((item) => {
       item.addEventListener("click", () => {
         const idx = Number(item.getAttribute("data-index"));
-        setActive(idx, true);
+        setActiveMember(idx, true);
       });
     });
     // Initialize and start autoplay
-    setActive(currentIndex, false);
+    setActiveMember(currentIndex, false);
     startTimer();
   }
 </script>
