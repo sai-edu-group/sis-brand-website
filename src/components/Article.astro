@@ -1,0 +1,99 @@
+---
+// OTHERS //
+import SectionHeaderMain from "./SectionHeaderMain.astro";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  eyebrowText?: string;
+  ctaText?: string;
+}
+
+const {
+  title = "",
+  subtitle = "",
+  ctaText = "",
+  eyebrowText = "",
+} = Astro.props as Props;
+---
+
+<div>
+  <!-- Header Container -->
+  <div class="flex flex-col gap-9">
+    <SectionHeaderMain
+      title={title}
+      subtitle={subtitle}
+      eyebrowText={eyebrowText}
+      ctaText={ctaText}
+    />
+  </div>
+  <div class="article-root">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  .article-root h1 {
+    color: var(--color-n-800);
+    font-size: var(--text-6xl);
+    font-weight: 600;
+  }
+
+  .article-root h2 {
+    color: var(--color-n-800);
+    font-size: var(--text-5xl);
+    font-weight: 600;
+  }
+
+  .article-root h3 {
+    color: var(--color-n-800);
+    font-size: var(--text-4xl);
+    font-weight: 600;
+  }
+
+  .article-root h4 {
+    color: var(--color-n-800);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+  }
+
+  .article-root h5 {
+    color: var(--color-n-800);
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+
+  .article-root h6 {
+    color: var(--color-n-800);
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+
+  .article-root p {
+    color: var(--color-n-600);
+    font-family: "Poppins", sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 400;
+    line-height: 150%; /* 30px */
+  }
+
+  .article-root ol {
+    color: var(--color-n-600);
+    font-family: "Poppins", sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 400;
+    line-height: 162.5%; /* 32.5px */
+    letter-spacing: 0.2px;
+    list-style-type: disc;
+    padding-left: 1.25rem;
+  }
+
+  .article-root a {
+    color: var(--color-orange-500);
+    font-family: "Poppins", sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    text-decoration-line: underline;
+  }
+</style>
