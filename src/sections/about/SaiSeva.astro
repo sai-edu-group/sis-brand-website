@@ -63,8 +63,11 @@ const saiSevaDetails = {
         <div class="flex gap-9" data-embla-container>
           <!-- Sai Seva Slides -->
           {
-            saiSevaDetails.saiSevaContent.map((saiSevaItem) => (
-              <div class="ns-slide cursor-pointer" data-embla-slide>
+            saiSevaDetails.saiSevaContent.map((saiSevaItem, cardIndex) => (
+              <div
+                class="ns-slide card-anim card-bottom cursor-pointer"
+                data-embla-slide
+              >
                 <ArticleCard
                   title={saiSevaItem.title}
                   img={saiSevaItem.img}
