@@ -6,24 +6,19 @@ import Tooltip from "../../components/Tooltip.astro";
 import PersonCard from "../../components/PersonCard.astro";
 
 // DATA //
-import { teamDetails } from "../../data/about/member/team";
+import {
+  sectionHeaderDetails,
+  teamMembers,
+} from "../../data/about/member/team";
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
-  <div
-    id="team-data"
-    data-members={JSON.stringify(teamDetails.teamMembers)}
-    hidden
-  >
-  </div>
+  <div id="team-data" data-members={JSON.stringify(teamMembers)} hidden></div>
   <div
     class="container mx-auto flex flex-col gap-8 px-6 py-20 lg:gap-15 lg:py-40 2xl:px-0"
   >
     <!-- Section Header -->
-    <SectionHeaderMain
-      eyebrowText="Key Personnel"
-      title="Leading with Vision and Commitment"
-    />
+    <SectionHeaderMain {...sectionHeaderDetails} />
 
     <!-- Team Members Content -->
     <div class="hidden w-full lg:flex">
@@ -31,15 +26,15 @@ import { teamDetails } from "../../data/about/member/team";
       <div
         class="flex flex-1 rounded-4xl bg-cover bg-center pt-24 pr-20 pl-14 2xl:pr-30"
         id="team-bg"
-        style={`background: linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${teamDetails.teamMembers[0].bgImg}') center/cover no-repeat;`}
+        style={`background: linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${teamMembers[0].bgImg}') center/cover no-repeat;`}
       >
         <div
           class="team-image-container self-end lg:w-0 xl:w-[400px] 2xl:w-[500px]"
         >
           <img
             id="team-img"
-            src={teamDetails.teamMembers[0].img}
-            alt={teamDetails.teamMembers[0].name}
+            src={teamMembers[0].img}
+            alt={teamMembers[0].name}
             class="team-img-animate"
           />
         </div>
@@ -50,18 +45,22 @@ import { teamDetails } from "../../data/about/member/team";
               id="team-quote"
               class="text-n-700 team-quote-animate w-[90%] text-2xl leading-normal font-medium 2xl:text-3xl"
             >
-              "{teamDetails.teamMembers[0].quote}"
+              "{teamMembers[0].quote}"
             </p>
 
             <!-- Explore Button -->
-            <div class="team-button-animate">
+            <a
+              class="team-button-animate"
+              id="team-button"
+              href={`/about/team/${0}/${teamMembers[0].name}`}
+            >
               <Button
                 text="Explore his Journey"
                 variant="outline"
                 rightArrow
                 size="large"
               />
-            </div>
+            </a>
 
             <!-- Appostrophe SVG -->
             <svg
@@ -85,13 +84,13 @@ import { teamDetails } from "../../data/about/member/team";
               id="team-name"
               class="team-name-animate text-4xl leading-[46px] font-bold text-orange-500"
             >
-              {teamDetails.teamMembers[0].name}
+              {teamMembers[0].name}
             </p>
             <p
               id="team-position"
               class="font-secondary text-n-600 team-position-animate text-lg"
             >
-              {teamDetails.teamMembers[0].position}
+              {teamMembers[0].position}
             </p>
           </div>
         </div>
@@ -103,7 +102,7 @@ import { teamDetails } from "../../data/about/member/team";
         class="mr-10 flex w-[110px] flex-col gap-2.5 pt-15 pb-15 2xl:pt-24"
       >
         {
-          teamDetails.teamMembers.map((member, index) => (
+          teamMembers.map((member, index) => (
             <div
               class="group relative flex cursor-pointer flex-col items-center gap-2"
               data-index={index}
@@ -147,12 +146,13 @@ import { teamDetails } from "../../data/about/member/team";
         <div class="flex gap-5.5" data-embla-container>
           <!-- Team Members Slides -->
           {
-            teamDetails.teamMembers.map((card) => (
+            teamMembers.map((teamMemberItem, memberIndex) => (
               <div class="ns-slide cursor-pointer" data-embla-slide>
                 <PersonCard
-                  personName={card.name}
-                  designation={card.position}
-                  image={card.jpgImg}
+                  personName={teamMemberItem.name}
+                  designation={teamMemberItem.position}
+                  image={teamMemberItem.jpgImg}
+                  href={`/about/team/${memberIndex}/${teamMemberItem.name.replaceAll(" ", "-")}`}
                 />
               </div>
             ))
@@ -324,6 +324,7 @@ import { teamDetails } from "../../data/about/member/team";
   const nameEl = document.getElementById("team-name");
   const posEl = document.getElementById("team-position");
   const listEl = document.getElementById("team-list");
+  const buttonEl = document.getElementById("team-button");
   const AUTO_DURATION_MS = 10000;
   let currentIndex = Math.max(
     0,
@@ -363,6 +364,10 @@ import { teamDetails } from "../../data/about/member/team";
     bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${member.bgImg}') center/cover no-repeat`;
     imgEl.setAttribute("src", member.img);
     imgEl.setAttribute("alt", member.name);
+    buttonEl.setAttribute(
+      "href",
+      `/about/team/${index}/${member.name.replaceAll(" ", "-")}`,
+    );
     quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;
     posEl.textContent = member.position;
