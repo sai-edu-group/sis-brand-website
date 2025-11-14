@@ -1,0 +1,45 @@
+---
+title: Announcement Card Component
+description: A card to show the Announcement.
+---
+
+import AnnouncementCard from "../../../components/AnnouncementCard.astro";
+
+# AnnouncementCard
+
+The `AnnouncementCard` component is used to show a Announcement Item
+
+<AnnouncementCard
+  img={
+    "https://media.istockphoto.com/id/2178556401/vector/important-announcement-speech-bubble-banner-banner-for-business-marketing-promotion-and.jpg?s=612x612&w=0&k=20&c=qrFRlysTEWmFXdrKwlVUaMxU7KhwqfQ8RD09a928Js8="
+  }
+  topText={"Feature"}
+  title={"This is the title of the Announcement"}
+  description={"This is a example Announcement Description"}
+  date={"27 Jan 2025"}
+  buttonText={"Open Announcement"}
+/>
+
+## Props
+
+- `img: string`
+- `topText: string`
+- `title: string`
+- `description?: string`
+  ` `date: string`
+- `buttonText?: string`
+
+## Example
+
+```tsx
+<AnnouncementCard
+  img={
+    "https://media.istockphoto.com/id/2178556401/vector/important-announcement-speech-bubble-banner-banner-for-business-marketing-promotion-and.jpg?s=612x612&w=0&k=20&c=qrFRlysTEWmFXdrKwlVUaMxU7KhwqfQ8RD09a928Js8="
+  }
+  topText={"Feature"}
+  title={"This is the title of the Announcement"}
+  description={"This is a example Announcement Description"}
+  date={"27 Jan 2025"}
+  buttonText={"Open Announcement"}
+/>
+```

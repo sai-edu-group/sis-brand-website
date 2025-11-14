@@ -1,11 +1,28 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
 
-import tailwindcss from '@tailwindcss/vite';
+import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [],
+  },
+
+  integrations: [
+    tailwind({
+      applyBaseStyles: true, // ensures prose / typography work
+    }),
+    starlight({
+      title: "SAI Components",
+      // optional, but nice:
+      sidebar: [
+        {
+          label: "Components",
+          autogenerate: { directory: "components" }, // <- from src/content/docs/components
+        },
+      ],
+    }),
+  ],
 });

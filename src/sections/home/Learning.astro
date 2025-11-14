@@ -1,0 +1,46 @@
+---
+console.log("Pixolo");
+
+import LearningCard from "../../components/LearningCard.astro";
+
+const learningSectionContent = {
+  sectionTitle: "Hey I am Learning",
+  learningCards: [
+    {
+      title: "This is Title",
+      description: "This is desxcription",
+    },
+    {
+      title: "This is Title 2",
+      description: "This is desxcription",
+    },
+    {
+      title: "This is Title 3",
+      description: "This is desxcription",
+    },
+  ],
+  loadMoreButton: {
+    label: "Read More",
+    link: "https://www.google.com",
+  },
+};
+---
+
+<section>
+  <!-- Section Title -->
+  <h2>{learningSectionContent.sectionTitle}</h2>
+
+  {
+    learningSectionContent.learningCards.map((learningCardItem) => (
+      <LearningCard
+        title={learningCardItem.title}
+        description={learningCardItem.description}
+      />
+    ))
+  }
+
+  <!-- Section - Load more Button -->
+  <a href={learningSectionContent.loadMoreButton.link}
+    >{learningSectionContent.loadMoreButton.label}</a
+  >
+</section>

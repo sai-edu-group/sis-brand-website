@@ -1,0 +1,16 @@
+---
+import { string } from "astro:schema";
+
+interface LearningCardData {
+  title: string;
+  description: string;
+}
+
+const { title = "", description = "" } = Astro.props as LearningCardData;
+---
+
+<!-- Learning Content -->
+<div class="mb-4 bg-yellow-500">
+  <h2>{title}</h2>
+  <p>{description}</p>
+</div>
