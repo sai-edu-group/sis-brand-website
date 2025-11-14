@@ -1,11 +1,23 @@
 ---
+// COMPONENTS //
+import Hero from "../../components/Hero.astro";
+
 // OTHERS //
 import Layout from "../../layouts/Layout.astro";
 
 // SECTIONS //
 import Curriculum from "../../sections/about/Curriculum.astro";
+import Amenities from "../../sections/about/Amenities.astro";
+
+const heroSectionDetails = {
+  title: "Nurturing Global Citizens with Indian Values",
+  subtitle: "We inspire curious minds to lead with compassion and confidence.",
+  imageName: "contact-hero",
+};
 ---
 
 <Layout>
+  <Hero {...heroSectionDetails} />
   <Curriculum />
+  <Amenities />
 </Layout>
