@@ -1,0 +1,103 @@
+---
+// DATA //
+import { teamMembers } from "../../../../../data/about/members/team";
+import { boardMembers } from "../../../../../data/about/members/advisor-board";
+
+// OTHERS //
+import Layout from "../../../../../layouts/Layout.astro";
+
+// SECTIONS //
+import MemberConsumption from "../../../../../sections/member-consumption/MemberConsumption.astro";
+
+export async function getStaticPaths() {
+  const paths: Array<{
+    params: { type: string; id: string; name: string };
+    props: {
+      type: string;
+      member: (typeof teamMembers)[0] | (typeof boardMembers)[0];
+    };
+  }> = [];
+
+  // Generate paths for team members
+  teamMembers.forEach((member: (typeof teamMembers)[0]) => {
+    paths.push({
+      params: {
+        type: "team",
+        id: member.id.toString(),
+        name: member.name.replaceAll(" ", "-"),
+      },
+      props: {
+        type: "team",
+        member,
+      },
+    });
+  });
+
+  // Generate paths for advisor board members
+  boardMembers.forEach((member: (typeof boardMembers)[0]) => {
+    paths.push({
+      params: {
+        type: "advisor-board",
+        id: member.id.toString(),
+        name: member.name.replaceAll(" ", "-"),
+      },
+      props: {
+        type: "advisor-board",
+        member,
+      },
+    });
+  });
+
+  return paths;
+}
+
+const { type, member } = Astro.props;
+
+// Prepare breadcrumb items based on type
+const breadcrumbItems =
+  type === "team"
+    ? [
+        { label: "Key Personnel", href: "/about" },
+        { label: member.name, href: `#` },
+      ]
+    : [
+        { label: "Advisory Board", href: "/about" },
+        { label: member.name, href: `#` },
+      ];
+
+// Prepare section header details
+const sectionHeaderDetails = {
+  title: member.name,
+  subtitle: member.position,
+  eyebrowText: type === "team" ? "Key Personnel" : "Advisory Board",
+};
+
+// Prepare member content
+const memberContent = {
+  imageSrc:
+    type === "team"
+      ? (member as (typeof teamMembers)[0]).jpgImg ||
+        (member as (typeof teamMembers)[0]).img
+      : member.img,
+  quoteText:
+    type === "team"
+      ? (member as (typeof teamMembers)[0]).quote || ""
+      : `"${member.position}"`,
+  firstDetailText:
+    type === "team" && (member as (typeof teamMembers)[0]).content
+      ? (member as (typeof teamMembers)[0]).content[0] || ""
+      : `Learn more about ${member.name} and their contributions.`,
+  secondDetailText:
+    type === "team" && (member as (typeof teamMembers)[0]).content
+      ? (member as (typeof teamMembers)[0]).content[1] || ""
+      : `${member.name} brings extensive experience and expertise to their role.`,
+};
+---
+
+<Layout>
+  <MemberConsumption
+    breadcrumbItems={breadcrumbItems}
+    sectionHeaderDetails={sectionHeaderDetails}
+    memberContent={memberContent}
+  />
+</Layout>
