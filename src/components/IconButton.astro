@@ -1,7 +1,7 @@
 ---
 interface Props {
   href: string;
-  extraClasses: string;
+  extraClasses?: string;
 }
 const { href = "#", extraClasses } = Astro.props as Props;
 ---
