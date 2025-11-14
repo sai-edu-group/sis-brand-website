@@ -39,7 +39,8 @@ const teamDetails = {
     {
       name: "Smt Rashmi Pandey",
       position: "Associate Director & Principal Primary",
-      quote: `"Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child."`,
+      quote:
+        "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
       img: "/images/panigrahi.png",
       bgImg: "/images/team-bg.png",
     },
@@ -72,7 +73,7 @@ const teamDetails = {
         style={`background: linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${teamDetails.teamMembers[0].bgImg}') center/cover no-repeat;`}
       >
         <div
-          class="team-image-container self-end lg:w-0 xl:w-[450px] 2xl:w-[500px]"
+          class="team-image-container self-end lg:w-0 xl:w-[400px] 2xl:w-[500px]"
         >
           <img
             id="team-img"
@@ -86,14 +87,19 @@ const teamDetails = {
             <!-- Quote -->
             <p
               id="team-quote"
-              class="text-n-700 team-quote-animate w-[90%] text-3xl leading-normal font-medium"
+              class="text-n-700 team-quote-animate w-[90%] text-2xl leading-normal font-medium 2xl:text-3xl"
             >
               "{teamDetails.teamMembers[0].quote}"
             </p>
 
             <!-- Explore Button -->
             <div class="team-button-animate">
-              <Button text="Explore his Journey" variant="outline" rightArrow />
+              <Button
+                text="Explore his Journey"
+                variant="outline"
+                rightArrow
+                size="large"
+              />
             </div>
 
             <!-- Appostrophe SVG -->
@@ -133,7 +139,7 @@ const teamDetails = {
       {/* Right Content - Team Members List */}
       <div
         id="team-list"
-        class="mr-10 flex w-[110px] flex-col gap-2.5 pt-24 pb-15"
+        class="mr-10 flex w-[110px] flex-col gap-2.5 pt-15 pb-15 2xl:pt-24"
       >
         {
           teamDetails.teamMembers.map((member, index) => (
@@ -142,7 +148,7 @@ const teamDetails = {
               data-index={index}
             >
               <div
-                class={`flex h-[102px] items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center pt-2 ${member.isActive ? "" : "grayscale"} `}
+                class={`flex h-[75px] items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center pt-2 2xl:h-[102px] ${member.isActive ? "" : "grayscale"} `}
                 style={`background-image: url('${member.bgImg}')`}
               >
                 <img
@@ -153,7 +159,7 @@ const teamDetails = {
               </div>
               <Tooltip text={member.name} />
               <div
-                class={`h-[4px] w-[75px] origin-left rounded-md bg-orange-100 ${member.isActive ? "" : "opacity-0"} overflow-hidden`}
+                class={`hidden h-[4px] w-[75px] origin-left rounded-md bg-orange-100 ${member.isActive ? "" : "opacity-0"} overflow-hidden`}
                 data-underline
               >
                 <div
@@ -396,7 +402,7 @@ const teamDetails = {
     bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 32.67%, #FFF 72.07%), url('${member.bgImg}') center/cover no-repeat`;
     imgEl.setAttribute("src", member.img);
     imgEl.setAttribute("alt", member.name);
-    quoteEl.textContent = "" + member.quote + "";
+    quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;
     posEl.textContent = member.position;
 
