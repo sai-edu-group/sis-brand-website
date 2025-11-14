@@ -52,7 +52,7 @@ import {
             <a
               class="team-button-animate"
               id="team-button"
-              href={`/about/team/${0}/${teamMembers[0].name}`}
+              href={`/about/team/${teamMembers[0].id}/${teamMembers[0].name}`}
             >
               <Button
                 text="Explore his Journey"
@@ -152,7 +152,7 @@ import {
                   personName={teamMemberItem.name}
                   designation={teamMemberItem.position}
                   image={teamMemberItem.jpgImg}
-                  href={`/about/team/${memberIndex}/${teamMemberItem.name.replaceAll(" ", "-")}`}
+                  href={`/about/team/${teamMemberItem.id}/${teamMemberItem.name.replaceAll(" ", "-")}`}
                 />
               </div>
             ))
@@ -366,7 +366,7 @@ import {
     imgEl.setAttribute("alt", member.name);
     buttonEl.setAttribute(
       "href",
-      `/about/team/${index}/${member.name.replaceAll(" ", "-")}`,
+      `/about/team/${member.id}/${member.name.replaceAll(" ", "-")}`,
     );
     quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;

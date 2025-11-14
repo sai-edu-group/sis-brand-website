@@ -13,6 +13,11 @@ export const teamMembers = [
     bgImg: "/images/team/team-bg.png",
     jpgImg: "/images/team/panigrahi.jpg",
     isActive: true,
+    id: 1,
+    content: [
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child",
+    ],
   },
   {
     name: "Dr. Silpi Sahoo",
@@ -22,6 +27,11 @@ export const teamMembers = [
     img: "/images/team/silpi.png",
     bgImg: "/images/team/forest-bg.png",
     jpgImg: "/images/team/silpi.jpg",
+    id: 2,
+    content: [
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child",
+    ],
   },
   {
     name: "Shri Prakash Sahoo",
@@ -31,6 +41,11 @@ export const teamMembers = [
     img: "/images/team/prakash-sahoo.png",
     bgImg: "/images/team/wework-bg.png",
     jpgImg: "/images/team/prakash.jpg",
+    id: 3,
+    content: [
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child",
+    ],
   },
   {
     name: "Smt Rashmi Pandey",
@@ -40,5 +55,10 @@ export const teamMembers = [
     img: "/images/team/rashmi.png",
     bgImg: "/images/team/office-bg.png",
     jpgImg: "/images/team/rashmi.jpg",
+    id: 4,
+    content: [
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child.",
+      "Education is not just about imparting knowledge, it's about igniting curiosity and nurturing the potential within every child",
+    ],
   },
 ];
