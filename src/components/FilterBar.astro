@@ -19,19 +19,21 @@ const visibleYears = years.slice(0, 2);
 const dropdownYears = years.slice(2);
 ---
 
-<section class="bg-n-50 flex flex-col gap-8 rounded-2xl p-6 shadow-sm">
+<section class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8">
   <!-- Year Filter -->
-  <div class="flex flex-col gap-3">
+  <div class="flex flex-col gap-2 md:gap-3">
     <p class="font-secondary text-n-600 text-base md:text-lg lg:text-3xl">
       Select a Year
     </p>
 
     <!-- Year Button wrapper -->
-    <div class="flex flex-wrap items-center gap-1.5 md:gap-4 xl:gap-5">
+    <div
+      class="flex flex-wrap items-center gap-[1px] sm:gap-2 md:gap-4 xl:gap-5"
+    >
       {
         visibleYears.map((year) => (
           <button
-            class="font-secondary bg-n-50 text-n-500 cursor-pointer rounded-xl px-6 py-3 text-base leading-[21px] font-medium transition-colors duration-200 hover:bg-orange-50 md:rounded-2xl md:px-7 md:py-3.5 md:text-xl md:leading-[30px] xl:rounded-4xl xl:px-14 xl:py-4 xl:text-3xl xl:leading-[54px]"
+            class="font-secondary bg-n-50 text-n-500 cursor-pointer rounded-xl px-6 py-3 text-sm leading-[21px] font-medium transition-colors duration-200 hover:bg-orange-50 md:rounded-2xl md:px-7 md:py-3.5 md:text-xl md:leading-[30px] xl:rounded-4xl xl:px-14 xl:py-4 xl:text-3xl xl:leading-[54px]"
             data-year={year}
           >
             {year}
@@ -42,10 +44,10 @@ const dropdownYears = years.slice(2);
       {
         dropdownYears.length > 0 && (
           <details class="group relative" id="year-dropdown">
-            <summary class="border-n-500 text-n-500 hover:bg-n-50 flex cursor-pointer list-none items-center gap-3 rounded-full border px-6 py-3 font-medium select-none lg:px-8 lg:py-4">
+            <summary class="border-n-500 text-n-500 hover:bg-n-50 flex cursor-pointer list-none items-center gap-3 rounded-full border px-3.5 py-3 font-medium select-none md:gap-5 md:px-6 lg:px-8 lg:py-4">
               <span
                 id="year-selected"
-                class="font-secondary text-n-500 text-lg font-medium lg:leading-[27px]"
+                class="font-secondary text-n-500 text-sm font-medium md:text-lg lg:leading-[27px]"
               >
                 Previous Years
               </span>

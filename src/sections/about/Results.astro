@@ -17,18 +17,18 @@ const { breadcrumbItems, sectionHeaderDetails } = Astro.props as Props;
 
 <section class="bg-n-50 relative w-full overflow-hidden">
   <div
-    class="container mx-auto flex flex-col gap-10 px-6 py-30 md:gap-8 md:py-40 lg:gap-9 2xl:px-0"
+    class="container mx-auto flex flex-col gap-10 px-6 py-30 md:gap-14 md:py-40 lg:gap-9 2xl:px-0"
   >
     <!-- Breadcrumbs -->
     <Breadcrumbs items={breadcrumbItems} />
 
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-8 md:gap-12">
       <SectionHeaderMain {...sectionHeaderDetails as any} />
 
-      <div class="flex flex-col gap-7">
+      <div class="flex flex-col gap-7 md:gap-8">
         <FilterBar showSearch={false} />
 
-        <div class="grid grid-cols-1 gap-5">
+        <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
           {[0, 1, 2, 3, 4, 5].map(() => <ResultsCard />)}
         </div>
       </div>
