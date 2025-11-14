@@ -28,7 +28,7 @@ export const initEmblaRoot = (root, options) => {
     return snaps.map((_, i) => {
       const btn = document.createElement("button");
       btn.className =
-        "embla-dot bg-n-300 size-1.5 md:size-2.5 rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500";
+        "embla-dot bg-n-300 size-1.5 md:size-2 rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500";
       btn.addEventListener("click", () => embla.scrollTo(i));
       dotsHost.appendChild(btn);
       return btn;

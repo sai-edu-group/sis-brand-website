@@ -14,47 +14,47 @@ const advisoryBoardDetails = {
     {
       name: "Dr. C.B Satpathy",
       position: "Spiritual Thinker, Writer and Philanthropist",
-      img: "/images/satpathy.png",
+      img: "/images/board-members/satpathy.png",
     },
     {
       name: "Dr. Prasant Mohapatra",
       position: "Provost, University of South Florida",
-      img: "/images/satpathy.png",
+      img: "/images/board-members/satpathy.png",
     },
     {
       name: "CA P. R. Ramesh",
       position: "Former Chairman, Deloitte India",
-      img: "/images/panigrahi.png",
+      img: "/images/board-members/mohapatra.png",
     },
     {
       name: "Dr. Damodar Acharya",
       position: "Former Director, IIT-Kharagpur & Former Chairman, AICTE",
-      img: "/images/satpathy.png",
+      img: "/images/board-members/satpathy.png",
     },
     {
       name: "Dr. P. C. Jain",
       position: "Central Council Member ICAI & Former Principal, SRCC",
-      img: "/images/panigrahi.png",
+      img: "/images/board-members/mohapatra.png",
     },
     {
       name: "Shri Amitabh Jhingan",
       position: "Partner, Head of Education Centre of Excellence Parthenon–EY",
-      img: "/images/satpathy.png",
+      img: "/images/board-members/satpathy.png",
     },
     {
       name: "Shri Rakesh Sethi",
       position: "Former Chairman & Managing Director, Allahabad Bank",
-      img: "/images/satpathy.png",
+      img: "/images/board-members/satpathy.png",
     },
     {
       name: "Ms. Ameeta Mulla Wattal",
       position: "Former Chairperson, NPSC",
-      img: "/images/panigrahi.png",
+      img: "/images/board-members/mohapatra.png",
     },
     {
       name: "Shri Ronesh Puri",
       position: "Managing Director, Executive Access",
-      img: "/images/satpathy.png",
+      img: "/images/board-members/satpathy.png",
     },
   ],
 };
@@ -102,7 +102,10 @@ const advisoryBoardDetails = {
           <!-- Board Members Slides -->
           {
             advisoryBoardDetails.boardMembers.map((card) => (
-              <div class="ns-slide cursor-pointer" data-embla-slide>
+              <div
+                class="ns-slide card-anim card-bottom cursor-pointer"
+                data-embla-slide
+              >
                 <PersonCard
                   personName={card.name}
                   designation={card.position}
