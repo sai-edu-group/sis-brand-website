@@ -1,74 +1,66 @@
 ---
-import ArticleCard from "../../components/ArticleCard.astro";
-import Button from "../../components/Button.astro";
+// COMPONENTS //
+import PersonCard from "../../components/PersonCard.astro";
 import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 
-const newsDetails = {
-  articleCards: [
-    {
-      title: "SAI International School Ranked Among Top 3 Schools in India",
-      img: "/images/news-article-image.png",
-      topText: "By Admissions Desk",
-      tags: ["Awrds", "CBSE"],
-      href: "#",
-      date: "12 Sept 2025",
-    },
-    {
-      title: "SAI International School Ranked Among Top 3 Schools in India",
-      img: "/images/news-article-image.png",
-      topText: "By Admissions Desk",
-      tags: ["Awrds", "CBSE"],
-      href: "#",
-      date: "12 Sept 2025",
-    },
-    {
-      title: "SAI International School Ranked Among Top 3 Schools in India",
-      img: "/images/news-article-image.png",
-      topText: "By Admissions Desk",
-      tags: ["Awrds", "CBSE"],
-      href: "#",
-      date: "12 Sept 2025",
-    },
-    {
-      title: "SAI International School Ranked Among Top 3 Schools in India",
-      img: "/images/news-article-image.png",
-      topText: "By Admissions Desk",
-      tags: ["Awrds", "CBSE"],
-      href: "#",
-      date: "12 Sept 2025",
-    },
-  ],
-};
-
-const uid = "embla-news";
+// DATA //
+import {
+  boardMembers,
+  sectionHeaderDetails,
+} from "../../data/about/members/advisor-board";
 ---
 
-<section class="ns-slider bg-n-100">
+<section class="bg-n-50 ns-slider relative w-full overflow-hidden">
   <div
-    class="container mx-auto flex flex-col gap-9 px-6 py-14 md:py-20 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-24 2xl:px-0"
   >
-    <!-- Section header title -->
-    <SectionHeaderMain
-      eyebrowText="SAI News"
-      subtitle="Discover the latest updates, thought leadership, and inspiring stories from the SAI community."
-      title=" The SAI Chronicle"
-    />
+    <!-- Section Header -->
+    <SectionHeaderMain {...sectionHeaderDetails} />
 
+    <!-- Advisory Board Members Wrapper -->
+    <div
+      class="mx-auto hidden grid-cols-1 gap-8 md:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid-cols-4 2xl:gap-y-14"
+    >
+      {
+        boardMembers.map((advisoryMemberItem, advisoryMemberIndex) => (
+          <div
+            class="card-anim card-bottom"
+            style={`--delay: ${advisoryMemberIndex * 0.1}s`}
+          >
+            <PersonCard
+              personName={advisoryMemberItem.name}
+              designation={advisoryMemberItem.position}
+              image={advisoryMemberItem.img}
+              href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}}`}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Advisory Board Slider for Mobile and Tablet -->
     <!-- Slider root: keep viewport + controls inside this wrapper -->
-    <div data-embla-root id={uid} class="space-y-7 md:space-y-9">
+    <div
+      data-embla-root
+      id={"advisory-board-slider"}
+      class="space-y-7 md:space-y-9 lg:hidden"
+    >
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
-        <div class="flex gap-7" data-embla-container>
+        <div class="flex gap-5.5" data-embla-container>
+          <!-- Board Members Slides -->
           {
-            newsDetails.articleCards.map((card) => (
-              <div class="ns-slide cursor-pointer" data-embla-slide>
-                <ArticleCard
-                  title={card.title}
-                  img={card.img}
-                  topText={card.topText}
-                  date={card.date}
-                  tags={card.tags}
+            boardMembers.map((advisoryMemberItem) => (
+              <div
+                class="ns-slide card-anim card-bottom cursor-pointer"
+                data-embla-slide
+              >
+                <PersonCard
+                  personName={advisoryMemberItem.name}
+                  designation={advisoryMemberItem.position}
+                  image={advisoryMemberItem.img}
+                  href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}}`}
                 />
               </div>
             ))
@@ -138,52 +130,13 @@ const uid = "embla-news";
       </div>
     </div>
   </div>
-
-  <!-- News letter -->
-  <div
-    class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
-  >
-    <div class="h-[208px] md:h-[430px] lg:h-auto lg:w-[40%] 2xl:w-[46%]">
-      <img
-        src="/images/news-letter.png"
-        alt=""
-        class="h-full w-full object-cover"
-      />
-    </div>
-    <div class="flex flex-1 flex-col gap-8 md:gap-11">
-      <div class="space-y-2 md:space-y-2.5">
-        <!-- Eyebrow text -->
-        <p class="text-n-600 text-base font-light md:text-2xl">
-          News & Updates
-        </p>
-        <div class="space-y-1">
-          <!-- Title text -->
-          <p class="text-n-800 text-3xl leading-[120%] font-medium md:text-6xl">
-            Don’t Miss a Moment at SAI International
-          </p>
-
-          <!-- Subtitle text -->
-          <p
-            class="text-n-500 font-secondary text-sm font-normal md:text-xl md:leading-[140%] lg:leading-[120%]"
-          >
-            Receive updates on events, achievements, and important announcements
-            directly in your inbox.
-          </p>
-        </div>
-      </div>
-
-      <!-- Cta button -->
-      <a href="/">
-        <Button text="Subscribe to Newsletter" />
-      </a>
-    </div>
-  </div>
 </section>
+
 <style>
   /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 28px; /* match the gap-7 above */
+    --gap: 22px; /* match the gap-5.5 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
 
@@ -192,13 +145,6 @@ const uid = "embla-news";
       --slides: 2;
       --peek: 0px;
     }
-  }
-
-  @media (min-width: 1024px) {
-    .ns-slider {
-      --slides: 3;
-      --peek: 0px;
-    } /* set to 60px to reveal a peek */
   }
 
   /* Each slide width: ((100% - total gaps - peek) / slides) */
@@ -214,12 +160,12 @@ const uid = "embla-news";
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
   import { initEmblaRoot } from "/js/embla.js";
-
   window.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("embla-news");
+    const root = document.getElementById("advisory-board-slider");
     initEmblaRoot(root, {
       align: "start",
       dragFree: false,
+      slidesToScroll: "2",
     });
   });
 </script>
