@@ -13,7 +13,7 @@ interface Props {
   badgeText?: string;
 }
 const {
-  img = "/images/default/news-article-image.png",
+  img = "/images/news-article-image.png",
   topText = "",
   title = "",
   description = "",
@@ -25,7 +25,7 @@ const {
 ---
 
 <div
-  class="group bg-n-50 border-n-200 w-full overflow-hidden rounded-2xl border-2"
+  class="group bg-n-50 border-n-200 h-full w-full overflow-hidden rounded-2xl border-2"
 >
   <!-- Article image -->
   <div class="relative">
@@ -48,7 +48,7 @@ const {
   </div>
 
   <div
-    class="relative flex flex-col gap-4 px-4 pt-4 pb-8 md:px-5 md:pt-5 md:pb-10 lg:gap-6 lg:px-6 lg:pt-6 lg:pb-11"
+    class="relative flex flex-col gap-4 px-4 pt-4 pb-8 md:px-6 md:pt-5 md:pb-9 lg:gap-6 lg:px-6 lg:pt-6 lg:pb-11"
   >
     <!-- Article title -->
     <div class="flex flex-col gap-3 lg:gap-5">
@@ -90,19 +90,18 @@ const {
         <!-- Description -->
         {
           description && (
-            <p class="font-secondary text-n-500 w-[85%] text-xs leading-tight font-medium md:w-[90%] md:text-sm lg:text-lg">
+            <p class="font-secondary text-n-500 text-xs leading-tight md:text-sm lg:text-lg">
               {description}
             </p>
           )
         }
 
-        <!-- Tags -->
         {
           tags && tags.length > 0 && (
             <div class="font-secondary text-n-600 flex gap-1.5 lg:gap-2">
-              {tags.map((tagItem) => (
+              {tags.map((tag) => (
                 <span class="bg-n-100 rounded-lg px-5 py-1.5 text-xs lg:text-sm">
-                  {tagItem}
+                  {tag}
                 </span>
               ))}
             </div>
@@ -111,7 +110,6 @@ const {
       </div>
     </div>
 
-    <!-- Date  -->
     {
       date && (
         <div class="flex items-center gap-2">
