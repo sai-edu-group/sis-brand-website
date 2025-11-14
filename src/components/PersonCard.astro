@@ -13,15 +13,13 @@ const {
   class="border-n-200 relative flex h-full w-full flex-col items-center overflow-hidden rounded-2xl border-2 lg:max-w-[413px]"
 >
   <!-- Image -->
-  <div
-    class="relative w-full bg-[url('/images/school-background.png')] bg-cover bg-center pt-5"
-  >
+  <div class="relative w-full">
     {
       image && (
         <img
           src={image}
           alt={personName}
-          class="h-[221px] w-full object-contain md:h-[272px]"
+          class="h-[221px] w-full object-cover md:h-[272px]"
         />
       )
     }
@@ -31,7 +29,7 @@ const {
   <div
     class="relative flex h-full w-full px-4 pt-3.5 pb-5 md:px-5 md:pt-4 md:pb-10"
   >
-    <!-- Student Details -->
+    <!-- Person Details -->
     <div class="flex flex-col">
       <p class="text-n-600 text-xl leading-[31px] font-medium md:text-2xl">
         {personName}
@@ -43,7 +41,9 @@ const {
       </p>
     </div>
 
-    <div class="absolute right-4 bottom-6 md:right-5 md:bottom-4">
+    <div
+      class="absolute right-4 bottom-6 hidden md:right-5 md:bottom-4 lg:block"
+    >
       <IconButton href={href} extraClasses="" />
     </div>
   </div>
