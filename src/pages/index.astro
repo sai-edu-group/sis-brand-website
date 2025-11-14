@@ -15,6 +15,18 @@ import Results from "../sections/home/Results.astro";
 import Placements from "../sections/home/Placements.astro";
 import Hero from "../sections/home/Hero.astro";
 import FilterBar from "../components/FilterBar.astro";
+import Results2 from "../sections/about/Results.astro";
+
+const resultsDetails = {
+  breadcrumbItems: [
+    { label: "Advisory Board", href: "/about" },
+    { label: "Member Consumption", href: "/member-consumption" },
+  ],
+  sectionHeaderDetails: {
+    title: "Class 12th - Science",
+    subtitle: "Celebrating our students’ hard work and achievements",
+  },
+};
 ---
 
 <Layout>
@@ -32,4 +44,5 @@ import FilterBar from "../components/FilterBar.astro";
   <Testimonial />
   <News />
   <Partners />
+  <Results2 {...resultsDetails} />
 </Layout>
