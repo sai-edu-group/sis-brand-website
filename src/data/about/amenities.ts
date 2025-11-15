@@ -31,7 +31,7 @@ export const amenitiesDetails = {
       title: "Infirmary",
       img: "/images/amenities/infirmary.png",
       description:
-        "Music and dance nurture creativity and support 360-degree student growth.",
+        "Well-equipped medical facility ensuring the health and wellness of students and staff.",
       href: "#",
     },
     {
