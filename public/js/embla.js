@@ -10,12 +10,18 @@ export const initEmblaRoot = (root, options) => {
     ...options,
   });
 
+  const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages
+
   // Prev/Next
   const prevBtn = root.querySelector("[data-embla-prev]");
   const nextBtn = root.querySelector("[data-embla-next]");
-  prevBtn?.addEventListener("click", () => embla.scrollPrev());
-  nextBtn?.addEventListener("click", () => embla.scrollNext());
 
+  if (snaps.length > 1) {
+    prevBtn.style.display = "flex";
+    nextBtn.style.display = "flex";
+    prevBtn?.addEventListener("click", () => embla.scrollPrev());
+    nextBtn?.addEventListener("click", () => embla.scrollNext());
+  }
   // Build dots FROM SNAP LIST (groups), not slides
   const dotsHost = root.querySelector("[data-embla-dots]");
 
@@ -24,15 +30,16 @@ export const initEmblaRoot = (root, options) => {
     // If dots container is missing then return an empty array
     if (!dotsHost) return [];
     dotsHost.innerHTML = "";
-    const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages
-    return snaps.map((_, i) => {
-      const btn = document.createElement("button");
-      btn.className =
-        "embla-dot bg-n-300 size-1.5 md:size-2 rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500";
-      btn.addEventListener("click", () => embla.scrollTo(i));
-      dotsHost.appendChild(btn);
-      return btn;
-    });
+    if (snaps.length > 1) {
+      return snaps.map((_, i) => {
+        const btn = document.createElement("button");
+        btn.className =
+          "embla-dot bg-n-300 size-1.5 md:size-2.5 rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500";
+        btn.addEventListener("click", () => embla.scrollTo(i));
+        dotsHost.appendChild(btn);
+        return btn;
+      });
+    }
   };
 
   let dots = buildDots();

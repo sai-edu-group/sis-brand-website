@@ -13,7 +13,7 @@ interface Props {
   badgeText?: string;
 }
 const {
-  img = "/images/news-article-image.png",
+  img = "/images/default/news-article-image.png",
   topText = "",
   title = "",
   description = "",
@@ -25,14 +25,14 @@ const {
 ---
 
 <div
-  class="group bg-n-50 border-n-200 h-full w-full overflow-hidden rounded-2xl border-2"
+  class="group bg-n-50 border-n-200 relative h-full w-full overflow-hidden rounded-2xl border-2"
 >
   <!-- Article image -->
   <div class="relative">
     <img
       src={img}
       alt=""
-      class="h-[207px] w-full object-cover lg:h-[276px]"
+      class="h-[215px] w-full object-cover lg:h-[276px]"
       loading="lazy"
       decoding="async"
     />
@@ -48,7 +48,7 @@ const {
   </div>
 
   <div
-    class="relative flex flex-col gap-4 px-4 pt-4 pb-8 md:px-6 md:pt-5 md:pb-9 lg:gap-6 lg:px-6 lg:pt-6 lg:pb-11"
+    class="flex flex-col gap-4 px-4 pt-4 pb-8 md:px-6 md:pt-5 md:pb-9 lg:gap-6 lg:px-6 lg:pt-6 lg:pb-11"
   >
     <!-- Article title -->
     <div class="flex flex-col gap-3 lg:gap-5">
@@ -90,7 +90,7 @@ const {
         <!-- Description -->
         {
           description && (
-            <p class="font-secondary text-n-500 text-xs leading-tight md:text-sm lg:text-lg">
+            <p class="font-secondary text-n-500 text-xs leading-tight md:w-full md:text-sm lg:text-lg">
               {description}
             </p>
           )
