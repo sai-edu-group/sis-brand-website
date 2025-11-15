@@ -1,7 +1,6 @@
 ---
-// DATA //
-import { teamMembers } from "../../../../../data/about/members/team";
-import { boardMembers } from "../../../../../data/about/members/advisor-board";
+// TYPES //
+import type { Member } from "../../../../../types/member";
 
 // OTHERS //
 import Layout from "../../../../../layouts/Layout.astro";
@@ -9,17 +8,21 @@ import Layout from "../../../../../layouts/Layout.astro";
 // SECTIONS //
 import MemberConsumption from "../../../../../sections/member-consumption/MemberConsumption.astro";
 
+// DATA //
+import { teamMembers } from "../../../../../data/about/members/team";
+import { advisoryBoard } from "../../../../../data/about/members/advisory";
+
 export async function getStaticPaths() {
   const paths: Array<{
     params: { type: string; id: string; name: string };
     props: {
       type: string;
-      member: (typeof teamMembers)[0] | (typeof boardMembers)[0];
+      member: Member;
     };
   }> = [];
 
   // Generate paths for team members
-  teamMembers.forEach((member: (typeof teamMembers)[0]) => {
+  teamMembers.forEach((member: Member) => {
     paths.push({
       params: {
         type: "team",
@@ -34,15 +37,15 @@ export async function getStaticPaths() {
   });
 
   // Generate paths for advisor board members
-  boardMembers.forEach((member: (typeof boardMembers)[0]) => {
+  advisoryBoard.forEach((member: Member) => {
     paths.push({
       params: {
-        type: "advisor-board",
+        type: "advisory",
         id: member.id.toString(),
         name: member.name.replaceAll(" ", "-"),
       },
       props: {
-        type: "advisor-board",
+        type: "advisory",
         member,
       },
     });
@@ -57,11 +60,11 @@ const { type, member } = Astro.props;
 const breadcrumbItems =
   type === "team"
     ? [
-        { label: "Key Personnel", href: "/about" },
+        { label: "Key Personnel", href: "/about#team" },
         { label: member.name, href: `#` },
       ]
     : [
-        { label: "Advisory Board", href: "/about" },
+        { label: "Advisory Board", href: "/about#board" },
         { label: member.name, href: `#` },
       ];
 
@@ -71,33 +74,12 @@ const sectionHeaderDetails = {
   subtitle: member.position,
   eyebrowText: type === "team" ? "Key Personnel" : "Advisory Board",
 };
-
-// Prepare member content
-const memberContent = {
-  imageSrc:
-    type === "team"
-      ? (member as (typeof teamMembers)[0]).jpgImg ||
-        (member as (typeof teamMembers)[0]).img
-      : member.img,
-  quoteText:
-    type === "team"
-      ? (member as (typeof teamMembers)[0]).quote || ""
-      : `"${member.position}"`,
-  firstDetailText:
-    type === "team" && (member as (typeof teamMembers)[0]).content
-      ? (member as (typeof teamMembers)[0]).content[0] || ""
-      : `Learn more about ${member.name} and their contributions.`,
-  secondDetailText:
-    type === "team" && (member as (typeof teamMembers)[0]).content
-      ? (member as (typeof teamMembers)[0]).content[1] || ""
-      : `${member.name} brings extensive experience and expertise to their role.`,
-};
 ---
 
 <Layout>
   <MemberConsumption
     breadcrumbItems={breadcrumbItems}
     sectionHeaderDetails={sectionHeaderDetails}
-    memberContent={memberContent}
+    memberContent={member}
   />
 </Layout>
