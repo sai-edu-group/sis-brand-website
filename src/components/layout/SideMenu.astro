@@ -1,6 +1,7 @@
 ---
 export interface SubMenuItem {
   title: string;
+  href: string;
   active?: boolean;
 }
 
@@ -15,12 +16,12 @@ export const menu: MenuItem[] = [
   {
     title: "HOME",
     submenu: [
-      { title: "The Perfect Master" },
-      { title: "Vision, Mission & Values" },
-      { title: "Founder – Chairman" },
-      { title: "Key Personnel" },
-      { title: "Advisory Board" },
-      { title: "Our Affiliations", active: true },
+      { title: "The Perfect Master", href: "#" },
+      { title: "Vision, Mission & Values", href: "#" },
+      { title: "Founder – Chairman", href: "#" },
+      { title: "Key Personnel", href: "#" },
+      { title: "Advisory Board", href: "#" },
+      { title: "Our Affiliations", href: "#", active: true },
     ],
     icon: "home",
     active: true,
@@ -28,69 +29,70 @@ export const menu: MenuItem[] = [
   {
     title: "ABOUT US",
     submenu: [
-      { title: "The Perfect Master" },
-      { title: "Vision, Mission & Values" },
-      { title: "Founder – Chairman" },
-      { title: "Key Personnel" },
-      { title: "Advisory Board" },
-      { title: "Our Affiliations", active: true },
+      { title: "The Perfect Master", href: "#" },
+      { title: "Vision, Mission & Values", href: "#" },
+      { title: "Founder – Chairman", href: "#" },
+      { title: "Key Personnel", href: "#" },
+      { title: "Advisory Board", href: "#" },
+      { title: "Beyond Academics", href: "/about/beyond-academics" },
+      { title: "Our Affiliations", href: "#", active: true },
     ],
     icon: "about",
   },
   {
     title: "RESULTS",
     submenu: [
-      { title: "Academic Achievements" },
-      { title: "Sports Performance" },
-      { title: "University Rankers" },
-      { title: "International Awards" },
+      { title: "Academic Achievements", href: "#" },
+      { title: "Sports Performance", href: "#" },
+      { title: "University Rankers", href: "#" },
+      { title: "International Awards", href: "#" },
     ],
     icon: "results",
   },
   {
     title: "GLOBAL CONNECT",
     submenu: [
-      { title: "Exchange Programs" },
-      { title: "Global Internships" },
-      { title: "International Conferences" },
+      { title: "Exchange Programs", href: "#" },
+      { title: "Global Internships", href: "#" },
+      { title: "International Conferences", href: "#" },
     ],
     icon: "globe",
   },
   {
     title: "STUDENT LEADERS",
     submenu: [
-      { title: "Leadership Council" },
-      { title: "Class Representatives" },
-      { title: "Ambassador Programs" },
+      { title: "Leadership Council", href: "#" },
+      { title: "Class Representatives", href: "#" },
+      { title: "Ambassador Programs", href: "#" },
     ],
     icon: "leaders",
   },
   {
     title: "MEDIA",
     submenu: [
-      { title: "News & Events" },
-      { title: "Press Releases" },
-      { title: "Gallery" },
-      { title: "Videos" },
+      { title: "News & Events", href: "#" },
+      { title: "Press Releases", href: "#" },
+      { title: "Gallery", href: "#" },
+      { title: "Videos", href: "#" },
     ],
     icon: "media",
   },
   {
     title: "ALUMNI",
     submenu: [
-      { title: "Success Stories" },
-      { title: "Reunions" },
-      { title: "Alumni Association" },
+      { title: "Success Stories", href: "#" },
+      { title: "Reunions", href: "#" },
+      { title: "Alumni Association", href: "#" },
     ],
     icon: "alumni",
   },
   {
     title: "ADMISSIONS",
     submenu: [
-      { title: "How to Apply" },
-      { title: "Courses Offered" },
-      { title: "Fee Structure" },
-      { title: "Scholarships" },
+      { title: "How to Apply", href: "#" },
+      { title: "Courses Offered", href: "#" },
+      { title: "Fee Structure", href: "#" },
+      { title: "Scholarships", href: "#" },
     ],
     icon: "admissions",
   },
@@ -100,7 +102,7 @@ export const menu: MenuItem[] = [
 <!-- Backdrop --><!-- This is the dark overlay behind the sidebar when open -->
 <div
   id="menu-backdrop"
-  class="bg-n-950/50 invisible fixed inset-0 z-51 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
+  class="bg-n-950/50 z-51 invisible fixed inset-0 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
 >
 </div>
 
@@ -108,7 +110,7 @@ export const menu: MenuItem[] = [
 <!-- The main sidebar navigation -->
 <aside
   id="sidebar"
-  class="fixed inset-y-0 right-0 z-52 w-full translate-x-full transform bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
+  class="z-52 fixed inset-y-0 right-0 w-full translate-x-full transform bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
   <nav class="flex h-full flex-col overflow-y-auto" data-accordion>
     <div class="pt-38 pb-10 md:pt-10">
@@ -148,14 +150,14 @@ export const menu: MenuItem[] = [
       </div>
       {
         // Render each main menu item
-        menu.map((menuItem: MenuItem, index: number) => {
+        menu.map((menuItem: MenuItem, menuIndex: number) => {
           const open = !!menuItem.active;
           return (
             <section
               class="flex flex-col px-8 py-3 data-[open=true]:bg-violet-700 data-[open=true]:py-6 md:px-10 md:py-3.5 md:data-[open=true]:py-7 lg:px-28"
               data-menu-item
               data-open={open ? "true" : "false"}
-              data-index={index}
+              data-index={menuIndex}
             >
               {/* Main menu button */}
               <button
@@ -221,11 +223,14 @@ export const menu: MenuItem[] = [
                   data-menu-submenu-inner
                   class="flex flex-col gap-2 pt-7 lg:gap-4"
                 >
-                  {menuItem.submenu?.map((subMenu) => (
+                  {menuItem.submenu?.map((subMenuItem) => (
                     <div class="group flex h-[34px] cursor-pointer flex-col gap-1.5 md:gap-2">
-                      <p class="text-n-100 font-secondary text-sm tracking-[1.28px] uppercase transition-all duration-300 ease-in-out group-hover:font-semibold group-hover:text-orange-500 md:text-base">
-                        {subMenu.title}
-                      </p>
+                      <a
+                        href={subMenuItem.href}
+                        class="text-n-100 font-secondary text-sm uppercase tracking-[1.28px] transition-all duration-300 ease-in-out group-hover:font-semibold group-hover:text-orange-500 md:text-base"
+                      >
+                        {subMenuItem.title}
+                      </a>
                       <div class="bg-n-50/10 h-px w-[73px] transition-all duration-300 ease-in-out group-hover:h-0.5 group-hover:bg-orange-500" />
                     </div>
                   ))}
