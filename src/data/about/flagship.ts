@@ -1,8 +1,7 @@
 export const sectionHeaderContent = {
-  title: "Learning through Compassion and Service",
-  subtitle:
-    "SAI Seva helps students grow as kind, aware, and responsible citizens.",
-  eyebrowText: "SAI Seva (Community Outreach)",
+  title: "Celebrating Learning and Achievement ",
+  subtitle: "Each event reflects creativity, culture, and the SAI spirit.",
+  eyebrowText: "Flagship Events",
 };
 
 export const flagshipContent = [
