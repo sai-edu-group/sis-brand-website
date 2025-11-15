@@ -1,14 +1,14 @@
 ---
 // COMPONENTS //
-import ArticleCard from "../../components/ArticleCard.astro";
-import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 import { Icon } from "astro-icon/components";
+import ActivityCard from "../../components/ActivityCard.astro";
+import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 
 // DATA //
 import {
-  saiSevaContent,
   sectionHeaderContent,
-} from "../../data/learning-and-beyong/sai-seva";
+  flagshipContent,
+} from "../../data/about/flagship";
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
@@ -20,24 +20,23 @@ import {
 
     <!-- Sai Seva Slider for Mobile and Tablet -->
     <!-- Slider root: keep viewport + controls inside this wrapper -->
-    <div data-embla-root id={"sai-seva-slider"} class="space-y-7 md:space-y-9">
+    <div data-embla-root id={"flagship-slider"} class="space-y-7 md:space-y-9">
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
         <div class="flex gap-9" data-embla-container>
           <!-- Sai Seva Slides -->
           {
-            saiSevaContent.map((saiSevaContentItem) => (
+            flagshipContent.map((flagshipItem) => (
               <div
                 class="ns-slide card-anim card-bottom cursor-pointer"
                 data-embla-slide
               >
-                <ArticleCard
-                  title={saiSevaContentItem.title}
-                  img={saiSevaContentItem.img}
-                  href={saiSevaContentItem.href}
-                  description={saiSevaContentItem.description}
-                  badgeText=""
+                <ActivityCard
+                  title={flagshipItem.title}
+                  image={flagshipItem.image}
+                  subTitle={flagshipItem.subTitle}
+                  description={flagshipItem.description}
                 />
               </div>
             ))
@@ -98,13 +97,6 @@ import {
     }
   }
 
-  @media (min-width: 1280px) {
-    .ns-slider {
-      --slides: 3;
-      --peek: 0px;
-    }
-  }
-
   /* Each slide width: ((100% - total gaps - peek) / slides) */
   .ns-slide {
     flex: 0 0
@@ -115,14 +107,13 @@ import {
   }
 </style>
 
+<!-- Component-level init: scoped to this slider only -->
 <script type="module">
+  // OTHERS //
   import { initEmblaRoot } from "/js/embla.js";
 
-  // On Document Content Load
   window.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("sai-seva-slider");
-
-    // Initialize the slider
+    const root = document.getElementById("flagship-slider");
     initEmblaRoot(root, {
       align: "start",
       dragFree: false,

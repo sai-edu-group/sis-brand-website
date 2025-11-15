@@ -26,24 +26,28 @@ const {
 ---
 
 <div
-  class="group bg-n-50 border-n-200 flex flex-col gap-4 overflow-hidden rounded-2xl border-2 p-4 lg:flex-row lg:gap-5 lg:p-5"
+  class="group bg-n-50 border-n-200 flex h-full flex-col gap-4 overflow-hidden rounded-2xl border-2 p-4 xl:flex-row xl:gap-5 xl:p-5"
 >
   <!-- Activity image -->
   <div
-    class="relative overflow-hidden rounded-tl-xl rounded-tr-xl lg:rounded-tr-none lg:rounded-bl-xl"
+    class="relative overflow-hidden rounded-tl-xl rounded-tr-xl xl:rounded-tr-none xl:rounded-bl-xl"
   >
     <img
       src={image}
       alt=""
-      class="h-48 w-full object-cover md:h-[207px] lg:h-[280px] lg:w-[345px]"
+      class="h-48 w-full object-cover md:h-[207px] lg:h-[250px] xl:h-[280px] xl:w-[345px]"
       loading="lazy"
       decoding="async"
     />
+    <!-- Overlay animation -->
+    <span
+      class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+    ></span>
 
     <!-- Activity Date -->
     {
       date !== "" && (
-        <div class="font-secondary text-n-600 bg-n-50 absolute top-3 left-3 rounded-lg px-2.5 py-2 text-xs font-medium shadow lg:text-base">
+        <div class="font-secondary text-n-600 bg-n-50 absolute top-3 left-3 rounded-lg px-2.5 py-2 text-xs font-medium shadow xl:text-base">
           <div class="flex items-center gap-2">
             {/* Calendar Icon */}
             <span class="text-orange-500">
@@ -60,8 +64,8 @@ const {
     }
   </div>
 
-  <div class="relative flex flex-col justify-between gap-6 lg:flex-1">
-    <div class="flex flex-col gap-2 lg:gap-4">
+  <div class="relative flex flex-col justify-between gap-6 xl:flex-1">
+    <div class="flex flex-col gap-2 xl:gap-4">
       <!-- Activity title -->
       <p
         class="text-n-800 text-2xl leading-tight font-medium transition-colors duration-200 hover:text-orange-500 md:text-3xl"
