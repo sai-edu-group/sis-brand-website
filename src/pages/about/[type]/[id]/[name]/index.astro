@@ -1,6 +1,6 @@
 ---
 // TYPES //
-import type { Member } from "../../../../../types/member";
+import type { MemberData } from "../../../../../types/member";
 
 // OTHERS //
 import Layout from "../../../../../layouts/Layout.astro";
@@ -17,12 +17,12 @@ export async function getStaticPaths() {
     params: { type: string; id: string; name: string };
     props: {
       type: string;
-      member: Member;
+      member: MemberData;
     };
   }> = [];
 
   // Generate paths for team members
-  teamMembers.forEach((member: Member) => {
+  teamMembers.forEach((member: MemberData) => {
     paths.push({
       params: {
         type: "team",
@@ -37,7 +37,7 @@ export async function getStaticPaths() {
   });
 
   // Generate paths for advisor board members
-  advisoryBoard.forEach((member: Member) => {
+  advisoryBoard.forEach((member: MemberData) => {
     paths.push({
       params: {
         type: "advisory",

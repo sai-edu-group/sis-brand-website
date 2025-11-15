@@ -1,6 +1,6 @@
 ---
 // TYPES //
-import type { Member } from "../../types/member";
+import type { MemberData } from "../../types/member";
 
 // COMPONENTS //
 import Article from "../../components/Article.astro";
@@ -13,7 +13,7 @@ interface Props {
     subtitle?: string;
     eyebrowText?: string;
   };
-  memberContent: Member;
+  memberContent: MemberData;
 }
 const { breadcrumbItems, sectionHeaderDetails, memberContent } =
   Astro.props as Props;
