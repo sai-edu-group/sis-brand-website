@@ -2,45 +2,10 @@
 // COMPONENTS //
 import ArticleCard from "../../components/ArticleCard.astro";
 import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
-
-const saiSevaDetails = {
-  sectionHeaderContent: {
-    title: "Learning through Compassion and Service",
-    subtitle:
-      "SAI Seva helps students grow as kind, aware, and responsible citizens.",
-    eyebrowText: "SAI Seva (Community Outreach)",
-  },
-  saiSevaContent: [
-    {
-      title: "Dr. B K Sahoo 100 Libraries",
-      img: "/images/saiseva/library.png",
-      description:
-        "An initiative by Dr. Bijaya Kumar Sahoo aimed at transforming education through widespread access to learning.",
-      href: "#",
-    },
-    {
-      title: "Dr. B K Sahoo 100 Libraries",
-      img: "/images/saiseva/library.png",
-      description:
-        "An initiative by Dr. Bijaya Kumar Sahoo aimed at transforming education through widespread access to learning.",
-      href: "#",
-    },
-    {
-      title: "Dr. B K Sahoo 100 Libraries",
-      img: "/images/saiseva/library.png",
-      description:
-        "An initiative by Dr. Bijaya Kumar Sahoo aimed at transforming education through widespread access to learning.",
-      href: "#",
-    },
-    {
-      title: "Initiatives",
-      img: "/images/saiseva/library.png",
-      description:
-        "Promotes compassion as the essence of emotional maturity and personal growth.",
-      href: "#",
-    },
-  ],
-};
+import {
+  saiSevaContent,
+  sectionHeaderContent,
+} from "../../data/learning-and-beyong/sai-seva";
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
@@ -48,11 +13,7 @@ const saiSevaDetails = {
     class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-28 2xl:px-0"
   >
     <!-- Section header title -->
-    <SectionHeaderMain
-      eyebrowText={saiSevaDetails.sectionHeaderContent.eyebrowText}
-      title={saiSevaDetails.sectionHeaderContent.title}
-      subtitle={saiSevaDetails.sectionHeaderContent.subtitle}
-    />
+    <SectionHeaderMain {...sectionHeaderContent} />
 
     <!-- Sai Seva Slider for Mobile and Tablet -->
     <!-- Slider root: keep viewport + controls inside this wrapper -->
@@ -63,7 +24,7 @@ const saiSevaDetails = {
         <div class="flex gap-9" data-embla-container>
           <!-- Sai Seva Slides -->
           {
-            saiSevaDetails.saiSevaContent.map((saiSevaItem, cardIndex) => (
+            saiSevaContent.map((saiSevaItem, cardIndex) => (
               <div
                 class="ns-slide card-anim card-bottom cursor-pointer"
                 data-embla-slide
