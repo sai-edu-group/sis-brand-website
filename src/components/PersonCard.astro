@@ -9,9 +9,9 @@ const {
 } = Astro.props;
 ---
 
-<a href={href}>
+<a href={href} class="group w-full">
   <div
-    class="border-n-200 relative flex h-full w-full flex-col items-center overflow-hidden rounded-2xl border-2 lg:max-w-[413px]"
+    class="group border-n-200 relative flex h-full w-full flex-col items-center overflow-hidden rounded-2xl border-2 lg:max-w-[413px]"
   >
     <!-- Image -->
     <div class="relative w-full">
@@ -42,9 +42,7 @@ const {
         </p>
       </div>
 
-      <div
-        class="absolute right-4 bottom-6 hidden md:right-5 md:bottom-4 lg:block"
-      >
+      <div class="absolute right-5 bottom-6 hidden lg:block">
         <IconButton href={href} extraClasses="" />
       </div>
     </div>
