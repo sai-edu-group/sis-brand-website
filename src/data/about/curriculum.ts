@@ -3,7 +3,7 @@ export const curriculumDetails = {
     title: "Education that Shapes Every Side of a Child",
     subtitle:
       "Our curriculum balances intellectual curiosity, emotional growth, and creative learning.",
-    eyebrowText: "Curriculum",
+    eyebrowText: "Academic Framework",
   },
   curriculumContent: [
     {
