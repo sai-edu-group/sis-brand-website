@@ -7,13 +7,23 @@ import Layout from "../../layouts/Layout.astro";
 
 // SECTIONS //
 import SaiSeva from "../../sections/about/SaiSeva.astro";
+import Team from "../../sections/about/Team.astro";
+import AdvisoryBoard from "../../sections/about/AdvisoryBoard.astro";
+import Ethos from "../../sections/home/Ethos.astro";
+import Founder from "../../sections/home/Founder.astro";
+
+const heroSectionDetails = {
+  title: "Nurturing Global Citizens with Indian Values",
+  subtitle: "We inspire curious minds to lead with compassion and confidence.",
+  imageName: "contact-hero",
+};
 ---
 
 <Layout>
-  <Hero
-    title="Nurturing Global Citizens with Indian Values"
-    subtitle="We inspire curious minds to lead with compassion and confidence."
-    imageName="contact-hero"
-  />
+  <Hero {...heroSectionDetails} />
+  <Ethos />
+  <Founder />
+  <Team />
+  <AdvisoryBoard />
   <SaiSeva />
 </Layout>
