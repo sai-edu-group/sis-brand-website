@@ -23,7 +23,7 @@ const {
 ---
 
 <div
-  class="group bg-n-50 border-n-200 flex flex-col gap-4 overflow-hidden rounded-2xl border-2 p-4 xl:flex-row xl:gap-5 xl:p-5"
+  class="group bg-n-50 border-n-200 flex h-full flex-col gap-4 overflow-hidden rounded-2xl border-2 p-4 xl:flex-row xl:gap-5 xl:p-5"
 >
   <!-- Activity image -->
   <div
@@ -36,6 +36,10 @@ const {
       loading="lazy"
       decoding="async"
     />
+    <!-- Overlay animation -->
+    <span
+      class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+    ></span>
 
     <!-- Activity Date -->
     {

@@ -1,41 +1,66 @@
 ---
 // COMPONENTS //
-import ActivityCard from "../../components/ActivityCard.astro";
+import PersonCard from "../../components/PersonCard.astro";
 import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 
 // DATA //
 import {
-  sectionHeaderContent,
-  flagshipContent,
-} from "../../data/about/flagship";
+  boardMembers,
+  sectionHeaderDetails,
+} from "../../data/about/members/advisor-board";
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
   <div
-    class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-24 2xl:px-0"
   >
-    <!-- Section header title -->
-    <SectionHeaderMain {...sectionHeaderContent} />
+    <!-- Section Header -->
+    <SectionHeaderMain {...sectionHeaderDetails} />
 
-    <!-- Sai Seva Slider for Mobile and Tablet -->
+    <!-- Advisory Board Members Wrapper -->
+    <div
+      class="mx-auto hidden grid-cols-1 gap-8 md:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid-cols-4 2xl:gap-y-14"
+    >
+      {
+        boardMembers.map((advisoryMemberItem, advisoryMemberIndex) => (
+          <div
+            class="card-anim card-bottom"
+            style={`--delay: ${advisoryMemberIndex * 0.1}s`}
+          >
+            <PersonCard
+              personName={advisoryMemberItem.name}
+              designation={advisoryMemberItem.position}
+              image={advisoryMemberItem.img}
+              href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}}`}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Advisory Board Slider for Mobile and Tablet -->
     <!-- Slider root: keep viewport + controls inside this wrapper -->
-    <div data-embla-root id={"flagship-slider"} class="space-y-7 md:space-y-9">
+    <div
+      data-embla-root
+      id={"advisory-board-slider"}
+      class="space-y-7 md:space-y-9 lg:hidden"
+    >
       <!-- Viewport -->
       <div class="overflow-hidden" data-embla-viewport>
         <!-- Container -->
-        <div class="flex gap-9" data-embla-container>
-          <!-- Sai Seva Slides -->
+        <div class="flex gap-5.5" data-embla-container>
+          <!-- Board Members Slides -->
           {
-            flagshipContent.map((flagshipItem) => (
+            boardMembers.map((advisoryMemberItem) => (
               <div
                 class="ns-slide card-anim card-bottom cursor-pointer"
                 data-embla-slide
               >
-                <ActivityCard
-                  title={flagshipItem.title}
-                  image={flagshipItem.image}
-                  subTitle={flagshipItem.subTitle}
-                  description={flagshipItem.description}
+                <PersonCard
+                  personName={advisoryMemberItem.name}
+                  designation={advisoryMemberItem.position}
+                  image={advisoryMemberItem.img}
+                  href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}}`}
                 />
               </div>
             ))
@@ -55,7 +80,7 @@ import {
           <button
             type="button"
             id="prevButton"
-            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-prev
             aria-label="Previous"
           >
@@ -80,7 +105,7 @@ import {
           <!-- Next button -->
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-9 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-next
             aria-label="Next"
           >
@@ -111,7 +136,7 @@ import {
   /* Slider-level variables (like your tb-slider reference) */
   .ns-slider {
     --slides: 1; /* default: mobile shows 1 */
-    --gap: 36px; /* match the gap-9 above */
+    --gap: 22px; /* match the gap-5.5 above */
     --peek: 0px; /* extra visible width to “peek” next slide */
   }
 
@@ -134,15 +159,13 @@ import {
 
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
-  // OTHERS //
   import { initEmblaRoot } from "/js/embla.js";
-
   window.addEventListener("DOMContentLoaded", () => {
-    const root = document.getElementById("flagship-slider");
+    const root = document.getElementById("advisory-board-slider");
     initEmblaRoot(root, {
       align: "start",
       dragFree: false,
-      slidesToScroll: "auto",
+      slidesToScroll: "2",
     });
   });
 </script>

@@ -14,7 +14,7 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.line-break{
+.line-break {
   line-break: anywhere;
 }
 
@@ -98,14 +98,11 @@ body {
   --color-violet-400: #967fb0;
   --color-violet-500: #5c3e70;
   --color-violet-600: #513662;
-  --color-violet-700: #402A4E;
-  --color-violet-800: #32213D;
-  --color-violet-900: #24172C;
-  --color-violet-950: #140C19;
+  --color-violet-700: #402a4e;
+  --color-violet-800: #32213d;
+  --color-violet-900: #24172c;
+  --color-violet-950: #140c19;
 }
-
-
-
 
 /* Base animation setup */
 .card-anim {
@@ -121,7 +118,6 @@ body {
   opacity: 1;
   transform: translate(0, 0);
 }
-
 
 /* Direction variants */
 .card-left {
@@ -178,7 +174,6 @@ body {
   transform: translateX(0);
 }
 
-
 /* Base scale-in animation */
 .scale-in {
   opacity: 0;
@@ -209,7 +204,6 @@ body {
   transform: translateY(0);
 }
 
-
 /* 🩵 Custom container fix for 1536–1600px gap */
 @media (min-width: 1536px) and (max-width: 1599px) {
   .container {
@@ -219,10 +213,9 @@ body {
 
 /* Hide scrollbar for all browsers */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
-
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
@@ -230,19 +223,18 @@ body {
 
 /* ===== Scrollbar Styling ===== */
 ::-webkit-scrollbar {
-  width: 6px;              /* scrollbar width */
+  width: 6px; /* scrollbar width */
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;     /* track color */
+  background: transparent; /* track color */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-orange-500);  /* scrollbar handle color */
-  border-radius: 10px;     /* roundness */
+  background-color: var(--color-orange-500); /* scrollbar handle color */
+  border-radius: 10px; /* roundness */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-orange-600);        /* hover color */
+  background: var(--color-orange-600); /* hover color */
 }
-
