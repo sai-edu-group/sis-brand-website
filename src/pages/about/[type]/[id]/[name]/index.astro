@@ -9,6 +9,7 @@ import Layout from "../../../../../layouts/Layout.astro";
 // SECTIONS //
 import MemberConsumption from "../../../../../sections/member-consumption/MemberConsumption.astro";
 
+/** Generate Static Pages */
 export async function getStaticPaths() {
   const paths: Array<{
     params: { type: string; id: string; name: string };
