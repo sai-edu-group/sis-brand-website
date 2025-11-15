@@ -1,7 +1,7 @@
 ---
 import AwardsCard from "../../components/AwardsCard.astro";
 import Button from "../../components/Button.astro";
-import SectionHeaderC from "../../components/SectionHeaderC.astro";
+import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
@@ -46,7 +46,7 @@ const awardsDetails = {
     class="container mx-auto flex flex-col gap-9 px-6 py-14 md:gap-16 md:px-0 md:py-20 lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
   >
     <!-- Section header -->
-    <SectionHeaderC
+    <SectionHeaderMain
       eyebrowText="Achievements & Recognition"
       title="Celebrating Excellence, Year After Year"
     />
@@ -80,14 +80,14 @@ const awardsDetails = {
       <div
         class="relative flex items-center justify-center gap-8 md:gap-12 lg:gap-20"
       >
-        <div class="absolute left-0 max-sm:top-[20px]">
+        <!-- <div class="absolute left-0 max-sm:top-[20px]">
           <Button
             text="View All Rewards"
             rightArrow
             variant="soft"
             size="small"
           />
-        </div>
+        </div> -->
 
         <!-- Dots -->
         <div class="flex items-center gap-1.5 md:gap-2" data-embla-dots></div>
@@ -96,7 +96,7 @@ const awardsDetails = {
         <div class="absolute right-0 flex gap-2 md:gap-6">
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-prev
             aria-label="Previous"
           >
@@ -119,7 +119,7 @@ const awardsDetails = {
 
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-next
             aria-label="Next"
           >

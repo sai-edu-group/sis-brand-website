@@ -20,22 +20,22 @@ const {
     <!-- Eyebrow text -->
     {
       eyebrowText && (
-        <p class="text-n-600 text-sm font-normal md:text-base lg:text-xl">
+        <p class="animatedText text-n-600 text-sm font-normal md:text-base lg:text-xl">
           {eyebrowText}
         </p>
       )
     }
-    <div class="relative flex flex-col gap-1 md:gap-3">
+    <div class="relative flex flex-col gap-2.5 md:gap-1.5 lg:gap-4">
       <!-- Section title -->
       <p
-        class="text-n-800 text-3xl leading-tight font-medium md:text-5xl lg:text-6xl"
+        class="animatedText text-n-800 text-3xl leading-[112%] md:text-5xl md:font-medium lg:text-6xl lg:leading-tight"
       >
         {title}
       </p>
       <!-- Section subtitle -->
       {
         subtitle && (
-          <p class="font-secondary text-n-600 text-base leading-normal font-medium md:text-2xl">
+          <p class="animatedText font-secondary text-n-600 text-xs leading-normal font-medium md:text-xl lg:text-2xl">
             {subtitle}
           </p>
         )
