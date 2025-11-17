@@ -3,6 +3,8 @@ export const sectionHeaderDetails = {
   subtitle: "Celebrating our students’ hard work and achievements",
 };
 
+export const years = [2025, 2024, 2023, 2022, 2021];
+
 export const results = [
   {
     id: 1,

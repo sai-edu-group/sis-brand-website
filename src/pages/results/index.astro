@@ -9,7 +9,7 @@ import Layout from "../../layouts/Layout.astro";
 import Results from "../../sections/about/Results.astro";
 
 // DATA //
-import { results, sectionHeaderDetails } from "../../data/about/results";
+import { results, sectionHeaderDetails, years } from "../../data/about/results";
 
 const resultsDetails = {
   breadcrumbItems: [
@@ -28,5 +28,9 @@ const resultsDetails = {
       <Breadcrumbs items={resultsDetails.breadcrumbItems} />
     </div>
   </div>
-  <Results sectionHeaderDetails={sectionHeaderDetails} results={results} />
+  <Results
+    sectionHeaderDetails={sectionHeaderDetails}
+    results={results}
+    years={years}
+  />
 </Layout>
