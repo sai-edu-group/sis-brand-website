@@ -27,9 +27,7 @@ const dropdownYears = years.slice(2);
     </p>
 
     <!-- Year Button wrapper -->
-    <div
-      class="flex flex-wrap items-center gap-[1px] sm:gap-2 md:gap-4 xl:gap-5"
-    >
+    <div class="flex flex-wrap items-center gap-px sm:gap-2 md:gap-4 xl:gap-5">
       {
         visibleYears.map((year) => (
           <button
@@ -60,7 +58,7 @@ const dropdownYears = years.slice(2);
 
             {/* Year Dropdown List */}
             <ul
-              class="border-n-500 bg-n-50 absolute top-[100%] left-0 z-10 mt-2 w-full overflow-hidden rounded-xl border shadow-lg transition duration-300 ease-in-out"
+              class="border-n-500 bg-n-50 absolute top-full left-0 z-10 mt-2 w-full overflow-hidden rounded-xl border shadow-lg transition duration-300 ease-in-out"
               id="dropdown-year-list"
             >
               {dropdownYears.map((year) => (
@@ -133,7 +131,7 @@ const dropdownYears = years.slice(2);
           {/* Sort By Dropdown List  */}
           <ul
             id="sort-options"
-            class="border-n-500 bg-n-50 absolute top-[100%] left-0 z-10 mt-2 hidden w-full overflow-hidden rounded-xl border shadow-lg"
+            class="border-n-500 bg-n-50 absolute top-full left-0 z-10 mt-2 hidden w-full overflow-hidden rounded-xl border shadow-lg"
           >
             {sortOptions.map(({ label, value }) => (
               // Text item
@@ -173,14 +171,18 @@ const dropdownYears = years.slice(2);
     // Default-select first year button when no year in URL
     if (!currentYear && yearButtons.length) {
       const firstBtn = yearButtons[0];
-      firstBtn.classList.add("bg-orange-500", "text-white");
+      firstBtn.classList.add(
+        "bg-orange-500",
+        "text-white",
+        "hover:bg-orange-500",
+      );
       firstBtn.classList.remove("bg-n-50", "text-n-500");
     }
 
     // Highlight Selected Year
     yearButtons.forEach((btn) => {
       if (btn.dataset.year === currentYear) {
-        btn.classList.add("bg-orange-500", "text-white");
+        btn.classList.add("bg-orange-500", "text-white", "hover:bg-orange-500");
         btn.classList.remove("bg-n-50", "text-n-500");
 
         // If year is from dropdown, update summary label
