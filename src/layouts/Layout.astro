@@ -57,10 +57,11 @@ const {
     <script>
       import Lenis from "lenis";
 
-      const lenis = new Lenis({
-        duration: 1.2,
+      let lenis = new Lenis({
+        duration: 1,
         smoothWheel: true,
-        lerp: 0.5,
+        lerp: 0.2,
+        prevent: (node) => node.id === "sidebar",
       });
 
       function raf(time) {
@@ -69,6 +70,9 @@ const {
       }
 
       requestAnimationFrame(raf);
+
+      // Make lenis available globally for SideMenu
+      window.lenis = lenis;
     </script>
   </body><script>
     const observer = new IntersectionObserver(
