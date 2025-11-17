@@ -1,29 +1,30 @@
 ---
 const {
-  image = "/images/result-image.png",
+  image = "/images/results/student.png",
   studentName = "Deven Bhagtani",
   competitionName = "Homi Babha International",
   grade = "8th B",
   score = "99.30",
   date = "12 Sept 2025",
   positionText = "Runner Up",
-  bgImg = "/images/",
+  bgImg = "/images/results/school-background.png",
 } = Astro.props;
 ---
 
 <div
-  class="border-n-200 relative flex w-full max-w-[413px] flex-col items-center overflow-hidden rounded-2xl border-2"
+  class="border-n-200 relative flex w-full flex-col items-center overflow-hidden rounded-2xl border-2"
 >
   <!-- Image -->
   <div
-    class="relative w-full bg-[url('/images/school-background.png')] bg-cover bg-center"
+    class={`relative w-full  bg-cover bg-center px-5 pt-5 h-[221px] md:h-[272px]`}
+    style={`background-image: url(${bgImg});`}
   >
     {
       image && (
         <img
           src={image}
           alt={studentName}
-          class="h-[221px] w-full object-cover md:h-[272px]"
+          class="h-full w-full object-contain"
         />
       )
     }

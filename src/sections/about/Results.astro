@@ -28,7 +28,7 @@ const { sectionHeaderDetails, results } = Astro.props as Props;
         <FilterBar showSearch={false} />
 
         <div
-          class="mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-8"
+          class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-8"
         >
           {results.map((resultItem) => <ResultsCard {...resultItem} />)}
         </div>
