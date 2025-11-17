@@ -7,6 +7,7 @@ export const sectionHeaderContent = {
 
 export const saiSevaContent = [
   {
+    id: 1,
     title: "Dr. B K Sahoo 100 Libraries",
     img: "/images/saiseva/library.png",
     description:
@@ -14,6 +15,7 @@ export const saiSevaContent = [
     href: "#",
   },
   {
+    id: 2,
     title: "Initiatives",
     img: "/images/saiseva/initiative.png",
     description:
@@ -21,6 +23,7 @@ export const saiSevaContent = [
     href: "#",
   },
   {
+    id: 3,
     title: "Projects",
     img: "/images/saiseva/projects.png",
     description:

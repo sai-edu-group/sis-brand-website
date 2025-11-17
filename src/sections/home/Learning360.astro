@@ -3,91 +3,8 @@
 import LearningContent from "../../components/LearningContent.astro";
 import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 
-// OTHERS //
-
-// Dummy tab + accordion data
-const tabs = [
-  {
-    title: "Smart Academics",
-    items: [
-      {
-        title: "Smart Classrooms",
-        description:
-          "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
-        progress: 80,
-        isOpen: true,
-        imageUrl: "/images/learning.png",
-      },
-      {
-        title: "Future-Ready Curriculum",
-        description:
-          "Curriculum designed to equip students with skills for tomorrow.",
-        progress: 60,
-        imageUrl: "/images/child.png",
-      },
-      {
-        title: "Labs & Experiential Learning",
-        description:
-          "Hands-on labs and real-world experiences for deeper understanding.",
-        progress: 70,
-        imageUrl: "/images/learning.png",
-      },
-      {
-        title: "Assessment & Remediation",
-        description:
-          "Continuous assessment and personalized remediation for every learner.",
-        progress: 90,
-        imageUrl: "/images/learning.png",
-      },
-    ],
-  },
-  {
-    title: "Creative Arts",
-    items: [
-      {
-        title: "Music & Dance",
-        description:
-          "Encouraging creativity through performing arts and self-expression.",
-        progress: 85,
-        isOpen: true,
-        imageUrl: "/images/learning.png",
-      },
-      {
-        title: "Visual Arts",
-        description:
-          "Exploring imagination through painting, sculpture, and crafts.",
-        progress: 75,
-        imageUrl: "/images/learning.png",
-      },
-      {
-        title: "Drama & Theatre",
-        description:
-          "Building confidence and communication through stage performances.",
-        progress: 65,
-        imageUrl: "/images/learning.png",
-      },
-    ],
-  },
-  {
-    title: "Physical Education",
-    items: [
-      {
-        title: "Sports Training",
-        description:
-          "Structured sports curriculum developing agility and team spirit.",
-        progress: 90,
-        isOpen: true,
-        imageUrl: "/images/learning.png",
-      },
-      {
-        title: "Yoga & Fitness",
-        description: "Balancing physical and mental well-being through yoga.",
-        progress: 70,
-        imageUrl: "/images/learning.png",
-      },
-    ],
-  },
-];
+// DATA //
+import { learning360Content } from "../../data/home/learning360";
 ---
 
 <section>
@@ -108,36 +25,43 @@ const tabs = [
         class="scrollbar-hide flex w-full items-center justify-start gap-3 overflow-x-auto md:gap-5 lg:gap-6"
       >
         {
-          tabs.map((tab, idx) => (
-            <div
-              class={`tab-item flex cursor-pointer flex-col items-center rounded-xl border-2 border-transparent p-3 transition-colors hover:border-orange-500 md:px-3.5 md:py-4 ${
-                idx === 0 ? "bg-orange-500" : "bg-white"
-              }`}
-              data-index={idx}
-            >
-              <p
-                class={`font-secondary text-xs leading-[1.3] whitespace-nowrap md:text-sm lg:text-base ${
-                  idx === 0 ? "text-n-50" : "text-n-600"
+          learning360Content.map(
+            (learning360ContentItem, learning360ContentIndex) => (
+              <div
+                class={`tab-item flex cursor-pointer flex-col items-center rounded-xl border-2 border-transparent p-3 transition-colors hover:border-orange-500 md:px-3.5 md:py-4 ${
+                  learning360ContentIndex === 0 ? "bg-orange-500" : "bg-white"
                 }`}
+                data-index={learning360ContentIndex}
               >
-                {tab.title}
-              </p>
-            </div>
-          ))
+                <p
+                  class={`font-secondary text-xs leading-[1.3] whitespace-nowrap md:text-sm lg:text-base ${
+                    learning360ContentIndex === 0 ? "text-n-50" : "text-n-600"
+                  }`}
+                >
+                  {learning360ContentItem.title}
+                </p>
+              </div>
+            ),
+          )
         }
       </div>
 
       <!-- Pre-rendered content sections -->
       <div id="learning-sections" class="w-full">
         {
-          tabs.map((tab, idx) => (
-            <div
-              class={`learning-section ${idx === 0 ? "block" : "hidden"}`}
-              data-index={idx}
-            >
-              <LearningContent items={tab.items} title={tab.title} />
-            </div>
-          ))
+          learning360Content.map(
+            (learning360ContentItem, learning360ContentIndex) => (
+              <div
+                class={`learning-section ${learning360ContentIndex === 0 ? "block" : "hidden"}`}
+                data-index={learning360ContentIndex}
+              >
+                <LearningContent
+                  items={learning360ContentItem.items}
+                  title={learning360ContentItem.title}
+                />
+              </div>
+            ),
+          )
         }
       </div>
     </div>

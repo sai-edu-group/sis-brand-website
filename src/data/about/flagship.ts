@@ -6,6 +6,7 @@ export const sectionHeaderContent = {
 
 export const flagshipContent = [
   {
+    id: 1,
     title: "Founder’s Memorial Series",
     subTitle: "Tribute to Vision and Legacy",
     description:
@@ -13,6 +14,7 @@ export const flagshipContent = [
     image: "/images/flagship/activity-image.png",
   },
   {
+    id: 2,
     title: "SAIMUN",
     subTitle: "SAI Model United Nations",
     description:
