@@ -12,7 +12,7 @@ const {
 ---
 
 <div
-  class="border-n-200 relative flex w-full flex-col items-center overflow-hidden rounded-2xl border-2"
+  class="group border-n-200 relative flex w-full flex-col items-center overflow-hidden rounded-2xl border-2"
 >
   <!-- Image -->
   <div
@@ -28,6 +28,10 @@ const {
         />
       )
     }
+    <!-- Overlay animation -->
+    <span
+      class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+    ></span>
     <!-- Badge -->
     <div
       class="bg-n-50 absolute top-4 left-4 flex items-center rounded-sm border-l-8 border-orange-500 py-2 pr-3 pl-5"
