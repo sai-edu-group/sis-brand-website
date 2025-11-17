@@ -1,9 +1,9 @@
 ---
 // TYPES //
-import type { MemberData } from "../../types/member";
+import type { MemberData } from "@/types/member";
 
 // COMPONENTS //
-import Article from "../../components/Article.astro";
+import Article from "@/components/Article.astro";
 
 interface Props {
   sectionHeaderDetails?: {
@@ -13,8 +13,7 @@ interface Props {
   };
   memberContent: MemberData;
 }
-const { sectionHeaderDetails, memberContent } =
-  Astro.props as Props;
+const { sectionHeaderDetails, memberContent } = Astro.props as Props;
 ---
 
 <section class="bg-n-50 relative w-full overflow-hidden">

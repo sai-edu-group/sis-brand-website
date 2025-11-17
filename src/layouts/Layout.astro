@@ -1,13 +1,13 @@
 ---
 // COMPONENTS //
 import Meta from "@/components/layout/Meta.astro";
-import Header from "../components/layout/Header.astro";
+import Header from "@/components/layout/Header.astro";
 import Footer from "@/components/layout/Footer.astro";
-import SocialStickyBar from "../components/SocialStickyBar.astro";
-import SideMenu from "../components/layout/SideMenu.astro";
+import SocialStickyBar from "@/components/SocialStickyBar.astro";
+import SideMenu from "@/components/layout/SideMenu.astro";
 
 // STYLES //
-import "../styles/global.css";
+import "@/styles/global.css";
 
 // DATA //
 import site from "@/data/meta/site.json";
@@ -78,7 +78,7 @@ const { meta = {} } = Astro.props;
           }
         });
       },
-      { threshold: 0.2 }, // reveal when 20% visible
+      { threshold: 0.2 } // reveal when 20% visible
     );
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -111,19 +111,19 @@ const { meta = {} } = Astro.props;
             animate(
               children,
               { opacity: [0, 1], y: [20, 0] },
-              { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
+              { duration: 0.6, delay: stagger(0.08), easing: "ease-out" }
             );
           } else {
             // Animate the container itself if it has no spans
             animate(
               el,
               { opacity: [0, 1], y: [20, 0] },
-              { duration: 0.6, easing: "ease-out" },
+              { duration: 0.6, easing: "ease-out" }
             );
           }
         });
       },
-      { threshold: 0.3 },
+      { threshold: 0.3 }
     );
 
     containers.forEach((el) => io.observe(el));
