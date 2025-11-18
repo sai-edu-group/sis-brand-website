@@ -1,10 +1,10 @@
 ---
-import Input from "../../components/Input.astro";
-import StepCard from "../../components/FormStepsCard.astro";
-import Select from "../../components/Select.astro";
-import Textarea from "../../components/Textarea.astro";
-import Button from "../../components/Button.astro";
-import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
+import Input from "@/components/Input.astro";
+import StepCard from "@/components/FormStepsCard.astro";
+import Select from "@/components/Select.astro";
+import Textarea from "@/components/Textarea.astro";
+import Button from "@/components/Button.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 ---
 
 <section class="bg-n-100 mx-auto w-full space-y-6" id="contact-form">
@@ -204,7 +204,7 @@ import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
 
         if (response.status === false) {
           alert(
-            "Something went wrong while submitting your enquiry. Please try again.",
+            "Something went wrong while submitting your enquiry. Please try again."
           );
           return;
         }
@@ -215,7 +215,7 @@ import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
       } catch (err) {
         console.error("❌ Failed to submit enquiry:", err);
         alert(
-          "Something went wrong while submitting your enquiry. Please try again.",
+          "Something went wrong while submitting your enquiry. Please try again."
         );
       }
     });

@@ -1,7 +1,7 @@
 ---
 // COMPONENTS //
-import LearningContent from "../../components/LearningContent.astro";
-import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
+import LearningContent from "@/components/LearningContent.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
 // DATA //
 import { learning360Content } from "../../data/home/learning360";
@@ -132,7 +132,7 @@ import { learning360Content } from "../../data/home/learning360";
       observer.observe(item, {
         attributes: true,
         attributeFilter: ["data-open"],
-      }),
+      })
     );
 
     accordionRoot.__imgObserver = observer;
