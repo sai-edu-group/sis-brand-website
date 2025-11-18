@@ -109,7 +109,7 @@ export const menu: MenuItem[] = [
 <!-- Sidebar -->
 <!-- The main sidebar navigation -->
 <aside
-  id="sidebar"
+  id="modal"
   class="fixed inset-y-0 right-0 z-52 w-full translate-x-full transform overflow-y-scroll bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
   <nav class="flex h-full flex-col" data-accordion>
@@ -250,7 +250,7 @@ export const menu: MenuItem[] = [
 
 <script is:inline>
   // Get DOM elements for sidebar, backdrop, toggle button, accordion container, and close button
-  const sidebar = document.getElementById("sidebar");
+  const sidebar = document.getElementById("modal");
   const backdrop = document.getElementById("menu-backdrop");
   const exploreBtn = document.getElementById("explore-btn");
   const hamburgerBtn = document.getElementById("hamburger-btn");

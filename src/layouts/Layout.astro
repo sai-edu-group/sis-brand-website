@@ -56,7 +56,7 @@ const { meta = {} } = Astro.props;
         duration: 1,
         smoothWheel: true,
         lerp: 0.2,
-        prevent: (node) => node.id === "sidebar",
+        prevent: (node) => node.id === "modal",
       });
 
       function raf(time) {
