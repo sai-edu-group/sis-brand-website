@@ -11,6 +11,9 @@ import AdvisoryBoard from "../../sections/about/AdvisoryBoard.astro";
 import Ethos from "../../sections/home/Ethos.astro";
 import Founder from "../../sections/home/Founder.astro";
 
+// DATA //
+import aboutMeta from "@/data/meta/about.json";
+
 const heroSectionDetails = {
   title: "Nurturing Global Citizens with Indian Values",
   subtitle: "We inspire curious minds to lead with compassion and confidence.",
@@ -18,7 +21,7 @@ const heroSectionDetails = {
 };
 ---
 
-<Layout>
+<Layout meta={aboutMeta}>
   <Hero {...heroSectionDetails} />
   <Ethos />
   <Founder />

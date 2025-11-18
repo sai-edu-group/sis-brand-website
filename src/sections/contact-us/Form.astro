@@ -18,7 +18,7 @@ import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
     />
 
     <!-- ONE form for all steps -->
-    <form id="contact-form" novalidate>
+    <form id="contact-form">
       <!-- STEP 1 -->
       <StepCard id="step-1" total={3}>
         <div class="flex flex-col gap-14 md:gap-20">
@@ -29,7 +29,7 @@ import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
             <div data-field>
               <Input
                 label="Full Name"
-                name="studentName"
+                name="fullName"
                 required
                 placeholder="Enter full name"
                 errorMessage="Full name is required."
@@ -40,7 +40,7 @@ import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
             <div data-field>
               <Input
                 label="Phone Number"
-                name="number"
+                name="phoneNumber"
                 required
                 placeholder="Enter phone number"
                 errorMessage="Phone number is required."
@@ -190,9 +190,12 @@ import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
       if (!validateStep(step1)) return;
 
       // Collect form data
-      const form = document.querySelector("#contact-form");
+      const form = document.querySelector("form");
+      console.log(form);
+
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData.entries());
+      console.log(step1, payload);
 
       try {
         // Call API

@@ -20,7 +20,7 @@ const campusDetails = {
 };
 ---
 
-<section class="bg-n-100">
+<section class="bg-n-100" id="other-campus">
   <div
     class="container mx-auto flex flex-col gap-11 px-6 py-24 md:gap-12 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
   >
@@ -36,7 +36,7 @@ const campusDetails = {
     >
       {
         campusDetails.campus.map((card) => (
-          <div class="w-full lg:w-[46%] lg:max-w-[500px]">
+          <div class="w-full lg:w-[46%] lg:max-w-[600px]">
             <CampusCard
               title={card.title}
               img={card.img}

@@ -16,12 +16,12 @@ export const menu: MenuItem[] = [
   {
     title: "HOME",
     submenu: [
-      { title: "The Perfect Master", href: "#" },
-      { title: "Vision, Mission & Values", href: "#" },
-      { title: "Founder – Chairman", href: "#" },
-      { title: "Key Personnel", href: "#" },
-      { title: "Advisory Board", href: "#" },
-      { title: "Our Affiliations", href: "#", active: true },
+      { title: "Ethos of SAI", href: "/#ethos" },
+      { title: "Guru Shishya Parampara", href: "/#guru-shishya" },
+      { title: "Our Founder", href: "/#our-founder" },
+      { title: "Learning @360", href: "/#learning-360" },
+      { title: "Awards", href: "/#awards" },
+      // { title: "Our Affiliations", href: "#", active: true },
     ],
     icon: "home",
     active: true,
@@ -29,70 +29,70 @@ export const menu: MenuItem[] = [
   {
     title: "ABOUT US",
     submenu: [
-      { title: "The Perfect Master", href: "#" },
-      { title: "Vision, Mission & Values", href: "#" },
-      { title: "Founder – Chairman", href: "#" },
-      { title: "Key Personnel", href: "#" },
-      { title: "Advisory Board", href: "#" },
+      { title: "The Perfect Master", href: "/about#ethos" },
+      // { title: "Vision, Mission & Values", href: "#" },
+      { title: "Founder – Chairman", href: "/about#our-founder" },
+      { title: "Key Personnel", href: "/about#key-personnel" },
+      { title: "Advisory Board", href: "/about#advisory-board" },
       { title: "Learning & Beyond", href: "/about/learning-and-beyond" },
-      { title: "Our Affiliations", href: "#", active: true },
+      // { title: "Our Affiliations", href: "/about#", active: true },
     ],
     icon: "about",
   },
   {
     title: "RESULTS",
     submenu: [
-      { title: "Academic Achievements", href: "#" },
+      { title: "Academic Achievements", href: "/results" },
       { title: "Sports Performance", href: "#" },
       { title: "University Rankers", href: "#" },
       { title: "International Awards", href: "#" },
     ],
     icon: "results",
   },
-  {
-    title: "GLOBAL CONNECT",
-    submenu: [
-      { title: "Exchange Programs", href: "#" },
-      { title: "Global Internships", href: "#" },
-      { title: "International Conferences", href: "#" },
-    ],
-    icon: "globe",
-  },
-  {
-    title: "STUDENT LEADERS",
-    submenu: [
-      { title: "Leadership Council", href: "#" },
-      { title: "Class Representatives", href: "#" },
-      { title: "Ambassador Programs", href: "#" },
-    ],
-    icon: "leaders",
-  },
-  {
-    title: "MEDIA",
-    submenu: [
-      { title: "News & Events", href: "#" },
-      { title: "Press Releases", href: "#" },
-      { title: "Gallery", href: "#" },
-      { title: "Videos", href: "#" },
-    ],
-    icon: "media",
-  },
-  {
-    title: "ALUMNI",
-    submenu: [
-      { title: "Success Stories", href: "#" },
-      { title: "Reunions", href: "#" },
-      { title: "Alumni Association", href: "#" },
-    ],
-    icon: "alumni",
-  },
+  // {
+  //   title: "GLOBAL CONNECT",
+  //   submenu: [
+  //     { title: "Exchange Programs", href: "#" },
+  //     { title: "Global Internships", href: "#" },
+  //     { title: "International Conferences", href: "#" },
+  //   ],
+  //   icon: "globe",
+  // },
+  // {
+  //   title: "STUDENT LEADERS",
+  //   submenu: [
+  //     { title: "Leadership Council", href: "#" },
+  //     { title: "Class Representatives", href: "#" },
+  //     { title: "Ambassador Programs", href: "#" },
+  //   ],
+  //   icon: "leaders",
+  // },
+  // {
+  //   title: "MEDIA",
+  //   submenu: [
+  //     { title: "News & Events", href: "#" },
+  //     { title: "Press Releases", href: "#" },
+  //     { title: "Gallery", href: "#" },
+  //     { title: "Videos", href: "#" },
+  //   ],
+  //   icon: "media",
+  // },
+  // {
+  //   title: "ALUMNI",
+  //   submenu: [
+  //     { title: "Success Stories", href: "#" },
+  //     { title: "Reunions", href: "#" },
+  //     { title: "Alumni Association", href: "#" },
+  //   ],
+  //   icon: "alumni",
+  // },
   {
     title: "ADMISSIONS",
     submenu: [
-      { title: "How to Apply", href: "#" },
-      { title: "Courses Offered", href: "#" },
-      { title: "Fee Structure", href: "#" },
-      { title: "Scholarships", href: "#" },
+      { title: "How to Apply", href: "/admission/#how-to-apply" },
+      // { title: "Courses Offered", href: "#" },
+      // { title: "Fee Structure", href: "#" },
+      // { title: "Scholarships", href: "#" },
     ],
     icon: "admissions",
   },
@@ -102,17 +102,17 @@ export const menu: MenuItem[] = [
 <!-- Backdrop --><!-- This is the dark overlay behind the sidebar when open -->
 <div
   id="menu-backdrop"
-  class="bg-n-950/50 z-51 invisible fixed inset-0 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
+  class="bg-n-950/50 invisible fixed inset-0 z-51 overflow-y-auto! opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
 >
 </div>
 
 <!-- Sidebar -->
 <!-- The main sidebar navigation -->
 <aside
-  id="sidebar"
-  class="z-52 fixed inset-y-0 right-0 w-full translate-x-full transform bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
+  id="modal"
+  class="fixed inset-y-0 right-0 z-52 w-full translate-x-full transform overflow-y-scroll bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
-  <nav class="flex h-full flex-col overflow-y-auto" data-accordion>
+  <nav class="flex h-full flex-col" data-accordion>
     <div class="pt-38 pb-10 md:pt-10">
       <!-- Close Button for Sidebar -->
       <div
@@ -227,11 +227,15 @@ export const menu: MenuItem[] = [
                     <div class="group flex h-[34px] cursor-pointer flex-col gap-1.5 md:gap-2">
                       <a
                         href={subMenuItem.href}
-                        class="text-n-100 font-secondary text-sm uppercase tracking-[1.28px] transition-all duration-300 ease-in-out group-hover:font-semibold group-hover:text-orange-500 md:text-base"
+                        data-href={subMenuItem.href}
+                        class="submenu-link text-n-100 font-secondary text-sm tracking-[1.28px] uppercase transition-all duration-300 ease-in-out group-hover:font-semibold group-hover:text-orange-500 md:text-base"
                       >
                         {subMenuItem.title}
                       </a>
-                      <div class="bg-n-50/10 h-px w-[73px] transition-all duration-300 ease-in-out group-hover:h-0.5 group-hover:bg-orange-500" />
+                      {/* Underline */}
+                      <div
+                        class={`submenu-underline h-px w-[73px] transition-all duration-300 ease-in-out ${subMenuItem.active ? "h-0.5 bg-orange-500" : "bg-n-50/10 group-hover:h-0.5 group-hover:bg-orange-500"} `}
+                      />
                     </div>
                   ))}
                 </div>
@@ -246,7 +250,7 @@ export const menu: MenuItem[] = [
 
 <script is:inline>
   // Get DOM elements for sidebar, backdrop, toggle button, accordion container, and close button
-  const sidebar = document.getElementById("sidebar");
+  const sidebar = document.getElementById("modal");
   const backdrop = document.getElementById("menu-backdrop");
   const exploreBtn = document.getElementById("explore-btn");
   const hamburgerBtn = document.getElementById("hamburger-btn");
@@ -262,6 +266,8 @@ export const menu: MenuItem[] = [
 
     // ⛔ Disable body scroll
     document.body.style.overflowY = "hidden";
+
+    lenis.stop();
   }
 
   // Function to close the sidebar menu
@@ -272,6 +278,8 @@ export const menu: MenuItem[] = [
     hamburgerBtn?.classList.remove("is-open");
     // ✅ Re-enable body scroll
     document.body.style.overflowY = "";
+    // IMPORTANT
+    lenis.start();
   }
 
   // Open sidebar when clicking Explore button
@@ -360,6 +368,36 @@ export const menu: MenuItem[] = [
       if (!isOpen) openSection(item);
     });
   }
+
+  /** Update Active State  */
+  function updateActiveMenu() {
+    const current = window.location.pathname + window.location.hash;
+
+    document.querySelectorAll(".submenu-link").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+      const target = link.getAttribute("data-href");
+      const underline = link.parentElement.querySelector(".submenu-underline");
+
+      // Reset old classes
+      link.classList.remove("font-semibold", "text-orange-500");
+      underline.classList.remove("h-0.5", "bg-orange-500");
+
+      // Apply new ones
+      if (target === current) {
+        link.classList.add("font-semibold", "text-orange-500");
+        underline.classList.add("h-0.5", "bg-orange-500");
+      }
+    });
+  }
+
+  // Trigger on first load
+  document.addEventListener("DOMContentLoaded", updateActiveMenu);
+
+  // Trigger when URL hash (#) changes
+  window.addEventListener("hashchange", updateActiveMenu);
+
+  // Trigger on browser back/forward
+  window.addEventListener("popstate", updateActiveMenu);
 </script>
 
 <style>
