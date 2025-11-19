@@ -10,8 +10,7 @@ export const URLS = {
         `/about/beyond-learning/amenities/${amenityId}`,
       CURRICULUM: (curriculumId: string) =>
         `/about/beyond-learning/curriculum/${curriculumId}`,
-      SAI_SEVA: (sevaId: string) =>
-        `/about/beyond-learning/sai-seva/${sevaId}`,
+      SAI_SEVA: (sevaId: string) => `/about/beyond-learning/sai-seva/${sevaId}`,
       FLAGSHIP_EVENT: (eventId: string) =>
         `/about/beyond-learning/flagship-events/${eventId}`,
     },
@@ -21,8 +20,7 @@ export const URLS = {
       ITEM: (name: string) => `/about/affliations/${name}`,
     },
 
-    TEAM_MEMBER: (id: string, name: string) =>
-      `/about/team/${id}/${name}/`,
+    TEAM_MEMBER: (id: string, name: string) => `/about/team/${id}/${name}/`,
 
     ADVISOR: {
       ITEM: (id: string, name: string) => `/about/founder/${id}/${name}`,
@@ -48,17 +46,14 @@ export const URLS = {
   RESULTS: {
     CBSE_12: {
       ROOT: "/results/cbse-12th",
-      SCIENCE: "/results/cbse-12th/science",
-      COMMERCE: "/results/cbse-12th/commerce",
-      HUMANITIES: "/results/cbse-12th/humanities",
+      STREAM: (streamId: string) => `/results/cbse-12th/${streamId}`,
     },
 
     CBSE_10: "/results/cbse-10th",
 
     CAREER_RESULTS: {
       ROOT: "/results/career-results",
-      JEE: "/results/career-results/jee",
-      NEET: "/results/career-results/neet",
+      EXAM: (exam: string) => `/results/career-results/${exam}`,
     },
 
     PLACEMENTS: "/results/placements",
@@ -96,8 +91,7 @@ export const URLS = {
 
     NEWS: {
       ROOT: "/media/news",
-      ITEM: (id: string, title: string) =>
-        `/media/news/${id}/${title}`,
+      ITEM: (id: string, title: string) => `/media/news/${id}/${title}`,
     },
 
     ANNOUNCEMENTS: "/blogs/announcement",
@@ -112,8 +106,7 @@ export const URLS = {
 
     NEWS_BULLETIN: {
       ROOT: "/media/news-bulletin",
-      ITEM: (bulletinId: string) =>
-        `/media/news-bulletin/${bulletinId}`,
+      ITEM: (bulletinId: string) => `/media/news-bulletin/${bulletinId}`,
     },
 
     ALBUMS: {

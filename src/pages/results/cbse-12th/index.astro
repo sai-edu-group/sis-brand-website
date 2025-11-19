@@ -8,29 +8,48 @@ import Layout from "@/layouts/Layout.astro";
 // SECTIONS //
 import Results from "@/sections/about/Results.astro";
 
-// DATA //
-import { results, sectionHeaderDetails, years } from "@/data/about/results";
+// COMPONENTS //
+import CourseCard from "@/components/CourseCard.astro";
 
-const resultsDetails = {
-  breadcrumbItems: [
-    { label: "12th Results", href: "/results" },
-    { label: "Courses", href: "/about#courses" },
-  ],
-};
+// DATA //
+import { cbseClasses } from "@/data/results/cbse-12th";
+import { URLS } from "@/infrastructure/constants/urls";
+
+// Breadcrumb Items
+const breadcrumbItems = [
+  { label: "12th Results", href: URLS.RESULTS.CBSE_12.ROOT },
+];
 ---
 
 <Layout>
-  <!-- Breadcrumbs Section -->
-  <div class="bg-n-50 relative w-full overflow-hidden">
-    <div
-      class="container mx-auto px-6 pt-30 pb-5 md:pt-40 md:pb-8 lg:pb-9 2xl:px-0"
-    >
-      <Breadcrumbs items={resultsDetails.breadcrumbItems} />
+  <div class="container">
+    <!-- Breadcrumbs Section -->
+    <div class="bg-n-50 relative w-full overflow-hidden">
+      <div
+        class="container mx-auto px-6 pt-30 pb-5 md:pt-40 md:pb-8 lg:pb-9 2xl:px-0"
+      >
+        <Breadcrumbs items={breadcrumbItems} />
+      </div>
+    </div>
+
+    <!-- Courses -->
+    <div>
+      {
+        cbseClasses.map((course) => (
+          <CourseCard
+            title={`${course.name} Results`}
+            image={`results/course-${course.id}.jpg`}
+            onCtaClick={`window.location.href = "${URLS.RESULTS.CBSE_12.STREAM(course.id.toString())}"`}
+            ctaText="Show Results"
+          />
+        ))
+      }
     </div>
   </div>
-  <Results
+
+  <!-- <Results
     sectionHeaderDetails={sectionHeaderDetails}
     results={results}
     years={years}
-  />
+  /> -->
 </Layout>
