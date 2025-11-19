@@ -3,6 +3,9 @@
 import ArticleCard from "@/components/ArticleCard.astro";
 import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
+
 // DATA //
 import { amenitiesDetails } from "@/data/about/amenities";
 ---
@@ -28,7 +31,9 @@ import { amenitiesDetails } from "@/data/about/amenities";
             <ArticleCard
               title={amenitiesCardItem.title}
               img={amenitiesCardItem.img}
-              href={amenitiesCardItem.href}
+              href={URLS.ABOUT.LEARNING_AND_BEYOND.AMENITY(
+                amenitiesCardItem.id.toString(),
+              )}
               description={amenitiesCardItem.description}
               badgeText=""
             />

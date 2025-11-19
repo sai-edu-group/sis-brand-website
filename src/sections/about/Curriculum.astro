@@ -5,6 +5,9 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
 // DATA //
 import { curriculumDetails } from "@/data/about/curriculum";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 ---
 
 <section class="bg-n-100 relative w-full overflow-hidden">
@@ -29,12 +32,14 @@ import { curriculumDetails } from "@/data/about/curriculum";
               <ArticleCard
                 title={curriculumCardItem.title}
                 img={curriculumCardItem.img}
-                href={curriculumCardItem.href}
+                href={URLS.ABOUT.LEARNING_AND_BEYOND.CURRICULUM(
+                  curriculumCardItem.id.toString(),
+                )}
                 description={curriculumCardItem.description}
                 badgeText=""
               />
             </div>
-          )
+          ),
         )
       }
     </div>

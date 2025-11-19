@@ -9,6 +9,9 @@ import {
   saiSevaContent,
   sectionHeaderContent,
 } from "@/data/about/learning-and-beyond/sai-seva";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 ---
 
 <section class="bg-n-50 ns-slider relative w-full overflow-hidden">
@@ -35,7 +38,9 @@ import {
                 <ArticleCard
                   title={saiSevaContentItem.title}
                   img={saiSevaContentItem.img}
-                  href={saiSevaContentItem.href}
+                  href={URLS.ABOUT.LEARNING_AND_BEYOND.SAI_SEVA(
+                    saiSevaContentItem.id.toString(),
+                  )}
                   description={saiSevaContentItem.description}
                   badgeText=""
                 />
