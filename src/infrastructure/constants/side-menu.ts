@@ -1,11 +1,12 @@
+// CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
+// TYPES //
 export interface SubMenuItemData {
   title: string;
   href: string;
   active?: boolean;
 }
-
 export interface MenuItemData {
   title: string;
   active?: boolean;

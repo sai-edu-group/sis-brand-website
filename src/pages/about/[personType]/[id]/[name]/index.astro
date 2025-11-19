@@ -22,9 +22,9 @@ import { founderDetails } from "@/data/about/members/founder";
  */
 export async function getStaticPaths() {
   const paths: Array<{
-    params: { type: string; id: string; name: string };
+    params: { personType: string; id: string; name: string };
     props: {
-      type: string;
+      personType: string;
       member: MemberData;
     };
   }> = [];
@@ -33,12 +33,12 @@ export async function getStaticPaths() {
   teamMembers.forEach((member: MemberData) => {
     paths.push({
       params: {
-        type: "team",
+        personType: "team",
         id: member.id.toString(),
         name: member.name.replaceAll(" ", "-"),
       },
       props: {
-        type: "team",
+        personType: "team",
         member,
       },
     });
@@ -47,12 +47,12 @@ export async function getStaticPaths() {
   // Generate path for Founder
   paths.push({
     params: {
-      type: "founder",
+      personType: "founder",
       id: "1",
       name: founderDetails.name.replaceAll(" ", "-"),
     },
     props: {
-      type: "founder",
+      personType: "founder",
       member: founderDetails,
     },
   });
@@ -61,12 +61,12 @@ export async function getStaticPaths() {
   advisoryBoard.forEach((member: MemberData) => {
     paths.push({
       params: {
-        type: "advisory",
+        personType: "advisory",
         id: member.id.toString(),
         name: member.name.replaceAll(" ", "-"),
       },
       props: {
-        type: "advisory",
+        personType: "advisory",
         member,
       },
     });
@@ -75,16 +75,16 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { type, member } = Astro.props;
+const { personType, member } = Astro.props;
 
-// Prepare breadcrumb items based on type
+// Prepare breadcrumb items based on personType
 const breadcrumbItems =
-  type === "team"
+  personType === "team"
     ? [
         { label: "Key Personnel", href: "/about#key-personnel" },
         { label: member.name, href: `#` },
       ]
-    : type === "founder"
+    : personType === "founder"
       ? [
           { label: "Founder – Chairman", href: "/about#our-founder" },
           { label: member.name, href: `#` },
