@@ -26,11 +26,11 @@ const {
 ---
 
 <div
-  class="group bg-n-50 border-n-200 flex h-full flex-col gap-4 overflow-hidden rounded-2xl border-2 p-4 xl:flex-row xl:gap-5 xl:p-5"
+  class="bg-n-50 border-n-200 group flex h-full flex-col gap-4 overflow-hidden rounded-2xl border-2 p-4 xl:flex-row xl:gap-5 xl:p-5"
 >
   <!-- Activity image -->
   <div
-    class="relative overflow-hidden rounded-tl-xl rounded-tr-xl xl:rounded-tr-none xl:rounded-bl-xl"
+    class="relative overflow-hidden rounded-tl-xl rounded-tr-xl xl:rounded-bl-xl xl:rounded-tr-none"
   >
     <img
       src={image}
@@ -47,7 +47,7 @@ const {
     <!-- Activity Date -->
     {
       date !== "" && (
-        <div class="font-secondary text-n-600 bg-n-50 absolute top-3 left-3 rounded-lg px-2.5 py-2 text-xs font-medium shadow xl:text-base">
+        <div class="font-secondary text-n-600 bg-n-50 absolute left-3 top-3 rounded-lg px-2.5 py-2 text-xs font-medium shadow xl:text-base">
           <div class="flex items-center gap-2">
             {/* Calendar Icon */}
             <span class="text-orange-500">
@@ -68,7 +68,7 @@ const {
     <div class="flex flex-col gap-2 xl:gap-4">
       <!-- Activity title -->
       <p
-        class="text-n-800 text-2xl leading-tight font-medium transition-colors duration-200 hover:text-orange-500 md:text-3xl"
+        class="text-n-800 text-2xl font-medium leading-tight transition-colors duration-200 hover:text-orange-500 md:text-3xl"
       >
         {title}
       </p>
@@ -76,7 +76,7 @@ const {
       <!-- Activity subTitle -->
       {
         subTitle !== "" && (
-          <p class="text-n-600 font-secondary leading-tight font-medium md:text-xl">
+          <p class="text-n-600 font-secondary font-medium leading-tight md:text-xl">
             {subTitle}
           </p>
         )
