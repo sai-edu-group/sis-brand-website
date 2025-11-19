@@ -33,40 +33,63 @@ const {
 </div>
 
 <style is:global>
+  .article-root > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .article-root > *.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ------------------------------------
+   📌 DESKTOP DEFAULT (≥1024px)
+------------------------------------- */
+
   .article-root h1 {
     color: var(--color-n-800);
     font-size: var(--text-6xl);
     font-weight: 600;
+    margin-bottom: 44px;
   }
 
   .article-root h2 {
     color: var(--color-n-800);
     font-size: var(--text-5xl);
     font-weight: 600;
+    margin-bottom: 40px;
   }
 
   .article-root h3 {
     color: var(--color-n-800);
     font-size: var(--text-4xl);
     font-weight: 600;
+    margin-bottom: 32px;
   }
 
   .article-root h4 {
     color: var(--color-n-800);
     font-size: var(--text-2xl);
     font-weight: 600;
+    margin-bottom: 32px;
   }
 
   .article-root h5 {
     color: var(--color-n-800);
     font-size: var(--text-xl);
     font-weight: 600;
+    margin-bottom: 32px;
   }
 
   .article-root h6 {
     color: var(--color-n-800);
     font-size: var(--text-base);
     font-weight: 600;
+    margin-bottom: 32px;
   }
 
   .article-root p {
@@ -74,7 +97,8 @@ const {
     font-family: "Poppins", sans-serif;
     font-size: var(--text-xl);
     font-weight: 400;
-    line-height: 150%; /* 30px */
+    line-height: 150%;
+    margin-bottom: 32px;
   }
 
   .article-root ol {
@@ -82,10 +106,11 @@ const {
     font-family: "Poppins", sans-serif;
     font-size: var(--text-xl);
     font-weight: 400;
-    line-height: 162.5%; /* 32.5px */
+    line-height: 162.5%;
     letter-spacing: 0.2px;
     list-style-type: disc;
     padding-left: 1.25rem;
+    margin-bottom: 8px;
   }
 
   .article-root a {
@@ -95,46 +120,68 @@ const {
     font-weight: 500;
     letter-spacing: 0.2px;
     text-decoration-line: underline;
+    margin-bottom: 32px;
   }
 
-  /* Tablet and up (≥768px) */
-  @media (min-width: 768px) {
-    .article-root p {
-      font-size: var(--text-lg);
+  /* ------------------------------------
+   📌 TABLET (768–1023px)
+------------------------------------- */
+  @media (max-width: 1023px) and (min-width: 768px) {
+    /* Tablet Margins */
+    .article-root h1 {
+      margin-bottom: 36px;
     }
 
-    .article-root ol {
-      font-size: var(--text-2xl);
+    .article-root h2 {
+      margin-bottom: 32px;
     }
 
+    .article-root h3,
+    .article-root h4,
+    .article-root h5,
+    .article-root h6 {
+      margin-bottom: 28px;
+    }
+
+    .article-root p,
+    .article-root ol,
     .article-root a {
-      font-size: var(--text-2xl);
+      font-size: var(--text-lg);
+      margin-bottom: 24px;
     }
   }
 
-  /* Mobile (≤767px) */
+  /* ------------------------------------
+   📌 MOBILE (≤767px)
+------------------------------------- */
   @media (max-width: 767px) {
-    .article-root h3 {
-      font-size: var(--text-2xl);
-    }
-
-    .article-root p {
+    /* Font sizes */
+    .article-root ol,
+    .article-root p,
+    .article-root a {
       font-size: var(--text-base);
     }
-  }
 
-  /* Desktop (≥1024px) */
-  @media (min-width: 1024px) {
-    .article-root p {
-      font-size: var(--text-2xl);
+    /* Mobile Margins */
+    .article-root h1 {
+      margin-bottom: 28px;
     }
 
-    .article-root ol {
-      font-size: var(--text-2xl);
+    .article-root h2 {
+      margin-bottom: 24px;
     }
 
+    .article-root h3,
+    .article-root h4,
+    .article-root h5,
+    .article-root h6 {
+      margin-bottom: 20px;
+    }
+
+    .article-root p,
+    .article-root ol,
     .article-root a {
-      font-size: var(--text-2xl);
+      margin-bottom: 20px;
     }
   }
 </style>

@@ -78,12 +78,14 @@ const { meta = {} } = Astro.props;
           }
         });
       },
-      { threshold: 0.2 } // reveal when 20% visible
+      { threshold: 0.2 }, // reveal when 20% visible
     );
 
     document.addEventListener("DOMContentLoaded", () => {
       document
-        .querySelectorAll(".fade-in, .scale-in, .card-anim, .fade-in-down")
+        .querySelectorAll(
+          ".fade-in, .scale-in, .card-anim, .fade-in-down, .article-root > *",
+        )
         .forEach((el) => {
           observer.observe(el);
         });
@@ -111,19 +113,19 @@ const { meta = {} } = Astro.props;
             animate(
               children,
               { opacity: [0, 1], y: [20, 0] },
-              { duration: 0.6, delay: stagger(0.08), easing: "ease-out" }
+              { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
             );
           } else {
             // Animate the container itself if it has no spans
             animate(
               el,
               { opacity: [0, 1], y: [20, 0] },
-              { duration: 0.6, easing: "ease-out" }
+              { duration: 0.6, easing: "ease-out" },
             );
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     containers.forEach((el) => io.observe(el));

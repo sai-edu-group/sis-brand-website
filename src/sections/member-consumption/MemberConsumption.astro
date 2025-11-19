@@ -33,15 +33,11 @@ const { sectionHeaderDetails, memberContent } = Astro.props as Props;
         />
 
         <!-- Member Quote and Description -->
-        <div class="flex flex-col gap-7 md:gap-8">
-          <h3 class="fade-in">
+        <div class="flex flex-col">
+          <h3 class="">
             “{memberContent.quote}”
           </h3>
-          {
-            memberContent.content.map((contentItem) => (
-              <p class="fade-in">{contentItem}</p>
-            ))
-          }
+          <div>{memberContent.content}</div>
         </div>
       </div>
     </Article>
