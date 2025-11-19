@@ -37,7 +37,7 @@ const { sectionHeaderDetails, memberContent } = Astro.props as Props;
           <h3 class="">
             “{memberContent.quote}”
           </h3>
-          <div>{memberContent.content}</div>
+          <div set:html={memberContent.content} />
         </div>
       </div>
     </Article>
