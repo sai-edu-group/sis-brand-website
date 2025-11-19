@@ -18,7 +18,7 @@ export const URLS = {
 
     AFFILIATIONS: {
       ROOT: "/about/affliations",
-      ITEM: (name: string) => `/about/affliations/${name}`,
+      ITEM: (name: string) => `/about/affiliations/${name}`,
     },
 
     TEAM_MEMBER: (id: string, name: string) => `/about/team/${id}/${name}/`,
