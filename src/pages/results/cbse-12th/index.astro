@@ -1,0 +1,36 @@
+---
+// COMPONENTS //
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
+// SECTIONS //
+import Results from "@/sections/about/Results.astro";
+
+// DATA //
+import { results, sectionHeaderDetails, years } from "@/data/about/results";
+
+const resultsDetails = {
+  breadcrumbItems: [
+    { label: "12th Results", href: "/results" },
+    { label: "Courses", href: "/about#courses" },
+  ],
+};
+---
+
+<Layout>
+  <!-- Breadcrumbs Section -->
+  <div class="bg-n-50 relative w-full overflow-hidden">
+    <div
+      class="container mx-auto px-6 pt-30 pb-5 md:pt-40 md:pb-8 lg:pb-9 2xl:px-0"
+    >
+      <Breadcrumbs items={resultsDetails.breadcrumbItems} />
+    </div>
+  </div>
+  <Results
+    sectionHeaderDetails={sectionHeaderDetails}
+    results={results}
+    years={years}
+  />
+</Layout>

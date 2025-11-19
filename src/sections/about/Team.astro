@@ -1,18 +1,18 @@
 ---
 // COMPONENTS //
-import Button from "../../components/Button.astro";
-import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
-import Tooltip from "../../components/Tooltip.astro";
-import PersonCard from "../../components/PersonCard.astro";
+import Button from "@/components/Button.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import Tooltip from "@/components/Tooltip.astro";
+import PersonCard from "@/components/PersonCard.astro";
 
 // DATA //
-import {
-  sectionHeaderDetails,
-  teamMembers,
-} from "../../data/about/members/team";
+import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
 ---
 
-<section class="bg-n-50 ns-slider relative w-full overflow-hidden" id="team">
+<section
+  class="bg-n-50 ns-slider relative w-full overflow-hidden"
+  id="key-personnel"
+>
   <div id="team-data" data-members={JSON.stringify(teamMembers)} hidden></div>
   <div
     class="container mx-auto flex flex-col gap-8 px-6 py-20 lg:gap-15 lg:py-40 2xl:px-0"
@@ -328,7 +328,7 @@ import {
   const AUTO_DURATION_MS = 10000;
   let currentIndex = Math.max(
     0,
-    members.findIndex((m) => m.isActive),
+    members.findIndex((m) => m.isActive)
   );
   if (currentIndex === -1) currentIndex = 0;
   let rafId = null;
@@ -337,7 +337,7 @@ import {
   /** Trigger animations for all animated elements */
   function triggerAnimations() {
     const animatedElements = document.querySelectorAll(
-      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate",
+      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate"
     );
 
     // Remove animate class first
@@ -366,7 +366,7 @@ import {
     imgEl.setAttribute("alt", member.name);
     buttonEl.setAttribute(
       "href",
-      `/about/team/${member.id}/${member.name.replaceAll(" ", "-")}`,
+      `/about/team/${member.id}/${member.name.replaceAll(" ", "-")}`
     );
     quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;
@@ -410,7 +410,7 @@ import {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / AUTO_DURATION_MS, 1);
     const activeFill = listEl.querySelector(
-      `[data-index="${currentIndex}"] [data-fill]`,
+      `[data-index="${currentIndex}"] [data-fill]`
     );
     if (activeFill) {
       activeFill.style.transform = `scaleX(${progress})`;

@@ -7,5 +7,5 @@ export type MemberData = {
   bgImg: string;
   jpgImg: string;
   landscapeImg: string;
-  content: string[];
+  content: any;
 };

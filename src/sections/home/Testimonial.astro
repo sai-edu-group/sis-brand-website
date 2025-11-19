@@ -1,7 +1,8 @@
 ---
-import CommonHeader from "../../components/CommonHeader.astro";
+import CommonHeader from "@/components/CommonHeader.astro";
 
-const slides = ["/images/test-video.png", "/images/test-video.png"];
+// DATA //
+import { testimonials, sectionHeaderContent } from "@/data/home/testimonials";
 ---
 
 <section>
@@ -9,27 +10,32 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
     class="container mx-auto flex flex-col gap-12 px-6 py-16 md:gap-20 md:px-4 md:py-24 lg:px-8 lg:py-32 2xl:px-0"
   >
     <!-- Header with Lines -->
-    <CommonHeader
-      eyebrowText="What Our Families Say"
-      title="Stories of Trust and Transformation"
-    />
+    <CommonHeader {...sectionHeaderContent} />
 
     <div class="flex flex-col gap-10 overflow-hidden" id="testimonial-slider">
       <!-- Embla slider -->
       <div class="" id="data-embla-viewport" data-embla-viewport>
         <div class="flex" data-embla-container>
           {
-            slides.map((imgSrc) => (
+            testimonials.map((testimonialsItem) => (
               <div class="w-full shrink-0" data-embla-slide>
                 <div class="border-n-200 flex w-full flex-col items-center justify-between overflow-hidden rounded-xl border-2 xl:flex-row">
                   {/* Image wrapper  */}
                   <div class="relative w-full xl:w-[40%]">
                     <img
-                      src={imgSrc}
-                      alt=""
+                      src={testimonialsItem.thumbnail}
+                      alt={testimonialsItem.parentName}
                       class="h-[350px] w-full object-cover md:h-[370px] xl:h-[450px]"
                     />
-                    <div class="text-n-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+
+                    {/* Play Button */}
+                    <button
+                      type="button"
+                      class="text-n-50 absolute top-1/2 left-1/2 flex size-20 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/40 backdrop-blur transition hover:scale-105 md:size-16"
+                      data-video-trigger
+                      data-video-url={testimonialsItem.videoUrl}
+                      aria-label={`Play testimonial from ${testimonialsItem.parentName}`}
+                    >
                       <svg
                         class="mx-auto size-11 md:size-9/12"
                         xmlns="http://www.w3.org/2000/svg"
@@ -45,14 +51,14 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
                           fill="currentColor"
                         />
                       </svg>
-                    </div>
+                    </button>
                   </div>
 
                   <div class="font-secondary relative flex flex-col gap-5 px-8 py-8 md:gap-8 md:px-16 md:py-12 xl:w-[58%] xl:p-10 2xl:pr-24">
                     {/* Illustration  */}
                     <div class="absolute -top-[16%] -right-[4%] -z-1 cursor-pointer text-orange-100 md:-top-[6%] lg:-top-[18%] lg:-right-[12%]">
                       <svg
-                        class="w-[160px] md:w-[268px] lg:w-[370px]"
+                        class="w-40 md:w-[268px] lg:w-[370px]"
                         xmlns="http://www.w3.org/2000/svg"
                         width="370"
                         height="276"
@@ -66,21 +72,16 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
                       </svg>
                     </div>
 
-                    <p class="text-n-600 text-sm leading-normal font-normal md:text-xl">
-                      “Sending my daughter to SAI was the best decision we made.
-                      The teachers are so supportive and genuinely care about
-                      each child's success. The engaging curriculum sparked a
-                      love for learning in her, and she's thriving academically
-                      and socially. We're grateful for the positive impact SAI
-                      has had on our child's life.”
+                    <p class="text-n-600 text-sm leading-normal font-normal md:text-xl lg:text-2xl">
+                      “{testimonialsItem.message}”
                     </p>
                     {/* Name wrapper */}
                     <div>
                       <p class="text-2xl leading-normal font-semibold text-orange-500 md:text-3xl lg:text-4xl">
-                        Mrs. Haokip
+                        {testimonialsItem.parentName}
                       </p>
                       <p class="text-n-500 text-sm leading-normal font-normal md:text-lg lg:text-xl">
-                        Policewomen
+                        {testimonialsItem.designation}
                       </p>
                     </div>
                   </div>
@@ -149,6 +150,37 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
         </button>
       </div>
     </div>
+    <!-- Video Modal -->
+    <div
+      id="testimonial-modal"
+      class="testimonial-modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+    >
+      <div class="testimonial-modal__backdrop" data-modal-close></div>
+      <div class="testimonial-modal__dialog" role="document">
+        <button
+          type="button"
+          class="testimonial-modal__close cursor-pointer"
+          aria-label="Close video"
+          data-modal-close
+        >
+          ✕
+        </button>
+        <div class="testimonial-modal__frame">
+          <iframe
+            id="testimonial-iframe"
+            src=""
+            title="Testimonial video"
+            frameborder="0"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -159,6 +191,143 @@ const slides = ["/images/test-video.png", "/images/test-video.png"];
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("testimonial-slider");
 
+    /** Init the slider */
     initEmblaRoot(root);
+
+    const modal = document.getElementById("testimonial-modal");
+    const iframe = document.getElementById("testimonial-iframe");
+    const closeTargets = document.querySelectorAll("[data-modal-close]");
+    const triggers = document.querySelectorAll("[data-video-trigger]");
+
+    const html = document.documentElement;
+
+    /** Get the embed URL for the video */
+    const getEmbedUrl = (url) => {
+      try {
+        // Parse the URL
+        const parsed = new URL(url);
+
+        // youtube.com/watch?v=...
+        if (parsed.hostname.includes("youtube")) {
+          const videoId = parsed.searchParams.get("v");
+          const list = parsed.searchParams.get("list");
+          let finalUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          if (list) finalUrl += `&list=${list}`;
+          return finalUrl;
+        }
+
+        return url;
+      } catch (err) {
+        return url;
+      }
+    };
+
+    /** Open the modal and set the video */
+    const openModal = (url) => {
+      if (!modal || !iframe) return;
+      iframe.src = getEmbedUrl(url);
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+      html.classList.add("overflow-hidden");
+      modal.setAttribute("tabindex", "-1");
+      modal.focus();
+    };
+
+    /** Close the modal and reset the video */
+    const closeModal = () => {
+      if (!modal || !iframe) return;
+      iframe.removeAttribute("src");
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      html.classList.remove("overflow-hidden");
+    };
+
+    /** Close the modal and reset the video */
+    triggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const url = trigger.getAttribute("data-video-url") || "";
+        openModal(url);
+      });
+    });
+
+    /** Close the modal when the close button is clicked */
+    closeTargets.forEach((closeTarget) => {
+      closeTarget.addEventListener("click", closeModal);
+    });
+
+    /** Close the modal when the escape key is pressed */
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
   });
 </script>
+
+<style>
+  .testimonial-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+
+  .testimonial-modal.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .testimonial-modal__backdrop {
+    position: absolute;
+    inset: 0;
+  }
+
+  .testimonial-modal__dialog {
+    position: relative;
+    background: #0f172a;
+    border-radius: 1rem;
+    width: min(900px, 100%);
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+
+  .testimonial-modal__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+
+  .testimonial-modal__frame {
+    width: 100%;
+    height: 100%;
+  }
+
+  .testimonial-modal__frame iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-modal {
+      padding: 1rem;
+    }
+  }
+</style>

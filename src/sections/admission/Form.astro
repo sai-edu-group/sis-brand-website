@@ -1,10 +1,10 @@
 ---
-import Input from "../../components/Input.astro";
-import StepCard from "../../components/FormStepsCard.astro";
-import Select from "../../components/Select.astro";
-import Textarea from "../../components/Textarea.astro";
-import Button from "../../components/Button.astro";
-import SectionHeader from "../../components/SectionHeader.astro";
+import Input from "@/components/Input.astro";
+import StepCard from "@/components/FormStepsCard.astro";
+import Select from "@/components/Select.astro";
+import Textarea from "@/components/Textarea.astro";
+import Button from "@/components/Button.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
 
 const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 ---
@@ -70,8 +70,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
               required
               placeholder="Select Class"
               options={[
-                { label: "XII Hum", value: "12-hum" },
-                { label: "XI Sci", value: "11-sci" },
+                { label: "XII Humanities", value: "12-hum" },
+                { label: "XI Science", value: "11-sci" },
               ]}
               errorMessage="Please select the class for admission."
             />
@@ -356,7 +356,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 
         if (response.status === false) {
           alert(
-            "Something went wrong while submitting your enquiry. Please try again.",
+            "Something went wrong while submitting your enquiry. Please try again."
           );
           return;
         }
@@ -366,7 +366,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       } catch (err) {
         console.error("❌ Failed to submit enquiry:", err);
         alert(
-          "Something went wrong while submitting your enquiry. Please try again.",
+          "Something went wrong while submitting your enquiry. Please try again."
         );
       }
     });
