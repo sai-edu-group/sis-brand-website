@@ -14,8 +14,10 @@ const canonical = `${site.siteUrl}${Astro.url.pathname}`;
 <head>
   <meta charset="utf-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
   <title>{metaTitle}</title>
   <meta name="description" content={metaDesc} />
+  <meta name="viewport" content="width=device-width" />
   <!-- OG -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content={metaTitle} />
