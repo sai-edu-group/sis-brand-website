@@ -5,20 +5,13 @@ interface Props {
   img: string;
   title: string;
   subTitle: string;
-  href?: string;
   year: string;
 }
-const {
-  img,
-  title = "",
-  subTitle = "",
-  href = "#",
-  year = "",
-} = Astro.props as Props;
+const { img, title = "", subTitle = "", year = "" } = Astro.props as Props;
 ---
 
 <div
-  class="group bg-n-50 border-n-300 flex w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 xl:flex-row xl:gap-6"
+  class="group bg-n-50 border-n-300 flex h-full w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 xl:flex-row xl:gap-6"
 >
   <!-- Award image -->
   <div
@@ -26,7 +19,7 @@ const {
   >
     <img
       src={img}
-      alt=""
+      alt={title}
       class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
     />
 
@@ -44,7 +37,7 @@ const {
         {year}
       </p>
       <!-- Icon Button  -->
-      <IconButton href={href} />
+      <!-- <IconButton href={href} /> -->
     </div>
     <div class="flex flex-col gap-1 md:gap-2 lg:pb-5 xl:gap-3.5">
       <!-- Title -->

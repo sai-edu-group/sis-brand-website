@@ -1,16 +1,19 @@
 ---
 // COMPONENTS //
-import PersonCard from "../../components/PersonCard.astro";
-import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
+import PersonCard from "@/components/PersonCard.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
 // DATA //
 import {
-  boardMembers,
+  advisoryBoard,
   sectionHeaderDetails,
-} from "../../data/about/members/advisor-board";
+} from "@/data/about/members/advisory";
 ---
 
-<section class="bg-n-50 ns-slider relative w-full overflow-hidden">
+<section
+  class="bg-n-50 ns-slider relative w-full overflow-hidden"
+  id="advisory-board"
+>
   <div
     class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-24 2xl:px-0"
   >
@@ -22,16 +25,13 @@ import {
       class="mx-auto hidden grid-cols-1 gap-8 md:grid-cols-2 lg:grid xl:grid-cols-3 2xl:grid-cols-4 2xl:gap-y-14"
     >
       {
-        boardMembers.map((advisoryMemberItem, advisoryMemberIndex) => (
-          <div
-            class="card-anim card-bottom"
-            style={`--delay: ${advisoryMemberIndex * 0.1}s`}
-          >
+        advisoryBoard.map((advisoryMemberItem) => (
+          <div class="card-anim card-bottom">
             <PersonCard
               personName={advisoryMemberItem.name}
               designation={advisoryMemberItem.position}
-              image={advisoryMemberItem.img}
-              href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}}`}
+              image={advisoryMemberItem.jpgImg}
+              href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}`}
             />
           </div>
         ))
@@ -51,7 +51,7 @@ import {
         <div class="flex gap-5.5" data-embla-container>
           <!-- Board Members Slides -->
           {
-            boardMembers.map((advisoryMemberItem) => (
+            advisoryBoard.map((advisoryMemberItem) => (
               <div
                 class="ns-slide card-anim card-bottom cursor-pointer"
                 data-embla-slide
@@ -59,8 +59,8 @@ import {
                 <PersonCard
                   personName={advisoryMemberItem.name}
                   designation={advisoryMemberItem.position}
-                  image={advisoryMemberItem.img}
-                  href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}}`}
+                  image={advisoryMemberItem.jpgImg}
+                  href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}`}
                 />
               </div>
             ))

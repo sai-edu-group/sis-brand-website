@@ -1,9 +1,21 @@
 ---
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
+
+// OTHERS //
 import Button from "./Button.astro";
 import ProgressBar from "./ProgressBar.astro";
 
 // Accordion data
-const { items, title } = Astro.props;
+const {
+  items,
+  title = "",
+  id,
+} = Astro.props as {
+  items: any;
+  title: string;
+  id: number;
+};
 ---
 
 <div
@@ -69,7 +81,7 @@ const { items, title } = Astro.props;
                   />
                 </svg>
                 <div
-                  class="bg-n-600 border-n-600 hidden h-[2px] w-2 rounded-xs border-[0.4px] border-solid"
+                  class="bg-n-600 border-n-600 hidden h-0.5 w-2 rounded-xs border-[0.4px] border-solid"
                   data-icon-minus
                 />
               </div>
@@ -96,7 +108,13 @@ const { items, title } = Astro.props;
       ))
     }
     <!-- Button -->
-    <Button text={title} variant="soft" size="small" rightArrow />
+    <Button
+      text={title}
+      variant="soft"
+      size="small"
+      rightArrow
+      onClick={`window.location.href = "${URLS.ABOUT.LEARNING_360.ITEM(id.toString(), title.replaceAll(" ", "-"))}"`}
+    />
   </div>
 </div>
 

@@ -1,55 +1,25 @@
 ---
-import AwardsCard from "../../components/AwardsCard.astro";
-import Button from "../../components/Button.astro";
-import SectionHeaderMain from "../../components/SectionHeaderMain.astro";
+import AwardsCard from "@/components/AwardsCard.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+
+// DATA //
+import {
+  awardsCardContent,
+  sectionHeaderContent,
+} from "../../data/home/awards";
 
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
 
 // Data (sample)
-const awardsDetails = {
-  awardsCard: [
-    {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
-    },
-    {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
-    },
-    {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
-    },
-    {
-      title: "School of Eminence Award",
-      img: "/images/award-image.png",
-      subTitle:
-        "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities.",
-      year: "2025",
-    },
-  ],
-};
 ---
 
-<section class="ns-slider">
+<section class="ns-slider" id="awards">
   <div
     class="container mx-auto flex flex-col gap-9 px-6 py-14 md:gap-16 md:px-0 md:py-20 lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
   >
     <!-- Section header -->
-    <SectionHeaderMain
-      eyebrowText="Achievements & Recognition"
-      title="Celebrating Excellence, Year After Year"
-    />
+    <SectionHeaderMain {...sectionHeaderContent} />
 
     <!-- Slider root: keep viewport + controls inside this wrapper -->
     <div data-embla-root id={uid} class="space-y-7 md:space-y-9">
@@ -62,13 +32,13 @@ const awardsDetails = {
           style="gap: var(--gap)"
         >
           {
-            awardsDetails.awardsCard.map((card) => (
+            awardsCardContent.map((awardsCardContentItem) => (
               <div class="ns-slide" data-embla-slide>
                 <AwardsCard
-                  title={card.title}
-                  img={card.img}
-                  subTitle={card.subTitle}
-                  year={card.year}
+                  title={awardsCardContentItem.title}
+                  img={awardsCardContentItem.img}
+                  subTitle={awardsCardContentItem.subTitle}
+                  year={awardsCardContentItem.year}
                 />
               </div>
             ))
@@ -80,14 +50,14 @@ const awardsDetails = {
       <div
         class="relative flex items-center justify-center gap-8 md:gap-12 lg:gap-20"
       >
-        <div class="absolute left-0 max-sm:top-[20px]">
+        <!-- <div class="absolute left-0 max-sm:top-[20px]">
           <Button
             text="View All Rewards"
             rightArrow
             variant="soft"
             size="small"
           />
-        </div>
+        </div> -->
 
         <!-- Dots -->
         <div class="flex items-center gap-1.5 md:gap-2" data-embla-dots></div>
@@ -96,7 +66,7 @@ const awardsDetails = {
         <div class="absolute right-0 flex gap-2 md:gap-6">
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-prev
             aria-label="Previous"
           >
@@ -119,7 +89,7 @@ const awardsDetails = {
 
           <button
             type="button"
-            class="bg-n-50 border-n-200 hover:bg-n-200 flex size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
+            class="bg-n-50 border-n-200 hover:bg-n-200 hidden size-7 cursor-pointer items-center justify-center rounded-full border p-1 md:size-14"
             data-embla-next
             aria-label="Next"
           >
@@ -171,7 +141,6 @@ const awardsDetails = {
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
   import { initEmblaRoot } from "/js/embla.js";
-
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("embla-awards");
     initEmblaRoot(root, {
