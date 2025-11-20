@@ -7,11 +7,9 @@ import Layout from "@/layouts/Layout.astro";
 // COMPONENTS //
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 
-// SECTIONS //
-import AffiliationsConsumption from "@/sections/about/affiliations/AffiliationsConsumption.astro";
-
 // DATA //
 import { affiliationsDetails } from "@/data/about/affiliations";
+import ArticleConsumption from "@/components/ArticleConsumption.astro";
 
 /**
  * Generate static paths for all team and advisory board member pages
@@ -64,8 +62,8 @@ const sectionHeaderDetails = {
       <Breadcrumbs items={breadcrumbItems} />
     </div>
   </div>
-  <AffiliationsConsumption
+  <ArticleConsumption
     sectionHeaderDetails={sectionHeaderDetails}
-    affiliationDetail={affiliationItem}
+    articleDetail={affiliationItem}
   />
 </Layout>

@@ -8,6 +8,7 @@ export const globalProgramsContent = [
   {
     id: 1,
     title: "Global Immersion Programme",
+    breadcrumbTitle: "Immersion Programme",
     img: "/images/global-connect/global-programs/immersion.jpg",
     landscapeImg: "/images/global-connect/global-programs/immersion.jpg",
     description:
@@ -17,6 +18,7 @@ export const globalProgramsContent = [
   {
     id: 2,
     title: "Global School Partnership",
+    breadcrumbTitle: "School Partnership",
     img: "/images/global-connect/global-programs/saioneer.jpg",
     landscapeImg: "/images/global-connect/global-programs/saioneer.jpg",
     description:
@@ -26,6 +28,7 @@ export const globalProgramsContent = [
   {
     id: 3,
     title: "SAIoneer EXIM",
+    breadcrumbTitle: "SAIoneer EXIM",
     img: "/images/global-connect/global-programs/school-partnership.jpg",
     landscapeImg:
       "/images/global-connect/global-programs/school-partnership.jpg",
