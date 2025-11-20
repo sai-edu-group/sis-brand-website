@@ -22,7 +22,8 @@ import { URLS } from "@/infrastructure/constants/urls";
 import type { ResultData } from "@/types/results/results";
 
 // Get the Year from the Search Params
-const year = Astro.url.searchParams.get("year") || cbseTenth.years[0];
+const year: number =
+  Number(Astro.url.searchParams.get("year")) || cbseTenth.years[0];
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -35,7 +36,7 @@ if (!year) {
 }
 
 // Extract the Results. TODO: Will be API Call
-const results: ResultData[] = cbseTenth.results[parseInt(year)];
+const results: ResultData[] = cbseTenth.results[year];
 ---
 
 <Layout>
