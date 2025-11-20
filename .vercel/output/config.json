@@ -1,0 +1,207 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/affiliations/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/affiliations/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/learning-360/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/learning-and-beyond/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/learning-and-beyond/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/vision-mission-values/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/([^/]+?)/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/about/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/ews-admission/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/guideline/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/transfer-certificates/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/admissions/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/awards/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/case-studies/iim/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/case-studies/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/components-library/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/contact-us/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/advanced-placements/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/global-partners/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/global-partners/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/global-programs/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/global-programs/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/global-vision/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/global-connect/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/albums/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/albums/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/news/([^/]+?)/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/news/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/news-bulletin/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/news-bulletin/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/press-release/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/radio-orange/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/sai-tv/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/media/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/career-results/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/career-results/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/cbse-10th/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/cbse-12th/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/cbse-12th/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/placements/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/results/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/student-leaders/global-sioneers/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/student-leaders/icons-and-achievers/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/student-leaders/student-council/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/student-leaders/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/$",
+			"dest": "_render"
+		}
+	]
+}
