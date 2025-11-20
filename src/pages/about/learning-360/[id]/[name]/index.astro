@@ -3,40 +3,33 @@
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ArticleConsumption from "@/components/ArticleConsumption.astro";
 
-// CONSTANTS //
-import { URLS } from "@/infrastructure/constants/urls";
-
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
-// SECTIONS //
-
 // DATA //
-import {
-  globalProgramsContent,
-  sectionHeaderContent,
-} from "@/data/global-connect/global-programs";
+import { learning360Content } from "@/data/home/learning-360";
 
 /**
  * Generate static paths
- * @returns Array of static paths with Global Programs
+ * @returns Array of static paths
  */
 export async function getStaticPaths() {
   const paths: Array<{
-    params: { globalProgramId: string };
+    params: { id: string; name: string };
     props: {
-      globalProgramItem: any;
+      learning360Item: any;
     };
   }> = [];
 
   // Generate paths
-  globalProgramsContent.forEach((globalProgramItem: any) => {
+  learning360Content.forEach((learning360ContentItem: any) => {
     paths.push({
       params: {
-        globalProgramId: globalProgramItem.id,
+        id: learning360ContentItem.id,
+        name: learning360ContentItem.title.replaceAll(" ", "-"),
       },
       props: {
-        globalProgramItem,
+        learning360Item: learning360ContentItem,
       },
     });
   });
@@ -44,18 +37,18 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { globalProgramItem } = Astro.props;
+const { learning360Item } = Astro.props;
 
 // Prepare breadcrumb items
 const breadcrumbItems = [
-  { label: "Global Programs", href: URLS.GLOBAL_CONNECT.PROGRAMS.ROOT },
-  { label: globalProgramItem.breadcrumbTitle, href: `#` },
+  { label: "Learning 360", href: "/#learning-360" },
+  { label: learning360Item.title, href: `#` },
 ];
 
 // Prepare section header details
 const sectionHeaderDetails = {
-  title: sectionHeaderContent.title,
-  subtitle: sectionHeaderContent.subtitle,
+  title: learning360Item.title,
+  subtitle: learning360Item.description,
 };
 ---
 
@@ -70,6 +63,6 @@ const sectionHeaderDetails = {
   </div>
   <ArticleConsumption
     sectionHeaderDetails={sectionHeaderDetails}
-    articleDetail={globalProgramItem}
+    articleDetail={learning360Item}
   />
 </Layout>
