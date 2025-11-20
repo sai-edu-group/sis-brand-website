@@ -51,15 +51,19 @@ export const menu: MenuItemData[] = [
     ],
     icon: "results",
   },
-  // {
-  //   title: "GLOBAL CONNECT",
-  //   submenu: [
-  //     { title: "Exchange Programs", href: "#" },
-  //     { title: "Global Internships", href: "#" },
-  //     { title: "International Conferences", href: "#" },
-  //   ],
-  //   icon: "globe",
-  // },
+  {
+    title: "GLOBAL CONNECT",
+    submenu: [
+      { title: "Global Vision", href: URLS.GLOBAL_CONNECT.GLOBAL_VISION },
+      { title: "Global Programs", href: URLS.GLOBAL_CONNECT.PROGRAMS.ROOT },
+      { title: "Global Partners", href: URLS.GLOBAL_CONNECT.PARTNERS.ROOT },
+      {
+        title: "Advanced Placements",
+        href: URLS.GLOBAL_CONNECT.ADVANCED_PLACEMENTS,
+      },
+    ],
+    icon: "globe",
+  },
   // {
   //   title: "STUDENT LEADERS",
   //   submenu: [
