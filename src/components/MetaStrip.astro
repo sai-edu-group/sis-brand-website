@@ -36,12 +36,12 @@ const {
 const formattedDate = date ? timeAgo(date) : "";
 ---
 
-<div class=" flex w-full flex-col gap-6">
+<div class="flex w-full flex-col gap-6">
   <!-- Divider Line -->
   <div class="bg-n-300 h-px w-full"></div>
   <!-- Meta Information -->
   <div class="flex items-center justify-between">
-    <div class="flex items-center gap-24">
+    <div class="flex items-center gap-5 md:gap-24">
       <!-- Icon and Author Name -->
       <div class="flex items-center gap-3">
         <svg
@@ -50,6 +50,7 @@ const formattedDate = date ? timeAgo(date) : "";
           height="20"
           viewBox="0 0 20 20"
           fill="none"
+          class="size-3 md:size-5"
         >
           <path
             fill-rule="evenodd"
@@ -59,13 +60,13 @@ const formattedDate = date ? timeAgo(date) : "";
         </svg>
 
         <!-- Author Name -->
-        <p class="text-n-600 font-secondary text-lg">{author}</p>
+        <p class="text-n-600 font-secondary text-xs md:text-lg">{author}</p>
       </div>
       <div class="flex items-center gap-5">
         {
           readTimeMins && (
             <>
-              <p class="text-n-500 font-secondary text-lg">{`${readTimeMins} min read`}</p>
+              <p class="text-n-500 font-secondary text-xs md:text-lg">{`${readTimeMins} min read`}</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="4"
@@ -81,7 +82,9 @@ const formattedDate = date ? timeAgo(date) : "";
         <!-- Publication Date -->
         {
           formattedDate && (
-            <p class="text-n-500 font-secondary text-lg">{formattedDate}</p>
+            <p class="text-n-500 font-secondary text-xs md:text-lg">
+              {formattedDate}
+            </p>
           )
         }
       </div>
@@ -100,6 +103,7 @@ const formattedDate = date ? timeAgo(date) : "";
             height="20"
             viewBox="0 0 20 20"
             fill="none"
+            class="size-3 md:size-5"
           >
             <path
               fill-rule="evenodd"
@@ -108,7 +112,7 @@ const formattedDate = date ? timeAgo(date) : "";
               fill="#62748E"
             />
           </svg>
-          <p class="text-n-500 font-secondary text-lg">Share</p>
+          <p class="text-n-500 font-secondary text-xs md:text-lg">Share</p>
         </button>
       )
     }
