@@ -39,7 +39,7 @@ const breadcrumbItems = [
           <CourseCard
             title={`${course.name} Results`}
             image={`results/course-${course.id}.jpg`}
-            onCtaClick={`window.location.href = "${URLS.RESULTS.CBSE_12.STREAM(course.id.toString())}"`}
+            onCtaClick={`window.location.href = "${URLS.RESULTS.CBSE_12.STREAM(course.id.toString())}?year=${course.years[0]}"`}
             ctaText="Show Results"
           />
         ))

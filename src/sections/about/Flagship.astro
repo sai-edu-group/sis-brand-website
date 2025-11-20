@@ -6,9 +6,15 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
 // DATA //
 import { sectionHeaderContent, flagshipContent } from "@/data/about/flagship";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 ---
 
-<section class="bg-n-50 ns-slider relative w-full overflow-hidden">
+<section
+  class="bg-n-50 ns-slider relative w-full overflow-hidden"
+  id="flagship-events"
+>
   <div
     class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-28 2xl:px-0"
   >
@@ -29,12 +35,18 @@ import { sectionHeaderContent, flagshipContent } from "@/data/about/flagship";
                 class="ns-slide card-anim card-bottom cursor-pointer"
                 data-embla-slide
               >
-                <ActivityCard
-                  title={flagshipItem.title}
-                  image={flagshipItem.image}
-                  subTitle={flagshipItem.subTitle}
-                  description={flagshipItem.description}
-                />
+                <a
+                  href={URLS.ABOUT.LEARNING_AND_BEYOND.FLAGSHIP_EVENT(
+                    flagshipItem.id.toString(),
+                  )}
+                >
+                  <ActivityCard
+                    title={flagshipItem.title}
+                    image={flagshipItem.img}
+                    subTitle={flagshipItem.subTitle}
+                    description={flagshipItem.description}
+                  />
+                </a>
               </div>
             ))
           }

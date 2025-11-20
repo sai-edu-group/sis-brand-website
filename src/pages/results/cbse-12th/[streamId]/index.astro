@@ -14,29 +14,41 @@ import ResultsCard from "@/components/ResultsCard.astro";
 import { cbseClasses } from "@/data/results/cbse-12th";
 import { URLS } from "@/infrastructure/constants/urls";
 
-/** Get the static Path's */
-export async function getStaticPaths() {
-  return cbseClasses.map((cbseClass) => ({
-    params: { streamId: cbseClass.id.toString() },
-    props: cbseClass,
-  }));
+// TYPES //
+import type { ClassData, ResultData } from "@/types/results/results";
+
+// Get the Props from the URL [stream]/[year]
+const { streamId } = Astro.params;
+
+// Get the Year from the Search Params
+const year = Astro.url.searchParams.get("year");
+
+// Get the Class Object from "chseClasses" data using the Stream ID
+// TODO: WIll be API Call here
+const classItem: ClassData | undefined = cbseClasses.find(
+  (cbseClassItem) => cbseClassItem.id === parseInt(streamId ?? "0"),
+);
+
+// If streamId is missing or invalid — go back or redirect
+if (!streamId || !year || !classItem) {
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: Astro.request.headers.get("referer") || URLS.HOME,
+    },
+  });
 }
 
-// Page Props
-const { id, name, years } = Astro.props;
+const results: ResultData[] = classItem.results[parseInt(year)];
 
 // Breadcrumb Items
 const breadcrumbItems = [
   { label: "12th Results", href: URLS.RESULTS.CBSE_12.ROOT },
-  { label: name, href: URLS.RESULTS.CBSE_12.STREAM(id.toString()) },
+  {
+    label: classItem.name,
+    href: `${URLS.RESULTS.CBSE_12.STREAM(streamId)}/${classItem?.years[0]}`,
+  },
 ];
-
-// Get the Year
-const year = Astro.url.searchParams.get("year") || years[0];
-
-// Get the Results (TODO: Will be API Call)
-const results =
-  cbseClasses.find((cbseClass) => cbseClass.id === id)?.results[year] || [];
 ---
 
 <Layout>
@@ -52,7 +64,7 @@ const results =
 
     <!-- Section Header -->
     <SectionHeaderMain
-      title={name}
+      title={classItem.name}
       subtitle="Celebrating our students hard work and achievements"
     />
 
@@ -63,14 +75,14 @@ const results =
         <div class="flex flex-col gap-8 md:gap-12">
           <div class="flex flex-col gap-7 md:gap-8">
             <!-- Years Filters -->
-            <FilterBar showSearch={false} years={years} />
+            <FilterBar showSearch={false} years={classItem.years} />
 
             <!-- Results -->
             <div
               class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:grid-cols-4 2xl:gap-8"
             >
               {
-                results.map((resultItem) => (
+                results?.map((resultItem) => (
                   <ResultsCard
                     studentName={resultItem.studname}
                     score={resultItem.percentage}
