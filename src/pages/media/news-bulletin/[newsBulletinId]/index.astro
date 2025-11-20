@@ -1,1 +1,16 @@
-<p>Content coming soon.</p>
+---
+/**
+ * Generate static paths for all albums
+ * @returns Array of static paths with all News Bulletins
+ */
+export async function getStaticPaths() {
+  const paths: Array<{
+    params: { newsBulletinId: string };
+    props: {
+      newsBulletinId: string;
+    };
+  }> = [];
+
+  return paths;
+}
+---
