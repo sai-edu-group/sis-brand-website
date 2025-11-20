@@ -13,30 +13,30 @@ import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import {
-  globalProgramsContent,
+  globalPartnersContent,
   sectionHeaderContent,
-} from "@/data/global-connect/global-programs";
+} from "@/data/global-connect/global-partners";
 
 /**
  * Generate static paths
- * @returns Array of static paths with Global Programs
+ * @returns Array of static paths with Global Partners
  */
 export async function getStaticPaths() {
   const paths: Array<{
     params: { globalPartnerId: string };
     props: {
-      globalProgramItem: any;
+      globalPartnerItem: any;
     };
   }> = [];
 
   // Generate paths
-  globalProgramsContent.forEach((globalProgramItem: any) => {
+  globalPartnersContent.forEach((globalPartnerItem: any) => {
     paths.push({
       params: {
-        globalPartnerId: globalProgramItem.id,
+        globalPartnerId: globalPartnerItem.id,
       },
       props: {
-        globalProgramItem,
+        globalPartnerItem,
       },
     });
   });
@@ -44,12 +44,12 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { globalProgramItem } = Astro.props;
+const { globalPartnerItem } = Astro.props;
 
 // Prepare breadcrumb items
 const breadcrumbItems = [
-  { label: "Global Programs", href: URLS.GLOBAL_CONNECT.PROGRAMS.ROOT },
-  { label: globalProgramItem.breadcrumbTitle, href: `#` },
+  { label: "Global Partners", href: URLS.GLOBAL_CONNECT.PARTNERS.ROOT },
+  { label: globalPartnerItem.breadcrumbTitle, href: `#` },
 ];
 
 // Prepare section header details
@@ -70,6 +70,6 @@ const sectionHeaderDetails = {
   </div>
   <ArticleConsumption
     sectionHeaderDetails={sectionHeaderDetails}
-    articleDetail={globalProgramItem}
+    articleDetail={globalPartnerItem}
   />
 </Layout>

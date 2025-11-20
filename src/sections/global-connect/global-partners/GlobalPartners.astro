@@ -8,9 +8,9 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // DATA //
 import {
-  globalProgramsContent,
+  globalPartnersContent,
   sectionHeaderContent,
-} from "@/data/global-connect/global-programs";
+} from "@/data/global-connect/global-partners";
 ---
 
 <section class="bg-n-100 relative w-full overflow-hidden">
@@ -20,24 +20,24 @@ import {
     <!-- Section header title -->
     <SectionHeaderMain {...sectionHeaderContent} />
 
-    <!-- Global Programs Cards wrapper -->
+    <!-- Global Partners Cards wrapper -->
     <div
       class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8 xl:grid-cols-3 xl:gap-9"
     >
-      <!-- Global Programs Cards -->
+      <!-- Global Partners Cards -->
       {
-        globalProgramsContent.map((globalProgramsContentItem, cardIndex) => (
+        globalPartnersContent.map((globalPartnersContentItem, cardIndex) => (
           <div
             class="card-anim card-bottom"
             style={`--delay: ${cardIndex * 0.1}s`}
           >
             <ArticleCard
-              title={globalProgramsContentItem.title}
-              img={globalProgramsContentItem.img}
-              href={URLS.GLOBAL_CONNECT.PROGRAMS.ITEM(
-                globalProgramsContentItem.id.toString(),
+              title={globalPartnersContentItem.title}
+              img={globalPartnersContentItem.img}
+              href={URLS.GLOBAL_CONNECT.PARTNERS.ITEM(
+                globalPartnersContentItem.id.toString(),
               )}
-              description={globalProgramsContentItem.description}
+              description={globalPartnersContentItem.description}
               badgeText=""
             />
           </div>
