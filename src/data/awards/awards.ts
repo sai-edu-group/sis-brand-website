@@ -1,5 +1,7 @@
 // TYPES //
 import { URLS } from "@/infrastructure/constants/urls";
+
+// TYPES //
 import type { AwardsData } from "@/types/awards/awards";
 import type { BreadcrumbData } from "@/types/common";
 
