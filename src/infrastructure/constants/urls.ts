@@ -4,6 +4,11 @@ export const URLS = {
   ABOUT: {
     ROOT: "/about",
 
+    LEARNING_360: {
+      ITEM: (learning360id: string, name: string) =>
+        `/about/learning-360/${learning360id}/${name}`,
+    },
+
     LEARNING_AND_BEYOND: {
       ROOT: "/about/learning-and-beyond",
       AMENITY: (amenityId: string) =>

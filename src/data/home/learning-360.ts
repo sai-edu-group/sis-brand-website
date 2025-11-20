@@ -1,5 +1,6 @@
 export const learning360Content = [
   {
+    id: 1,
     title: "Smart Academics",
     items: [
       {
@@ -7,7 +8,6 @@ export const learning360Content = [
         title: "Smart Classrooms",
         description:
           "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
-
         imageUrl: "/images/learning.png",
       },
       {
@@ -32,8 +32,13 @@ export const learning360Content = [
         imageUrl: "/images/learning.png",
       },
     ],
+    landscapeImg: "/images/learning.png",
+    content: `<p>Digital technology and IT are effectively integrated in the curriculum at various levels, which gives the students ample opportunities to learn and explore. For students, technological education has provided an indescribable wealth of resources, information and knowledge. Since its inception, SAI International School has always focused on imparting education through ICT tools as it complements and enriches the learning process.
+</p><ul><li><strong>Digi Board</strong> - Each class has a well-equipped digi board and system.
+</li></ul>`,
   },
   {
+    id: 2,
     title: "Creative Arts",
     items: [
       {
@@ -58,8 +63,13 @@ export const learning360Content = [
         imageUrl: "/images/learning.png",
       },
     ],
+    landscapeImg: "/images/learning.png",
+    content: `<p>Digital technology and IT are effectively integrated in the curriculum at various levels, which gives the students ample opportunities to learn and explore. For students, technological education has provided an indescribable wealth of resources, information and knowledge. Since its inception, SAI International School has always focused on imparting education through ICT tools as it complements and enriches the learning process.
+</p><ul><li><strong>Digi Board</strong> - Each class has a well-equipped digi board and system.
+</li></ul>`,
   },
   {
+    id: 3,
     title: "Physical Education",
     items: [
       {
@@ -77,5 +87,9 @@ export const learning360Content = [
         imageUrl: "/images/learning.png",
       },
     ],
+    landscapeImg: "/images/learning.png",
+    content: `<p>Digital technology and IT are effectively integrated in the curriculum at various levels, which gives the students ample opportunities to learn and explore. For students, technological education has provided an indescribable wealth of resources, information and knowledge. Since its inception, SAI International School has always focused on imparting education through ICT tools as it complements and enriches the learning process.
+</p><ul><li><strong>Digi Board</strong> - Each class has a well-equipped digi board and system.
+</li></ul>`,
   },
 ];
