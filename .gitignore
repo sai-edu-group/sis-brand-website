@@ -26,3 +26,5 @@ pnpm-debug.log*
 pnpm-lock.yaml
 
 .paclage-lock.json
+
+.versel/output/*
