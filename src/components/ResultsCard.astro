@@ -8,11 +8,12 @@ const {
   date = "",
   positionText = "",
   bgImg = "/images/results/school-background.png",
+  classes = "",
 } = Astro.props;
 ---
 
 <div
-  class="group border-n-200 relative flex w-full flex-col items-center overflow-hidden rounded-2xl border-2"
+  class={`group border-n-200 relative flex w-full flex-col items-center overflow-hidden rounded-2xl border-2 ${classes}`}
 >
   <!-- Image -->
   <div

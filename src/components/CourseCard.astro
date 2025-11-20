@@ -6,6 +6,7 @@ interface Props {
   ctaText?: string;
   onCtaClick: string;
   image?: string;
+  classes?: string;
 }
 const {
   title = "",
@@ -13,11 +14,12 @@ const {
   ctaText = "",
   onCtaClick = "",
   image = "course-thumbnail",
+  classes = "",
 } = Astro.props as Props;
 ---
 
 <div
-  class="bg-n-50 border-n-200 flex max-w-[432px] flex-col gap-4 rounded-2xl border-2 p-5"
+  class={`bg-n-50 border-n-200 flex flex-col gap-4 rounded-2xl border-2 p-5 ${classes}`}
 >
   <!-- Course Image -->
   <img
