@@ -52,17 +52,14 @@ export const URLS = {
   RESULTS: {
     CBSE_12: {
       ROOT: "/results/cbse-12th",
-      SCIENCE: "/results/cbse-12th/science",
-      COMMERCE: "/results/cbse-12th/commerce",
-      HUMANITIES: "/results/cbse-12th/humanities",
+      STREAM: (streamId: string) => `/results/cbse-12th/${streamId}`,
     },
 
     CBSE_10: "/results/cbse-10th",
 
     CAREER_RESULTS: {
       ROOT: "/results/career-results",
-      JEE: "/results/career-results/jee",
-      NEET: "/results/career-results/neet",
+      EXAM: (exam: string) => `/results/career-results/${exam}`,
     },
 
     PLACEMENTS: "/results/placements",
