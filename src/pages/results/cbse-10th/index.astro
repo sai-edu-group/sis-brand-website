@@ -22,7 +22,7 @@ import { URLS } from "@/infrastructure/constants/urls";
 import type { ResultData } from "@/types/results/results";
 
 // Get the Year from the Search Params
-const year = Astro.url.searchParams.get("year");
+const year = Astro.url.searchParams.get("year") || cbseTenth.years[0];
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -61,7 +61,7 @@ const results: ResultData[] = cbseTenth.results[parseInt(year)];
 
           <!-- Results -->
           <div
-            class="flex flex-row flex-wrap items-center gap-5 md:gap-6 lg:gap-8"
+            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
             {
               results?.map((resultItem) => (
@@ -69,7 +69,6 @@ const results: ResultData[] = cbseTenth.results[parseInt(year)];
                   studentName={resultItem.studname}
                   score={resultItem.percentage}
                   image={resultItem.studprofilepic}
-                  classes="md:w-[48%] lg:w-[23%]"
                 />
               ))
             }

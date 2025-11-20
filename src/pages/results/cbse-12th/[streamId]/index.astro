@@ -74,7 +74,7 @@ const breadcrumbItems = [
 
           <!-- Results -->
           <div
-            class="flex flex-row flex-wrap items-center gap-5 md:gap-6 lg:gap-8"
+            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
             {
               results?.map((resultItem) => (
@@ -82,7 +82,6 @@ const breadcrumbItems = [
                   studentName={resultItem.studname}
                   score={resultItem.percentage}
                   image={resultItem.studprofilepic}
-                  classes="md:w-[48%] lg:w-[23%]"
                 />
               ))
             }

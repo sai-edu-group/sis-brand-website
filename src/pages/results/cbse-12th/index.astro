@@ -34,15 +34,16 @@ import { URLS } from "@/infrastructure/constants/urls";
         />
 
         <!-- Courses -->
-        <div class="flex w-full flex-row flex-wrap items-center gap-5 md:gap-6">
+        <div
+          class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:grid-cols-4"
+        >
           {
             cbseClasses.map((course) => (
               <CourseCard
                 title={`${course.name} Results`}
-                image={`results/course-${course.id}.jpg`}
+                image={`results/12th/course-${course.id}.jpg`}
                 onCtaClick={`window.location.href = "${URLS.RESULTS.CBSE_12.STREAM(course.id.toString())}?year=${course.years[0]}"`}
                 ctaText="Show Results"
-                classes="md:w-full lg:w-[32%]"
               />
             ))
           }

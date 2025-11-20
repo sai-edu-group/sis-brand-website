@@ -1,0 +1,69 @@
+---
+
+---
+
+<div
+  id="lightboxOverlay"
+  class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black/90"
+>
+  <button id="lightboxPrev" class="absolute left-5 text-4xl text-white"
+    >&lsaquo;</button
+  >
+  <button id="lightboxNext" class="absolute right-5 text-4xl text-white"
+    >&rsaquo;</button
+  >
+  <button id="lightboxClose" class="absolute top-5 right-5 text-3xl text-white"
+    >&times;</button
+  >
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt="Expanded view"
+    class="max-h-[90vh] max-w-[90vw] rounded-lg object-contain transition-opacity duration-200"
+  />
+</div>
+
+<script is:inline>
+  const overlay = document.getElementById("lightboxOverlay");
+  const image = document.getElementById("lightboxImage");
+  const closeButton = document.getElementById("lightboxClose");
+  const nextBtn = document.getElementById("lightboxNext");
+  const prevBtn = document.getElementById("lightboxPrev");
+  let images = [];
+  let currentIndex = 0;
+
+  // Collect all expandable images
+  const buttons = document.querySelectorAll("[data-lightbox-src]");
+  images = Array.from(buttons).map((btn) => btn.dataset.lightboxSrc);
+
+  // Open lightbox
+  buttons.forEach((btn, idx) => {
+    btn.addEventListener("click", () => {
+      currentIndex = idx;
+      image.src = images[currentIndex];
+      overlay.classList.remove("hidden");
+    });
+  });
+
+  // Close lightbox
+  closeButton.addEventListener("click", () => overlay.classList.add("hidden"));
+
+  // Navigation
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    image.src = images[currentIndex];
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    image.src = images[currentIndex];
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") overlay.classList.add("hidden");
+    if (e.key === "ArrowRight") nextBtn.click();
+    if (e.key === "ArrowLeft") prevBtn.click();
+  });
+</script>

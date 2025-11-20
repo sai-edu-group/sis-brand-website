@@ -34,15 +34,16 @@ import { careerResultsBreadcrumbs } from "@/data/results/career-results";
         />
 
         <!-- Courses -->
-        <div class="flex w-full flex-row flex-wrap items-center gap-5 md:gap-6">
+        <div
+          class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 2xl:grid-cols-4"
+        >
           {
             careerResults.map((examItem) => (
               <CourseCard
                 title={`${examItem.name} Results`}
-                image={`results/exam-${examItem.name.toLowerCase().replace(" ", "-")}.jpg`}
+                image={`/results/career/${examItem.name.toLowerCase().replace(" ", "-")}.jpg`}
                 onCtaClick={`window.location.href = "${URLS.RESULTS.CAREER_RESULTS.EXAM(examItem.name.toLowerCase().replace(" ", "-"))}?year=${examItem.years[0]}"`}
                 ctaText="Show Results"
-                classes="md:w-full lg:w-[32%]"
               />
             ))
           }

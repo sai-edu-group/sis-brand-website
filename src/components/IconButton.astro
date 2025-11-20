@@ -2,8 +2,9 @@
 interface Props {
   href: string;
   extraClasses?: string;
+  iconClasses?: string;
 }
-const { href = "#", extraClasses } = Astro.props as Props;
+const { href = "#", extraClasses, iconClasses } = Astro.props as Props;
 ---
 
 <a
@@ -14,7 +15,7 @@ const { href = "#", extraClasses } = Astro.props as Props;
     class="text-n-50 transform md:transition-all md:duration-300 md:ease-out md:group-hover:translate-x-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 lg:translate-x-[-50%] lg:translate-y-[50%] lg:opacity-0"
   >
     <svg
-      class="size-4 md:size-7"
+      class={`${iconClasses} size-4 md:size-7`}
       width="23"
       height="23"
       viewBox="0 0 23 23"

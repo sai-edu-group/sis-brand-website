@@ -14,37 +14,37 @@ export const cbseTenth: ClassData = {
       {
         id: 1,
         studname: "Jyotiraditya Parida 2025",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.6",
       },
       {
         id: 2,
         studname: "Omkarraditya Parida",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.2",
       },
       {
         id: 1,
         studname: "Jyotiraditya Parida 2025",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.6",
       },
       {
         id: 2,
         studname: "Omkarraditya Parida",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.2",
       },
       {
         id: 1,
         studname: "Jyotiraditya Parida 2025",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.6",
       },
       {
         id: 2,
         studname: "Omkarraditya Parida",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.2",
       },
     ],
@@ -52,7 +52,7 @@ export const cbseTenth: ClassData = {
       {
         id: 1,
         studname: "Jyotiraditya  2024",
-        studprofilepic: "1640718105_8931 Jyotiraditya Parida 97.6.jpg",
+        studprofilepic: "/images/results/10th/student.png",
         percentage: "97.6",
       },
       {

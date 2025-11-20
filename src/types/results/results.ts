@@ -13,3 +13,9 @@ export type ResultData = {
   studprofilepic: string;
   percentage: string;
 };
+
+export type PlacementData = {
+  id: number;
+  name: string;
+  image: string;
+};

@@ -1,0 +1,77 @@
+---
+export const prerender = false; // Render on Server
+
+// LAYOUT //
+import Layout from "@/layouts/Layout.astro";
+
+// COMPONENTS //
+import FilterBar from "@/components/FilterBar.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import AwardsCard from "@/components/AwardsCard.astro";
+
+// DATA //
+import {
+  awards,
+  awardsBreadcrumbItems,
+  awardsSectionHeader,
+} from "@/data/awards/awards";
+import { URLS } from "@/infrastructure/constants/urls";
+
+// Get the Year from the Search Params
+const year: number =
+  parseInt(Astro.url.searchParams.get("year") as string) || awards.years[0];
+
+// If streamId is missing or invalid — go back or redirect
+if (!year) {
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: Astro.request.headers.get("referer") || URLS.HOME,
+    },
+  });
+}
+
+// Extract the Results. TODO: Will be API Call
+const awardItems = awards.awards[year];
+---
+
+<Layout>
+  <section class="bg-n-50 relative w-full overflow-hidden">
+    <div
+      class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
+    >
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={awardsBreadcrumbItems} />
+
+      <!-- Body of the Results -->
+      <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
+        <!-- Section Header -->
+        <SectionHeaderMain
+          title={awardsSectionHeader.title}
+          subtitle={awardsSectionHeader.subtitle}
+        />
+
+        <!-- Filter & Students -->
+        <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
+          <!-- Years Filters -->
+          <FilterBar showSearch={false} years={awards.years} />
+
+          <!-- Results -->
+          <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
+            {
+              awardItems?.map((awardItem) => (
+                <AwardsCard
+                  title={awardItem.title}
+                  subTitle={awardItem.description}
+                  img={awardItem.image}
+                  year={awardItem.year}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
