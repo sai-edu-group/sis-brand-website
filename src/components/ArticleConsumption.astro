@@ -20,7 +20,11 @@ const { sectionHeaderDetails, articleDetail } = Astro.props as Props;
     class="container mx-auto flex flex-col gap-5 px-6 pb-30 md:gap-8 md:pb-40 lg:gap-9 2xl:px-0"
   >
     <!-- Article Section -->
-    <Article {...sectionHeaderDetails}>
+    <Article
+      title={sectionHeaderDetails?.title}
+      subtitle={sectionHeaderDetails?.subtitle}
+      eyebrowText={sectionHeaderDetails?.eyebrowText}
+    >
       <!--  Article Consumption Content -->
       <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
         <!-- Article Image and Details -->

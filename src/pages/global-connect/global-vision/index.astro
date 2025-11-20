@@ -29,7 +29,10 @@ const breadcrumbItems = [
     >
       <Breadcrumbs items={breadcrumbItems} />
       <!-- Global Vision Section -->
-      <Article {...sectionHeaderContent}>
+      <Article
+        title={sectionHeaderContent?.title}
+        subtitle={sectionHeaderContent?.subtitle}
+      >
         <!--  Global Vision Content -->
         <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
           <!-- Global Vision Image and Details -->
