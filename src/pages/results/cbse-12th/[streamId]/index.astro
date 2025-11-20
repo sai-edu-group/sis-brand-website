@@ -11,27 +11,26 @@ import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ResultsCard from "@/components/ResultsCard.astro";
 
 // DATA //
-import { careerResults } from "@/data/results/career-results";
+import { cbseClasses } from "@/data/results/cbse-12th";
 import { URLS } from "@/infrastructure/constants/urls";
 
 // TYPES //
 import type { ClassData, ResultData } from "@/types/results/results";
 
 // Get the Props from the URL [stream]/[year]
-const { exam } = Astro.params;
+const { streamId } = Astro.params;
 
 // Get the Year from the Search Params
 const year = Astro.url.searchParams.get("year");
 
 // Get the Class Object from "chseClasses" data using the Stream ID
 // TODO: WIll be API Call here
-const classItem: ClassData | undefined = careerResults.find(
-  (careerResultItem) =>
-    careerResultItem.name.toLowerCase().replaceAll(" ", "-") === exam,
+const classItem: ClassData | undefined = cbseClasses.find(
+  (cbseClassItem) => cbseClassItem.id === parseInt(streamId ?? "0"),
 );
 
 // If streamId is missing or invalid — go back or redirect
-if (!exam || !year || !classItem) {
+if (!streamId || !year || !classItem) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -44,10 +43,10 @@ const results: ResultData[] = classItem.results[parseInt(year)];
 
 // Breadcrumb Items
 const breadcrumbItems = [
-  { label: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
+  { label: "12th Results", href: URLS.RESULTS.CBSE_12.ROOT },
   {
     label: classItem.name,
-    href: `${URLS.RESULTS.CAREER_RESULTS.EXAM(exam)}?year=${year}`,
+    href: `${URLS.RESULTS.CBSE_12.STREAM(streamId)}?year=${year}`,
   },
 ];
 ---
