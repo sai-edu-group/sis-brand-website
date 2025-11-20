@@ -69,16 +69,18 @@ export const menu: MenuItemData[] = [
   //   ],
   //   icon: "leaders",
   // },
-  // {
-  //   title: "MEDIA",
-  //   submenu: [
-  //     { title: "News & Events", href: "#" },
-  //     { title: "Press Releases", href: "#" },
-  //     { title: "Gallery", href: "#" },
-  //     { title: "Videos", href: "#" },
-  //   ],
-  //   icon: "media",
-  // },
+  {
+    title: "MEDIA",
+    submenu: [
+      { title: "News", href: URLS.MEDIA.NEWS.ROOT },
+      { title: "Press Releases", href: URLS.MEDIA.PRESS_RELEASE },
+      { title: "News Bulletin", href: URLS.MEDIA.NEWS_BULLETIN.ROOT },
+      { title: "Albums", href: URLS.MEDIA.ALBUMS.ROOT },
+      { title: "Radio Orange", href: URLS.MEDIA.RADIO_ORANGE },
+      { title: "SAI TV", href: URLS.MEDIA.SAI_TV },
+    ],
+    icon: "media",
+  },
   // {
   //   title: "ALUMNI",
   //   submenu: [
