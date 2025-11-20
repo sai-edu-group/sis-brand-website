@@ -4,25 +4,24 @@ export const URLS = {
   ABOUT: {
     ROOT: "/about",
 
-    BEYOND_LEARNING: {
-      ROOT: "/about/beyond-learning",
+    LEARNING_AND_BEYOND: {
+      ROOT: "/about/learning-and-beyond",
       AMENITY: (amenityId: string) =>
-        `/about/beyond-learning/amenities/${amenityId}`,
+        `/about/learning-and-beyond/amenities/${amenityId}`,
       CURRICULUM: (curriculumId: string) =>
-        `/about/beyond-learning/curriculum/${curriculumId}`,
+        `/about/learning-and-beyond/curriculum/${curriculumId}`,
       SAI_SEVA: (sevaId: string) =>
-        `/about/beyond-learning/sai-seva/${sevaId}`,
+        `/about/learning-and-beyond/sai-seva/${sevaId}`,
       FLAGSHIP_EVENT: (eventId: string) =>
-        `/about/beyond-learning/flagship-events/${eventId}`,
+        `/about/learning-and-beyond/flagship-events/${eventId}`,
     },
 
     AFFILIATIONS: {
       ROOT: "/about/affliations",
-      ITEM: (name: string) => `/about/affliations/${name}`,
+      ITEM: (name: string) => `/about/affiliations/${name}`,
     },
 
-    TEAM_MEMBER: (id: string, name: string) =>
-      `/about/team/${id}/${name}/`,
+    TEAM_MEMBER: (id: string, name: string) => `/about/team/${id}/${name}/`,
 
     ADVISOR: {
       ITEM: (id: string, name: string) => `/about/founder/${id}/${name}`,
@@ -96,8 +95,7 @@ export const URLS = {
 
     NEWS: {
       ROOT: "/media/news",
-      ITEM: (id: string, title: string) =>
-        `/media/news/${id}/${title}`,
+      ITEM: (id: string, title: string) => `/media/news/${id}/${title}`,
     },
 
     ANNOUNCEMENTS: "/blogs/announcement",
@@ -112,8 +110,7 @@ export const URLS = {
 
     NEWS_BULLETIN: {
       ROOT: "/media/news-bulletin",
-      ITEM: (bulletinId: string) =>
-        `/media/news-bulletin/${bulletinId}`,
+      ITEM: (bulletinId: string) => `/media/news-bulletin/${bulletinId}`,
     },
 
     ALBUMS: {
