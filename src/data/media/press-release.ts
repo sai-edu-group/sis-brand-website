@@ -7,7 +7,7 @@ import type { PressReleaseData } from "@/types/media/press-release";
 
 export const pressRelease: PressReleaseData = {
   id: 7,
-  name: "Class X",
+  name: "2025",
   years: [2025, 2024, 2023],
   releases: {
     2025: [

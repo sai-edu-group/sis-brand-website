@@ -2,12 +2,16 @@
 export const prerender = false; // Render on Server
 
 // LAYOUT //
+// TYPES //
+import type { PressReleaseItemData } from "@/types/media/press-release";
+
 // COMPONENTS //
 import FilterBar from "@/components/FilterBar.astro";
 import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import ImageCard from "@/components/ImageCard.astro";
 import Lightbox from "@/components/Lightbox.astro";
+import EmptyState from "@/components/EmptyState.astro";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -15,15 +19,12 @@ import { URLS } from "@/infrastructure/constants/urls";
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
-import type { PressReleaseItemData } from "@/types/media/press-release";
-
 // DATA //
 import {
   pressRelease,
   pressReleaseBreadcrumbItems,
   pressReleaseSectionHeader,
 } from "@/data/media/press-release";
-import EmptyState from "@/components/EmptyState.astro";
 
 // Get the Year from the Search Params
 const year: number =
@@ -39,12 +40,7 @@ if (!year) {
   });
 }
 
-const selectedYear = pressRelease.years.includes(year)
-  ? year
-  : pressRelease.years[0];
-
-const releases: PressReleaseItemData[] =
-  pressRelease.releases[selectedYear] ?? [];
+const releases: PressReleaseItemData[] = pressRelease.releases[year] ?? [];
 ---
 
 <Layout>
@@ -55,7 +51,7 @@ const releases: PressReleaseItemData[] =
       <!-- Breadcrumbs -->
       <Breadcrumbs items={pressReleaseBreadcrumbItems} />
 
-      <!-- Body of the Results -->
+      <!-- Body of the Press Release -->
       <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
         <!-- Section Header -->
         <SectionHeaderMain
@@ -63,14 +59,14 @@ const releases: PressReleaseItemData[] =
           subtitle={pressReleaseSectionHeader.subtitle}
         />
 
-        <!-- Filter & Students -->
+        <!-- Press Release -->
         <div class="fade-in flex flex-col gap-7 md:gap-8 lg:gap-11">
           <!-- Years Filters -->
           <div class="fade-in">
             <FilterBar showSearch={false} years={pressRelease.years} />
           </div>
 
-          <!-- Results -->
+          <!-- Press Release -->
           {
             releases && releases.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
