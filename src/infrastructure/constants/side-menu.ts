@@ -98,6 +98,10 @@ export const menu: MenuItemData[] = [
     title: "ADMISSIONS",
     submenu: [
       { title: "How to Apply", href: `${URLS.ADMISSIONS.ROOT}#how-to-apply` },
+      {
+        title: "Transfer Certificates",
+        href: URLS.ADMISSIONS.TRANSFER_CERTIFICATES,
+      },
       // { title: "Courses Offered", href: "#" },
       // { title: "Fee Structure", href: "#" },
       // { title: "Scholarships", href: "#" },
