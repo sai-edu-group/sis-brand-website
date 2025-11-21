@@ -99,7 +99,7 @@ const {
 
           {
             tags && tags.length > 0 && (
-              <div class="font-secondary text-n-600 flex gap-1.5 lg:gap-2">
+              <div class="font-secondary text-n-600 flex flex-wrap gap-1.5 lg:gap-2">
                 {tags.map((tag) => (
                   <span class="bg-n-100 rounded-lg px-5 py-1.5 text-xs lg:text-sm">
                     {tag}
@@ -113,7 +113,7 @@ const {
 
       {
         date && (
-          <div class="flex items-center gap-2">
+          <div class="mt-4 flex items-center gap-2 md:mt-6">
             <span class="text-orange-500">
               <svg
                 class="size-4 lg:size-5"
