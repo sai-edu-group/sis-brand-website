@@ -1,9 +1,8 @@
 ---
 export const prerender = false; // Render on Server
 
-// LAYOUT //
 // TYPES //
-import type { PressReleaseItemData } from "@/types/media/press-release";
+import type { NewsBulletinItemData } from "@/types/media/news-bulletin";
 
 // COMPONENTS //
 import FilterBar from "@/components/FilterBar.astro";
@@ -40,7 +39,7 @@ if (!year) {
   });
 }
 
-const releases: PressReleaseItemData[] = newsBulletin.releases[year] ?? [];
+const news: NewsBulletinItemData[] = newsBulletin.news[year] ?? [];
 ---
 
 <Layout>
@@ -68,19 +67,22 @@ const releases: PressReleaseItemData[] = newsBulletin.releases[year] ?? [];
 
           <!-- News Bulletin -->
           {
-            releases && releases.length > 0 ? (
+            news && news.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                {releases.map(
-                  (releaseItem: PressReleaseItemData, releaseItemIndex) => (
+                {news.map(
+                  (newsItem: NewsBulletinItemData, newsBulletinItemIndex) => (
                     <div
                       class="card-anim"
-                      style={`--delay: ${releaseItemIndex * 0.2}s`}
+                      style={`--delay: ${newsBulletinItemIndex * 0.2}s`}
                     >
                       <ImageCard
-                        image={releaseItem.image}
-                        caption={releaseItem.name}
-                        index={releaseItem.id}
-                        classes="min-h-[350px] max-h-[500px]"
+                        image={newsItem.image}
+                        caption={newsItem.name}
+                        index={newsItem.id}
+                        readMoreUrl={`${URLS.MEDIA.NEWS_BULLETIN.ITEM(
+                          newsItem.id.toString(),
+                        )}?year=${year}`}
+                        classes="max-h-[350px] md:h-[350px]"
                       />
                     </div>
                   ),

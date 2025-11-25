@@ -8,17 +8,19 @@ import type { NewsBulletinData } from "@/types/media/news-bulletin";
 export const newsBulletin: NewsBulletinData = {
   id: 7,
   years: [2025, 2024, 2023],
-  releases: {
+  news: {
     2025: [
       {
         id: 1,
         name: "3rd December",
         image: "/images/media/news-bulletin/17nov.jpg",
+        contentUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       },
       {
-        id: 1,
+        id: 2,
         name: "2nd December",
         image: "/images/media/news-bulletin/12nov.jpg",
+        contentUrl: "",
       },
     ],
     2024: [
@@ -26,6 +28,7 @@ export const newsBulletin: NewsBulletinData = {
         id: 1,
         name: "2nd January",
         image: "/images/media/news-bulletin/12nov.jpg",
+        contentUrl: "https://saiinternational.edu.in/mail/new/171125/",
       },
     ],
   },
