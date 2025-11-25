@@ -113,7 +113,10 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/fine-arts.png",
       description:
         "Promotes creative expression through art and sculpting to develop imagination and aesthetics.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>Fine Arts is the creative art mostly visual, whose products are appreciated solely for their imaginative, aesthetic, or intellectual content.</p>
+      <p>Art and Sculpting are popular fine arts subjects that encourage individuals to explore and develop their creative potential. It helps the students to unleash the inner budding artist– and better understand art as a subject and just not a mere hobby.</p>
+      <p>The school has an Art Lab with facilities for drawing, painting, sculpturing, pottery and fabric design that invigorates the soul and nurtures the imagination of the students. School has five well trained art and craft faculty who work with the children throughout the year to enhance the talent in them.</p>
+      <p>Art lab offers practical learning of art, craft and clay modeling.</p>`,
     },
 
     {
