@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 // TYPES //
 import type { MemberData } from "@/types/member";
 
@@ -76,6 +78,8 @@ export async function getStaticPaths() {
 }
 
 const { personType, member } = Astro.props;
+
+console.log(member);
 
 // Prepare breadcrumb items based on personType
 const breadcrumbItems =

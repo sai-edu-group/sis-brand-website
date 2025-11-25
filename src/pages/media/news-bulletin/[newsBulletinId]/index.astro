@@ -1,16 +1,22 @@
 ---
-/**
- * Generate static paths for all albums
- * @returns Array of static paths with all News Bulletins
- */
-export async function getStaticPaths() {
-  const paths: Array<{
-    params: { newsBulletinId: string };
-    props: {
-      newsBulletinId: string;
-    };
-  }> = [];
+export const prerender = false;
 
-  return paths;
-}
+// DATA //
+import { newsBulletin } from "@/data/media/news-bulletin";
+
+const year: number =
+  Number(Astro.url.searchParams.get("year")) || newsBulletin.years[0];
+
+const newsId = Astro.params.newsBulletinId;
+
+// Find that one item dynamically (no static paths)
+const newsBulletinItem = newsBulletin.news[year].find(
+  (item) => item.id.toString() === newsId,
+);
 ---
+
+{
+  newsBulletinItem?.contentUrl && (
+    <iframe src={newsBulletinItem.contentUrl} width="100%" height="600" />
+  )
+}
