@@ -1,0 +1,23 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  date: string;
+}
+
+const {
+  name = "John Doe",
+  description = "John Doe",
+  date = "November 2025",
+} = Astro.props as Props;
+---
+
+<div class="border-n-300 flex flex-col gap-15 rounded-3xl border p-10">
+  <!-- Name & Description -->
+  <p class="text-n-600 font-secondary text-xl leading-normal font-semibold">
+    {name}, <span class="font-light"> {description}</span>
+  </p>
+
+  <!-- Date -->
+  <p class="text-n-600 font-secondary leading-normal">{date}</p>
+</div>

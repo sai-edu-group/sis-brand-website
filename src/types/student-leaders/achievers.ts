@@ -2,7 +2,7 @@ export type AchieverItemData = {
   id: number;
   name: string;
   description: string;
-  year: number;
+  date: string;
 };
 
 export type AchieversData = {

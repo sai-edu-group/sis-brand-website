@@ -44,10 +44,10 @@ export const menu: MenuItemData[] = [
   {
     title: "RESULTS",
     submenu: [
-      { title: "Academic Achievements", href: URLS.RESULTS.CBSE_12.ROOT },
-      { title: "Sports Performance", href: "#" },
-      { title: "University Rankers", href: "#" },
-      { title: "International Awards", href: "#" },
+      { title: "CBSE Results – Class XII", href: URLS.RESULTS.CBSE_12.ROOT },
+      { title: "CBSE Results – Class X", href: URLS.RESULTS.CBSE_10 },
+      { title: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
+      { title: "Placements", href: URLS.RESULTS.PLACEMENTS },
     ],
     icon: "results",
   },
@@ -64,15 +64,18 @@ export const menu: MenuItemData[] = [
     ],
     icon: "globe",
   },
-  // {
-  //   title: "STUDENT LEADERS",
-  //   submenu: [
-  //     { title: "Leadership Council", href: "#" },
-  //     { title: "Class Representatives", href: "#" },
-  //     { title: "Ambassador Programs", href: "#" },
-  //   ],
-  //   icon: "leaders",
-  // },
+  {
+    title: "STUDENT LEADERS",
+    submenu: [
+      { title: "Student Council", href: URLS.STUDENT_LEADERS.STUDENT_COUNCIL },
+      { title: "Global SAIoneers", href: URLS.STUDENT_LEADERS.GLOBAL_SIONEERS },
+      {
+        title: "Icons & Achievers",
+        href: URLS.STUDENT_LEADERS.ICONS_ACHIEVERS,
+      },
+    ],
+    icon: "leaders",
+  },
   {
     title: "MEDIA",
     submenu: [
