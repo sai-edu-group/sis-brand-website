@@ -10,6 +10,7 @@ interface Props {
   classes?: string;
   index?: number; // NEW
   readMoreUrl?: string;
+  showExpandButton?: boolean;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   classes = "",
   index = 0,
   readMoreUrl = "",
+  showExpandButton = true,
 } = Astro.props as Props;
 ---
 
@@ -62,7 +64,7 @@ const {
       }
 
       {
-        readMoreUrl !== "" ? (
+        readMoreUrl !== "" && (
           <a
             class="flex items-center gap-2 hover:cursor-pointer"
             aria-label="Expand image"
@@ -73,7 +75,10 @@ const {
               Read More
             </p>
           </a>
-        ) : (
+        )
+      }
+      {
+        showExpandButton && readMoreUrl === "" && (
           <button
             class="flex items-center gap-2 hover:cursor-pointer"
             data-lightbox-index={index}
