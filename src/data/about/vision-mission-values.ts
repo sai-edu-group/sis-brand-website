@@ -13,6 +13,6 @@ export const visionMissionBreadcrumbItems = [
   },
   {
     label: "Vision. Mission. Values.",
-    href: URLS.VISION_MISSION_VALUES,
+    href: URLS.ABOUT.VISION_MISSION_VALUES,
   },
 ];

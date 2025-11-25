@@ -32,7 +32,10 @@ export const menu: MenuItemData[] = [
     title: "ABOUT US",
     submenu: [
       { title: "The Perfect Master", href: `${URLS.ABOUT.ROOT}#ethos` },
-      // { title: "Vision, Mission & Values", href: "#" },
+      {
+        title: "Vision, Mission & Values",
+        href: URLS.ABOUT.VISION_MISSION_VALUES,
+      },
       { title: "Founder – Chairman", href: `${URLS.ABOUT.ROOT}#our-founder` },
       { title: "Key Personnel", href: `${URLS.ABOUT.ROOT}#key-personnel` },
       { title: "Advisory Board", href: `${URLS.ABOUT.ROOT}#advisory-board` },
