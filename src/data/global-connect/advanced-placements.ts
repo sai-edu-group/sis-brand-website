@@ -6,12 +6,39 @@ export const sectionHeaderContent = {
 
 export const advancedPlacementsContent = {
   id: 1,
-  content: `<p class="fade-in">We see SAI International School as a global Brand mapped with the 21st Century skills and the pedagogy aligned with the global curriculum. SAI International School imparts comprehensive learning which cultivates a global outlook in students. The Global Dimension focuses on building responsible global citizens of tomorrow who identify themselves with the emerging cross border communities and whose laudable actions contribute to build a better world to live in.</p>
-  <p class="fade-in">The affiliations and accreditations from renowned International educational bodies such as Round Square, AFS, British Council, Cambridge, Microsoft, UNIC, UNESCO, ASPnet and many more, further enables SAI International School to strengthen the foundation of education in the state.</p>
-  <p class="fade-in">It becomes highly pertinent to capacitate these students in transferable competencies besides giving them an International exposure to align with the fast-changing world.</p>
-  <p class="fade-in">An exemplary manifestation of academic excellence is evident when the students of SAI International School reach out and cross the International waters, to pursue courses in foreign Universities such as Standford University, Upenn, University of California, Los Angeles, MIT, Oxford University of Sheffield, NTU, Singapore, HKUST just to name a few.</p>
-  <a href="https://sisinternationaldimensions.wordpress.com/" target="_blank">Read Blog</a>
-   <table>
+  content: `<p class="fade-in">
+  College Board's Advanced Placement Program is recognized by universities around the world as a standard of academic excellence. Since 1955, the AP Program has enabled millions of students to take U.S. university undergraduate-level courses and earn undergraduate degree credit, advanced placement, or both while still in high school/secondary school.
+</p>
+
+<p class="fade-in">
+  Nearly all colleges and universities in the United States—as well as more than 500 universities in 75 countries such as the U.K., Canada, and Australia—consider AP participation favorably for admission and have policies around AP credit and placement.
+</p>
+
+<p class="fade-in"> 
+  AP Exams are administered once every year during the first two-three weeks of May. Registration in the Fall prior to the testing year is strongly recommended to ensure students have time to prepare.
+</p>
+
+<p class="fade-in">
+  For more information visit College Board's website:
+  <a href="#">Click here</a>
+</p>
+
+<p class="fade-in">
+  Access the list of Universities around the world offering AP credits:
+  <a href="#">Click here</a>
+</p>
+<h3 class="fade-in">AP Benefits enable motivated students like you to –</h3>
+
+<ul>
+  <li>Stand out in university admissions</li>
+  <li>Earn university credit.</li>
+  <li>Skip introductory university classes.</li>
+  <li>Save money on tuition.</li>
+  <li>Build skills and confidence.</li>
+  <li>Earn higher first-year grades at university (per Research)</li>
+</ul>
+
+   <table class="fade-in">
       <thead>
         <tr>
           <th>Week 1</th>
