@@ -99,7 +99,11 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/arts.png",
       description:
         "Music and dance nurture creativity and support 360-degree student growth.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>In affirmation with our adopted theory of Multiple Intelligence by Dr. Howard Gardener, we work on the 360 degree development of the students. Music and Dance or the SAI Nritya and Sangeet Kala are important components of school education, the benefits of which have been largely documented. We have eight music labs and a dance lab in the School, catering to the likes and interests of our students.</p>
+      <p><strong>Purpose – </strong> The purpose of having music and dance labs is to provide the students an understanding of the fundamentals of these forms of expression at the same time strengthening their bond with one of the finest forms of art. Exploring the various dimensions of music, whether performing a vocal solo, rehearsing to tune the strings or creating compositions, the main aim of the music labs of the school is to nurture creativity.</p>
+      <p>At the dance lab children learning the classical as well as modern form of dance</p>
+      <p><strong>Faculty –</strong> The trained music faculty is committed to give the students the tools they need to study and perform, as well as the confidence and inspiration to pursue the music they find inspiring, ultimately making them calm, composed and in sync with their spiritual self.</p>
+      <p>SAI International School has dedicated music and dance teachers with music and dance labs such as Piano and Keyboard Lab, Guitar Lab, Flute Lab, Sitar Lab, Tabla, Drums Percussion, Violin and Vocal labs.</p>`,
     },
 
     {
