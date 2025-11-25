@@ -83,7 +83,7 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/sports.png",
       description:
         "Offers diverse indoor and outdoor sports for fitness and holistic development.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>SAI Sports Academy offers a plethora of sporting activities at SAI International School which include swimming, horse riding, lawn tennis, table tennis, snooker, football, basketball, cricket, hockey, gymnasium, wall climbing, skating, karate, yoga, kho-kho, badminton, volley ball, chess, rifle shooting, athletics.</p>`,
     },
 
     {
