@@ -53,8 +53,7 @@ export const curriculumDetails = {
       <p>To understand the artistic level, likes, dislikes, views etc., of each new student or students entering another level, children are asked to make a drawing as per their wish. The art teachers assess the drawing and accordingly devise individual learning styles to enhance their artistic knowledge. Students are taught sketching, mixed media, use of water colours, crayons, acrylic on canvas or clay modeling and experimental work with waste materials.</p>
       <p>Students are encouraged to express themselves through thematic drawings or create artworks by using waste materials to catalyze their artistic process. It also develops a sense of originality or uniqueness in them which helps them throughout their life. SAIoneers have won innumerable accolades in various state and national level competitions, which includes securing the 3rd position in Asia in the ‘Living Talent – Masterpiece 2017’ held at Dubai.</p>
       
-      `
-      ,
+      `,
     },
 
     {
@@ -64,7 +63,17 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/learning-center.png",
       description:
         "Encourages reading to boost knowledge, language skills, and imagination.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>Reading is one of the best activities and hobbies that children can indulge in. It not only improves their general knowledge and awareness, but also works wonders to improve their communication skills and vocabulary, along with enhancing the imagination.</p>
+      <p>To enrich our students, we at SAI International have four well-stocked libraries in 3 different wings of the school, catering to the needs and likes of both junior and senior students. From daily newspapers, periodicals, magazines, course related books, autobiographies, encyclopedias, manuscripts to story books, novels, bestsellers, classics etc, the libraries are an organized collection of documented information from across the globe.</p>
+      <p>Our experienced and trained librarians, who are experts at finding and organizing information and at interpreting information needs, make the experience simple and enriching.</p>
+      <p>There are three different libraries for each wing;</p>
+        <ul>
+          <li>The Primary Wing Library – The Mahatma Gandhi Learning Resource Center.</li>
+          <li>The Secondary Wing Library – Vivekananda Learning Resource Center.</li>
+          <li>The Higher Secondary Wing Library – Tagore Learning Resource Center.</li>
+        </ul><br>
+      <p>The Learning Resource Center of SAI International School houses 19,793 books in all, CDs, magazines, newspapers and many other resources. The library also comprises of an e-library. There are a wide array of books from different genres for the skill and knowledge enhancement of the students.</p>  
+      `,
     },
 
     {
