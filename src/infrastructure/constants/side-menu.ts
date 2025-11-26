@@ -108,7 +108,7 @@ export const menu: MenuItemData[] = [
         href: URLS.ADMISSIONS.TRANSFER_CERTIFICATES,
       },
       { title: "Admissions Guidelines", href: URLS.ADMISSIONS.GUIDELINE },
-      // { title: "Fee Structure", href: "#" },
+      { title: "EWS Admissions", href: URLS.ADMISSIONS.EWS },
       // { title: "Scholarships", href: "#" },
     ],
     icon: "admissions",
