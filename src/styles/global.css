@@ -238,3 +238,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-orange-600); /* hover color */
 }
+
+.embla__container {
+  transition: height 0.2s;
+}

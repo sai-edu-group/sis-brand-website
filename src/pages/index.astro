@@ -16,6 +16,7 @@ import Stats from "@/sections/home/Stats.astro";
 import Results from "@/sections/home/Results.astro";
 import Placements from "@/sections/home/Placements.astro";
 import Hero from "@/sections/home/Hero.astro";
+import NewsLetter from "@/sections/home/NewsLetter.astro";
 ---
 
 <Layout>
@@ -30,6 +31,9 @@ import Hero from "@/sections/home/Hero.astro";
   <Ethos />
   <Founder />
   <Testimonial />
-  <News />
+  <div class="bg-n-100">
+    <News />
+  </div>
+  <NewsLetter />
   <Partners />
 </Layout>

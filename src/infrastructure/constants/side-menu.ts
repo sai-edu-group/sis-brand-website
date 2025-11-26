@@ -109,7 +109,7 @@ export const menu: MenuItemData[] = [
       },
       { title: "Admissions Guidelines", href: URLS.ADMISSIONS.GUIDELINE },
       { title: "EWS Admissions", href: URLS.ADMISSIONS.EWS },
-      // { title: "Scholarships", href: "#" },
+      { title: "Apply Now", href: `${URLS.ADMISSIONS.ROOT}#how-to-apply` },
     ],
     icon: "admissions",
   },

@@ -2,13 +2,17 @@ export const initEmblaRoot = (root, options) => {
   const viewport = root.querySelector("[data-embla-viewport]");
   if (!viewport) return;
 
-  const embla = EmblaCarousel(viewport, {
-    align: "start",
-    containScroll: "trimSnaps",
-    loop: true,
-    dragFree: false,
-    ...options,
-  });
+  const embla = EmblaCarousel(
+    viewport,
+    {
+      align: "start",
+      containScroll: "trimSnaps",
+      loop: true,
+      dragFree: false,
+      ...options,
+    },
+    [EmblaCarouselAutoHeight()],
+  );
 
   const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages
 
