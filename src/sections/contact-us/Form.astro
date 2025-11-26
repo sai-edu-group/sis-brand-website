@@ -136,7 +136,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
   </div>
 </section>
 <script is:inline type="module">
-  import { contactEnquiryRequest } from "/js/form.js";
+  // import { contactEnquiryRequest } from "/js/form.js";
 
   window.addEventListener("DOMContentLoaded", () => {
     const step1 = document.getElementById("step-1");
@@ -204,7 +204,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
         if (response.status === false) {
           alert(
-            "Something went wrong while submitting your enquiry. Please try again."
+            "Something went wrong while submitting your enquiry. Please try again.",
           );
           return;
         }
@@ -215,7 +215,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
       } catch (err) {
         console.error("❌ Failed to submit enquiry:", err);
         alert(
-          "Something went wrong while submitting your enquiry. Please try again."
+          "Something went wrong while submitting your enquiry. Please try again.",
         );
       }
     });
