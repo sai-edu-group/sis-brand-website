@@ -4,7 +4,7 @@ import Button from "@/components/Button.astro";
 ---
 
 <section
-  class="bg-n-50 relative bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-36"
+  class="bg-n-50 relative bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-60"
 >
   <!-- Main Content -->
   <div
@@ -12,24 +12,20 @@ import Button from "@/components/Button.astro";
   >
     <div class="flex flex-col lg:flex-row lg:items-center lg:gap-0">
       <!-- Left column -->
-      <div class="flex flex-col gap-6 md:gap-7">
+      <div class="flex flex-col gap-2 md:gap-7 md:pb-20">
         <!-- Hero Text -->
-        <div class="w-full md:w-[80%] lg:w-[50%] lg:text-xl xl:w-[52%]">
+        <div class="w-full md:w-[80%] lg:text-xl xl:w-[55%]">
           <p
-            class="animatedText text-n-800 inline-flex text-4xl leading-tight font-medium md:text-6xl lg:text-7xl 2xl:text-8xl"
+            class="animatedText text-n-800 text-3xl leading-tight font-medium md:text-6xl md:font-semibold lg:text-7xl"
           >
             Begin Your Child’s Journey
-          </p>
-          <p
-            class="animatedText inline-flex text-4xl leading-tight font-medium text-orange-500 md:text-6xl lg:text-7xl 2xl:text-8xl"
-          >
-            at SAI
+            <span class="text-orange-500"> at SAI </span>
           </p>
         </div>
 
         <!-- Supporting text -->
         <p
-          class="text-n-600 w-full text-base leading-normal font-medium md:w-[80%] lg:w-[50%] lg:text-xl xl:w-[45%]"
+          class="text-n-600 font-secondary w-full text-base leading-normal font-medium lg:w-[50%] lg:text-xl"
         >
           We’re here to guide you every step of the way — <br /> from your first
           inquiry to the moment your child walks into our world.
@@ -49,7 +45,7 @@ import Button from "@/components/Button.astro";
         <img
           src="/images/parent-hero.png"
           alt=""
-          class="h-full origin-top-left scale-105 object-cover lg:scale-100"
+          class="h-full origin-top-left object-cover lg:max-h-[680px]"
           loading="lazy"
         />
       </div>

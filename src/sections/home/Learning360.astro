@@ -7,9 +7,9 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 import { learning360Content } from "@/data/home/learning-360";
 ---
 
-<section id="learning-360">
+<section id="learning-360" class="bg-n-100">
   <div
-    class="container mx-auto flex flex-col gap-10 px-3 py-14 md:gap-11 md:py-20 lg:gap-12 lg:pt-24"
+    class="container mx-auto flex flex-col gap-10 px-3 py-10 md:gap-11 md:py-16 lg:gap-12 lg:pt-16 2xl:px-0"
   >
     <!-- Header -->
     <SectionHeaderMain
@@ -34,7 +34,7 @@ import { learning360Content } from "@/data/home/learning-360";
                 data-index={learning360ContentIndex}
               >
                 <p
-                  class={`font-secondary text-xs leading-[1.3] whitespace-nowrap md:text-sm lg:text-base ${
+                  class={`font-secondary text-xs leading-4 whitespace-nowrap md:text-sm lg:text-base ${
                     learning360ContentIndex === 0 ? "text-n-50" : "text-n-600"
                   }`}
                 >
