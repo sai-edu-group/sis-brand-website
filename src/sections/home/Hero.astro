@@ -89,7 +89,15 @@ const grades = [
                   data-error
                   class="hidden text-sm text-red-600"
                 >
-                  Please enter the student's name.
+                  Please enter the student name.
+                </p>
+
+                <p
+                  id="studentName-number-error"
+                  data-error
+                  class="hidden text-sm text-red-600"
+                >
+                  Name cannot contain numbers.
                 </p>
               </div>
 
@@ -261,8 +269,15 @@ const grades = [
       let hasError = false;
 
       // Student Name Validation
+      const nameHasNumber = /\d/;
+
       if (!studentName) {
         form.querySelector("#studentName-error").classList.remove("hidden");
+        hasError = true;
+      } else if (nameHasNumber.test(studentName)) {
+        form
+          .querySelector("#studentName-number-error")
+          .classList.remove("hidden");
         hasError = true;
       }
 

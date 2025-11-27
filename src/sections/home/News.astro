@@ -8,6 +8,7 @@ import {
   articleCardsContent,
   sectionHeaderContent,
 } from "../../data/home/news";
+import { URLS } from "@/infrastructure/constants/urls";
 
 const uid = "embla-news";
 ---
@@ -34,6 +35,7 @@ const uid = "embla-news";
                   topText={articleCardsContentItem.topText}
                   date={articleCardsContentItem.date}
                   tags={articleCardsContentItem.tags}
+                  href={URLS.MEDIA.NEWS.ROOT}
                 />
               </div>
             ))
