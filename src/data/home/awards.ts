@@ -6,7 +6,7 @@ export const sectionHeaderContent = {
 export const awardsCardContent = [
   {
     id: 1,
-    title: "Ivy League Status by EducationWorld India School Rankings 2025-26",
+    title: "Ivy League Status by Education World India School Rankings 2025-26",
     img: "/images/awards/ivy-league-status.jpg",
     subTitle:
       "SAI International is among the six elite schools in India to be accorded the prestigious 'Ivy League' status, recognizing our commitment to comprehensive excellence.",
@@ -14,7 +14,7 @@ export const awardsCardContent = [
   },
   {
     id: 2,
-    title: "No. 1 School in India by EducationWorld India School Rankings",
+    title: "No. 1 School in India by Education World India School Rankings",
     img: "/images/awards/no-1-school-in-india-2024.jpg",
     subTitle:
       "Recognized as the premier institution nationwide, reflecting our dedication to outstanding academic results and holistic student development.",
@@ -30,7 +30,7 @@ export const awardsCardContent = [
   },
   {
     id: 4,
-    title: "No. 1 School in India by EducationWorld India School Rankings",
+    title: "No. 1 School in India by Education World India School Rankings",
     img: "/images/awards/no-1-school-in-india-2023.jpg",
     subTitle:
       "A celebration of our journey towards nurturing young minds with vision, values, and endless possibilities, consistently recognized as the best.",

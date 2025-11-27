@@ -7,7 +7,7 @@ export const sectionHeaderContent = {
 export const admissionsGuidlinesContent = {
   id: 1,
   content: `<p class="fade-in">
-  SAI International School is ranked as the No.1 School of India for the 5th time in a row by EducationWorld India School Rankings 2024. The CBSE, IGCSE cum IBCP School focuses on the 360-degree holistic development of the students enabling them to emerge as global leaders by instilling 21st-century learning skills. of critical thinking, communication, collaboration, and creativity.
+  SAI International School is ranked as the No.1 School of India for the 5th time in a row by Education World India School Rankings 2024. The CBSE, IGCSE cum IBCP School focuses on the 360-degree holistic development of the students enabling them to emerge as global leaders by instilling 21st-century learning skills. of critical thinking, communication, collaboration, and creativity.
 </p>
 
 <p class="fade-in">

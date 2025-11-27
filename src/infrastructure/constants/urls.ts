@@ -31,9 +31,9 @@ export const URLS = {
     ADVISOR: {
       ITEM: (id: string, name: string) => `/about/founder/${id}/${name}`,
     },
-  },
 
-  VISION_MISSION_VALUES: "/vision-mission-values",
+    VISION_MISSION_VALUES: "/about/vision-mission-values",
+  },
 
   AWARDS: "/awards",
 

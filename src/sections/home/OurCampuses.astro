@@ -9,12 +9,14 @@ const campusDetails = {
       img: "/images/sai-campus.png",
       subTitle: "Preschool & Early Childhood",
       gradeRange: "Playgroup – Grade 2 ",
+      href: "https://saiangan.co.in/",
     },
     {
       title: "SAI Residential",
       img: "/images/sai-resident.png",
       subTitle: "Boarding & Senior Years",
       gradeRange: "Grades 5 – 12 ",
+      href: "https://sirs.edu.in/",
     },
   ],
 };
@@ -22,7 +24,7 @@ const campusDetails = {
 
 <section class="bg-n-100" id="other-campus">
   <div
-    class="container mx-auto flex flex-col gap-11 px-6 py-24 md:gap-12 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-11 px-6 py-14 md:gap-12 lg:gap-16 lg:px-8 lg:py-16 2xl:px-0"
   >
     <!-- Section Header -->
     <SectionHeaderMain
@@ -32,18 +34,18 @@ const campusDetails = {
 
     <!-- Campus card wrapper -->
     <div
-      class="flex flex-col justify-center gap-8 md:flex-row md:gap-5 lg:gap-12"
+      class="m-auto grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-5 lg:gap-12"
     >
       {
         campusDetails.campus.map((card) => (
-          <div class="w-full lg:w-[46%] lg:max-w-[600px]">
-            <CampusCard
-              title={card.title}
-              img={card.img}
-              subTitle={card.subTitle}
-              gradeRange={card.gradeRange}
-            />
-          </div>
+          <CampusCard
+            title={card.title}
+            href={`window.open(
+ "${card.href}","_blank")`}
+            img={card.img}
+            subTitle={card.subTitle}
+            gradeRange={card.gradeRange}
+          />
         ))
       }
     </div>

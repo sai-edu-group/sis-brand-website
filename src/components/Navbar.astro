@@ -5,7 +5,7 @@ import IconButton from "./IconButton.astro";
 
 // Props
 interface Props {
-  navItems: { name: string; href: string; active?: boolean }[];
+  navItems: { name: string; href: string; active?: boolean; target?: string }[];
 }
 
 const { navItems } = Astro.props;
@@ -21,6 +21,7 @@ const { navItems } = Astro.props;
         <li class="text-nowrap">
           <a
             href={navItem.href}
+            target={navItem.target}
             class={`relative transition-colors duration-200 hover:text-orange-500 ${
               navItem.active
                 ? "font-medium text-orange-500"

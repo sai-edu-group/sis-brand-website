@@ -35,12 +35,12 @@ const { icon, title, type, infoText = [] } = Astro.props;
   <!-- Content -->
   <div class="text-n-800 space-y-5 md:space-y-6 2xl:space-y-9">
     <!-- Card title -->
-    <p class="text-xl font-semibold xl:text-2xl 2xl:text-3xl">{title}</p>
+    <p class="text-xl font-semibold xl:text-2xl 2xl:text-4xl">{title}</p>
 
     <!-- Email / Phone list -->
     {
       type !== "location" && (
-        <ul class="space-y-1.5">
+        <ul class="font-secondary space-y-1.5">
           {infoText.map((value, index) => {
             const href =
               type === "email"

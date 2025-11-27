@@ -9,6 +9,8 @@ interface Props {
   uploadedBy?: string;
   classes?: string;
   index?: number; // NEW
+  readMoreUrl?: string;
+  showExpandButton?: boolean;
 }
 
 const {
@@ -18,6 +20,8 @@ const {
   uploadedBy = "",
   classes = "",
   index = 0,
+  readMoreUrl = "",
+  showExpandButton = true,
 } = Astro.props as Props;
 ---
 
@@ -51,19 +55,43 @@ const {
     }
 
     <div class="flex justify-between">
-      <p class="font-secondary text-n-600 text-sm sm:text-base">{uploadedBy}</p>
+      {
+        uploadedBy && (
+          <p class="font-secondary text-n-600 text-sm sm:text-base">
+            {uploadedBy}
+          </p>
+        )
+      }
 
-      <button
-        class="flex items-center gap-2 hover:cursor-pointer"
-        data-lightbox-index={index}
-        data-lightbox-src={image}
-        aria-label="Expand image"
-      >
-        <Icon name="expand" />
-        <p class="font-secondary text-n-500 text-xs sm:text-sm">
-          Click to Expand
-        </p>
-      </button>
+      {
+        readMoreUrl !== "" && (
+          <a
+            class="flex items-center gap-2 hover:cursor-pointer"
+            aria-label="Expand image"
+            href={readMoreUrl}
+          >
+            <Icon name="read-more" />
+            <p class="font-secondary text-n-500 text-xs sm:text-sm">
+              Read More
+            </p>
+          </a>
+        )
+      }
+      {
+        showExpandButton && readMoreUrl === "" && (
+          <button
+            class="flex items-center gap-2 hover:cursor-pointer"
+            data-lightbox-index={index}
+            data-lightbox-src={image}
+            aria-label="Expand image"
+          >
+            <Icon name="expand" />
+            <p class="font-secondary text-n-500 text-xs sm:text-sm">
+              Click to Expand
+            </p>
+          </button>
+        )
+      }
     </div>
   </div>
 </div>

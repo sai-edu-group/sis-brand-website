@@ -11,11 +11,11 @@ const { img, title = "", subTitle = "", year = "" } = Astro.props as Props;
 ---
 
 <div
-  class="group bg-n-50 border-n-300 flex h-full w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 xl:flex-row xl:gap-6"
+  class="group bg-n-50 border-n-300 flex h-full w-full flex-col gap-2.5 overflow-hidden rounded-3xl border-2 p-4 md:gap-3 2xl:flex-row 2xl:gap-6"
 >
   <!-- Award image -->
   <div
-    class="relative h-[224px] w-full overflow-hidden rounded-xl md:h-[282px] lg:h-auto xl:w-[320px]"
+    class="relative h-56 w-full overflow-hidden rounded-xl md:h-[282px] 2xl:h-auto 2xl:w-[320px]"
   >
     <img
       src={img}
@@ -29,26 +29,26 @@ const { img, title = "", subTitle = "", year = "" } = Astro.props as Props;
     ></span>
   </div>
 
-  <div class="flex flex-1 flex-col gap-3 md:gap-6 lg:gap-10 xl:gap-14">
+  <div class="flex flex-1 flex-col gap-3 md:gap-6 2xl:gap-14">
     <!-- Award title -->
     <div class="flex items-center justify-between">
       <!-- Year -->
-      <p class="text-n-500 text-xl font-light md:text-2xl lg:text-3xl">
+      <p class="text-n-500 font-light md:text-xl 2xl:text-2xl">
         {year}
       </p>
       <!-- Icon Button  -->
       <!-- <IconButton href={href} /> -->
     </div>
-    <div class="flex flex-col gap-1 md:gap-2 lg:pb-5 xl:gap-3.5">
+    <div class="flex flex-col gap-1 md:gap-2 lg:pb-5 2xl:gap-3.5">
       <!-- Title -->
       <p
-        class="text-2xl leading-[120%] font-semibold text-orange-500 md:text-3xl lg:text-4xl"
+        class="text-xl leading-tight font-semibold text-orange-500 md:text-2xl"
       >
         {title}
       </p>
       <!-- Subtitle -->
       <span
-        class="font-secondary text-n-500 text-xs font-normal md:text-sm md:leading-[20px]"
+        class="font-secondary text-n-500 text-xs font-normal md:text-sm md:leading-5"
         >{subTitle}</span
       >
     </div>

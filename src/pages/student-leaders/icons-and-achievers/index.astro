@@ -1,11 +1,14 @@
 ---
 // LAYOUT //
-import Layout from "@/layouts/Layout.astro";
-
 // COMPONENTS //
 import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import FilterBar from "@/components/FilterBar.astro";
+import EmptyState from "@/components/EmptyState.astro";
+import IconsCard from "@/components/IconsCard.astro";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import {
@@ -44,18 +47,22 @@ const students = achievers?.achievers[year];
           <FilterBar showSearch={false} years={achievers.years} />
 
           <!-- List of Icons & Achievers -->
-          <div class="grid grid-cols-1 gap-4">
-            {
-              students?.map((studentsItem) => (
-                <ul>
-                  <li>
-                    <strong>{studentsItem.name}</strong>,{" "}
-                    {studentsItem.description}
-                  </li>
-                </ul>
-              ))
-            }
-          </div>
+          {
+            students && students.length > 0 ? (
+              <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+                {students?.map((studentsItem, studentsItemIndex) => (
+                  <div
+                    class="card-anim"
+                    style={`--delay: ${studentsItemIndex * 0.2}s`}
+                  >
+                    <IconsCard {...studentsItem} />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <EmptyState />
+            )
+          }
         </div>
       </div>
     </div>
