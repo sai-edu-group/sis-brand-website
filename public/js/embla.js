@@ -6,7 +6,7 @@ export const initEmblaRoot = (root, options) => {
     viewport,
     {
       align: "start",
-      containScroll: "trimSnaps",
+      containScroll: false,
       loop: true,
       dragFree: false,
       ...options,
@@ -24,7 +24,9 @@ export const initEmblaRoot = (root, options) => {
     prevBtn.style.display = "flex";
     nextBtn.style.display = "flex";
     prevBtn?.addEventListener("click", () => embla.scrollPrev());
-    nextBtn?.addEventListener("click", () => embla.scrollNext());
+    nextBtn?.addEventListener("click", () => {
+      embla.scrollNext();
+    });
   }
   // Build dots FROM SNAP LIST (groups), not slides
   const dotsHost = root.querySelector("[data-embla-dots]");

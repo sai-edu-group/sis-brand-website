@@ -34,10 +34,7 @@ import { URLS } from "@/infrastructure/constants/urls";
           <!-- Sai Seva Slides -->
           {
             saiSevaContent.map((saiSevaContentItem) => (
-              <div
-                class="ns-slide card-anim card-bottom cursor-pointer"
-                data-embla-slide
-              >
+              <div class="ns-slide cursor-pointer" data-embla-slide>
                 <ArticleCard
                   title={saiSevaContentItem.title}
                   img={saiSevaContentItem.img}
@@ -132,8 +129,6 @@ import { URLS } from "@/infrastructure/constants/urls";
 
     // Initialize the slider
     initEmblaRoot(root, {
-      align: "start",
-      dragFree: false,
       slidesToScroll: "auto",
     });
   });

@@ -48,8 +48,7 @@ const { icon, title, type, infoText = [] } = Astro.props;
                 : `tel:${value.replace(/\s+/g, "")}`;
             const baseLink =
               "font-bold text-n-500 text-base xl:text-lg 2xl:text-xl underline";
-            const linkClass =
-              index === 0 ? `text-orange-500 ${baseLink}` : baseLink;
+            const linkClass = baseLink;
 
             return (
               <li>
