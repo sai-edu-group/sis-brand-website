@@ -11,7 +11,7 @@ export const initEmblaRoot = (root, options) => {
       dragFree: false,
       ...options,
     },
-    [EmblaCarouselAutoHeight()],
+    [EmblaCarouselAutoHeight(), EmblaCarouselFade()],
   );
 
   const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages
