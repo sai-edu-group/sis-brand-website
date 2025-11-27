@@ -82,7 +82,7 @@ export const menu: MenuItemData[] = [
   {
     title: "MEDIA",
     submenu: [
-      { title: "News", href: URLS.MEDIA.NEWS.ROOT },
+      { title: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
       { title: "Press Releases", href: URLS.MEDIA.PRESS_RELEASE },
       { title: "News Bulletin", href: URLS.MEDIA.NEWS_BULLETIN.ROOT },
       { title: "Albums", href: URLS.MEDIA.ALBUMS.ROOT },
@@ -112,5 +112,15 @@ export const menu: MenuItemData[] = [
       { title: "Apply Now", href: `${URLS.ADMISSIONS.ROOT}#how-to-apply` },
     ],
     icon: "admissions",
+  },
+  {
+    title: "CONTACT",
+    submenu: [
+      {
+        title: "Reach Us",
+        href: URLS.CONTACT,
+      },
+    ],
+    icon: "phone",
   },
 ];

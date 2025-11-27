@@ -1,9 +1,14 @@
+---
+// DATA //
+import { contactLinks } from "@/data/home/social-links";
+---
+
 <div
-  class="social-sticky-bar text-n-800 bg-n-50 fixed bottom-[24px] left-1/2 z-12 flex -translate-x-1/2 items-center gap-4 rounded-2xl p-4 shadow-sm"
+  class="social-sticky-bar text-n-800 bg-n-50 fixed bottom-6 left-1/2 z-12 flex -translate-x-1/2 items-center gap-4 rounded-2xl p-4 shadow-sm"
 >
   <!-- Mail Icon -->
   <a
-    href=""
+    href={`mailto:${contactLinks[0].href}`}
     target="_blank"
     class="group inline-flex items-center justify-center"
     ><svg
@@ -25,7 +30,7 @@
 
   <!-- Linkedin Icon -->
   <a
-    href=""
+    href={contactLinks[1].href}
     target="_blank"
     class="group inline-flex items-center justify-center"
   >
@@ -48,7 +53,7 @@
 
   <!-- Instagram Icon -->
   <a
-    href="https://www.instagram.com/sai_international_edu_group/"
+    href={contactLinks[2].href}
     target="_blank"
     class="group inline-flex items-center justify-center"
   >
@@ -71,8 +76,7 @@
 
   <!-- Phone Icon -->
   <a
-    href=""
-    target="_blank"
+    href={`tel:${contactLinks[3].href}`}
     class="group inline-flex items-center justify-center"
     ><svg
       width="20"

@@ -37,7 +37,7 @@ export const URLS = {
 
   AWARDS: "/awards",
 
-  CONTACT: "/contact",
+  CONTACT: "/contact-us",
 
   NEWS: {
     ROOT: "/news",
