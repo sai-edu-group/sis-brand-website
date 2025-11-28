@@ -22,7 +22,9 @@ export const amenitiesDetails = {
       description:
         "Spacious and hygienic dining area designed for comfort and efficiency during busy hours.",
       landscapeImg: "/images/amenities/cafeteria.png",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p><strong>Cafeteria –</strong> The SAI International School cafeteria features a spacious, large and hygienic eating place. The seating has been immaculately designed to keep the cafeteria hassle free during rush hours.</p>
+      <p><strong>Our Aim –</strong> Our aim is to provide nutritious, healthy and tasty food to the students. The menu is well designed, keeping in mind the parameters of taste and a balanced diet. We give prime importance to quality and hygiene in the preparation and handling of the food. The self service cafeteria is loved by the students.</p>
+      `,
     },
     {
       id: 3,
