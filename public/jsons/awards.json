@@ -1,0 +1,44 @@
+{
+  "status": true,
+  "statusCode": 200,
+  "data": [
+    {
+      "id": 1,
+      "awardName": "World Cup 2022",
+      "awardDesc": "This is the FIFA World Cup - Qatar",
+      "thumbnailImg": "/images/awards/ivy-league-status.jpg"
+    },
+    {
+      "id": 7,
+      "awardName": "Best School Award 2024",
+      "awardDesc": "Awarded for excellence in academics and co-curricular activities.",
+      "thumbnailImg": "/images/awards/ivy-league-status.jpg"
+    },
+    {
+      "id": 2,
+      "awardName": "Innovation in Education Award",
+      "awardDesc": "Recognized for outstanding innovation in teaching methodologies.",
+      "thumbnailImg": "/images/awards/ivy-league-status.jpg"
+    },
+    {
+      "id": 3,
+      "awardName": "Excellence in Sports Award",
+      "awardDesc": "Awarded for exceptional achievements in sports and athletics.",
+      "thumbnailImg": "/images/awards/ivy-league-status.jpg"
+    },
+    {
+      "id": 4,
+      "awardName": "Cultural Achievement Award",
+      "awardDesc": "For outstanding contributions in cultural programs and arts.",
+      "thumbnailImg": "/images/awards/ivy-league-status.jpg"
+    },
+    {
+      "id": 5,
+      "awardName": "Community Service Award",
+      "awardDesc": "Recognizing dedicated service to community development initiatives.",
+      "thumbnailImg": "/images/awards/ivy-league-status.jpg"
+    }
+  ],
+  "message": "Success",
+  "error": null
+}
