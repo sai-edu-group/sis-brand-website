@@ -25,3 +25,10 @@ pnpm-debug.log*
 
 pnpm-lock.yaml
 
+.package-lock.json
+
+.versel/output/*
+
+.vercel/*
+
+.vercel/

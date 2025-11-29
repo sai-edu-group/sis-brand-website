@@ -1,3 +1,7 @@
+---
+import { URLS } from "@/infrastructure/constants/urls";
+---
+
 <footer>
   <div class="font-secondary px-1 pt-8 pb-7 md:px-5 lg:px-6 lg:pt-28">
     <div class="rounded-3xl bg-[url('/images/footer-bg.png')] bg-center">
@@ -187,10 +191,15 @@
 
             <ul class="w-1/2 list-none space-y-3 sm:w-[32%] lg:w-[40%]">
               <li>
-                <a class="transition hover:underline" href="/about">About Us</a>
+                <a class="transition hover:underline" href={URLS.ABOUT.ROOT}
+                  >About Us</a
+                >
               </li>
               <li>
-                <a class="transition hover:underline" href="/#news">News</a>
+                <a
+                  class="transition hover:underline"
+                  href={URLS.MEDIA.NEWS.ROOT}>News</a
+                >
               </li>
               <li>
                 <a

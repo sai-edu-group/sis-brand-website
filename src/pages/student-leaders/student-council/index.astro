@@ -1,1 +1,65 @@
-<p>Content coming soon.</p>
+---
+// LAYOUT //
+import Layout from "@/layouts/Layout.astro";
+
+// COMPONENTS //
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ResultsCard from "@/components/ResultsCard.astro";
+import FilterBar from "@/components/FilterBar.astro";
+
+// DATA //
+import {
+  studentCouncil,
+  studentCouncilBreadcrumbItems,
+  studentCouncilSectionHeader,
+} from "@/data/student-leaders/student-council";
+
+// Get the Year from the URL - or - the latest year in Data
+const year: number =
+  Number(Astro.url.searchParams.get("year")) || studentCouncil?.years[0];
+
+// Get the Students for the Year Selected
+const students = studentCouncil?.studentCouncil[year];
+---
+
+<Layout>
+  <section class="bg-n-50 relative w-full overflow-hidden">
+    <div
+      class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
+    >
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={studentCouncilBreadcrumbItems} />
+
+      <!-- Body of the Results -->
+      <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
+        <!-- Section Header -->
+        <SectionHeaderMain
+          title={studentCouncilSectionHeader.title}
+          subtitle={studentCouncilSectionHeader.subtitle}
+        />
+
+        <!-- Filter & Students -->
+        <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
+          <!-- Years Filters -->
+          <FilterBar showSearch={false} years={studentCouncil.years} />
+
+          <!-- Global Sioneers Images -->
+          <div
+            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4"
+          >
+            {
+              students?.map((studentsItem) => (
+                <ResultsCard
+                  image={studentsItem.image}
+                  studentName={studentsItem.name}
+                  grade={studentsItem.designation}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

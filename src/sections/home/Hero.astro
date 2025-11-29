@@ -22,6 +22,27 @@ const {
   brochureText = "Get the brochure instantly on WhatsApp and discover why parents choose SAI.",
   childrenImage = "/images/children-image.png",
 } = Astro.props as Props;
+
+const grades = [
+  "PlayGroup",
+  "Nursery",
+  "KG I",
+  "KG II",
+  "Class I",
+  "Class II",
+  "Class III",
+  "Class IV",
+  "Class V",
+  "Class VI",
+  "Class VII",
+  "Class VIII",
+  "Class IX",
+  "Class XI - Science",
+  "Class XI - Commerce",
+  "Class XI - Humanities",
+  "Class XI - IBCP",
+  "Class XI - Cambridge (A Level)",
+];
 ---
 
 <section
@@ -68,13 +89,26 @@ const {
                   data-error
                   class="hidden text-sm text-red-600"
                 >
-                  Please enter the student's name.
+                  Please enter the student name.
+                </p>
+
+                <p
+                  id="studentName-number-error"
+                  data-error
+                  class="hidden text-sm text-red-600"
+                >
+                  Name cannot contain numbers.
                 </p>
               </div>
 
               <!-- Grade Select -->
               <div class="md:w-[39%]">
-                <CustomSelect />
+                <CustomSelect
+                  options={grades}
+                  label="Select Grade"
+                  name="grade"
+                  placeholder="Select Grade "
+                />
                 <p
                   id="grade-error"
                   data-error
@@ -133,7 +167,7 @@ const {
         <img
           src={childrenImage}
           alt="Children learning"
-          class="h-full origin-top-left scale-105 object-cover lg:scale-100"
+          class="h-full w-full object-cover lg:max-h-[680px]"
           loading="lazy"
         />
       </div>
@@ -235,8 +269,15 @@ const {
       let hasError = false;
 
       // Student Name Validation
+      const nameHasNumber = /\d/;
+
       if (!studentName) {
         form.querySelector("#studentName-error").classList.remove("hidden");
+        hasError = true;
+      } else if (nameHasNumber.test(studentName)) {
+        form
+          .querySelector("#studentName-number-error")
+          .classList.remove("hidden");
         hasError = true;
       }
 

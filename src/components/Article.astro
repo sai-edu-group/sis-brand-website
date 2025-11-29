@@ -1,5 +1,6 @@
 ---
 // OTHERS //
+import MetaStrip from "./MetaStrip.astro";
 import SectionHeaderMain from "./SectionHeaderMain.astro";
 
 interface Props {
@@ -7,6 +8,12 @@ interface Props {
   subtitle?: string;
   eyebrowText?: string;
   ctaText?: string;
+  metaStripDetails?: {
+    author: string;
+    date: string | number;
+    readTimeMins?: number;
+    onShare?: string;
+  };
 }
 
 const {
@@ -14,6 +21,7 @@ const {
   subtitle = "",
   ctaText = "",
   eyebrowText = "",
+  metaStripDetails,
 } = Astro.props as Props;
 ---
 
@@ -26,6 +34,9 @@ const {
       eyebrowText={eyebrowText}
       ctaText={ctaText}
     />
+
+    <!-- Meta Strip -->
+    {metaStripDetails && <MetaStrip {...metaStripDetails} />}
   </div>
   <div class="article-root">
     <slot />
@@ -33,19 +44,6 @@ const {
 </div>
 
 <style is:global>
-  .article-root > * {
-    opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
-  }
-
-  .article-root > *.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
   /* ------------------------------------
    📌 DESKTOP DEFAULT (≥1024px)
 ------------------------------------- */
@@ -68,7 +66,7 @@ const {
     color: var(--color-n-800);
     font-size: var(--text-4xl);
     font-weight: 600;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .article-root h4 {
@@ -101,7 +99,8 @@ const {
     margin-bottom: 32px;
   }
 
-  .article-root ol {
+  .article-root ol,
+  .article-root ul {
     color: var(--color-n-600);
     font-family: "Poppins", sans-serif;
     font-size: var(--text-xl);
@@ -123,6 +122,54 @@ const {
     margin-bottom: 32px;
   }
 
+  .table-wrapper {
+    width: 100%;
+  }
+
+  .article-root table {
+    padding-top: 64px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--color-n-100);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--color-n-50);
+  }
+
+  .article-root thead {
+    background-color: var(--color-n-100);
+  }
+
+  .article-root thead th {
+    color: var(--color-n-600);
+    font-family: "Poppins", sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    padding: 20px;
+    text-align: center;
+    min-width: 200px;
+  }
+
+  .article-root tbody th {
+    color: var(--color-n-600);
+    font-family: "Poppins", sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 500;
+    padding: 20px;
+    text-align: center;
+    min-width: 200px;
+  }
+
+  .article-root tbody td {
+    color: var(--color-n-600);
+    font-family: "Poppins", sans-serif;
+    font-size: var(--text-lg);
+    padding: 20px;
+    text-align: center;
+    min-width: 200px;
+  }
+
   /* ------------------------------------
    📌 TABLET (768–1023px)
 ------------------------------------- */
@@ -140,14 +187,19 @@ const {
     .article-root h4,
     .article-root h5,
     .article-root h6 {
-      margin-bottom: 28px;
+      margin-bottom: 18px;
     }
 
     .article-root p,
     .article-root ol,
+    .article-root ul,
     .article-root a {
       font-size: var(--text-lg);
       margin-bottom: 24px;
+    }
+
+    .article-root table {
+      padding-top: 54px;
     }
   }
 
@@ -175,7 +227,7 @@ const {
     .article-root h4,
     .article-root h5,
     .article-root h6 {
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .article-root p,
@@ -183,5 +235,40 @@ const {
     .article-root a {
       margin-bottom: 20px;
     }
+
+    .article-root table {
+      padding-top: 40px;
+    }
+
+    .article-root thead {
+      background-color: var(--color-n-100);
+    }
+
+    .article-root thead th,
+    .article-root tbody th,
+    .article-root tbody td {
+      font-size: var(--text-sm);
+      padding: 10px;
+      min-width: 180px;
+    }
   }
 </style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const articleRoot = document.querySelector(".article-root");
+    if (!articleRoot) return;
+
+    const tables = articleRoot.querySelectorAll("table");
+
+    tables.forEach((table) => {
+      // If already wrapped, skip
+      if (table.parentElement?.classList.contains("table-wrapper")) return;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "table-wrapper overflow-x-auto";
+      table.parentNode.insertBefore(wrapper, table);
+      wrapper.appendChild(table);
+    });
+  });
+</script>

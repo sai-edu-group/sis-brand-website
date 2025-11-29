@@ -4,16 +4,21 @@ export const URLS = {
   ABOUT: {
     ROOT: "/about",
 
+    LEARNING_360: {
+      ITEM: (learning360id: string, name: string) =>
+        `/about/learning-360/${learning360id}/${name}`,
+    },
+
     LEARNING_AND_BEYOND: {
       ROOT: "/about/learning-and-beyond",
-      AMENITY: (amenityId: string) =>
-        `/about/learning-and-beyond/amenities/${amenityId}`,
-      CURRICULUM: (curriculumId: string) =>
-        `/about/learning-and-beyond/curriculum/${curriculumId}`,
-      SAI_SEVA: (sevaId: string) =>
-        `/about/learning-and-beyond/sai-seva/${sevaId}`,
-      FLAGSHIP_EVENT: (eventId: string) =>
-        `/about/learning-and-beyond/flagship-events/${eventId}`,
+      AMENITY: (amenityId: string, amenityTitle: string) =>
+        `/about/learning-and-beyond/amenities/${amenityId}/${amenityTitle}`,
+      CURRICULUM: (curriculumId: string, curriculumTitle: string) =>
+        `/about/learning-and-beyond/curriculum/${curriculumId}/${curriculumTitle}`,
+      SAI_SEVA: (sevaId: string, sevaTitle: string) =>
+        `/about/learning-and-beyond/sai-seva/${sevaId}/${sevaTitle}`,
+      FLAGSHIP_EVENT: (eventId: string, eventTitle: string) =>
+        `/about/learning-and-beyond/flagship-events/${eventId}/${eventTitle}`,
     },
 
     AFFILIATIONS: {
@@ -26,13 +31,13 @@ export const URLS = {
     ADVISOR: {
       ITEM: (id: string, name: string) => `/about/founder/${id}/${name}`,
     },
-  },
 
-  VISION_MISSION_VALUES: "/vision-mission-values",
+    VISION_MISSION_VALUES: "/about/vision-mission-values",
+  },
 
   AWARDS: "/awards",
 
-  CONTACT: "/contact",
+  CONTACT: "/contact-us",
 
   NEWS: {
     ROOT: "/news",
@@ -47,17 +52,14 @@ export const URLS = {
   RESULTS: {
     CBSE_12: {
       ROOT: "/results/cbse-12th",
-      SCIENCE: "/results/cbse-12th/science",
-      COMMERCE: "/results/cbse-12th/commerce",
-      HUMANITIES: "/results/cbse-12th/humanities",
+      STREAM: (streamId: string) => `/results/cbse-12th/${streamId}`,
     },
 
     CBSE_10: "/results/cbse-10th",
 
     CAREER_RESULTS: {
       ROOT: "/results/career-results",
-      JEE: "/results/career-results/jee",
-      NEET: "/results/career-results/neet",
+      EXAM: (exam: string) => `/results/career-results/${exam}`,
     },
 
     PLACEMENTS: "/results/placements",

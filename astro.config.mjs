@@ -1,12 +1,29 @@
 // @ts-check
+// MODULES //
+import path from "path";
+
+// OTHERS //
 import { defineConfig } from "astro/config";
+import astroIcon from "astro-icon";
 import tailwindcss from "@tailwindcss/vite";
-import icon from "astro-icon";
+import { fileURLToPath } from "url";
+import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [icon()],
+  output: "server",
+  adapter: vercel(),
+  site: "https://uat.saicloudschool.in/",
+  integrations: [astroIcon(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
   },
 });

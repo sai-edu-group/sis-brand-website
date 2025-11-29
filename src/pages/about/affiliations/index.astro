@@ -5,16 +5,9 @@ import Hero from "@/components/Hero.astro";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
-import Affiliations from "@/sections/about/affiliations/Affiliations.astro";
 
 // SECTIONS //
-
-const heroSectionDetails = {
-  title: "Affiliations",
-  subtitle:
-    "Nurturing excellence through enriched learning, world-class facilities, and meaningful student experiences.",
-  imageName: "learning-and-beyond-hero",
-};
+import Affiliations from "@/sections/about/affiliations/Affiliations.astro";
 
 // Prepare breadcrumb items based on personType
 const breadcrumbItems = [
@@ -24,7 +17,6 @@ const breadcrumbItems = [
 ---
 
 <Layout>
-  <!-- <Hero {...heroSectionDetails} /> -->
   <!-- Breadcrumbs Section -->
   <div class="bg-n-100 relative w-full overflow-hidden">
     <div class="container mx-auto px-6 pt-30 md:pt-40 2xl:px-0">

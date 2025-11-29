@@ -13,7 +13,73 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/lab.png",
       description:
         "Hands-on labs integrate theory with practical learning for deeper concept understanding.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `
+<p><strong>Labs –</strong> Effective teaching and learning of subject matter involves a strong combination of the theory and the practical, hence SAI International School combines classroom teaching with laboratory learning to ensure that the students grasp each and every concept thoroughly.</p>
+
+<p>Benefits of Laboratories – Laboratory teaching and experiments are conducted to help encourage deep understanding of the subject and satisfy the queries arising in the curious minds of the children. Therefore, they can retain the knowledge gained long after they have conducted the experiments. The main objective of the labs is to induce SAI Learning skills and SAI Social skills; qualities that help one to rise above the ordinary and emerge as global thought leaders and thinkers.</p>
+
+<p>Experiential learning is the key to better understanding and hence SAI International has multiple states of the art labs relating to different subjects to enable students to better understand the complex topics.</p>
+
+<p>The advanced labs include the ATAL tinkering, SAI TV, Radio Orange, Robotics, Visual Performing Art, Visual Art, Maths, International Language, Physics, Chemistry, Biology, Sports and Science, extending the experiential learning support to the students.</p>
+
+<p><strong>ATAL Tinkering Lab - </strong> ATAL Tinkering Lab (ATL) is a Government of India initiative to create an environment of scientific temperament, innovation, creativity amongst Indian students. It is a step towards a new, shining and digital India. ATL lab would teach the essentials of 21st century skills, which will help them in developing their professional and personal skills. Skilled India is the need of the hour for a smarter, enhanced and digital India.</p>
+
+<p>The main objective of this scheme is to instill curiosity, creativity, and imagination in the young minds and inculcate skills such as design mindset, computational thinking, adaptive learning, physical computing etc. ATL has educational and learn “do it yourself” kits and equipment on – science, electronics, robotics, open source microcontroller boards, sensors and 3D printers etc.</p>
+
+<p>SAI International School was selected by NITI Aayog Government of India (GOI), to establish ATL in the school. The Atal Tinkering laboratory (ATL) at SAI International School provides opportunities for students to explore skills of the future like design and computational thinking, adaptive learning and artificial intelligence through state-of-the-art technologies and competent faculties.</p>
+
+<p>The lab is a brilliant way to bring the do-it-yourself culture to the forefront, encourage and motivate students to become solution providers and get engaged in self-learning that will not only lead to the development of higher order thinking skills, but may eventually lead to discoveries, innovations and inventions. The lab helps each child develop his or her own unique potential far more effectively.</p>
+
+<p><strong>Entrepreneurship Lab - </strong> Entrepreneurship is in vogue and young entrepreneurs are in the big league of the globalised world. To facilitate the senior students with a common interface, where they can share innovative ideas and keep track of difficult challenges by combining technical, business and market skills, SAI International conceived and delivered the idea of an Entrepreneurship Lab.</p>
+
+<p>An entrepreneur is trained amidst contemporary and futuristic projects, through the time machine. The concept of the time machine transmits the learner into the future with a futuristic problem, adding several cutting-edge issues to their problem solving approach. Each learner is trained individually with numerous realistic projects which sharpens the business acumen, to reap a rich harvest in the near and distant future.</p>
+
+<p>SAI International School had devised the unique concept of time machine, wherein a student moves into the future and imagines what he or she will do and where he or she will be. Based on this concept, students travel to their future and dream of their vision. They blend their project in the school’s entrepreneurship lab and create a project report at the end of the program. Thus, begins their journey to the future.</p>
+
+<p>Leadership, risk taking, team work, discipline are some of the facets that are largely seen to be the points of discussion. Under the excellent guidance and expertise of the Chairman, the Entrepreneurship Lab is a hub of innovation and creativity.</p>
+
+<p><strong>Robotics Lab - </strong> As the technological advances continue, it becomes imperative to keep the generation in tandem with the processes of the present that are largely futuristic. Robotics is the branch of technology that deals with innovation, design, construction and operation of robots. To bring the students closer to science and engineering, the Robotics lab was introduced in the school campus.</p>
+
+<p>Robotics, a fusion of innovative challenge-based activities, helps in fostering problem solving skills. It helps the students to think more about the application of the concepts taught in the classrooms.</p>
+
+<p>SAI International believes that the 21st century belongs to people who innovate, and Robotics is a big part of innovation hence the School is taking big strides to train the gen-next to face future challenges.</p>
+
+<p><strong>Aryabhatta Math Lab - </strong> The Aryabhatta Math lab is based on the three pillars of imagination, investigation and interaction. It offers multiple teaching and learning aids as well as a complete theme-based ambience which helps students to visualize and feel mathematics. It is a place where students can learn and explore mathematical concepts and verify mathematical facts and theorems through a variety of activities, using different materials. These activities may be carried out by the teacher or the student to explore, to learn, to stimulate interest and develop a favorable attitude towards mathematics.</p>
+
+<p><strong>International Language Lab - </strong> The International language lab provides adequate opportunities to the students to learn languages effectively through the Wordsworth courseware that develops the four skills of reading, writing, listening and speaking.</p>
+
+<p>The International language laboratory plays an important role in the language learning process of the School and helps the students to learn the language with proficiency. Detailed attention is given to clarity and accuracy as it is vital for effective and efficient communication.</p>
+
+<p>The Language Lab helps learners to develop their speaking abilities, when they listen to sample pronunciations of native speakers, record their voices and correct themselves.</p>
+
+<p><strong>Dhyan Chand Sports Lab - </strong> This highly technically advanced laboratory is primarily used for teaching, research and testing in the area of sports and the science of exercise. The lab is about 400 square metres in size and is a vibrant space of the School. The sports laboratory increases the possibility to test and analyze things that are of utmost interest for athletes, such as conditioning, strength and speed. The lab is incorporated with a football ground, two basketball courts, swimming pools for both boys and girls separately, table tennis, badminton court, horse riding and many more.</p>
+
+<p><strong>Performing Arts Lab - </strong> Guru Kelucharan was an Indian classical dancer, guru and proponent of Odissi dance, who is credited with the revival of the classical dance form in the 20th century. As a salutation to the great personality the Guru Kelucharan Dance Lab was built in the School campus. Young dancers begin with classes such as aerobics / yoga or turn! jump! leap! which explore movements and teach the basics of dance and class etiquette. As children get older, they begin the understanding of working towards injecting the choreography with their own experiences and feelings to give their moves more emotional depth and find a method of expression that is their very own.</p>
+
+<p><strong>Visual Arts Lab - </strong> To enhance the fine art and craft skills, the students are exposed to different mediums and techniques for visual expression of artistic ideas. The objective of this lab is to show the transformative power of art and help put the student’s creativity on paper more beautifully. Besides this, the lab also aids in making the child trust his/her inherent abilities, put joy in their work and augment creativity.</p>
+
+<p><strong>SAI TV - </strong> SAI TV is one of the most exciting clubs that enables the students to get an exposure on the basics of film making and television production. Through activities like panel discussions, anchoring, comparing, interviews, studio discussions, outdoor recordings etc., students gain an in-depth idea and a hands-on experience on: Script writing, Scouting, Audio, video & lighting, Use of camera, Editing, Studio production, Digital cinematography, Producing and directing.</p>
+
+<p>Revolving around the four Ps of movie-making/television production, namely, Planning, Production, Programming and Publicity, SAI TV emphasizes teamwork, respect, leadership and goal achievement.</p>
+
+<p><strong>Radio Orange - </strong> SAI International School is the first school to introduce the concept of an in-house radio station that gives the students a platform to share their thoughts, develop communication skills and unleash creativity.</p>
+
+<p>Once a week, the students meet to write scripts and work on campus news to be shared. Under the guidance of teacher leaders, students make the most of this wonderful opportunity.</p>
+
+<p><strong>Computer Labs - </strong> Information Technology has become an integral part of daily life. SAI International has junior and senior computer labs with 250 systems in total.</p>
+
+<p>Students are taught Web Application, Java, C++, Tux Paint, Logo, MS Office, Digital Presentation, Email messaging and Database development. The labs maintain a 1:1 student-machine ratio.</p>
+
+<p><strong>Science Labs - </strong> The school has well-designed individual science labs for Physics, Chemistry and Biology — fully equipped per CBSE guidelines.</p>
+
+<p><strong>Library - </strong> There are three libraries: Mahatma Gandhi Learning Resource Center (primary), Vivekananda Learning Resources Center (secondary), and Tagore Learning Resource Center (higher secondary). They house 19,793 books, CDs, magazines and an e-library.</p>
+
+<p><strong>Science Park - </strong> The Science Park helps students understand science through practical, visually attractive models that explain mechanisms and principles.</p>
+
+<p><strong>The Social Science Lab - </strong> Equipped with maps, charts and models, this lab makes social studies interactive and engaging.</p>
+
+<p><strong>Art Lab - </strong> The Art Lab helps students refine their artistic skills through sketching, mixed media, watercolors, acrylics, clay modeling and experimental work.</p>
+`,
     },
 
     {
@@ -23,7 +89,16 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/learning-center.png",
       description:
         "Encourages reading to boost knowledge, language skills, and imagination.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>Reading is one of the best activities and hobbies that children can indulge in. It not only improves their general knowledge and awareness, but also works wonders to improve their communication skills and vocabulary, along with enhancing the imagination.</p>
+      <p>To enrich our students, we at SAI International have four well-stocked libraries in 3 different wings of the school, catering to the needs and likes of both junior and senior students. From daily newspapers, periodicals, magazines, course related books, autobiographies, encyclopedias, manuscripts to story books, novels, bestsellers, classics etc, the libraries are an organized collection of documented information from across the globe.</p>
+      <p>Our experienced and trained librarians, who are experts at finding and organizing information and at interpreting information needs, make the experience simple and enriching.</p>
+      <p>There are three different libraries for each wing;</p>
+        <ul>
+          <li>The Primary Wing Library – The Mahatma Gandhi Learning Resource Center.</li>
+          <li>The Secondary Wing Library – Vivekananda Learning Resource Center.</li>
+          <li>The Higher Secondary Wing Library – Tagore Learning Resource Center.</li>
+        </ul><br>
+      <p>The Learning Resource Center of SAI International School houses 19,793 books in all, CDs, magazines, newspapers and many other resources. The library also comprises of an e-library. There are a wide array of books from different genres for the skill and knowledge enhancement of the students.</p>`,
     },
 
     {
@@ -33,7 +108,13 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/sports.png",
       description:
         "Offers diverse indoor and outdoor sports for fitness and holistic development.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>SAI Sports Academy offers a plethora of sporting activities at SAI International School which include swimming, horse riding, lawn tennis, table tennis, snooker, football, basketball, cricket, hockey, gymnasium, wall climbing, skating, karate, yoga, kho-kho, badminton, volley ball, chess, rifle shooting, athletics.</p>
+      <p>The School gives a lot of importance to develop and work on the talent of the students in the field of sports. Therefore, to provide each student with an option of choosing a sport of their liking and giving them an ideal space to practice and play, we have in our flamboyant campus well designed Tennis Courts (2 nos.) : 120×60 & 60×30 ft, Basketball Court: 120×55 ft, a Football Field : 325×165 ft and four different swimming pools.</p>
+      <p><strong>Objectives – </strong> Sports is an indispensable element in the school as it has multiple benefits, both for the physical and mental well-being. It helps in building the collaborative skills in the students, provides a sense of belonging, and being part of a group, besides helping the students to interact with peers in a social and friendly manner. It builds empathy through considering the interests of teammates and practicing mutual respect and co-operation, it instills resilience and helps the students cope both with success and failure as a team or an individual. When children share time, emotional space and other resources, it helps them to understand each other and can forge strong bonds and lasting friendships with schoolmates. It fosters a sense of belongingness and helps in team building.</p>
+      <p><strong>Gymnasium – </strong> Health plays an important role in every field of life and to maintain a healthy body and a healthy mind, the right balance of exercise and meditation is a pre-requisite. Keeping in mind the health and fitness of its students, the School provides a state-of-the-art gymnasium within the campus. Instructors and trainers are available throughout the day to train the students. A number of floor exercises, aerobics and stretching exercises are done in the gymnasium to ensure the physical well being of the students.</p>
+      <p><strong>Swimming – </strong>Four swimming pools adorn the campus of SAI International School, each one a big favorite among both the senior and junior students. All the pools are well designed and spotlessly maintained throughout the year. Once a week, the students of each class are taken for swimming class and in addition to this, the students are also allowed to use the pools at other specified times for enhancing performance. For the convenience of the students, lockers and shower cubicles are installed.</p>
+      <p><strong>Horse Riding – </strong> The equestrian program immensely excites the SAIoneers. Horse Riding is a special feature of SAI International School with experienced instructors who trains the children for the art of riding and training a horse in a manner that develops obedience, flexibility, balance, show jumping, tent pegging and various other skills.</p>
+      <p>Horse riding is recognized as having excellent therapeutic qualities. The psychological benefits can be of equal importance to riders as the physical benefits. Simply being outdoors and enjoying the ride on an open field boosts the general well-being and acts as a great stress buster. There is a real sense of excitement and freedom when one rides, a feeling that is second to none. Furthermore, developing a relationship and sense of trust between the students and another living being is highly rewarding. We believe that when students learn to control and care for an animal much larger than themselves, it can have a profound effect on their confidence. The horses under the expert training of our trainers can be seen in the campus and are a much cherished part of the SAI family.</p>`,
     },
 
     {
@@ -43,7 +124,11 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/arts.png",
       description:
         "Music and dance nurture creativity and support 360-degree student growth.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>In affirmation with our adopted theory of Multiple Intelligence by Dr. Howard Gardener, we work on the 360 degree development of the students. Music and Dance or the SAI Nritya and Sangeet Kala are important components of school education, the benefits of which have been largely documented. We have eight music labs and a dance lab in the School, catering to the likes and interests of our students.</p>
+      <p><strong>Purpose – </strong> The purpose of having music and dance labs is to provide the students an understanding of the fundamentals of these forms of expression at the same time strengthening their bond with one of the finest forms of art. Exploring the various dimensions of music, whether performing a vocal solo, rehearsing to tune the strings or creating compositions, the main aim of the music labs of the school is to nurture creativity.</p>
+      <p>At the dance lab children learning the classical as well as modern form of dance</p>
+      <p><strong>Faculty –</strong> The trained music faculty is committed to give the students the tools they need to study and perform, as well as the confidence and inspiration to pursue the music they find inspiring, ultimately making them calm, composed and in sync with their spiritual self.</p>
+      <p>SAI International School has dedicated music and dance teachers with music and dance labs such as Piano and Keyboard Lab, Guitar Lab, Flute Lab, Sitar Lab, Tabla, Drums Percussion, Violin and Vocal labs.</p>`,
     },
 
     {
@@ -53,7 +138,10 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/fine-arts.png",
       description:
         "Promotes creative expression through art and sculpting to develop imagination and aesthetics.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>Fine Arts is the creative art mostly visual, whose products are appreciated solely for their imaginative, aesthetic, or intellectual content.</p>
+      <p>Art and Sculpting are popular fine arts subjects that encourage individuals to explore and develop their creative potential. It helps the students to unleash the inner budding artist– and better understand art as a subject and just not a mere hobby.</p>
+      <p>The school has an Art Lab with facilities for drawing, painting, sculpturing, pottery and fabric design that invigorates the soul and nurtures the imagination of the students. School has five well trained art and craft faculty who work with the children throughout the year to enhance the talent in them.</p>
+      <p>Art lab offers practical learning of art, craft and clay modeling.</p>`,
     },
 
     {
@@ -63,7 +151,11 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/steam.png",
       description:
         "Integrates science, technology, engineering, art, and math for interdisciplinary, practical learning.",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p>STEAM (Science, Technology, Engineering, Art and Mathematics) means teaching and learning different subjects using more than one manner. Documenting & observing the environment or phenomena; Applying science for practical purposes; Designing, building, using engines, machines, and structures; Expressing or applying human creative skill and imagination; Studying numbers, quantities, shapes and the relations between them helps children to find a co-relation between subjects and make them comprehend the projects and learning better.</p>
+      <p><strong>Inter disciplinary learning –</strong> At SAI International School, special emphasis is laid on experience based learning and an inter disciplinary approach to learning where rigorous academic concepts and topics are merged and aligned with real world lessons. To compete with the new economy and newer technology, the students are encouraged to apply Science, Technology, Engineering, Art and Mathematics to make connections between school, community, work, and the globe. In today’s economy it is essential to develop the core STEAM skills (Science, Technology, Engineering, Art and Mathematics) and encourage the children to be successful globally.</p>
+      <p><strong>Benefit – </strong>To enable the students, we stimulate their brains by giving them inter-disciplinary projects for the subjects like Mathematics, Science, English, Social Studies, Computer Science and Hindi. Children are brainstormed on the topics given and are left to innovate and exhibit their learning in a unique manner.</p>
+      <p><strong>Our Objectives – </strong>We strive to further develop, among students, a strong knowledge base aligned with the latest changes in these disciplines, and strengthen their ability to integrate and apply knowledge and skills, to nurture their creativity and innovation, collaboration and problem solving skills, which are essential skills and competencies required in the 21st century. The learning activities of STEAM education also help students develop the essential qualities associated with an entrepreneurial spirit. Turning ideas into tangible/perceivable form is not merely about production and fabrication, but also involves self-learning, problem-solving, exploration, experimentation and critical thinking. It is also associated with taking calculated risks, and sometimes failing and again coming back with resilience to solve the problems. School facilitates hands on practice where the students are exposed to digital tools to create, make, design and implement the ideas. Through the hands-on activities, workshops, inspiring talks, inspiring works from other makers, they learn immensely.</p>
+      <p><strong>Experiential Learning –</strong> Students are exposed to mega events like UNWIND and SAITED which are for the students and by the students. They handle the event through and through, right from the finances to planning marketing, digital designing, sales, liasoning and collaborating to make the event a mega success. In this process they learn the skills through experience and a collaborative approach.</p>`,
     },
   ],
 };

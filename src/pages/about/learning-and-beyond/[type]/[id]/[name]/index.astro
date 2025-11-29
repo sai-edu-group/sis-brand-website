@@ -1,4 +1,6 @@
 ---
+export const prerender = true;
+
 // COMPONENTS //
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 
@@ -34,6 +36,7 @@ export async function getStaticPaths() {
         params: {
           type,
           id: detail.id.toString(),
+          name: detail.title.replaceAll(" ", "-"),
         },
         props: {
           type,
@@ -69,6 +72,8 @@ const sectionHeaderDetails = {
   title: detail.title,
   subtitle: detail.description,
 };
+
+console.log(detail);
 ---
 
 <Layout>

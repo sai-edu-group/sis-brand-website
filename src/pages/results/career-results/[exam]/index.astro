@@ -1,1 +1,94 @@
-<p>Content coming soon.</p>
+---
+export const prerender = false; // Render on Server
+
+// LAYOUT //
+import Layout from "@/layouts/Layout.astro";
+
+// COMPONENTS //
+import FilterBar from "@/components/FilterBar.astro";
+import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ResultsCard from "@/components/ResultsCard.astro";
+
+// DATA //
+import { careerResults } from "@/data/results/career-results";
+import { URLS } from "@/infrastructure/constants/urls";
+
+// TYPES //
+import type { ClassData, ResultData } from "@/types/results/results";
+
+// Get the Props from the URL [stream]/[year]
+const { exam } = Astro.params;
+
+// Get the Year from the Search Params
+const year = Astro.url.searchParams.get("year");
+
+// Get the Class Object from "chseClasses" data using the Stream ID
+// TODO: WIll be API Call here
+const classItem: ClassData | undefined = careerResults.find(
+  (careerResultItem) =>
+    careerResultItem.name.toLowerCase().replaceAll(" ", "-") === exam,
+);
+
+// If streamId is missing or invalid — go back or redirect
+if (!exam || !year || !classItem) {
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: Astro.request.headers.get("referer") || URLS.HOME,
+    },
+  });
+}
+
+const results: ResultData[] = classItem.results[parseInt(year)];
+
+// Breadcrumb Items
+const breadcrumbItems = [
+  { label: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
+  {
+    label: classItem.name,
+    href: `${URLS.RESULTS.CAREER_RESULTS.EXAM(exam)}?year=${year}`,
+  },
+];
+---
+
+<Layout>
+  <section class="bg-n-50 relative w-full overflow-hidden">
+    <div
+      class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
+    >
+      <!-- Breadcrumbs -->
+      <Breadcrumbs items={breadcrumbItems} />
+
+      <!-- Body of the Results -->
+      <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
+        <!-- Section Header -->
+        <SectionHeaderMain
+          title={classItem.name}
+          subtitle="Celebrating our students hard work and achievements"
+        />
+
+        <!-- Filter & Students -->
+        <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
+          <!-- Years Filters -->
+          <FilterBar showSearch={false} years={classItem.years} />
+
+          <!-- Results -->
+          <div
+            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            {
+              results?.map((resultItem) => (
+                <ResultsCard
+                  studentName={resultItem.studname}
+                  score={resultItem.percentage}
+                  image={resultItem.studprofilepic}
+                />
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
