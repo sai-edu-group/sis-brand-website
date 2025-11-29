@@ -22,7 +22,9 @@ export const amenitiesDetails = {
       description:
         "Spacious and hygienic dining area designed for comfort and efficiency during busy hours.",
       landscapeImg: "/images/amenities/cafeteria.png",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p><strong>Cafeteria –</strong> The SAI International School cafeteria features a spacious, large and hygienic eating place. The seating has been immaculately designed to keep the cafeteria hassle free during rush hours.</p>
+      <p><strong>Our Aim –</strong> Our aim is to provide nutritious, healthy and tasty food to the students. The menu is well designed, keeping in mind the parameters of taste and a balanced diet. We give prime importance to quality and hygiene in the preparation and handling of the food. The self service cafeteria is loved by the students.</p>
+      `,
     },
     {
       id: 3,
@@ -41,7 +43,11 @@ export const amenitiesDetails = {
       description:
         "Well-equipped medical facility ensuring the health and wellness of students and staff.",
       landscapeImg: "/images/amenities/infirmary.png",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p><strong>Infirmary –</strong> For the well being of the new age learners, SAI International School houses a hygienic Infirmary. Here, the school provides direct nursing services to learners and staff members, to maximize health and wellness in the school community.</p>
+      <p><strong>On-site doctor and nurse –</strong> An on-site qualified doctor and trained and qualified nurses are available to manage and assess any health issues that may arise during school hours.</p>
+      <p><strong>Emergency Services –</strong> We understand that as the children spend most of their time in school, there could be emergencies pertaining to their wellness. Minor injuries during sports and games or while performing experiments and even common fever are unavoidable parts of growing up. To meet these emergencies, we have an Infirmary at the heart of the School premise.</p>
+      <p><strong>Facilities –</strong> The school infirmary is equipped with the basic materials and facilities to address the health needs of learners while in school. With a six bed capacity for both boys and girls, the infirmary is hygienically maintained, confirming to our belief of wellness of mind, body and soul.</p>
+      `,
     },
     {
       id: 5,
