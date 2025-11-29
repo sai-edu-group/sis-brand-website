@@ -30,12 +30,12 @@ const {
 >
   <!-- Activity image -->
   <div
-    class="relative overflow-hidden rounded-tl-xl rounded-tr-xl xl:rounded-bl-xl xl:rounded-tr-none"
+    class="relative overflow-hidden rounded-tl-xl rounded-tr-xl xl:rounded-tr-none xl:rounded-bl-xl"
   >
     <img
       src={image}
       alt=""
-      class="h-48 w-full object-cover md:h-[207px] lg:h-[250px] xl:h-[280px] xl:w-[345px]"
+      class="h-48 w-full object-cover md:h-[207px] lg:h-[250px] xl:h-full xl:w-[345px]"
       loading="lazy"
       decoding="async"
     />
@@ -47,7 +47,7 @@ const {
     <!-- Activity Date -->
     {
       date !== "" && (
-        <div class="font-secondary text-n-600 bg-n-50 absolute left-3 top-3 rounded-lg px-2.5 py-2 text-xs font-medium shadow xl:text-base">
+        <div class="font-secondary text-n-600 bg-n-50 absolute top-3 left-3 rounded-lg px-2.5 py-2 text-xs font-medium shadow xl:text-base">
           <div class="flex items-center gap-2">
             {/* Calendar Icon */}
             <span class="text-orange-500">
@@ -68,7 +68,7 @@ const {
     <div class="flex flex-col gap-2 xl:gap-4">
       <!-- Activity title -->
       <p
-        class="text-n-800 text-2xl font-medium leading-tight transition-colors duration-200 hover:text-orange-500 md:text-3xl"
+        class="text-n-800 text-2xl leading-tight font-medium transition-colors duration-200 hover:text-orange-500 md:text-3xl"
       >
         {title}
       </p>
@@ -76,7 +76,7 @@ const {
       <!-- Activity subTitle -->
       {
         subTitle !== "" && (
-          <p class="text-n-600 font-secondary font-medium leading-tight md:text-xl">
+          <p class="text-n-600 font-secondary leading-tight font-medium md:text-xl">
             {subTitle}
           </p>
         )

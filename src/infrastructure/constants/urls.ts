@@ -11,14 +11,14 @@ export const URLS = {
 
     LEARNING_AND_BEYOND: {
       ROOT: "/about/learning-and-beyond",
-      AMENITY: (amenityId: string) =>
-        `/about/learning-and-beyond/amenities/${amenityId}`,
-      CURRICULUM: (curriculumId: string) =>
-        `/about/learning-and-beyond/curriculum/${curriculumId}`,
-      SAI_SEVA: (sevaId: string) =>
-        `/about/learning-and-beyond/sai-seva/${sevaId}`,
-      FLAGSHIP_EVENT: (eventId: string) =>
-        `/about/learning-and-beyond/flagship-events/${eventId}`,
+      AMENITY: (amenityId: string, amenityTitle: string) =>
+        `/about/learning-and-beyond/amenities/${amenityId}/${amenityTitle}`,
+      CURRICULUM: (curriculumId: string, curriculumTitle: string) =>
+        `/about/learning-and-beyond/curriculum/${curriculumId}/${curriculumTitle}`,
+      SAI_SEVA: (sevaId: string, sevaTitle: string) =>
+        `/about/learning-and-beyond/sai-seva/${sevaId}/${sevaTitle}`,
+      FLAGSHIP_EVENT: (eventId: string, eventTitle: string) =>
+        `/about/learning-and-beyond/flagship-events/${eventId}/${eventTitle}`,
     },
 
     AFFILIATIONS: {

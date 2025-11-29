@@ -36,6 +36,7 @@ export async function getStaticPaths() {
         params: {
           type,
           id: detail.id.toString(),
+          name: detail.title.replaceAll(" ", "-"),
         },
         props: {
           type,

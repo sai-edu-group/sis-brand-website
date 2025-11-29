@@ -31,13 +31,11 @@ import { URLS } from "@/infrastructure/constants/urls";
           <!-- Sai Seva Slides -->
           {
             flagshipContent.map((flagshipItem) => (
-              <div
-                class="ns-slide card-anim card-bottom cursor-pointer"
-                data-embla-slide
-              >
+              <div class="ns-slide cursor-pointer" data-embla-slide>
                 <a
                   href={URLS.ABOUT.LEARNING_AND_BEYOND.FLAGSHIP_EVENT(
                     flagshipItem.id.toString(),
+                    flagshipItem.title.replaceAll(" ", "-"),
                   )}
                 >
                   <ActivityCard

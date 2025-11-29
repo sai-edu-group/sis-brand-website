@@ -31,9 +31,10 @@ import { amenitiesDetails } from "@/data/about/amenities";
             <ArticleCard
               title={amenitiesCardItem.title}
               img={amenitiesCardItem.img}
-              href={URLS.ABOUT.LEARNING_AND_BEYOND.AMENITY(
+              href={`${URLS.ABOUT.LEARNING_AND_BEYOND.AMENITY(
                 amenitiesCardItem.id.toString(),
-              )}
+                amenitiesCardItem.title.replaceAll(" ", "-"),
+              )}`}
               description={amenitiesCardItem.description}
               badgeText=""
             />
