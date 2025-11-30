@@ -76,7 +76,43 @@ export const amenitiesDetails = {
       description:
         "Encourages eco-conscious learning through hands-on initiatives promoting global citizenship.",
       landscapeImg: "/images/amenities/sustainable.png",
-      content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+      content: `<p><strong>Sustainable Development –</strong> Learning at SAI International School spreads beyond classrooms as we believe in reinforcing the book learning through hands-on activities. The entire school is designed to enrich the knowledge vistas of the students to help them become responsible global citizens. Various steps are taken to enable the students to get an awareness of making the place environment-friendly.</p>
+      <p><strong>Rain Water Harvesting –</strong> The School has a system for Rain Water Harvesting, where water is collected from rooftops and kept in specially built pits. The rainwater outlets from the various rooftops are connected with each other through a network of pipes, which leads to several collection chambers and finally to the underground storage tank. This is used for-</p>
+        <ul>
+          <li>Supplying water to the Wash Rooms</li>
+          <li>Mopping and Cleaning the School</li>
+          <li>Recharge into the ground level to help increase the level of ground water</li>
+        </ul>
+      <p>The entire system is demonstrated to the students to encourage them to make optimal use of rainwater at their home as well as inspire others in their locality.</p>
+      <p><strong>Sewage Treatment Plant –</strong> The School houses a waste water treatment plant which removes pollutants from waste water, mainly from sewage generated from School and hostel. The Sewage Treatment Plant (STP) with a capacity of 25 KLD MBBR, cleans the solids and pollutants, break down organic matter and restore the oxygen content of treated water. It is placed inside the school campus to help children understand the concept of STP.</p>
+      <ul>
+        <li>Used for watering the garden and the plants</li>
+        <li>Recharge the ground level of water</li>
+      </ul>  
+      <p><strong>Solar Panel –</strong> Solar Panels are installed in the School hostels to supply green energy to the hostel and school. It is used to light the bulbs and heat the water both in the School and the hostels. It also gives students a great opportunity to enrich their classroom learning with real-life examples of the benefits of renewable energy. The Solar Panels helps –</p>
+      <ul>
+        <li>To drive Solar power forward</li>
+        <li>Enhance Student learning</li>
+        <li>In Energy Conservation</li>
+      </ul>
+      <p><strong>Vermi Compost –</strong> SAI International School believes in organic farming. It houses pits of 3 feet by 4 feet dimension to prepare organic manure for the plants. It is prepared by layering the dried leaves, vegetable and fruit peels with mud. The enriched compost or the natural fertilizer is used to manure plants and the lawn of the school. It helps in –</p>
+      <ul>
+        <li>the healthy growth of plants</li>
+        <li>return valuable nutrients back into the soil</li>
+        <li>create better foot products</li>
+        <li>turn waste into excellent, nutrient-rich organic fertilizer and soil conditioner</li>
+        <li>Non-hazardous for students and the environment</li>
+      </ul>
+      <p>Students from Play Group on wards actively take part in the entire process of preparing the manure. It is a hand-on learning activity which is enjoyed by everyone.</p>
+      <p><strong>Green House –</strong> SAI International School believes in creating a cleaner and greener environment for the students to have a pollution free space. Apart from having a lush green environment, it has a Green House, where plants ranging from medicinal to ornamental are grown.</p>
+      <p>The Green House acts as a mini lab for students to learn about climate change, global warming and the various ways to protect plant life. They also get an in-depth idea on plants’ reaction to light, heat, and cold and the measures to counter them. Students also learn about various plants. The space is used to grow plants which is used –</p>
+      <ul>
+        <li>During plantation drives</li>
+        <li>For gifting purpose (At SAI International School, we discourage the use of flower bouquet and encourage gifting plants)</li>
+      </ul>
+      <p>he School was adjudged the 4th place in India among 2300 participating Schools, in the CII Green I contest, for being a pioneer in imparting Environmental Education in the School by 2030. The School received the Award from the Cabinet Minister (Energy), Govt. of India, at the 9th edition of Green Building Congress.</p>
+      <p><strong>SAI International School has been continuously receiving the Green School Award since 2011 for the Best School Garden. It takes pride in dedicating a large area for gardening and planting new saplings on every auspicious occasion, as a small step to preserve the green cover and inculcate the spirit in the students.</strong></p>
+      `,
     },
     {
       id: 6,
