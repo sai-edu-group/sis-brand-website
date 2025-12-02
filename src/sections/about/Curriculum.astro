@@ -34,7 +34,7 @@ import { URLS } from "@/infrastructure/constants/urls";
                 img={curriculumCardItem.img}
                 href={URLS.ABOUT.LEARNING_AND_BEYOND.CURRICULUM(
                   curriculumCardItem.id.toString(),
-                  curriculumCardItem.title.replaceAll(" ", "-"),
+                  curriculumCardItem.title.toLowerCase().replaceAll(" ", "-"),
                 )}
                 description={curriculumCardItem.description}
                 badgeText=""

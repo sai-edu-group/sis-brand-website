@@ -35,7 +35,7 @@ import { URLS } from "@/infrastructure/constants/urls";
                 <a
                   href={URLS.ABOUT.LEARNING_AND_BEYOND.FLAGSHIP_EVENT(
                     flagshipItem.id.toString(),
-                    flagshipItem.title.replaceAll(" ", "-"),
+                    flagshipItem.title.toLowerCase().replaceAll(" ", "-"),
                   )}
                 >
                   <ActivityCard

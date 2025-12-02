@@ -40,7 +40,7 @@ export async function getStaticPaths() {
       params: {
         personType: "team",
         id: member.id.toString(),
-        name: member.name.replaceAll(" ", "-"),
+        name: member.name.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
         personType: "team",
@@ -54,7 +54,7 @@ export async function getStaticPaths() {
     params: {
       personType: "founder",
       id: "1",
-      name: founderDetails.name.replaceAll(" ", "-"),
+      name: founderDetails.name.toLowerCase().replaceAll(" ", "-"),
     },
     props: {
       personType: "founder",
@@ -68,7 +68,7 @@ export async function getStaticPaths() {
       params: {
         personType: "advisory",
         id: member.id.toString(),
-        name: member.name.replaceAll(" ", "-"),
+        name: member.name.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
         personType: "advisory",

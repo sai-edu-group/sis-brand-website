@@ -158,7 +158,7 @@ import Image from "astro/components/Image.astro";
                   personName={teamMemberItem.name}
                   designation={teamMemberItem.position}
                   image={teamMemberItem.jpgImg}
-                  href={`/about/team/${teamMemberItem.id}/${teamMemberItem.name.replaceAll(" ", "-")}`}
+                  href={`/about/team/${teamMemberItem.id}/${teamMemberItem.name.toLowerCase().replaceAll(" ", "-")}`}
                 />
               </div>
             ))
@@ -361,7 +361,7 @@ import Image from "astro/components/Image.astro";
     imgEl.setAttribute("alt", member.name);
     buttonEl.setAttribute(
       "href",
-      `/about/team/${member.id}/${member.name.replaceAll(" ", "-")}`,
+      `/about/team/${member.id}/${member.name.toLowerCase().replaceAll(" ", "-")}`,
     );
     quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;

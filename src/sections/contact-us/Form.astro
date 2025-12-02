@@ -33,7 +33,7 @@ import Image from "astro/components/Image.astro";
                 name="fullName"
                 required
                 placeholder="Enter full name"
-                errorMessage="Full name is required."
+                errorMessage="Full name cannot be empty and should not contain numbers."
               />
             </div>
 
@@ -42,9 +42,10 @@ import Image from "astro/components/Image.astro";
               <Input
                 label="Phone Number"
                 name="phoneNumber"
+                type="number"
                 required
                 placeholder="Enter phone number"
-                errorMessage="Phone number is required."
+                errorMessage="Phone number is required and must contain only digits."
               />
             </div>
 
@@ -161,17 +162,30 @@ import Image from "astro/components/Image.astro";
           .closest("[data-field]")
           ?.querySelector("[data-error]");
         let fieldValid = true;
+        const value = el.value.trim();
 
         // Required check
-        if (el.hasAttribute("required") && !el.value.trim()) fieldValid = false;
+        if (el.hasAttribute("required") && !value) fieldValid = false;
 
         // Email check
-        if (el.type === "email" && el.value.trim() !== "") {
+        if (el.type === "email" && value !== "") {
           const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailPattern.test(el.value.trim())) fieldValid = false;
+          if (!emailPattern.test(value)) fieldValid = false;
         }
 
-        // Update styles
+        // ❌ NAME VALIDATION: should NOT contain digits
+        if (el.name === "fullName" && value !== "") {
+          const hasDigits = /\d/.test(value);
+          if (hasDigits) fieldValid = false;
+        }
+
+        // ❌ PHONE VALIDATION: should contain ONLY digits
+        if (el.name === "phoneNumber" && value !== "") {
+          const notNumbers = /\D/.test(value);
+          if (notNumbers) fieldValid = false;
+        }
+
+        // Style updates
         if (!fieldValid) {
           valid = false;
           el.classList.add("border-red-500", "focus:ring-red-500");

@@ -51,7 +51,7 @@ const {
     <div class="group w-full overflow-hidden">
       <div
         class="flex items-center gap-6 whitespace-nowrap will-change-transform md:gap-14"
-        style={`transform:translateX(0); animation: pb-marquee ${speedSec}s linear infinite; animation-direction:alternate; animation-delay:${delay}s`}
+        style={`--pb-speed: ${speedSec}; --pb-delay: ${delay}; transform:translateX(0);`}
       >
         <!-- GROUP 1 -->
         <ul
@@ -124,6 +124,18 @@ const {
       }
       100% {
         transform: translateX(0);
+      }
+    }
+    /* Root animation settings use CSS variables set on the element.
+       On mobile we reduce the duration multiplier (faster). */
+    .group > div {
+      animation: pb-marquee calc(var(--pb-speed) * 1s) linear infinite;
+      animation-direction: alternate;
+      animation-delay: calc(var(--pb-delay) * 1s);
+    }
+    @media (max-width: 767px) {
+      .group > div {
+        animation-duration: calc(var(--pb-speed) * 1s * 0.5);
       }
     }
     /* Pause on hover (nice UX) */

@@ -92,7 +92,7 @@ const shouldShowPagination = totalPages > 1;
                       date={newsItem.date}
                       href={URLS.MEDIA.NEWS.ITEM(
                         newsItem.id.toString(),
-                        newsItem.title.replaceAll(" ", "-"),
+                        newsItem.title.toLowerCase().replaceAll(" ", "-"),
                       )}
                       tags={newsItem.tags}
                     />
