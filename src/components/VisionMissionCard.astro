@@ -1,4 +1,5 @@
 ---
+import Image from "astro/components/Image.astro";
 import Button from "./Button.astro";
 import IconButton from "./IconButton.astro";
 interface Props {
@@ -13,10 +14,14 @@ const { img, title = "" } = Astro.props as Props;
 >
   <!-- Vision image -->
   <div class="relative h-56 w-full overflow-hidden rounded-xl md:w-[320px]">
-    <img
+    <Image
       src={img}
       alt={title}
       class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+      loading="lazy"
+      decoding="async"
+      width={320}
+      height={224}
     />
 
     <!-- Overlay animation -->

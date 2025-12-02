@@ -14,6 +14,7 @@ import {
   sectionHeaderContent,
   visionMissionBreadcrumbItems,
 } from "@/data/about/vision-mission-values";
+import Image from "astro/components/Image.astro";
 ---
 
 <Layout meta={visionMeta}>
@@ -52,10 +53,12 @@ import {
                 >
                   Vision
                 </p>
-                <img
+                <Image
                   src={"/icons/double-lines.svg"}
                   alt=""
                   class="absolute -bottom-3 left-4 h-[18px] w-[120px] md:-bottom-5"
+                  width={120}
+                  height={18}
                 />
               </div>
 
@@ -92,10 +95,12 @@ import {
                 >
                   Mission
                 </p>
-                <img
+                <Image
                   src={"/icons/double-lines.svg"}
                   alt=""
                   class="absolute -bottom-3 left-4 h-[18px] w-[120px] md:-bottom-5"
+                  width={120}
+                  height={18}
                 />
               </div>
 
@@ -132,10 +137,12 @@ import {
                 >
                   Values
                 </p>
-                <img
+                <Image
                   src={"/icons/double-lines.svg"}
                   alt=""
                   class="absolute -bottom-3 left-4 h-[18px] w-[120px] md:-bottom-5"
+                  width={120}
+                  height={18}
                 />
               </div>
 

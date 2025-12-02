@@ -17,6 +17,7 @@ import {
   admissionsGuidlinesContent,
   sectionHeaderContent,
 } from "@/data/admissions/admissions-guidelines";
+import Image from "astro/components/Image.astro";
 
 // Prepare breadcrumb items
 const breadcrumbItems = [
@@ -41,11 +42,13 @@ const breadcrumbItems = [
           <!-- Admissions Guidelines Image and Details -->
           {
             admissionsGuidlinesContent.landscapeImg && (
-              <img
+              <Image
                 src={admissionsGuidlinesContent.landscapeImg}
                 alt=" Admissions Guidelines Image"
                 class="card-anim card-bottom h-[257px] w-full rounded-3xl object-cover md:h-[524px] lg:h-[600px]"
                 style={`--delay: 0.1s`}
+                width={1200}
+                height={600}
               />
             )
           }

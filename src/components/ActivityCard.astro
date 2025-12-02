@@ -1,7 +1,10 @@
 ---
 // COMPONENTS //
-import Button from "./Button.astro";
+import Image from "astro/components/Image.astro";
 import { Icon } from "astro-icon/components";
+
+// OTHERS //
+import Button from "./Button.astro";
 
 interface Props {
   title: string;
@@ -32,12 +35,14 @@ const {
   <div
     class="relative overflow-hidden rounded-tl-xl rounded-tr-xl xl:rounded-tr-none xl:rounded-bl-xl"
   >
-    <img
+    <Image
       src={image}
       alt=""
       class="h-48 w-full object-cover md:h-[207px] lg:h-[250px] xl:h-full xl:w-[345px]"
       loading="lazy"
       decoding="async"
+      width="400"
+      height="300"
     />
     <!-- Overlay animation -->
     <span

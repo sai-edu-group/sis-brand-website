@@ -22,7 +22,7 @@ export const URLS = {
     },
 
     AFFILIATIONS: {
-      ROOT: "/about/affliations",
+      ROOT: "/about/affiliations",
       ITEM: (name: string) => `/about/affiliations/${name}`,
     },
 

@@ -1,6 +1,7 @@
 ---
 import Rath from "@/components/vectors/Rath.astro";
 import { URLS } from "@/infrastructure/constants/urls";
+import Image from "astro/components/Image.astro";
 ---
 
 <section class="bg-n-100 relative w-full overflow-hidden" id="our-founder">
@@ -21,10 +22,12 @@ import { URLS } from "@/infrastructure/constants/urls";
           <p class="text-n-800 text-5xl leading-none font-medium md:text-8xl">
             Founder
           </p>
-          <img
+          <Image
             src={"/icons/double-lines.svg"}
             alt=""
-            class="absolute -bottom-[12px] left-2 h-[19px] w-[130px] md:-bottom-[20px] md:h-[34px] md:w-[232px]"
+            class="absolute -bottom-3 left-2 h-[19px] w-[130px] md:-bottom-5 md:h-[34px] md:w-[232px]"
+            width={232}
+            height={34}
           />
         </div>
 
@@ -101,9 +104,11 @@ import { URLS } from "@/infrastructure/constants/urls";
   /> -->
 
   <!-- Right image cluster (positioned as per design) -->
-  <img
+  <Image
     src={"/images/bijaya-sir.png"}
     alt="Founder portrait"
     class="absolute right-0 bottom-0 z-0 h-auto w-1/2 w-[260px] md:w-[468px] lg:w-[44%] lg:min-w-[500px]"
+    width={600}
+    height={800}
   />
 </section>

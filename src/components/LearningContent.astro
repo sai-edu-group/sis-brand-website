@@ -1,4 +1,7 @@
 ---
+// COMPONENTS //
+import Image from "astro/components/Image.astro";
+
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
@@ -25,12 +28,16 @@ const {
   <div
     class="h-[169px] w-full shrink-0 md:h-[360px] lg:h-[430px] lg:w-[480px] xl:w-[530px] 2xl:w-[670px]"
   >
-    <img
+    <Image
       id="learning-active-image"
       data-active-image
       src={items[0].imageUrl}
       alt=""
       class="pointer-events-none inset-0 h-full w-full rounded-xl object-cover"
+      loading="lazy"
+      decoding="async"
+      width={670}
+      height={430}
     />
   </div>
 

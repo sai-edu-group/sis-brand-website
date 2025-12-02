@@ -1,6 +1,7 @@
 ---
-import Button from "./Button.astro";
-import IconButton from "./IconButton.astro";
+// COMPONENTS //
+import Image from "astro/components/Image.astro";
+
 interface Props {
   img: string;
   title: string;
@@ -17,10 +18,14 @@ const { img, title = "", subTitle = "", year = "" } = Astro.props as Props;
   <div
     class="relative h-56 w-full overflow-hidden rounded-xl md:h-[282px] 2xl:h-auto 2xl:w-[320px]"
   >
-    <img
+    <Image
       src={img}
       alt={title}
       class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+      loading="lazy"
+      decoding="async"
+      width="400"
+      height="300"
     />
 
     <!-- Overlay animation -->

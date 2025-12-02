@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+
 // Section Data
 const ethosDetails = {
   left: {
@@ -29,7 +31,13 @@ const ethosDetails = {
       <div
         class="absolute -top-[10%] left-[50%] -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:w-[600px] lg:-left-[20%] lg:w-[450px] xl:-left-[28%] xl:w-[600px]"
       >
-        <img src={ethosDetails.left.backdrop} alt="" class="" />
+        <Image
+          src={ethosDetails.left.backdrop}
+          alt=""
+          class=""
+          width={600}
+          height={600}
+        />
       </div>
 
       <!-- Header wrapper -->
@@ -151,7 +159,13 @@ const ethosDetails = {
       <div
         class="absolute -top-[10%] right-0 -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:w-[600px] lg:-right-[10%] lg:w-[450px] xl:right-0 xl:w-[600px]"
       >
-        <img src={ethosDetails.right.backdrop} alt="" class="h-full w-full" />
+        <Image
+          src={ethosDetails.right.backdrop}
+          alt=""
+          class="h-full w-full"
+          width={600}
+          height={600}
+        />
       </div>
 
       <!-- Header wrapper -->

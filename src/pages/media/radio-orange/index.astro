@@ -14,6 +14,7 @@ import radioOrangeMeta from "@/data/meta/media/radio-orange/radio-orange.json";
 
 // DATA //
 import { radioOrangeContent, sectionHeaderContent } from "@/data/media/radio";
+import Image from "astro/components/Image.astro";
 
 // Prepare breadcrumb items
 const breadcrumbItems = [
@@ -38,11 +39,13 @@ const breadcrumbItems = [
           <!-- Radio Orange Image and Details -->
           {
             radioOrangeContent.landscapeImg && (
-              <img
+              <Image
                 src={radioOrangeContent.landscapeImg}
                 alt="Radio Orange Image"
                 class="card-anim card-bottom h-[257px] w-full rounded-3xl object-cover md:h-[524px] lg:h-[600px]"
                 style={`--delay: 0.1s`}
+                width={1200}
+                height={600}
               />
             )
           }

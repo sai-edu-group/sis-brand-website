@@ -7,6 +7,7 @@ import PersonCard from "@/components/PersonCard.astro";
 
 // DATA //
 import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
+import Image from "astro/components/Image.astro";
 ---
 
 <section
@@ -31,11 +32,14 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
         <div
           class="team-image-container self-end lg:w-0 xl:w-[400px] 2xl:w-[500px]"
         >
-          <img
+          <Image
             id="team-img"
             src={teamMembers[0].img}
             alt={teamMembers[0].name}
             class="team-img-animate"
+            style={`--delay: 0.1s`}
+            width={500}
+            height={500}
           />
         </div>
         <div class="flex flex-1 flex-col gap-30 pb-15">
@@ -111,10 +115,12 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
                 class={`flex h-[75px] items-center justify-center overflow-hidden rounded-3xl bg-cover bg-center pt-2 2xl:h-[102px] ${member.isActive ? "" : "grayscale"} `}
                 style={`background-image: url('${member.bgImg}')`}
               >
-                <img
+                <Image
                   src={member.img}
                   alt={member.name}
                   class="h-full w-full object-contain"
+                  width={75}
+                  height={75}
                 />
               </div>
               <Tooltip text={member.name} />

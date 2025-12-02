@@ -1,4 +1,7 @@
 ---
+// COMPONENTS //
+import Image from "astro/components/Image.astro";
+
 // OTHERS //
 import SectionHeaderMain from "./SectionHeaderMain.astro";
 
@@ -36,11 +39,14 @@ const {
     <div
       class=`w-full lg:w-4/5 xl:w-1/2 ${variant === "plain" ? "xl:self-end" : ""} fade-in `
     >
-      <img
+      <Image
         src=`/images/${imageName}.png`
         alt=""
         class="h-full w-full object-contain"
         loading="lazy"
+        decoding="async"
+        width={600}
+        height={400}
       />
     </div>
   </div>

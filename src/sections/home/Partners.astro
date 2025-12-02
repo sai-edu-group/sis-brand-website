@@ -1,5 +1,6 @@
 ---
 import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import Image from "astro/components/Image.astro";
 
 const partnersImages = [
   "/images/partners/ausa.png",
@@ -38,7 +39,13 @@ const partnersImages = [
         partnersImages.map((partner) => (
           // Partner image
           <div class="w-28 md:w-32 lg:w-[170px]">
-            <img src={partner} alt="" class="w-full object-contain" />
+            <Image
+              src={partner}
+              alt=""
+              class="w-full object-contain"
+              width={170}
+              height={100}
+            />
           </div>
         ))
       }

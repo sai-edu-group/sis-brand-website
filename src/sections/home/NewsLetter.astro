@@ -1,6 +1,7 @@
 ---
 // COMPONENTS //
 import Button from "@/components/Button.astro";
+import Image from "astro/components/Image.astro";
 ---
 
 <!-- News letter -->
@@ -9,10 +10,12 @@ import Button from "@/components/Button.astro";
     class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
   >
     <div class="h-52 md:h-[430px] lg:h-auto lg:w-[40%] 2xl:w-[46%]">
-      <img
+      <Image
         src="/images/news-letter.png"
         alt=""
         class="h-full w-full object-cover"
+        width={600}
+        height={430}
       />
     </div>
     <div class="flex flex-1 flex-col gap-8 md:gap-11">
