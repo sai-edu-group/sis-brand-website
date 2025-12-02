@@ -9,13 +9,15 @@ import VisionMissionCard from "@/components/VisionMissionCard.astro";
 import Layout from "@/layouts/Layout.astro";
 
 // DATA //
+import visionMeta from "@/data/meta/about/vision-mission-values/vision-mission-values.json";
 import {
   sectionHeaderContent,
   visionMissionBreadcrumbItems,
 } from "@/data/about/vision-mission-values";
+import Image from "astro/components/Image.astro";
 ---
 
-<Layout>
+<Layout meta={visionMeta}>
   <section class="bg-n-50 relative w-full overflow-hidden">
     <div
       class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
@@ -51,10 +53,12 @@ import {
                 >
                   Vision
                 </p>
-                <img
+                <Image
                   src={"/icons/double-lines.svg"}
                   alt=""
                   class="absolute -bottom-3 left-4 h-[18px] w-[120px] md:-bottom-5"
+                  width={120}
+                  height={18}
                 />
               </div>
 
@@ -91,10 +95,12 @@ import {
                 >
                   Mission
                 </p>
-                <img
+                <Image
                   src={"/icons/double-lines.svg"}
                   alt=""
                   class="absolute -bottom-3 left-4 h-[18px] w-[120px] md:-bottom-5"
+                  width={120}
+                  height={18}
                 />
               </div>
 
@@ -131,10 +137,12 @@ import {
                 >
                   Values
                 </p>
-                <img
+                <Image
                   src={"/icons/double-lines.svg"}
                   alt=""
                   class="absolute -bottom-3 left-4 h-[18px] w-[120px] md:-bottom-5"
+                  width={120}
+                  height={18}
                 />
               </div>
 

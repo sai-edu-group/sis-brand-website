@@ -7,6 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import { newsDetails } from "@/data/media/news";
 import { URLS } from "@/infrastructure/constants/urls";
 import Layout from "@/layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
 
 const year: number =
   Number(Astro.url.searchParams.get("year")) || newsDetails.years[0];
@@ -45,11 +46,13 @@ const breadcrumbItems = [
           <!-- News Consumption Image and Details -->
           {
             newsItem?.img && (
-              <img
+              <Image
                 src={newsItem.img}
                 alt="News Consumption Image"
                 class="card-anim card-bottom h-[257px] w-full rounded-3xl object-cover md:h-[524px] lg:h-[600px]"
                 style={`--delay: 0.1s`}
+                width={1200}
+                height={600}
               />
             )
           }

@@ -27,7 +27,7 @@ export async function getStaticPaths() {
     paths.push({
       params: {
         id: learning360ContentItem.id,
-        name: learning360ContentItem.title.replaceAll(" ", "-"),
+        name: learning360ContentItem.title.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
         learning360Item: learning360ContentItem,

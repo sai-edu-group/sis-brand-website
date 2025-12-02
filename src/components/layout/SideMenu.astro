@@ -1,5 +1,6 @@
 ---
 import { menu, type MenuItemData } from "@/infrastructure/constants/side-menu";
+import Image from "astro/components/Image.astro";
 ---
 
 <!-- Backdrop --><!-- This is the dark overlay behind the sidebar when open -->
@@ -69,12 +70,14 @@ import { menu, type MenuItemData } from "@/infrastructure/constants/side-menu";
                 <span class="flex items-center gap-5">
                   {/* Menu icon */}
                   <span class="inline-flex size-5">
-                    <img
+                    <Image
                       src={`/icons/${menuItem.icon}.svg`}
                       alt=""
                       class="h-full w-full"
                       loading="lazy"
                       decoding="async"
+                      width={20}
+                      height={20}
                     />
                   </span>
                   {/* Menu title */}

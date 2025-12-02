@@ -30,7 +30,7 @@ export async function getStaticPaths() {
   affiliationsDetails.affiliationsContent.forEach((affiliationItem: any) => {
     paths.push({
       params: {
-        name: affiliationItem.title.replaceAll(" ", "-"),
+        name: affiliationItem.title.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
         affiliationItem,

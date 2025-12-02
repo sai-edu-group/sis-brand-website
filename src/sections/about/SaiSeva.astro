@@ -40,7 +40,7 @@ import { URLS } from "@/infrastructure/constants/urls";
                   img={saiSevaContentItem.img}
                   href={URLS.ABOUT.LEARNING_AND_BEYOND.SAI_SEVA(
                     saiSevaContentItem.id.toString(),
-                    saiSevaContentItem.title.replaceAll(" ", "-"),
+                    saiSevaContentItem.title.toLowerCase().replaceAll(" ", "-"),
                   )}
                   description={saiSevaContentItem.description}
                   badgeText=""

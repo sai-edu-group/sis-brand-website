@@ -33,7 +33,7 @@ import { amenitiesDetails } from "@/data/about/amenities";
               img={amenitiesCardItem.img}
               href={`${URLS.ABOUT.LEARNING_AND_BEYOND.AMENITY(
                 amenitiesCardItem.id.toString(),
-                amenitiesCardItem.title.replaceAll(" ", "-"),
+                amenitiesCardItem.title.toLowerCase().replaceAll(" ", "-"),
               )}`}
               description={amenitiesCardItem.description}
               badgeText=""

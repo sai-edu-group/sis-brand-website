@@ -1,5 +1,10 @@
 ---
+// COMPONENTS //
+import Image from "astro/components/Image.astro";
+
+// OTHERS //
 import Button from "./Button.astro";
+
 interface Props {
   title: string;
   subtitle?: string;
@@ -22,11 +27,14 @@ const {
   class={`bg-n-50 border-n-200 flex flex-col gap-4 rounded-2xl border-2 p-5 ${classes}`}
 >
   <!-- Course Image -->
-  <img
+  <Image
     src=`/images/${image}`
     alt={title}
     class="h-[210px] w-full rounded-[21px] object-cover"
     loading="lazy"
+    decoding="async"
+    width={400}
+    height={210}
   />
 
   <!-- Course Details -->

@@ -7,6 +7,7 @@ import {
   imageBasedSlider,
   sectionHeaderContent,
 } from "@/data/home/results-image-slider";
+import Image from "astro/components/Image.astro";
 ---
 
 <section>
@@ -32,11 +33,13 @@ import {
                 class="max-h-[454px] w-full min-w-0 shrink-0 lg:h-[55vh] lg:max-h-[69vh]"
                 data-embla-slide
               >
-                <img
+                <Image
                   src={src}
                   alt={`Slide ${i + 1}`}
                   class="pointer-events-none block h-full w-full object-contain select-none"
                   draggable="false"
+                  width={1200}
+                  height={800}
                 />
               </div>
             ))

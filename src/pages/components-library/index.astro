@@ -8,9 +8,12 @@ import Breadcrumbs from "@/components/Breadcrumbs.astro";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
+
+// META //
+import siteMetaData from "@/data/meta/site.json";
 ---
 
-<Layout>
+<Layout meta={siteMetaData}>
   <Hero
     title="A Hero Header can be this big and should be bold."
     subtitle="Admissions, school life, or more — we’re here to help"

@@ -1,5 +1,6 @@
 ---
 import { URLS } from "@/infrastructure/constants/urls";
+import Image from "astro/components/Image.astro";
 ---
 
 <footer>
@@ -13,10 +14,12 @@ import { URLS } from "@/infrastructure/constants/urls";
           class="flex w-full flex-col items-center gap-9 md:gap-14 lg:w-[58%] lg:items-start xl:w-[30%]"
         >
           <!-- Brand logo -->
-          <img
+          <Image
             src="/images/sai-brand-logo.png"
             alt="SAI logo"
             class="w-[188px]"
+            width={188}
+            height={60}
           />
 
           <!-- Contact Box wrapper -->
@@ -173,12 +176,14 @@ import { URLS } from "@/infrastructure/constants/urls";
               <li>
                 <a
                   class="transition hover:underline"
+                  target="_blank"
                   href="https://sis.edunexttechnologies.com/Index">SAI Online</a
                 >
               </li>
               <li>
                 <a
                   class="transition hover:underline"
+                  target="_blank"
                   href="https://eedutree.com/default/parentLogin.php">SAMS</a
                 >
               </li>
@@ -205,7 +210,7 @@ import { URLS } from "@/infrastructure/constants/urls";
                 <a
                   class="transition hover:underline"
                   href="https://eedutree.com/shs/homeschoolLogin.php"
-                  >SAI Home School</a
+                  target="_blank">SAI Home School</a
                 >
               </li>
               <li>
@@ -217,10 +222,13 @@ import { URLS } from "@/infrastructure/constants/urls";
         </div>
 
         <!-- Footer child image -->
-        <img
+        <Image
           src="/images/child.png"
           alt="School Group Photo"
           class="scale-in absolute right-1/2 -bottom-[50px] w-[323px] translate-x-1/2 sm:right-0 sm:-bottom-[28px] sm:w-[40%] sm:translate-x-0 lg:w-[400px] xl:w-[427px]"
+          width={427}
+          height={600}
+          priority
         />
       </div>
     </div>
