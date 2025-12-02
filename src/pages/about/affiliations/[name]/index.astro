@@ -1,16 +1,18 @@
 ---
 export const prerender = true;
-// TYPES //
+
+// COMPONENTS //
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import ArticleConsumption from "@/components/ArticleConsumption.astro";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
-// COMPONENTS //
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
-
 // DATA //
 import { affiliationsDetails } from "@/data/about/affiliations";
-import ArticleConsumption from "@/components/ArticleConsumption.astro";
 
 /**
  * Generate static paths for all team and advisory board member pages
@@ -43,7 +45,7 @@ const { affiliationItem } = Astro.props;
 
 // Prepare breadcrumb items based on personType
 const breadcrumbItems = [
-  { label: "Affiliations", href: "/about/affiliations" },
+  { label: "Affiliations", href: URLS.ABOUT.AFFILIATIONS.ROOT },
   { label: affiliationItem.title, href: `#` },
 ];
 

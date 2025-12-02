@@ -40,7 +40,11 @@ export const menu: MenuItemData[] = [
       { title: "Key Personnel", href: `${URLS.ABOUT.ROOT}#key-personnel` },
       { title: "Advisory Board", href: `${URLS.ABOUT.ROOT}#advisory-board` },
       { title: "Learning & Beyond", href: URLS.ABOUT.LEARNING_AND_BEYOND.ROOT },
-      { title: "Our Affiliations", href: "/about/affiliations", active: true },
+      {
+        title: "Our Affiliations",
+        href: URLS.ABOUT.AFFILIATIONS.ROOT,
+        active: true,
+      },
     ],
     icon: "about",
   },
