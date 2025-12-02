@@ -5,6 +5,9 @@ import Hero from "@/components/Hero.astro";
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
+// DATA //
+import learningBeyondMeta from "@/data/meta/about/learning-and-beyond/learning-and-beyond.json";
+
 // SECTIONS //
 import Curriculum from "@/sections/about/Curriculum.astro";
 import Amenities from "@/sections/about/Amenities.astro";
@@ -19,7 +22,7 @@ const heroSectionDetails = {
 };
 ---
 
-<Layout>
+<Layout meta={learningBeyondMeta}>
   <Hero {...heroSectionDetails} />
   <Curriculum />
   <Amenities />
