@@ -15,7 +15,7 @@ export const learning360Content = [
         title: "Future-Ready Curriculum",
         description:
           "Curriculum designed to equip students with skills for tomorrow.",
-        imageUrl: "/images/child.png",
+        imageUrl: "/images/learning.png",
       },
       {
         id: 3,

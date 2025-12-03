@@ -5,13 +5,13 @@ export const prerender = false; // Render on Server
 import type { PressReleaseItemData } from "@/types/media/press-release";
 
 // COMPONENTS //
-import FilterBar from "@/components/FilterBar.astro";
-import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import ImageCard from "@/components/ImageCard.astro";
-import Lightbox from "@/components/Lightbox.astro";
-import EmptyState from "@/components/EmptyState.astro";
-import Pagination from "@/components/Pagination.astro";
+import FilterBar from "@/components/ui/FilterBar.astro";
+import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
+import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
+import ImageCard from "@/components/ui/ImageCard.astro";
+import Lightbox from "@/components/ui/Lightbox.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
+import Pagination from "@/components/ui/Pagination.astro";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -92,7 +92,7 @@ const shouldShowPagination = totalPages > 1;
                         classes="max-h-[350px] md:h-[350px]"
                       />
                     </div>
-                  )
+                  ),
                 )}
               </div>
             ) : (
