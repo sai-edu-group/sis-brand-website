@@ -2,6 +2,7 @@
 import Rath from "@/components/vectors/Rath.astro";
 import { URLS } from "@/infrastructure/constants/urls";
 import Image from "astro/components/Image.astro";
+import BijayaSirImage from "@/assets/images/bijaya-sir.png";
 ---
 
 <section class="bg-n-100 relative w-full overflow-hidden" id="our-founder">
@@ -105,7 +106,7 @@ import Image from "astro/components/Image.astro";
 
   <!-- Right image cluster (positioned as per design) -->
   <Image
-    src={"/images/bijaya-sir.png"}
+    src={BijayaSirImage}
     alt="Founder portrait"
     class="absolute right-0 bottom-0 z-0 h-auto w-1/2 w-[260px] md:w-[468px] lg:w-[44%] lg:min-w-[500px]"
     width={600}

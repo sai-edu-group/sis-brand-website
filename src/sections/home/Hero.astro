@@ -3,6 +3,9 @@ import CommonHeader from "@/components/CommonHeader.astro";
 import CustomSelect from "@/components/CustomSelect.astro";
 import Image from "astro/components/Image.astro";
 
+// IMAGES //
+import ChildrenImage from "@/assets/images/children-image.png";
+
 interface Props {
   title?: string;
   subtitle?: string;
@@ -21,7 +24,6 @@ const {
   formTitle = "Get the SAI Experience in Your Hands",
   buttonText = "Get Brochure",
   brochureText = "Get the brochure instantly on WhatsApp and discover why parents choose SAI.",
-  childrenImage = "/images/children-image.png",
 } = Astro.props as Props;
 
 const grades = [
@@ -47,7 +49,7 @@ const grades = [
 ---
 
 <section
-  class="bg-n-50 relative w-full overflow-hidden bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-36"
+  class="bg-n-50 relative w-full overflow-hidden bg-[url('/images/school-background.webp')] bg-cover bg-center pt-24 md:pt-36"
   data-name="hero-section"
 >
   <!-- Main Content -->
@@ -166,11 +168,9 @@ const grades = [
       <!-- Main children image -->
       <div class="relative w-screen lg:w-full">
         <Image
-          src={childrenImage}
+          src={ChildrenImage}
           alt="Children learning"
           class="h-full w-full object-cover lg:max-h-[680px]"
-          loading="lazy"
-          decoding="async"
           width={800}
           height={600}
         />
