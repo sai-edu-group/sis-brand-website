@@ -1,4 +1,5 @@
 // SCRIPTS //
+import { EVENTS } from "@/enums/analytics.enum";
 import { getDeviceType } from "./device";
 
 /**
@@ -53,7 +54,7 @@ export const setupClickTracking = (
 export const trackApplyNowClick = () => {
   const currentSection = getCurrentVisibleSection();
 
-  trackEvent("menu_apply_now_clicked", {
+  trackEvent(EVENTS.MENU_APPLY_NOW_CLICKED, {
     page_path: window.location.pathname,
     device_type: getDeviceType(),
     current_section: currentSection,

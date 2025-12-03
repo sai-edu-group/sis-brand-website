@@ -64,12 +64,15 @@ const { navItems } = Astro.props;
     trackCommonClickEvents,
   } from "@/scripts/analytics";
 
+  // Enums //
+  import { EVENTS } from "@/enums/analytics.enum";
+
   // Track Apply Now button clicks (desktop and mobile)
   setupClickTracking("apply-now-desktop", trackApplyNowClick);
   setupClickTracking("apply-now-mobile", trackApplyNowClick);
 
   // Track Explore button clicks
   setupClickTracking("explore-btn", () =>
-    trackCommonClickEvents("explore_button_click"),
+    trackCommonClickEvents(EVENTS.MENU_EXPLORE_BTN_CLICKED),
   );
 </script>
