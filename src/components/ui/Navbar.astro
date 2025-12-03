@@ -7,7 +7,13 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // Props
 interface Props {
-  navItems: { name: string; href: string; active?: boolean; target?: string }[];
+  navItems: {
+    name: string;
+    href: string;
+    active?: boolean;
+    target?: string;
+    id: string;
+  }[];
 }
 
 const { navItems } = Astro.props;
@@ -22,6 +28,7 @@ const { navItems } = Astro.props;
       navItems.map((navItem) => (
         <li class="text-nowrap">
           <a
+            id={navItem.id}
             href={navItem.href}
             target={navItem.target}
             class={`relative transition-colors duration-200 hover:text-orange-500 ${
@@ -38,7 +45,11 @@ const { navItems } = Astro.props;
   </ul>
   <div class="flex gap-3.5">
     <!-- Apply Now button -->
-    <a class="hidden sm:block" id="apply-now-desktop">
+    <a
+      class="hidden sm:block"
+      id="apply-now-desktop"
+      href={URLS.ADMISSIONS.ROOT}
+    >
       <Button text="Apply Now" variant="solid" rightArrow />
     </a>
 
@@ -74,5 +85,10 @@ const { navItems } = Astro.props;
   // Track Explore button clicks
   setupClickTracking("explore-btn", () =>
     trackCommonClickEvents(EVENTS.MENU_EXPLORE_BTN_CLICKED),
+  );
+
+  // Track Pay Fees button clicks
+  setupClickTracking("pay-fee", () =>
+    trackCommonClickEvents(EVENTS.MENU_PAY_FEES_CLICKED),
   );
 </script>
