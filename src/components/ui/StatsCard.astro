@@ -12,7 +12,7 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
 ---
 
 <div
-  class="border-n-200 bg-n-50 relative flex h-[140px] w-full items-center justify-between gap-6 overflow-hidden rounded-3xl border-2 p-1.5 md:h-[380px] md:flex-col md:p-3 lg:h-[230px] lg:flex-row"
+  class="border-n-200 bg-n-50 relative flex h-[140px] w-full items-center justify-between gap-6 overflow-hidden rounded-3xl border-2 p-1.5 md:h-[380px] md:flex-col md:p-3 lg:h-[230px] lg:flex-row lg:gap-5 xl:gap-6"
 >
   <!-- Stat image -->
   <div
@@ -32,11 +32,11 @@ const { statsCount = "", title = "", subTitle = "", img = "" } = Astro.props;
 
   <!-- Stat content -->
   <div
-    class="flex w-full flex-1 flex-col items-start gap-1 md:items-center md:gap-4 lg:items-start lg:gap-5 lg:pr-5"
+    class="flex w-full flex-1 flex-col items-start gap-1 md:items-center md:gap-3 lg:items-start lg:gap-4"
     data-name="stats-content"
   >
     <!-- Stat Number -->
-    <p class="text-n-700 w-min text-4xl font-bold md:text-6xl 2xl:text-7xl">
+    <p class="text-n-700 w-min text-4xl font-bold md:text-5xl 2xl:text-6xl">
       {statsCount}
     </p>
 
