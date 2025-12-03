@@ -52,7 +52,7 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
             required
           />
           <p id="email-error" data-error class="hidden text-sm text-red-600">
-            Enter your email ID
+            Enter a valid Email ID
           </p>
         </div>
 
@@ -81,6 +81,12 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
         document.querySelector("#email-error").classList.remove("hidden");
         return;
       }
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailPattern.test(email)) {
+        document.querySelector("#email-error").classList.remove("hidden");
+        return;
+      }
+
       const response = await subcribeNewsLetterRequest({ email });
       if (response.status) {
         document.querySelector("#email-error").classList.add("hidden");
