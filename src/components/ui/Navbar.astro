@@ -38,12 +38,12 @@ const { navItems } = Astro.props;
   </ul>
   <div class="flex gap-3.5">
     <!-- Apply Now button -->
-    <a href={URLS.ADMISSIONS.ROOT} class="hidden sm:block">
+    <a class="hidden sm:block" id="apply-now-desktop">
       <Button text="Apply Now" variant="solid" rightArrow />
     </a>
 
     <!-- Apply Now Icon Button on mobile -->
-    <div class="block sm:hidden">
+    <div class="block sm:hidden" id="apply-now-mobile">
       <IconButton href={URLS.ADMISSIONS.ROOT} extraClasses="!rounded-lg" />
     </div>
 
@@ -56,3 +56,20 @@ const { navItems } = Astro.props;
     <Hamburger />
   </div>
 </nav>
+
+<script>
+  import {
+    setupClickTracking,
+    trackApplyNowClick,
+    trackCommonClickEvents,
+  } from "@/scripts/analytics";
+
+  // Track Apply Now button clicks (desktop and mobile)
+  setupClickTracking("apply-now-desktop", trackApplyNowClick);
+  setupClickTracking("apply-now-mobile", trackApplyNowClick);
+
+  // Track Explore button clicks
+  setupClickTracking("explore-btn", () =>
+    trackCommonClickEvents("explore_button_click"),
+  );
+</script>
