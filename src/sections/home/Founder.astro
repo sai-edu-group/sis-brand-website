@@ -86,6 +86,7 @@ import BijayaSirImage from "@/assets/images/bijaya-sir.png";
           </div>
 
           <a
+            id="read-more-about-our-founder"
             href={`${URLS.ABOUT.ROOT}/founder/1/late-dr.-bijaya-kumar-sahoo`}
             class="relative w-1/2 min-w-[170px] text-lg leading-[24px] font-medium text-orange-500 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:after:w-full md:w-fit md:text-xl"
           >
@@ -116,4 +117,16 @@ import BijayaSirImage from "@/assets/images/bijaya-sir.png";
     width={600}
     height={800}
   />
+
+  <script>
+    import {
+      setupClickTracking,
+      trackReadMoreClick,
+    } from "@/scripts/analytics";
+
+    // Track Read More About Our Founder button click
+    setupClickTracking("read-more-about-our-founder", () => {
+      trackReadMoreClick("Our Founder");
+    });
+  </script>
 </section>

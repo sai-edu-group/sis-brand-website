@@ -30,6 +30,8 @@ export const trackEvent = (
   eventName: string,
   eventParams: Record<string, any>,
 ) => {
+  console.log(eventParams);
+
   if (typeof window !== "undefined") {
     window.gtag?.("event", eventName, eventParams);
   }
@@ -55,7 +57,7 @@ export const trackApplyNowClick = () => {
   const currentSection = getCurrentVisibleSection();
 
   trackEvent(EVENTS.MENU_APPLY_NOW_CLICKED, {
-    page_path: window.location.pathname,
+    page_path: window.location.href,
     device_type: getDeviceType(),
     current_section: currentSection,
   });
@@ -68,6 +70,16 @@ export const trackCommonClickEvents = (eventName: string) => {
   trackEvent(eventName, {
     page_path: window.location.pathname,
     device_type: getDeviceType(),
+  });
+};
+
+/** Track Read More button click */
+export const trackReadMoreClick = (title: string) => {
+  trackEvent(EVENTS.READ_MORE_CLICKED, {
+    page_path: window.location.pathname,
+    device_type: getDeviceType(),
+    section: getCurrentVisibleSection(),
+    title: title,
   });
 };
 
