@@ -10,8 +10,6 @@ import { fileURLToPath } from "url";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 
-import partytown from "@astrojs/partytown";
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
@@ -19,7 +17,7 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   site: "https://uat.saicloudschool.in/",
-  integrations: [astroIcon(), sitemap(), partytown()],
+  integrations: [astroIcon(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
     resolve: {

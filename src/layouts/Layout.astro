@@ -8,8 +8,6 @@ import SideMenu from "@/components/layout/SideMenu.astro";
 import "@/styles/global.css";
 
 const { meta = {} } = Astro.props;
-
-const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
 
 <html lang="en">
@@ -28,131 +26,127 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
       href="https://unpkg.com/lenis@1.3.11/dist/lenis.css"
     />
 
-    {gaId && (
-    <>
-      <script
-        is:inline
-        type="text/partytown"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
-      <script is:inline type="text/partytown" define:vars={{ gaId }}>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", gaId);
-      </script>
-    </>
-    )}
-  </head>
-  <body>
-    <main>
-      <Header />
-      <SideMenu />
-      <slot />
-      <!-- Footer -->
-      <Footer />
-    </main>
-    <SocialStickyBar />
-
-    <script>
-      import Lenis from "lenis";
-
-      let lenis = new Lenis({
-        duration: 1,
-        smoothWheel: true,
-        lerp: 0.2,
-        prevent: (node) => node.id === "modal",
-      });
-
-      function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-      }
-
-      requestAnimationFrame(raf);
-
-      // Make lenis available globally for SideMenu
-      window.lenis = lenis;
-    </script>
+    <script
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=G-S13GRK6RM9`}></script>
 
     <script is:inline>
-      (function () {
-        const fontLink = document.createElement("link");
-        fontLink.rel = "stylesheet";
-        fontLink.href =
-          "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap";
-
-        requestAnimationFrame(() => {
-          document.head.appendChild(fontLink);
-        });
-      })();
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-S13GRK6RM9");
     </script>
-  </body><script>
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-          }
-        });
-      },
-      { threshold: 0.2 }, // reveal when 20% visible
-    );
-
-    document.addEventListener("DOMContentLoaded", () => {
-      document
-        .querySelectorAll(
-          ".fade-in, .scale-in, .card-anim, .fade-in-down, .article-root > *",
-        )
-        .forEach((el) => {
-          observer.observe(el);
-        });
-    });
-  </script>
-  <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-  <script
-    src="https://unpkg.com/embla-carousel-auto-height/embla-carousel-auto-height.umd.js"
-  ></script>
-  <script src="https://unpkg.com/embla-carousel-fade/embla-carousel-fade.umd.js"
-  ></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
-    import { animate, stagger } from "motion";
-
-    const containers = Array.from(document.querySelectorAll(".animatedText"));
-    const once = new WeakSet();
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting || once.has(entry.target)) return;
-          once.add(entry.target);
-
-          const el = entry.target;
-          const children = el.querySelectorAll("span");
-
-          if (children.length > 0) {
-            // Animate child spans
-            animate(
-              children,
-              { opacity: [0, 1], y: [20, 0] },
-              { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
-            );
-          } else {
-            // Animate the container itself if it has no spans
-            animate(
-              el,
-              { opacity: [0, 1], y: [20, 0] },
-              { duration: 0.6, easing: "ease-out" },
-            );
-          }
-        });
-      },
-      { threshold: 0.3 },
-    );
-
-    containers.forEach((el) => io.observe(el));
-  </script>
+  </head>
 </html>
+<body>
+  <main>
+    <Header />
+    <SideMenu />
+    <slot />
+    <!-- Footer -->
+    <Footer />
+  </main>
+  <SocialStickyBar />
+
+  <script>
+    import Lenis from "lenis";
+
+    let lenis = new Lenis({
+      duration: 1,
+      smoothWheel: true,
+      lerp: 0.2,
+      prevent: (node) => node.id === "modal",
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Make lenis available globally for SideMenu
+    window.lenis = lenis;
+  </script>
+
+  <script is:inline>
+    (function () {
+      const fontLink = document.createElement("link");
+      fontLink.rel = "stylesheet";
+      fontLink.href =
+        "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap";
+
+      requestAnimationFrame(() => {
+        document.head.appendChild(fontLink);
+      });
+    })();
+  </script>
+</body><script>
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    },
+    { threshold: 0.2 }, // reveal when 20% visible
+  );
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelectorAll(
+        ".fade-in, .scale-in, .card-anim, .fade-in-down, .article-root > *",
+      )
+      .forEach((el) => {
+        observer.observe(el);
+      });
+  });
+</script>
+<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+<script
+  src="https://unpkg.com/embla-carousel-auto-height/embla-carousel-auto-height.umd.js"
+></script>
+<script src="https://unpkg.com/embla-carousel-fade/embla-carousel-fade.umd.js"
+></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  import { animate, stagger } from "motion";
+
+  const containers = Array.from(document.querySelectorAll(".animatedText"));
+  const once = new WeakSet();
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || once.has(entry.target)) return;
+        once.add(entry.target);
+
+        const el = entry.target;
+        const children = el.querySelectorAll("span");
+
+        if (children.length > 0) {
+          // Animate child spans
+          animate(
+            children,
+            { opacity: [0, 1], y: [20, 0] },
+            { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
+          );
+        } else {
+          // Animate the container itself if it has no spans
+          animate(
+            el,
+            { opacity: [0, 1], y: [20, 0] },
+            { duration: 0.6, easing: "ease-out" },
+          );
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
+
+  containers.forEach((el) => io.observe(el));
+</script>
