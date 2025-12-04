@@ -5,7 +5,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 import Button from "@/components/Button.astro";
 
 // SERVICES //
-import { fetchAwardsRequest } from "@/services/api/awards.api.service";
+import { fetchLatestAwardsRequest } from "@/services/api/awards.api.service";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -16,7 +16,7 @@ import { sectionHeaderContent } from "@/data/home/awards";
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
 
-const awardsCardContent = await fetchAwardsRequest();
+const awardsCardContent = await fetchLatestAwardsRequest();
 
 // Data (sample)
 ---

@@ -61,7 +61,8 @@ import Button from "@/components/Button.astro";
   </div>
 </section>
 
-<script is:inline>
+<script>
+  import { subcribeNewsLetterRequest } from "@/services/api/form.api.service.ts";
   const subscribeNewsletterButton = document.querySelector(
     "[data-subscribe-newsletter-button]",
   );

@@ -13,6 +13,12 @@ import Lightbox from "@/components/Lightbox.astro";
 import EmptyState from "@/components/EmptyState.astro";
 import Pagination from "@/components/Pagination.astro";
 
+// API SERVICES //
+import {
+  fetchPressReleasesRequest,
+  type PressReleaseItem,
+} from "@/services/api/press-release.api.service";
+
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
@@ -29,6 +35,7 @@ import {
 // Get the Year from the Search Params
 const year: number =
   Number(Astro.url.searchParams.get("year")) || pressRelease.years[0];
+const page = Number(Astro.url.searchParams.get("page")) || 1;
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -40,11 +47,15 @@ if (!year) {
   });
 }
 
-const releases: PressReleaseItemData[] = pressRelease.releases[year] ?? [];
+// Fetch from API
+const { totalCount, pressReleases } = await fetchPressReleasesRequest(
+  year,
+  page,
+);
 
-// Get this from API
-const totalItems = releases.length;
-const totalPages = totalItems > 0 ? Math.ceil(totalItems / 10) : 0;
+// Pagination calculation
+const ITEMS_PER_PAGE = 10;
+const totalPages = totalCount > 0 ? Math.ceil(totalCount / ITEMS_PER_PAGE) : 0;
 
 const shouldShowPagination = totalPages > 1;
 ---
@@ -74,22 +85,22 @@ const shouldShowPagination = totalPages > 1;
 
           <!-- Press Release -->
           {
-            releases && releases.length > 0 ? (
+            pressReleases && pressReleases.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                {releases.map(
-                  (releaseItem: PressReleaseItemData, releaseItemIndex) => (
+                {pressReleases.map(
+                  (releaseItem: PressReleaseItem, releaseItemIndex) => (
                     <div
                       class="card-anim"
                       style={`--delay: ${releaseItemIndex * 0.2}s`}
                     >
                       <ImageCard
-                        image={releaseItem.image}
-                        caption={releaseItem.name}
-                        index={releaseItem.id}
+                        image={"/images/media/press-release/9-nov.jpeg"}
+                        caption={releaseItem.title}
+                        index={releaseItemIndex}
                         classes="max-h-[350px] md:h-[350px]"
                       />
                     </div>
-                  )
+                  ),
                 )}
               </div>
             ) : (
