@@ -65,7 +65,6 @@ export const flagshipContent = [
       <li>UNWIND was selected to represent India in the DFC Global Be the Change Conference (BTC) 2018 at Taiwan.</li>
       </ul>
 
-
     `,
   },
   {
@@ -76,7 +75,27 @@ export const flagshipContent = [
       "A student-driven science event graced by global luminaries (e.g., NASA Astronaut Dr. Jack D. Fischer). It prepares students to become future innovators and researchers.",
     img: "/images/flagship/saited.jpg",
     landscapeImg: "/images/flagship/saited.jpg",
-    content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+    content: `<p>SAITED is one of the biggest School-level Science based event of the country. The mega event was graced by the presence of eminent personalities like NASA Astronaut, Dr. Jack D. Fischer and Scientist, Presenter, Author Prof. Lewis Dartnell.</p>
+    <p>It was initiated in the year 2016 to orient, educate and prepare students to work towards becoming future innovators, researchers, consultants and designers in their preferred fields. It is a day-long conclave where students from various schools participate in different activities related to science and technology. The event is open to students from class VI to XII from schools across the state.</p>
+    <p>Student-led – SAITED is a student driven event, managed by students of Class XI from the Science stream with handholding support from mentors. It is headed by Student Office Bearers and has nine different departments like Finance, Logistics, Management, Advertisement, IT, CSR, Research, Medical and Technology.</p>
+    <p><strong>Events</strong>
+    <ul>
+      <li>TED Talk by eminent guests</li>
+      <li>Tech-Fair – An innovative science fair by the students</li>
+      <li>Science based quiz competition</li>
+      <li>Seminars where students make presentations on a specific topic</li>
+      <li>Competitions on Scientific parodies, JAMS, Speak Out Your Mind, Comedy on Science etc</li>
+      <li>Workshops like Aero-modelling, Film-making, Crime Forensic, Coding, Photography, where students get trained by eminent resource persons.</li>
+      <li>A Mini Planetarium where students experience a literal walk through a replica of space</li>
+    </ul>
+    </p>
+    <p><strong>Interacting with Luminaries – </strong>The event provides students with an excellent opportunity to interact with luminaries from the field of research, engineering, medicine, health and technology from across the globe. Students get to enrich themselves by listening to eminent personalities on topics of great relevance, which encourage and empower them to take up innovative scientific activities and think outside the box. In the year 2016, renowned TED speaker, Scientist, Presenter, Author Prof. Lewis Dartnell, and in 2017, Famous Space Scientist and NASA Astronaut, Dr. Jack D. Fischer graced the occasion.</p>
+    <p><strong>Learning Outcomes – </strong>The free and open platform of SAITED enables students to share their ideas, discuss and deliberate amidst like-minded people, besides getting an opportunity to present their ideas as well as share their views on latest happenings in the field of technology, engineering and design.</p>
+    <p> It is an ideal platform for school children to connect themselves to the world of technology. Students get an opportunity to present their ideas and research work based on the theme and obtain valuable advice to strengthen their work. SAITED creates a deep curiosity among students on the potential of scientific and technological possibilities and lay the foundation on the basics of scientific knowledge.</p>
+    <p>Speading the culture of knowledge creation – The School also encourages participation of inquisitive students from various schools to spread a culture of knowledge creation, assimilation and sharing through involvement in designed activities and competitions.</p>
+    <p>SAI International School believes in promoting Science and Technology through various pioneering platforms to induce the spirit of curiosity and creativity amongst the students, as well as encourage and empower them to take up innovative scientific activities for a wider contribution to society. SAITED is one such attempt to imbibe interest in the students and expose them to the interesting world of science and technology.</p>
+    <p><a href="https://saited.com/" target="_blank" >Visit Site</a></p>
+    `,
   },
   {
     id: 5,
@@ -86,7 +105,11 @@ export const flagshipContent = [
       "A unique cultural event where every single student performs on a 5400 sq. ft. stage in front of 12,000+ guests, emphasizing holistic development and confidence.",
     img: "/images/flagship/sai-confluence.jpg",
     landscapeImg: "/images/flagship/sai-confluence.jpg",
-    content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+    content: `<p>SAI Confluence is a unique cultural event of the School where each and every student gets an opportunity to perform on a large stage of 5400 square feet, in front of a large group of more than twelve thousand guests. Trainers of National repute, choreograph the string of events and edify the students to give their best performance at par with national and international levels.</p>
+    <p><strong>Theme-based –</strong> Each year, the School tries to impart a deeper learning to the students through innovative themes, which give out a strong message on the values, culture and traditions of our nation and state as well. The fun and creativity in crafting wonderful performances through songs, music and scripts motivates the students to get involved in the entire process with zeal and dedication.</p>
+    <p><strong>Learning Outcome –</strong> It is an integral part of the curriculum for the holistic development of the students. The event brings out the hidden talents and enhances the confidence of each and every student by encouraging them and giving them an opportunity to shed their inhibitions by performing in front of a large audience on a large stage.</p>
+    
+    `,
   },
   {
     id: 6,
@@ -96,6 +119,11 @@ export const flagshipContent = [
       "The annual sports meet simulating the grandeur of the Olympic Games, held in a mega stadium. It instills values of discipline, teamwork, and resilience in students.",
     img: "/images/flagship/sai-olympics.jpg",
     landscapeImg: "/images/flagship/sai-olympics.jpg",
-    content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+    content: `<p>SAI Olympics, the annual sporting event of the School simulates the grandeur and talent of Olympics. It symbolizes sportsman spirit & camaraderie</p>
+    <p><strong>The Olympic touch –</strong> To inspire the students and lift their spirit, a larger sporting platform, simulating the Olympics is provided. It commences with an Inaugural ceremony involving the hoisting of the Sports Flag and lighting of the torch, followed by a spectacular torch relay. The event is laced beautifully with salutation from all the four houses in a regimented march past to the exhilarating beats of the School band, whereby creating an ambience of a competitive spirit, thus setting the mood for the event. The entire atmosphere vibrates with the spirit of sportsmanship. The finale comprise of an outstanding valedictory ceremony.</p>
+    <p><strong>Mega Stadium –</strong> The event takes place in a huge stadium consisting of a 400-meter track with eight lanes, for all track and field events. It has a seating capacity of more than 5000 people and is capable of holding events of an international level.</p>
+    <p><strong>Learning Outcome –</strong> The event not only showcases the sporting talent of the students but also instill in them values of discipline, team work, persistence, tenacity, self-control and resilience. It provides a wonderful avenue for budding sportspersons to display their aptitude and take it forward through handholding support from sincere coaches and a sophisticated infrastructure.</p>
+    <p>It is a euphoric mix of outstanding talents, nail-biting races, colorful drills and spectacular cultural performances.</p>
+    `,
   },
 ];
