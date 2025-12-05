@@ -140,7 +140,7 @@ import Image from "astro/components/Image.astro";
   </div>
 </section>
 <script is:inline type="module">
-  // import { contactEnquiryRequest } from "/js/form.js";
+  import { contactEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
     const step1 = document.getElementById("step-1");
@@ -216,7 +216,7 @@ import Image from "astro/components/Image.astro";
 
       try {
         // Call API
-        const response = await admissionEnquiryRequest(payload);
+        const response = await contactEnquiryRequest(payload);
         console.log("✅ Enquiry submitted:", response);
 
         if (response.status === false) {
