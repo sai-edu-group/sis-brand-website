@@ -105,7 +105,11 @@ export const flagshipContent = [
       "A unique cultural event where every single student performs on a 5400 sq. ft. stage in front of 12,000+ guests, emphasizing holistic development and confidence.",
     img: "/images/flagship/sai-confluence.jpg",
     landscapeImg: "/images/flagship/sai-confluence.jpg",
-    content: `<p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.<br>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>`,
+    content: `<p>SAI Confluence is a unique cultural event of the School where each and every student gets an opportunity to perform on a large stage of 5400 square feet, in front of a large group of more than twelve thousand guests. Trainers of National repute, choreograph the string of events and edify the students to give their best performance at par with national and international levels.</p>
+    <p><strong>Theme-based –</strong> Each year, the School tries to impart a deeper learning to the students through innovative themes, which give out a strong message on the values, culture and traditions of our nation and state as well. The fun and creativity in crafting wonderful performances through songs, music and scripts motivates the students to get involved in the entire process with zeal and dedication.</p>
+    <p><strong>Learning Outcome –</strong> It is an integral part of the curriculum for the holistic development of the students. The event brings out the hidden talents and enhances the confidence of each and every student by encouraging them and giving them an opportunity to shed their inhibitions by performing in front of a large audience on a large stage.</p>
+    
+    `,
   },
   {
     id: 6,
