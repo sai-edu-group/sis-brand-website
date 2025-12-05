@@ -1,9 +1,29 @@
 export const imageBasedSlider = [
-  "/images/result-image.png",
-  "/images/result-image.png",
-  "/images/result-image.png",
-  "/images/result-image.png",
-  "/images/result-image.png",
+  {
+    src: "/images/result-image.png",
+    alt: "Result Image 1",
+    url: "https://sai.edu.in/national-achievers/",
+  },
+  {
+    src: "/images/result-image.png",
+    alt: "Result Image 2",
+    url: "https://sai.edu.in/national-achievers/",
+  },
+  {
+    src: "/images/result-image.png",
+    alt: "Result Image 3",
+    url: "https://sai.edu.in/national-achievers/",
+  },
+  {
+    src: "/images/result-image.png",
+    alt: "Result Image 4",
+    url: "https://sai.edu.in/national-achievers/",
+  },
+  {
+    src: "/images/result-image.png",
+    alt: "Result Image 5",
+    url: "https://sai.edu.in/national-achievers/",
+  },
 ];
 
 export const sectionHeaderContent = {
