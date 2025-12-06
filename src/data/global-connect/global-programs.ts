@@ -23,7 +23,7 @@ export const globalProgramsContent = [
     landscapeImg: "/images/global-connect/global-programs/saioneer.jpg",
     description:
       "Collaborations with schools worldwide for cross-cultural learning and joint student projects.",
-    content: `<p class="fade-in">Collaborations with schools worldwide for cross-cultural learning and joint student projects.</p>`,
+    content: `<p class="fade-in">SAI International School has several Global School Partnerships (GSP) with schools in North America, Europe, Africa, and Asia. This program provides guidance, professional development opportunities and a means for developing a global dimension within the curriculum of all participating schools. All these partner schools allow SAI International teachers and students to visit their partner school for up to 5 days. In reciprocation SAI International School hosts teachers and students from their partner schools each year. Another element of GSP is collaborative classroom activities, projects, and virtual classes.</p>`,
   },
   {
     id: 3,
