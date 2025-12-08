@@ -34,7 +34,11 @@ export const globalPartnersContent = [
     landscapeImg: "/images/global-connect/global-partners/british-council.jpg",
     description:
       "Long-standing partnership supporting global exposure and international learning.",
-    content: `<p class="fade-in">Long-standing partnership supporting global exposure and international learning.</p>`,
+    content: `<p class="fade-in">SAI International School has been associated with the British Council since its inception in the year 2008. The School is a British Council School Ambassador (BCSA) and supports the local schools to work on the ISA programme. SAI is awarded with the International School Award (ISA) for three successive rows, 2010-2014, 2014-2017, 2017-2020 for its exemplary activities.</p>
+    <p>The programmes of British Council was introduced with the Cambridge English Exams, English for Speakers of Other Languages (ESOL) in 2008. It went on to host the British Council, Young Global Citizen Summit (YGCS), where more than 500 students and teachers from 115 Schools across the country participated.</p>
+    <p>Several Teacher development and core skill programs are conducted every year. Teachers have also successively participated in the Global Teacher Accreditation (GTA). The students and teachers have been involved in activities like the School Drama Festival, School Enterprise Challenge and the Global School Partnership programme. The SAI International School is a part of the Reading Challenge program as well as hosting UK Universities who council the students on higher studies.</p>
+    
+    `,
   },
   {
     id: 4,
