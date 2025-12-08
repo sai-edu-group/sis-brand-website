@@ -1,4 +1,5 @@
 ---
+// COMPONENTS //
 import Input from "@/components/ui/Input.astro";
 import StepCard from "@/components/ui/FormStepsCard.astro";
 import Select from "@/components/ui/Select.astro";
@@ -277,8 +278,9 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     </form>
   </div>
 </section>
-<script is:inline type="module">
-  // import { admissionEnquiryRequest } from "/js/form.js";
+<script>
+  import { admissionEnquiryRequest } from "@/services/api/form.api.service";
+
   window.addEventListener("DOMContentLoaded", () => {
     const steps = [
       document.getElementById("step-1"),
@@ -287,7 +289,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     ];
     const thankYou = document.getElementById("thank-you");
 
-    const showStep = (idx) => {
+    const showStep = (idx: number) => {
       steps.forEach((el, i) => el?.classList.toggle("hidden", i !== idx));
       thankYou?.classList.add("hidden");
     };
@@ -296,12 +298,12 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     showStep(0);
 
     // ✅ Validation
-    const validateStep = (stepEl) => {
+    const validateStep = (stepEl: any) => {
       if (!stepEl) return false;
       const fields = stepEl.querySelectorAll("input, select, textarea");
       let valid = true;
 
-      fields.forEach((el) => {
+      fields.forEach((el: any) => {
         const errorText = el
           .closest("[data-field]")
           ?.querySelector("[data-error]");
@@ -344,22 +346,44 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       .getElementById("back-3")
       ?.addEventListener("click", () => showStep(1));
 
+    /** 🔥 Convert your form fields → LeadSquared Attribute/Value array  */
+    const mapToLeadSquared = (formObj: any) => {
+      return [
+        { Attribute: "Student's Full Name", Value: formObj.name || "" },
+        { Attribute: "Email Address", Value: formObj.emailId || "" },
+        { Attribute: "Phone", Value: formObj.mobileNo || "" },
+        { Attribute: "Student DOB", Value: formObj.dob || "" },
+        { Attribute: "Admission Year", Value: formObj.academicyear_name || "" },
+        { Attribute: "Class Name", Value: formObj.className || "" },
+        { Attribute: "Parent Name", Value: formObj.parentName || "" },
+        { Attribute: "Hostel", Value: formObj.hostel || "" },
+        { Attribute: "Message", Value: formObj.message || "" },
+      ];
+    };
+
     // ✅ Submit handler
     document.getElementById("submit")?.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!validateStep(steps[2])) return;
 
-      const form = document.querySelector("form");
+      const form = document.querySelector("form") as HTMLFormElement;
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
+      const formObj = Object.fromEntries(formData.entries());
+
+      // Convert to LeadSquared format
+      const leadSquaredPayload = mapToLeadSquared(formObj);
 
       try {
-        const response = await admissionEnquiryRequest(payload);
-        console.log("✅ Enquiry submitted:", response);
+        console.log("📤 Sending LeadSquared Payload:", leadSquaredPayload);
 
-        if (response.status === false) {
+        const response = await admissionEnquiryRequest(leadSquaredPayload);
+
+        console.log("✅ LeadSquared API Response:", response);
+
+        // Check LSQ errors
+        if (response.ExceptionMessage || response.Status !== "Success") {
           alert(
-            "Something went wrong while submitting your enquiry. Please try again.",
+            "Something went wrong submitting your enquiry. Please try again.",
           );
           return;
         }

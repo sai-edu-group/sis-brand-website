@@ -1,23 +1,27 @@
+// MODULES //
 import axios from "axios";
 import type { AxiosRequestConfig } from "axios";
 
-/** ✅ Admission Enquiry API Call (axios) */
-export const admissionEnquiryRequest = async (data: any) => {
+/** ✅ LeadSquared Lead Capture API Call */
+export const admissionEnquiryRequest = async (leadData: any) => {
   try {
+    // Construct LeadSquared URL with keys
+    const url = `/api/admission`;
+
     const config: AxiosRequestConfig = {
       method: "post",
-      url: process.env.ADMISSION_URL,
+      url,
       headers: {
-        "x-api-key": process.env.API_KEY,
         "Content-Type": "application/json",
       },
-      data,
+      data: JSON.stringify(leadData), // must be array of { Attribute, Value }
     };
 
     const response = await axios.request(config);
+
     return response.data;
   } catch (error: any) {
-    console.error("❌ API error:", error);
+    console.error("❌ LeadSquared API Error:", error.response?.data || error);
     return { status: false, message: error.message };
   }
 };
