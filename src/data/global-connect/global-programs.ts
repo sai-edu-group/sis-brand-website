@@ -40,6 +40,6 @@ export const globalProgramsContent = [
       "/images/global-connect/global-programs/school-partnership.jpg",
     description:
       "A student-led import–export initiative offering hands-on experience in global trade.",
-    content: `<p class="fade-in">A student-led import–export initiative offering hands-on experience in global trade.</p>`,
+    content: `<p class="fade-in">SAIoneer EXIM is a completely students run import and export company. Each year it exchanges goods with the corresponding student run companies in the UK and Uganda. A new Board of Directors is appointed each year. Students submit their applications by the end of June and the exchange of goods happens before UNWIND which is held by the end of each year.</p>`,
   },
 ];
