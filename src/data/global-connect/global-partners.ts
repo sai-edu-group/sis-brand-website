@@ -74,8 +74,8 @@ export const globalPartnersContent = [
     landscapeImg: "/images/global-connect/global-partners/sat.jpg",
     description:
       "Authorized SAT test center providing college readiness opportunities for students.",
-    content: `<p class="fade-in">SAI International School became an AFS Member School in the year 2019. AFS School Membership Committee helps create active global citizens, globalizing schools & expand access to intercultural education through membership opportunities to Schools. The Membership supports and equips educators, schools in delivering effective intercultural learning programs that build global competence.</p>
-    <p>It offers short-term and long-term programs which include student exchange programs and hosting opportunities with participating AFS Member schools in India and abroad. The AFS experience allows students to discover new things about themselves and their place in the world while turning challenging situations into valuable opportunities to grow and become more mature.</p>
+    content: `<p class="fade-in">SAI International School has been an authorized centre for Scholastic Assessment Test (SAT) since 2014, enabling aspiring students from Odisha and nearby States to appear for the examination. SAT is a standardized test administered by the Educational Testing Service (ETS) to get admission into Under-graduate programs in colleges of USA, Canada and Singapore. It is a general test of verbal and quantitative reasoning consisting of three major sections like Critical Reading, Mathematics and Writing.</p>
+    <p>SAI International School was selected as a SAT Test Centre owing to its well qualified and competent professionals, excellent facilities and infrastructure. There has been an increasing trend in demand for SAT examination due to the rising interest of students to study in prestigious overseas Universities. As a leading educational institution, we try to simplify the accessibility for test and provide the aspiring students a platform to fulfill their dreams.</p>
     
     `,
   },
