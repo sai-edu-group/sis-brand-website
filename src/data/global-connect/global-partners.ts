@@ -69,7 +69,10 @@ export const globalPartnersContent = [
     landscapeImg: "/images/global-connect/global-partners/sat.jpg",
     description:
       "Authorized SAT test center providing college readiness opportunities for students.",
-    content: `<p class="fade-in">Authorized SAT test center providing college readiness opportunities for students.</p>`,
+    content: `<p class="fade-in">SAI International School became an AFS Member School in the year 2019. AFS School Membership Committee helps create active global citizens, globalizing schools & expand access to intercultural education through membership opportunities to Schools. The Membership supports and equips educators, schools in delivering effective intercultural learning programs that build global competence.</p>
+    <p>It offers short-term and long-term programs which include student exchange programs and hosting opportunities with participating AFS Member schools in India and abroad. The AFS experience allows students to discover new things about themselves and their place in the world while turning challenging situations into valuable opportunities to grow and become more mature.</p>
+    
+    `,
   },
   {
     id: 7,
