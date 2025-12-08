@@ -48,7 +48,12 @@ export const globalPartnersContent = [
     landscapeImg: "/images/global-connect/global-partners/round-square.jpg",
     description:
       "Member of a worldwide network connecting schools for global collaboration and leadership.",
-    content: `<p class="fade-in">Member of a worldwide network connecting schools for global collaboration and leadership.</p>`,
+    content: `<p class="fade-in">Round Square is an internationally diverse network of 200 like-minded schools in 50 countries on six continents that connect and collaborate to offer world-class programs and experiences. The Member Schools are characterised by a shared belief in an approach to education built around SIX IDEALS - Internationalism, Democracy, Environmentalism, Adventure, Leadership and Service.</p>
+    <p>SAI International School is honoured to receive the prestigious affiliation from Round Square, UK, the only school from Eastern India to be bestowed with the coveted membership. It brings in additional opportunities for students and teachers in learning and personal development both in and beyond the classroom. The school now becomes a part of a broader movement for positive change towards a well-rounded education that focuses beyond academic achievements.</p>
+    <p>Being a Round Square School brings opportunities for students of SAI International School to develop global competence, character and understanding, through real-life meaningful activities. These activities help in developing skills and experience that serve them both in university applications and study, and in their future careers. The Member Schools motivate students into practical experiences, addressing real-world issues and inspiring them to become agents of positive change. Our students get numerous occasions to attend conferences and events at national, regional and global levels. They also get exposure to different cultures and viewpoints through student exchanges and service projects. These exchange visits help in sharing of best practices, culture and learning beyond the boundaries and limitations.</p>
+
+
+`,
   },
   {
     id: 5,
@@ -58,7 +63,8 @@ export const globalPartnersContent = [
     landscapeImg: "/images/global-connect/global-partners/afs.jpg",
     description:
       "AFS membership enabling student exchanges and intercultural learning opportunities.",
-    content: `<p class="fade-in">AFS membership enabling student exchanges and intercultural learning opportunities.</p>`,
+    content: `<p class="fade-in">SAI International School became an AFS Member School in the year 2019. AFS School Membership Committee helps create active global citizens, globalizing schools & expand access to intercultural education through membership opportunities to Schools. The Membership supports and equips educators, schools in delivering effective intercultural learning programs that build global competence.</p>
+    <p>It offers short-term and long-term programs which include student exchange programs and hosting opportunities with participating AFS Member schools in India and abroad. The AFS experience allows students to discover new things about themselves and their place in the world while turning challenging situations into valuable opportunities to grow and become more mature.</p>`,
   },
   {
     id: 6,
@@ -68,7 +74,10 @@ export const globalPartnersContent = [
     landscapeImg: "/images/global-connect/global-partners/sat.jpg",
     description:
       "Authorized SAT test center providing college readiness opportunities for students.",
-    content: `<p class="fade-in">Authorized SAT test center providing college readiness opportunities for students.</p>`,
+    content: `<p class="fade-in">SAI International School became an AFS Member School in the year 2019. AFS School Membership Committee helps create active global citizens, globalizing schools & expand access to intercultural education through membership opportunities to Schools. The Membership supports and equips educators, schools in delivering effective intercultural learning programs that build global competence.</p>
+    <p>It offers short-term and long-term programs which include student exchange programs and hosting opportunities with participating AFS Member schools in India and abroad. The AFS experience allows students to discover new things about themselves and their place in the world while turning challenging situations into valuable opportunities to grow and become more mature.</p>
+    
+    `,
   },
   {
     id: 7,
