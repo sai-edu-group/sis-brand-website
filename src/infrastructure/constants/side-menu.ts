@@ -19,7 +19,7 @@ export const menu: MenuItemData[] = [
     title: "HOME",
     submenu: [
       { title: "Ethos of SAI", href: `${URLS.HOME}#ethos` },
-      { title: "Guru Shishya Parampara", href: `${URLS.HOME}#ethos` },
+      { title: "Guru Shishya Parampara", href: `${URLS.HOME}#guru-shishya` },
       { title: "Our Founder", href: `${URLS.HOME}#our-founder` },
       { title: "Learning @360", href: `${URLS.HOME}#learning-360` },
       { title: "Awards", href: `${URLS.HOME}#awards` },

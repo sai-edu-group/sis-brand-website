@@ -35,14 +35,5 @@ export const affiliationsDetails = {
 
       `,
     },
-    {
-      id: 3,
-      title: "IBCP",
-      img: "/images/affiliations/ibcp.png",
-      description:
-        "Nurturing academic excellence through India’s most trusted national board.",
-      landscapeImg: "/images/affiliations/ibcp.jpg",
-      content: `<p>Nurturing academic excellence through India’s most trusted national board.</p>`,
-    },
   ],
 };
