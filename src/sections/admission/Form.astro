@@ -272,8 +272,6 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
         >
           Our admissions team will be in touch with you shortly.
         </p>
-        <!-- Download brochure button -->
-        <Button text="Download Brochure" variant="outline" />
       </article>
 
       <!-- SUBMITTING SCREEN -->
@@ -412,7 +410,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
         // ❌ PHONE VALIDATION: should contain ONLY digits
         if (el.name === "mobileNo" && el.value !== "") {
           const notNumbers = /\D/.test(el.value);
-          if (notNumbers) fieldValid = false;
+          if (notNumbers || el.value.length !== 10) fieldValid = false;
         }
 
         if (!fieldValid) {

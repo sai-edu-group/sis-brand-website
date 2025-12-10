@@ -270,6 +270,10 @@ export const careerResults: ClassData[] = [
 ];
 
 export const careerResultsBreadcrumbs: BreadcrumbData[] = [
+  {
+    label: "Results",
+    href: URLS.RESULTS.ROOT,
+  },
   { label: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
 ];
 
