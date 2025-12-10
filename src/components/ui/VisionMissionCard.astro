@@ -13,7 +13,9 @@ const { img, title = "" } = Astro.props as Props;
   class="group bg-n-50 border-n-300 flex h-full w-full flex-col gap-3.5 overflow-hidden rounded-3xl border-2 p-4 pb-6 md:flex-row md:gap-6 md:pb-4"
 >
   <!-- Vision image -->
-  <div class="relative h-56 w-full overflow-hidden rounded-xl md:w-[320px]">
+  <div
+    class="group relative h-56 w-full cursor-pointer overflow-hidden rounded-xl md:w-[320px]"
+  >
     <Image
       src={img}
       alt={title}

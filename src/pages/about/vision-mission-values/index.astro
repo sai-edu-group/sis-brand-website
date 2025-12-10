@@ -38,7 +38,7 @@ import Image from "astro/components/Image.astro";
         <div class="hidden flex-col gap-8 xl:flex">
           <!-- Vision -->
           <div
-            class="flex w-full justify-end rounded-3xl bg-[url('/images/vision-mission-values/vision.jpg')] bg-cover bg-center py-25 pr-20"
+            class="group flex w-full cursor-pointer justify-end rounded-3xl bg-[url('/images/vision-mission-values/vision.jpg')] bg-cover bg-center py-25 pr-20"
           >
             <div class="flex w-[40%] flex-col gap-20">
               <!-- Title -->
@@ -76,11 +76,15 @@ import Image from "astro/components/Image.astro";
                 </p>
               </div>
             </div>
+            <!-- Overlay animation -->
+            <span
+              class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+            ></span>
           </div>
 
           <!-- Mission -->
           <div
-            class="flex w-full justify-start rounded-3xl bg-[url('/images/vision-mission-values/mission.jpg')] bg-cover bg-center py-25 pl-20"
+            class="group relative flex w-full cursor-pointer justify-start rounded-3xl bg-[url('/images/vision-mission-values/mission.jpg')] bg-cover bg-center py-25 pl-20"
           >
             <div class="flex w-[40%] flex-col gap-16">
               <!-- Title -->
@@ -115,14 +119,16 @@ import Image from "astro/components/Image.astro";
                 We nurture holistic development, inspire creativity and leadership,
                 and foster resilience and happiness for lifelong learning.
               </p>
-
-              <Button text="Read More" variant="outline" />
             </div>
+            <!-- Overlay animation -->
+            <span
+              class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+            ></span>
           </div>
 
           <!-- Values -->
           <div
-            class="flex w-full justify-end rounded-3xl bg-[url('/images/vision-mission-values/values.jpg')] bg-cover bg-center py-25 pr-20"
+            class="group flex w-full cursor-pointer justify-end rounded-3xl bg-[url('/images/vision-mission-values/values.jpg')] bg-cover bg-center py-25 pr-20"
           >
             <div class="flex w-[40%] flex-col gap-20">
               <!-- Title -->
@@ -155,6 +161,10 @@ import Image from "astro/components/Image.astro";
                 >”
               </p>
             </div>
+            <!-- Overlay animation -->
+            <span
+              class="pointer-events-none absolute inset-0 before:absolute before:inset-0 before:-translate-x-[150%] before:bg-[linear-gradient(128deg,rgba(255,255,255,0)_-3.31%,rgba(255,255,255,0.56)_31.94%,rgba(255,255,255,0.78)_49.57%,rgba(255,255,255,0.26)_63.89%,rgba(255,255,255,0)_111.26%)] before:opacity-0 before:transition-all before:duration-[500ms] before:ease-in group-hover:before:translate-x-[150%] group-hover:before:opacity-100"
+            ></span>
           </div>
         </div>
 
