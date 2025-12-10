@@ -430,12 +430,12 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 
     // ✅ Step navigation
     document.getElementById("next-1")?.addEventListener("click", () => {
-      showStep(1);
+      if (validateStep(steps[0])) showStep(1);
     });
 
     document.getElementById("next-2")?.addEventListener("click", (e) => {
       e.preventDefault();
-      showStep(2);
+      if (validateStep(steps[1])) showStep(2);
     });
 
     document
@@ -463,7 +463,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     // ✅ Submit handler
     document.getElementById("submit")?.addEventListener("click", async (e) => {
       e.preventDefault();
-      // if (!validateStep(steps[2])) return;
+      if (!validateStep(steps[2])) return;
 
       const form = document.querySelector("form") as HTMLFormElement;
       const formData = new FormData(form);

@@ -19,7 +19,7 @@ const {
 } = Astro.props as Props;
 ---
 
-<div class="bg-n-50 h-full w-full overflow-hidden rounded-2xl">
+<div class="bg-n-50 flex h-full w-full flex-col overflow-hidden rounded-2xl">
   <!-- Campus image -->
   <Image
     src={img}
@@ -29,7 +29,7 @@ const {
     height={326}
   />
   <div
-    class="flex flex-col gap-2.5 px-5 py-4 md:gap-5 md:px-9 md:py-6 lg:gap-6 lg:px-10 lg:py-7"
+    class="flex flex-1 flex-col justify-between gap-2.5 px-5 py-4 md:gap-5 md:px-9 md:py-6 lg:gap-6 lg:px-10 lg:py-7"
   >
     <!-- Campus title -->
     <p
