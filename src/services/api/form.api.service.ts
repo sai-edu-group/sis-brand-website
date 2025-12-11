@@ -31,7 +31,7 @@ export const contactEnquiryRequest = async (data: any) => {
   try {
     const config: AxiosRequestConfig = {
       method: "post",
-      url: process.env.API_URL,
+      url: "https://sis-api.neevohub.com/contacts/",
       headers: {
         "Content-Type": "application/json",
       },
