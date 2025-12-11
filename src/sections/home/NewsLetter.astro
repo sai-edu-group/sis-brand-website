@@ -65,34 +65,43 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
   </div>
 </section>
 
-<script is:inline>
-  const subscribeNewsletterButton = document.querySelector(
-    "[data-subscribe-newsletter-button]",
-  );
-  if (subscribeNewsletterButton) {
-    subscribeNewsletterButton.addEventListener("click", async (e) => {
-      e.preventDefault();
-      // Hide all previous errors
-      document
-        .querySelectorAll("[data-error]")
-        .forEach((p) => p.classList.add("hidden"));
-      const email = document.querySelector('input[name="emailId"]').value;
-      if (!email) {
-        document.querySelector("#email-error").classList.remove("hidden");
-        return;
-      }
-      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailPattern.test(email)) {
-        document.querySelector("#email-error").classList.remove("hidden");
-        return;
-      }
+<script>
+  import { subcribeNewsLetterRequest } from "@/services/api/form.api.service";
 
-      const response = await subcribeNewsLetterRequest({ email });
-      if (response.status) {
-        document.querySelector("#email-error").classList.add("hidden");
-      } else {
-        document.querySelector("#email-error").classList.remove("hidden");
-      }
-    });
-  }
+  window.addEventListener("DOMContentLoaded", () => {
+    const subscribeNewsletterButton = document.querySelector(
+      "[data-subscribe-newsletter-button]",
+    );
+    if (subscribeNewsletterButton) {
+      subscribeNewsletterButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        // Hide all previous errors
+
+        document
+          .querySelectorAll("[data-error]")
+          .forEach((p) => p.classList.add("hidden"));
+        const email = document.querySelector('input[name="emailId"]').value;
+        if (!email) {
+          document.querySelector("#email-error").classList.remove("hidden");
+          return;
+        }
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+          document.querySelector("#email-error").classList.remove("hidden");
+          return;
+        }
+
+        const response = await subcribeNewsLetterRequest({ email });
+        if (response.status) {
+          document.querySelector("#email-error").classList.add("hidden");
+          alert(
+            "Thank you for subscribing! You have been added to our newsletter.",
+          );
+        } else {
+          document.querySelector("#email-error").classList.remove("hidden");
+          alert("Something went wrong. Please try again later.");
+        }
+      });
+    }
+  });
 </script>
