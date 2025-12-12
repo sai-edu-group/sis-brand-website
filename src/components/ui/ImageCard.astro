@@ -26,7 +26,7 @@ const {
 ---
 
 <div
-  class={`group relative flex w-full max-w-xl overflow-hidden rounded-2xl border-2 border-n-200 bg-cover bg-center ${classes}`}
+  class={`cursor-pointer group relative flex w-full max-w-xl overflow-hidden rounded-2xl border-2 border-n-200 bg-cover bg-center ${classes}`}
 >
   {
     categoryText && (
@@ -81,8 +81,6 @@ const {
         showExpandButton && readMoreUrl === "" && (
           <button
             class="flex items-center gap-2 hover:cursor-pointer"
-            data-lightbox-index={index}
-            data-lightbox-src={image}
             aria-label="Expand image"
           >
             <Icon name="expand" />
@@ -94,4 +92,14 @@ const {
       }
     </div>
   </div>
+
+  {
+    showExpandButton && readMoreUrl === "" && (
+      <div
+        class="absolute inset-0 z-10 h-full w-full"
+        data-lightbox-index={index}
+        data-lightbox-src={image}
+      />
+    )
+  }
 </div>
