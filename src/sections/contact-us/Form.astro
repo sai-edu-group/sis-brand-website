@@ -45,7 +45,7 @@ import Image from "astro/components/Image.astro";
                 type="number"
                 required
                 placeholder="Enter phone number"
-                errorMessage="Phone number is required and must contain only digits."
+                errorMessage="Phone number is required and must contain 10 digits."
               />
             </div>
 
@@ -182,7 +182,7 @@ import Image from "astro/components/Image.astro";
         // ❌ PHONE VALIDATION: should contain ONLY digits
         if (el.name === "phoneNumber" && value !== "") {
           const notNumbers = /\D/.test(value);
-          if (notNumbers) fieldValid = false;
+          if (notNumbers || el.value.length !== 10) fieldValid = false;
         }
 
         // Style updates
