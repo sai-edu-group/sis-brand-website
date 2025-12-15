@@ -157,6 +157,8 @@ import Image from "astro/components/Image.astro";
 </script>
 
 <script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { trackEvent } from "@/scripts/analytics";
   import { contactEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
@@ -233,7 +235,6 @@ import Image from "astro/components/Image.astro";
       try {
         // Call API
         const response = await contactEnquiryRequest(payload);
-        console.log("✅ Enquiry submitted:", response);
 
         if (response.status === false) {
           alert(
@@ -241,6 +242,9 @@ import Image from "astro/components/Image.astro";
           );
           return;
         }
+
+        // Track enquiry submitted event
+        trackEvent(EVENTS.ENQUIRY_FORM_COMPLETED, payload);
 
         // Show thank you screen
         step1?.classList.add("hidden");
