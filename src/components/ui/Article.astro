@@ -48,6 +48,15 @@ const {
    📌 DESKTOP DEFAULT (≥1024px)
 ------------------------------------- */
 
+  .article-root div {
+    margin-bottom: 40px;
+  }
+  .article-root img {
+    border-radius: 24px;
+    object-fit: cover;
+    margin-bottom: 32px;
+  }
+
   .article-root h1 {
     color: var(--color-n-800);
     font-size: var(--text-6xl);
@@ -175,6 +184,15 @@ const {
 ------------------------------------- */
   @media (max-width: 1023px) and (min-width: 768px) {
     /* Tablet Margins */
+
+    .article-root div {
+      margin-bottom: 52px;
+    }
+
+    .article-root img {
+      margin-bottom: 0;
+    }
+
     .article-root h1 {
       margin-bottom: 36px;
     }
@@ -208,6 +226,13 @@ const {
 ------------------------------------- */
   @media (max-width: 767px) {
     /* Font sizes */
+    .article-root div {
+      margin-bottom: 44px;
+    }
+    .article-root img {
+      margin-bottom: 0;
+    }
+
     .article-root ol,
     .article-root p,
     .article-root a {

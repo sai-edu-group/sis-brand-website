@@ -51,7 +51,10 @@ const {
     <div class="group w-full overflow-hidden">
       <div
         class="flex items-center gap-6 whitespace-nowrap will-change-transform md:gap-14"
-        style={`--pb-speed: ${speedSec}; --pb-delay: ${delay}; transform:translateX(0);`}
+        style={`--pb-speed: ${speedSec}; --pb-delay: ${delay}; transform:translateX(0);
+        --pb-start:${direction === "rtl" ? "0" : "-50%"};
+        --pb-end:${direction === "rtl" ? "-50%" : "0"}
+        `}
       >
         <!-- GROUP 1 -->
         <ul
@@ -120,10 +123,10 @@ const {
        For RTL we set initial transform to 0 and use animation-direction: reverse. */
     @keyframes pb-marquee {
       0% {
-        transform: translateX(-50%);
+        transform: translateX(var(--pb-start));
       }
       100% {
-        transform: translateX(0);
+        transform: translateX(var(--pb-end));
       }
     }
     /* Root animation settings use CSS variables set on the element.

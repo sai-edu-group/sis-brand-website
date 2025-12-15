@@ -147,6 +147,14 @@ const grades = [
               >
                 {buttonText}
               </button>
+
+              <div
+                id="hero-loader"
+                class="mt-2 flex hidden w-full items-center gap-3 text-orange-600 md:w-[39%]"
+              >
+                <div class="spinner"></div>
+                <span class="text-base font-medium">Submitting...</span>
+              </div>
             </form>
 
             <!-- Brochure Text -->
@@ -233,6 +241,21 @@ const grades = [
 </section>
 
 <style>
+  .spinner {
+    width: 18px;
+    height: 18px;
+    border: 3px solid #f2c4c0;
+    border-top-color: #cc554d;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   /* Custom select styling */
   select {
     background-image: none;
@@ -257,9 +280,15 @@ const grades = [
 <script>
   import { EVENTS } from "@/enums/analytics.enum";
   import { trackFormCompletionEvent } from "@/scripts/analytics";
-  const form = document.querySelector("[data-hero-form]");
-  if (form) {
-    form.addEventListener("submit", (e) => {
+  import { admissionEnquiryRequest } from "@/services/api/form.api.service";
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector("[data-hero-form]") as HTMLFormElement;
+    const loader = document.getElementById("hero-loader");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       // Hide all previous errors
@@ -267,59 +296,84 @@ const grades = [
         .querySelectorAll("[data-error]")
         .forEach((p) => p.classList.add("hidden"));
 
-      const studentName = form
-        .querySelector('input[name="studentName"]')
-        .value.trim();
-      const grade = form.querySelector('input[name="grade"]').value.trim(); // ✅ hidden input from custom dropdown
-      const phone = form.querySelector('input[name="phone"]').value.trim();
+      const studentName =
+        form.querySelector('input[name="studentName"]')?.value.trim() || "";
+      const grade =
+        form.querySelector('input[name="grade"]')?.value.trim() || "";
+      const phone =
+        form.querySelector('input[name="phone"]')?.value.trim() || "";
 
       let hasError = false;
 
       // Student Name Validation
-      const nameHasNumber = /\d/;
-
       if (!studentName) {
-        form.querySelector("#studentName-error").classList.remove("hidden");
+        form.querySelector("#studentName-error")?.classList.remove("hidden");
         hasError = true;
-      } else if (nameHasNumber.test(studentName)) {
+      } else if (/\d/.test(studentName)) {
         form
           .querySelector("#studentName-number-error")
-          .classList.remove("hidden");
+          ?.classList.remove("hidden");
         hasError = true;
       }
 
-      // Grade Validation (from custom dropdown hidden input)
+      // Grade Validation
       if (!grade) {
-        form.querySelector("#grade-error").classList.remove("hidden");
+        form.querySelector("#grade-error")?.classList.remove("hidden");
         hasError = true;
       }
 
       // Phone Validation (10-digit)
-      const phoneRegex = /^[0-9]{10}$/;
-      if (!phoneRegex.test(phone)) {
-        form.querySelector("#phone-error").classList.remove("hidden");
+      if (!/^[0-9]{10}$/.test(phone)) {
+        form.querySelector("#phone-error")?.classList.remove("hidden");
         hasError = true;
       }
 
-      if (!hasError) {
-        // ✅ All good — you can call your API here
-        console.log("✅ Valid form data:", { studentName, grade, phone });
+      if (hasError) return;
 
-        // Example placeholder for API call:
-        // await admissionEnquiryRequest({ studentName, grade, phone });
+      // Example placeholder for API call:
+      // await admissionEnquiryRequest({ studentName, grade, phone });
 
-        // Track form completion
-        trackFormCompletionEvent(
-          {
-            student_name: studentName,
-            grade: grade,
-            phone: phone,
-          },
-          EVENTS.INTEREST_FORM_COMPLETED,
+      // Track form completion
+      trackFormCompletionEvent(
+        {
+          student_name: studentName,
+          grade: grade,
+          phone: phone,
+        },
+        EVENTS.INTEREST_FORM_COMPLETED,
+      );
+      // 🔥 Show loader & disable button
+      loader?.classList.remove("hidden");
+
+      try {
+        const leadSquaredPayload = [
+          { Attribute: "Student's Full Name", Value: studentName },
+          { Attribute: "Phone", Value: phone },
+          { Attribute: "Class Name", Value: grade },
+        ];
+
+        await admissionEnquiryRequest(leadSquaredPayload);
+
+        // Success message
+        alert(
+          "Form submitted successfully! You will receive the brochure on your phone shortly.",
         );
+
+        // Reset fields
+        form.reset();
+
+        // Reset custom dropdown label
+        const gradeLabel = document.querySelector("[data-grade-label]");
+        if (gradeLabel) gradeLabel.textContent = "Select Class";
+      } catch (err) {
+        console.error(err);
+        alert("Something went wrong. Please try again.");
+      } finally {
+        // Hide loader & enable button again
+        loader?.classList.add("hidden");
       }
     });
-  }
+  });
 </script>
 
 <script>

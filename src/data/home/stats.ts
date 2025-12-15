@@ -27,18 +27,18 @@ export const statsCard = [
     id: 4,
     title: "sq.ft. of world-class art and sports facilities",
     statsCount: "335K+",
-    img: "/images/stats-image-4.png",
+    img: "/images/sports-facilities.jpg",
   },
   {
     id: 5,
     title: "Clubs & Activities — From tech to arts & sports",
     statsCount: "20+",
-    img: "/images/stats-image-1.png",
+    img: "/images/activities.jpg",
   },
   {
     id: 6,
     title: "Global/Ivy University Admits",
     statsCount: "40+",
-    img: "/images/stats-image-1.png",
+    img: "/images/stats-image-4.png",
   },
 ];

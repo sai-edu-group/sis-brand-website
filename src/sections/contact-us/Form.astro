@@ -49,7 +49,7 @@ import Image from "astro/components/Image.astro";
                 type="number"
                 required
                 placeholder="Enter phone number"
-                errorMessage="Phone number is required and must contain only digits."
+                errorMessage="Phone number is required and must contain 10 digits."
               />
             </div>
 
@@ -156,8 +156,8 @@ import Image from "astro/components/Image.astro";
   }
 </script>
 
-<script is:inline type="module">
-  // import { contactEnquiryRequest } from "/js/form.js";
+<script>
+  import { contactEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
     const step1 = document.getElementById("step-1");
@@ -199,7 +199,7 @@ import Image from "astro/components/Image.astro";
         // ❌ PHONE VALIDATION: should contain ONLY digits
         if (el.name === "phoneNumber" && value !== "") {
           const notNumbers = /\D/.test(value);
-          if (notNumbers) fieldValid = false;
+          if (notNumbers || el.value.length !== 10) fieldValid = false;
         }
 
         // Style updates
@@ -225,7 +225,6 @@ import Image from "astro/components/Image.astro";
 
       // Collect form data
       const form = document.querySelector("form");
-      console.log(form);
 
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData.entries());
@@ -233,7 +232,7 @@ import Image from "astro/components/Image.astro";
 
       try {
         // Call API
-        const response = await admissionEnquiryRequest(payload);
+        const response = await contactEnquiryRequest(payload);
         console.log("✅ Enquiry submitted:", response);
 
         if (response.status === false) {

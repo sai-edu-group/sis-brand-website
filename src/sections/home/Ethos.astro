@@ -1,6 +1,6 @@
 ---
 import Image from "astro/components/Image.astro";
-import SAIImage from "@/assets/images/sai-baba.png";
+import SAIImage from "@/assets/images/saibaba.png";
 import GuruImage from "@/assets/images/guru-shishya.png";
 
 // Section Data
@@ -20,18 +20,16 @@ const ethosDetails = {
 };
 ---
 
-<section class="relative z-10 overflow-hidden bg-white" data-section="Ethos">
+<section class="relative z-10 overflow-hidden bg-white" id="ethos">
   <div
+    id="guru-shishya"
     class="container mx-auto flex flex-col items-center justify-between gap-16 px-6 py-24 md:gap-20 md:pt-44 md:pb-50 lg:flex-row lg:gap-0 lg:px-8 lg:pt-48 lg:pb-24 xl:px-6 2xl:px-0"
   >
     <!-- Left side Sai Baba -->
-    <div
-      class="relative flex w-full flex-col gap-5 md:gap-6 lg:w-[42%]"
-      id="ethos"
-    >
+    <div class="relative flex w-full flex-col gap-5 md:gap-6 lg:w-[42%]">
       <!-- Backdrop image -->
       <div
-        class="absolute -top-[10%] left-[50%] -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:w-[600px] lg:-left-[20%] lg:w-[450px] xl:-left-[20%] xl:w-[600px]"
+        class="absolute -top-[10%] -right-[10%] -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:-right-[5%] md:w-[450px] lg:-left-[32%] lg:w-[420px] xl:-left-[28%] 2xl:-left-[23%]"
       >
         <Image
           src={ethosDetails.left.backdrop}
@@ -153,10 +151,7 @@ const ethosDetails = {
     </div>
 
     <!-- Right Side Guru Shishya Parampara -->
-    <div
-      class="relative flex flex-col gap-5 md:gap-6 lg:w-[42%]"
-      id="guru-shishya"
-    >
+    <div class="relative flex flex-col gap-5 md:gap-6 lg:w-[42%]">
       <!-- Backdrop image -->
       <div
         class="absolute -top-[10%] right-0 -z-1 w-[300px] sm:w-[400px] md:-top-[30%] md:w-[600px] lg:-right-[10%] lg:w-[450px] xl:right-0 xl:w-[600px]"

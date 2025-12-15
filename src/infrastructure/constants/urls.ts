@@ -50,6 +50,7 @@ export const URLS = {
   },
 
   RESULTS: {
+    ROOT: "/results",
     CBSE_12: {
       ROOT: "/results/cbse-12th",
       STREAM: (streamId: string) => `/results/cbse-12th/${streamId}`,
