@@ -143,6 +143,19 @@ import Image from "astro/components/Image.astro";
     </form>
   </div>
 </section>
+<script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { setupFormStartTracking } from "@/scripts/analytics";
+
+  const form = document.querySelector(
+    "form#contact-form",
+  ) as HTMLFormElement | null;
+
+  if (form) {
+    setupFormStartTracking(form, EVENTS.ENQUIRY_FORM_STARTED);
+  }
+</script>
+
 <script is:inline type="module">
   // import { contactEnquiryRequest } from "/js/form.js";
 

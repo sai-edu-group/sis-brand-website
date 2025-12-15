@@ -37,6 +37,60 @@ export const trackEvent = (
   }
 };
 
+export const trackFormStartEvent = (
+  fieldName: string,
+  fieldValue: any,
+  eventName: EVENTS,
+) => {
+  trackEvent(eventName, {
+    device_type: getDeviceType(),
+    field_name: fieldName,
+    field_value: fieldValue,
+  });
+};
+
+export const trackFormCompletionEvent = (
+  fields: Record<string, any>,
+  eventName: EVENTS,
+) => {
+  trackEvent(eventName, {
+    device_type: getDeviceType(),
+    ...fields,
+  });
+};
+
+/**
+ * Setup tracking for form start (first interaction)
+ */
+export const setupFormStartTracking = (
+  formElement: HTMLFormElement,
+  eventName: EVENTS = EVENTS.INTEREST_FORM_STARTED,
+) => {
+  let hasStartedForm = false;
+
+  const trackFormStart = (e: Event) => {
+    if (hasStartedForm) return;
+
+    const target = e.target as HTMLElement;
+    if (
+      target.tagName === "INPUT" ||
+      target.tagName === "SELECT" ||
+      target.tagName === "TEXTAREA"
+    ) {
+      const inputElement = target as HTMLInputElement | HTMLSelectElement;
+
+      hasStartedForm = true;
+
+      trackFormStartEvent(inputElement.name, inputElement.value, eventName);
+
+      // Cleanup
+      formElement.removeEventListener("focusout", trackFormStart);
+    }
+  };
+
+  formElement.addEventListener("focusout", trackFormStart, { once: true });
+};
+
 /**
  * Setup click tracking on an element
  */

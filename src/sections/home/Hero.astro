@@ -254,7 +254,9 @@ const grades = [
   }
 </style>
 
-<script is:inline>
+<script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { trackFormCompletionEvent } from "@/scripts/analytics";
   const form = document.querySelector("[data-hero-form]");
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -305,7 +307,29 @@ const grades = [
 
         // Example placeholder for API call:
         // await admissionEnquiryRequest({ studentName, grade, phone });
+
+        // Track form completion
+        trackFormCompletionEvent(
+          {
+            student_name: studentName,
+            grade: grade,
+            phone: phone,
+          },
+          EVENTS.INTEREST_FORM_COMPLETED,
+        );
       }
     });
+  }
+</script>
+
+<script>
+  import { setupFormStartTracking } from "@/scripts/analytics";
+
+  const form = document.querySelector(
+    "[data-hero-form]",
+  ) as HTMLFormElement | null;
+
+  if (form) {
+    setupFormStartTracking(form);
   }
 </script>
