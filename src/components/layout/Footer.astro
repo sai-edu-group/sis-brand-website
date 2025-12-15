@@ -63,7 +63,9 @@ import ChildImage from "@/assets/images/child.png";
                 <p class="font-medium">
                   <a
                     href="tel:9338169966"
-                    class="text-n-50 text-base font-medium underline-offset-2 hover:underline"
+                    class="text-n-50 data-track-footer text-base font-medium underline-offset-2 hover:underline"
+                    data-footer-type="phone"
+                    data-footer-value="9338169966"
                   >
                     9338169966
                   </a>
@@ -91,7 +93,9 @@ import ChildImage from "@/assets/images/child.png";
                 <p class="line-break font-medium">
                   <a
                     href="mailto:admissions@saiinternational.edu.in"
-                    class="text-n-50 text-base font-medium underline-offset-2 hover:underline"
+                    class="text-n-50 data-track-footer text-base font-medium underline-offset-2 hover:underline"
+                    data-footer-type="email"
+                    data-footer-value="admissions@saiinternational.edu.in"
                   >
                     admissions@saiinternational.edu.in
                   </a>
@@ -241,3 +245,35 @@ import ChildImage from "@/assets/images/child.png";
     </div>
   </div>
 </footer>
+
+<script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { trackEvent } from "@/scripts/analytics";
+  import { getDeviceType } from "@/scripts/device";
+
+  const footerLinks = document.querySelectorAll("a.data-track-footer");
+
+  footerLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLAnchorElement;
+      const type = target.dataset.footerType;
+      const value = target.dataset.footerValue;
+
+      if (type === "phone") {
+        trackEvent(EVENTS.PHONE_CLICK, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          button_location: "footer",
+          contacted_number: value,
+        });
+      } else if (type === "email") {
+        trackEvent(EVENTS.EMAIL_CLICK, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          button_location: "footer",
+          contacted_email: value,
+        });
+      }
+    });
+  });
+</script>
