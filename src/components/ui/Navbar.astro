@@ -91,4 +91,9 @@ const { navItems } = Astro.props;
   setupClickTracking("pay-fee", () =>
     trackCommonClickEvents(EVENTS.MENU_PAY_FEES_CLICKED),
   );
+
+  // Track School Tour button clicks
+  setupClickTracking("school-tour", () =>
+    trackCommonClickEvents(EVENTS.SCHOOL_TOUR_CLICKED),
+  );
 </script>

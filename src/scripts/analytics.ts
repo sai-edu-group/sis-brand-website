@@ -57,6 +57,27 @@ export const trackFormCompletionEvent = (
     device_type: getDeviceType(),
     ...fields,
   });
+  trackEvent(eventName, {
+    device_type: getDeviceType(),
+    ...fields,
+  });
+};
+
+export const trackFormViewEvent = (formId: string, eventName: EVENTS) => {
+  trackEvent(eventName, {
+    device_type: getDeviceType(),
+    form_id: formId,
+  });
+};
+
+export const trackSectionViewEvent = (
+  sectionName: string,
+  eventName: EVENTS,
+) => {
+  trackEvent(eventName, {
+    device_type: getDeviceType(),
+    section_name: sectionName,
+  });
 };
 
 /**
@@ -89,6 +110,32 @@ export const setupFormStartTracking = (
   };
 
   formElement.addEventListener("focusout", trackFormStart, { once: true });
+};
+
+/**
+ * Setup tracking for when an element enters the viewport
+ */
+export const setupInViewTracking = (
+  elementId: string,
+  trackingFn: () => void,
+  threshold = 0.5,
+) => {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          trackingFn();
+          observer.disconnect();
+        }
+      });
+    },
+    { threshold },
+  );
+
+  observer.observe(element);
 };
 
 /**

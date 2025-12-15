@@ -145,7 +145,11 @@ import Image from "astro/components/Image.astro";
 </section>
 <script>
   import { EVENTS } from "@/enums/analytics.enum";
-  import { setupFormStartTracking } from "@/scripts/analytics";
+  import {
+    setupFormStartTracking,
+    setupInViewTracking,
+    trackFormViewEvent,
+  } from "@/scripts/analytics";
 
   const form = document.querySelector(
     "form#contact-form",
@@ -153,6 +157,10 @@ import Image from "astro/components/Image.astro";
 
   if (form) {
     setupFormStartTracking(form, EVENTS.ENQUIRY_FORM_STARTED);
+    // Track when form comes into view
+    setupInViewTracking("contact-form", () => {
+      trackFormViewEvent("contact-form", EVENTS.ENQUIRY_FORM_VIEWED);
+    });
   }
 </script>
 
@@ -227,6 +235,8 @@ import Image from "astro/components/Image.astro";
 
       // Collect form data
       const form = document.querySelector("form");
+
+      if (!form) return;
 
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData.entries());

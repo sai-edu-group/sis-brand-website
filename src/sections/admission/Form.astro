@@ -366,6 +366,9 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 </style>
 
 <script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { trackEvent, trackFormCompletionEvent } from "@/scripts/analytics";
+  import { getDeviceType } from "@/scripts/device";
   import { admissionEnquiryRequest } from "@/services/api/form.api.service";
   window.addEventListener("DOMContentLoaded", () => {
     const steps = [
@@ -375,9 +378,25 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     ];
     const thankYou = document.getElementById("thank-you");
 
+    // Timing tracking
+    let formStartTime = Date.now();
+    let stepStartTime = Date.now();
+
     const showStep = (idx: number) => {
       steps.forEach((el, i) => el?.classList.toggle("hidden", i !== idx));
       thankYou?.classList.add("hidden");
+
+      // Update step start time when switching steps
+      stepStartTime = Date.now();
+
+      // Track Step View
+      const stepTitles = ["Student Info", "Parent Info", "Message"];
+      trackEvent(EVENTS.ADMISSION_FORM_STEP_N_VIEWED, {
+        step_number: idx + 1,
+        step_title: stepTitles[idx],
+        device_type: getDeviceType(),
+        page_path: window.location.pathname,
+      });
     };
 
     // Initially show step 1
@@ -385,6 +404,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 
     // ✅ Validation
     const validateStep = (stepEl: any) => {
+      // ... (validation logic remains same)
       if (!stepEl) return false;
       const fields = stepEl.querySelectorAll("input, select, textarea");
       let valid = true;
@@ -432,12 +452,34 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 
     // ✅ Step navigation
     document.getElementById("next-1")?.addEventListener("click", () => {
-      if (validateStep(steps[0])) showStep(1);
+      if (validateStep(steps[0])) {
+        const duration = (Date.now() - stepStartTime) / 1000; // in seconds
+
+        showStep(1);
+
+        trackEvent(EVENTS.ADMISSION_FORM_NEXT_CLICKED, {
+          device_type: getDeviceType(),
+          from_step: 1,
+          to_step: 2,
+          time_spent_on_step: duration,
+        });
+      }
     });
 
     document.getElementById("next-2")?.addEventListener("click", (e) => {
       e.preventDefault();
-      if (validateStep(steps[1])) showStep(2);
+      if (validateStep(steps[1])) {
+        const duration = (Date.now() - stepStartTime) / 1000; // in seconds
+
+        showStep(2);
+
+        trackEvent(EVENTS.ADMISSION_FORM_NEXT_CLICKED, {
+          device_type: getDeviceType(),
+          from_step: 2,
+          to_step: 3,
+          time_spent_on_step: duration,
+        });
+      }
     });
 
     document
@@ -466,6 +508,16 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     document.getElementById("submit")?.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!validateStep(steps[2])) return;
+
+      const totalDuration = (Date.now() - formStartTime) / 1000;
+
+      // In hh:mm:ss format
+      const formatDuration = (seconds: number) => {
+        const hours = Math.floor(seconds / 3600);
+        const minutes = Math.floor((seconds % 3600) / 60);
+        const remainingSeconds = seconds % 60;
+        return `${hours}:${minutes}:${remainingSeconds}`;
+      };
 
       const form = document.querySelector("form") as HTMLFormElement;
       const formData = new FormData(form);
@@ -499,6 +551,16 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
           return;
         }
 
+        // Track Form Completion
+        trackFormCompletionEvent(
+          {
+            ...formObj,
+            time_taken_for_submission: totalDuration,
+            submission_time: formatDuration(totalDuration),
+          },
+          EVENTS.ADMISSION_FORM_COMPLETED,
+        );
+
         // Hide loader & show thank you with stagger animation
         submitting?.classList.add("hidden");
 
@@ -516,4 +578,25 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       }
     });
   });
+</script>
+
+<script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import {
+    setupFormStartTracking,
+    setupInViewTracking,
+    trackFormViewEvent,
+  } from "@/scripts/analytics";
+
+  const form = document.querySelector(
+    "form#admission-form",
+  ) as HTMLFormElement | null;
+
+  if (form) {
+    setupFormStartTracking(form, EVENTS.ADMISSION_FORM_STARTED);
+    // Track when form comes into view
+    setupInViewTracking("admission-form", () => {
+      trackFormViewEvent("admission-form", EVENTS.ADMISSION_FORM_VIEWED);
+    });
+  }
 </script>
