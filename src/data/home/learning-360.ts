@@ -7,28 +7,28 @@ export const learning360Content = [
         id: 1,
         title: "Smart Classrooms",
         description:
-          "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
+          "Technology is seamlessly integrated into our curriculum, empowering students with a high-tech learning experience. Smart Classrooms feature interactive boards, digital resources, and integrated platforms, ensuring structured, engaging lessons supported by advanced teaching tools and carefully planned curriculum delivery.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 2,
         title: "Future-Ready Curriculum",
         description:
-          "Curriculum designed to equip students with skills for tomorrow.",
+          "Rooted in CBSE and NCERT frameworks, SAI International School has developed a future-ready curriculum that blends academic excellence with essential life skills. The school believes that strong literacy, numeracy, and academic performance flourish when students are happy, confident, and meaningfully engaged. Constantly evolving, the curriculum offers a holistic 360-degree learning experience through enhanced programs and unique subjects. SAI Samskara nurtures values and empathy, SAI Happiness builds purpose and emotional well-being, and SAI Financial Studies promotes financial literacy. SAI Global Studies broaden worldviews, SAI Grammar strengthens communication, and SAI Netritva develops leadership skills, shaping balanced individuals prepared for life.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 3,
         title: "Labs & Experiential Learning",
         description:
-          "Hands-on labs and real-world experiences for deeper understanding.",
+          "At SAI International School, learning is brought alive through a strong blend of theory and hands-on practice. Classroom instruction is seamlessly integrated with laboratory experiences to help students grasp concepts deeply and meaningfully. The school offers a wide range of state-of-the-art labs, including ATAL Tinkering, Robotics, SAI TV, Radio Orange, Visual and Performing Arts, Maths, International Languages, Physics, Chemistry, Biology, Sports and Science, enabling experiential learning across disciplines.Experiential learning is central to SAI’s student-centric approach. Students engage in a continuous cycle of activity, reflection, conceptual understanding, and application, ensuring lasting learning outcomes. Beyond classrooms, flagship events such as SAIMUN, SAITED, UNWIND, SAI Olympics, and SAI Confluence provide powerful real-world exposure, nurturing leadership, innovation, teamwork, empathy, and creativity. Interdisciplinary projects, the Science Park, educational outings, and cultural and sports platforms further extend learning beyond textbooks. Through these immersive experiences, students develop critical thinking, resilience, global awareness, and practical skills, preparing them to thrive in an ever-evolving world.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 4,
         title: "Assessment & Remediation",
         description:
-          "Continuous assessment and personalized remediation for every learner.",
+          "Assessment is a purposeful and continuous process designed to enhance learning and ensure accountability. A balanced mix of class tests, projects, and ongoing evaluations provides meaningful feedback and supports student growth. Digital assessment through the SAI Academic Management System (SAMS) tracks academic progress, maps performance, and generates detailed reports aligned with CBSE guidelines. SAMS enables data-driven insights, goal setting, and timely interventions. Structured remediation classes and targeted support ensure every learner receives the guidance needed to overcome gaps, strengthen understanding, and achieve their full academic potential.",
         imageUrl: "/images/learning.png",
       },
     ],
@@ -47,8 +47,15 @@ export const learning360Content = [
                 <li><strong>Cloud Storage</strong> - Safe and accessible digital storage and archiving of academic and administrative data across locations.</li>
                 <li><strong>Website & Social Media</strong> - Regular updates through the school website, blogs, YouTube, and social media platforms for transparent communication.</li>
                 <li><strong>Digital Career Counselling</strong> - Online career guidance through platforms like Naviance and BridgeU, helping students make informed academic and career choices.</li>
+              </ul>
+              <p><strong>Smart Classrooms :</strong> Technology is seamlessly integrated into our curriculum, empowering students with a high-tech learning experience. Smart Classrooms feature interactive boards, digital resources, and integrated platforms, ensuring structured, engaging lessons supported by advanced teaching tools and carefully planned curriculum delivery.</p>
+              <p><strong>Future-Ready Curriculum</strong> - Rooted in CBSE and NCERT frameworks, SAI International School has developed a future-ready curriculum that blends academic excellence with essential life skills. The school believes that strong literacy, numeracy, and academic performance flourish when students are happy, confident, and meaningfully engaged. Constantly evolving, the curriculum offers a holistic 360-degree learning experience through enhanced programs and unique subjects. SAI Samskara nurtures values and empathy, SAI Happiness builds purpose and emotional well-being, and SAI Financial Studies promotes financial literacy. SAI Global Studies broaden worldviews, SAI Grammar strengthens communication, and SAI Netritva develops leadership skills, shaping balanced individuals prepared for life.</p>
+              <p><strong>Labs & Experiential Learning</strong> - At SAI International School, learning is brought alive through a strong blend of theory and hands-on practice. Classroom instruction is seamlessly integrated with laboratory experiences to help students grasp concepts deeply and meaningfully. The school offers a wide range of state-of-the-art labs, including ATAL Tinkering, Robotics, SAI TV, Radio Orange, Visual and Performing Arts, Maths, International Languages, Physics, Chemistry, Biology, Sports and Science, enabling experiential learning across disciplines.</p>
+              <p>Experiential learning is central to SAI’s student-centric approach. Students engage in a continuous cycle of activity, reflection, conceptual understanding, and application, ensuring lasting learning outcomes. Beyond classrooms, flagship events such as SAIMUN, SAITED, UNWIND, SAI Olympics, and SAI Confluence provide powerful real-world exposure, nurturing leadership, innovation, teamwork, empathy, and creativity. Interdisciplinary projects, the Science Park, educational outings, and cultural and sports platforms further extend learning beyond textbooks. Through these immersive experiences, students develop critical thinking, resilience, global awareness, and practical skills, preparing them to thrive in an ever-evolving world.</p>
+              
+              <p><strong>Assessment & Remediation</strong> - Assessment is a purposeful and continuous process designed to enhance learning and ensure accountability. A balanced mix of class tests, projects, and ongoing evaluations provides meaningful feedback and supports student growth. Digital assessment through the SAI Academic Management System (SAMS) tracks academic progress, maps performance, and generates detailed reports aligned with CBSE guidelines. SAMS enables data-driven insights, goal setting, and timely interventions. Structured remediation classes and targeted support ensure every learner receives the guidance needed to overcome gaps, strengthen understanding, and achieve their full academic potential.</p>
+              `,
 
-              </ul>`,
   },
   {
     id: 2,
