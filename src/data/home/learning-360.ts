@@ -7,7 +7,7 @@ export const learning360Content = [
         id: 1,
         title: "Smart Classrooms",
         description:
-          "Technology is seamlessly integrated into our curriculum, empowering students with a high-tech learning experience. Smart Classrooms feature interactive boards, digital resources, and integrated platforms, ensuring structured, engaging lessons supported by advanced teaching tools and carefully planned curriculum delivery.",
+          "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
         imageUrl: "/images/learning.png",
       },
       {
