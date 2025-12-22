@@ -7,28 +7,28 @@ export const learning360Content = [
         id: 1,
         title: "Smart Classrooms",
         description:
-          "Blending innovation with tradition, SAI delivers a future-ready education through digital classrooms.",
+          "Engaging spaces that inspire active and joyful learning.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 2,
         title: "Future-Ready Curriculum",
         description:
-          "Curriculum designed to equip students with skills for tomorrow.",
+          "Learning designed for tomorrow’s skills and challenges.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 3,
         title: "Labs & Experiential Learning",
         description:
-          "Hands-on labs and real-world experiences for deeper understanding.",
+          "Hands-on experiences that bring concepts to life.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 4,
         title: "Assessment & Remediation",
         description:
-          "Continuous assessment and personalized remediation for every learner.",
+          "Ongoing evaluation with targeted support for growth.",
         imageUrl: "/images/learning.png",
       },
     ],
@@ -64,21 +64,21 @@ export const learning360Content = [
         id: 1,
         title: "Music & Dance",
         description:
-          "Encouraging creativity through performing arts and self-expression.",
+          "Nurturing rhythm, expression, and creativity through performance.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 2,
         title: "Visual Arts",
         description:
-          "Exploring imagination through painting, sculpture, and crafts.",
+          "Encouraging imagination and skill through hands-on artistic exploration.",
         imageUrl: "/images/learning.png",
       },
       {
         id: 3,
         title: "Drama & Theatre",
         description:
-          "Building confidence and communication through stage performances.",
+          "Building confidence, storytelling, and collaborative creativity on stage.",
         imageUrl: "/images/learning.png",
       },
     ],
@@ -96,20 +96,24 @@ export const learning360Content = [
         id: 1,
         title: "Sports Training",
         description:
-          "Structured sports curriculum developing agility and team spirit.",
+          "Developing skills, teamwork, and discipline through active play.",
         isOpen: true,
         imageUrl: "/images/learning.png",
       },
       {
         id: 2,
         title: "Yoga & Fitness",
-        description: "Balancing physical and mental well-being through yoga.",
+        description: "Promoting physical well-being, mindfulness, and a balanced lifestyle.",
         imageUrl: "/images/learning.png",
       },
     ],
     landscapeImg: "/images/learning.png",
-    content: `<p>Digital technology and IT are effectively integrated in the curriculum at various levels, which gives the students ample opportunities to learn and explore. For students, technological education has provided an indescribable wealth of resources, information and knowledge. Since its inception, SAI International School has always focused on imparting education through ICT tools as it complements and enriches the learning process.
-</p><ul><li><strong>Digi Board</strong> - Each class has a well-equipped digi board and system.
-</li></ul>`,
+    content: `<p>At SAI International School, Physical Education is an integral pillar of holistic development, nurturing physical fitness, mental strength, discipline, and sportsmanship. Through the SAI Sports Academy, students are exposed to a wide spectrum of sporting activities including swimming, horse riding, lawn tennis, table tennis, snooker, football, basketball, cricket, hockey, gymnastics, wall climbing, skating, karate, yoga, kho-kho, badminton, volleyball, chess, rifle shooting, and athletics. The school places strong emphasis on identifying and nurturing individual sporting talent, providing students the freedom to choose a sport of interest and the space to pursue it with passion. State-of-the-art infrastructure, including tennis courts, basketball courts, a full-sized football field, a well-equipped gymnasium, and four swimming pools, supports structured training and overall physical well-being. Sports at SAI foster teamwork, resilience, empathy, leadership, and a strong sense of belonging, preparing students to face both success and challenges with confidence.</p>
+    
+    <p><strong>Sports Training </strong> - The SAI Sports Academy offers professional training across multiple sports under the guidance of experienced coaches. Carefully designed facilities enable focused practice, competitive exposure, and skill enhancement. From team sports that build collaboration to individual disciplines that strengthen self-discipline and perseverance, students develop physical endurance, strategic thinking, and confidence. Specialized training in swimming and equestrian sports further enriches the sporting ecosystem, offering unique experiences that build balance, coordination, responsibility, and emotional strength.</p>
+    
+    <p><strong>Yoga & Fitness</strong> - Yoga and fitness are a way of life at SAI International, promoting harmony of the body, mind, and soul. Rooted in the philosophy of “yuj,” meaning unity, yoga is practiced from Class I to XII as a regular part of the curriculum. Students engage in meditation, breathing exercises, and physical postures to enhance concentration, emotional balance, and inner awareness. The school celebrates the International Day of Yoga and encourages daily practice, especially for hostel students through morning and sunset sessions. Supported by a modern gymnasium with trained instructors, yoga and fitness at SAI cultivate lifelong wellness, mindfulness, and inner resilience.</p>
+
+    `,
   },
 ];
