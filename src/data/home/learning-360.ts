@@ -84,9 +84,10 @@ export const learning360Content = [
       },
     ],
     landscapeImg: "/images/learning.png",
-    content: `<p>Digital technology and IT are effectively integrated in the curriculum at various levels, which gives the students ample opportunities to learn and explore. For students, technological education has provided an indescribable wealth of resources, information and knowledge. Since its inception, SAI International School has always focused on imparting education through ICT tools as it complements and enriches the learning process.
-</p><ul><li><strong>Digi Board</strong> - Each class has a well-equipped digi board and system.
-</li></ul>`,
+    content: `<p><strong>Creative Arts - </strong>At SAI International School, Creative Arts form an integral part of holistic education, nurturing imagination, expression, and innovation. Through SAI Nritya Sangeet Kala, SAI Natya Kala, and SAI Shilp Kala, the Visual and Performing Arts play a vital role in unlocking the infinite creative potential inherent in every child. The school places strong emphasis on creative thinking, self-expression, and aesthetic appreciation, complementing formal academics and contributing to the overall intellectual, emotional, and social development of students. A structured yet flexible approach ensures that learners not only discover their talents but also gain confidence, discipline, and cultural sensitivity.</p>
+    <p><strong>Music & Dance - </strong>Music and dance provide students with a powerful medium of expression, rhythm, and emotional balance. Through classical, contemporary, and global forms, students explore movement and melody while developing coordination, creativity, and stage confidence. Clubs such as the Rhythm Club and Symphony Club further nurture talent and performance skills.</p>
+    <p><strong>Visual Arts - </strong>Visual Arts encourage students to think creatively and translate ideas into visual expression. Through painting, sculpture, design, and mixed media, learners develop observation skills, originality, and artistic sensibility. The Different Strokes Club offers a platform to experiment, innovate, and refine artistic techniques.</p>
+    <p><strong>Drama & Theatre - </strong>Drama and theatre foster communication, empathy, and confidence. Through storytelling, role play, and stage productions, students learn teamwork, emotional expression, and leadership. Platforms like the Mask Club provide immersive experiences that strengthen imagination and performance skills, preparing students for confident self-expression in all walks of life.</p>`,
   },
   {
     id: 3,
