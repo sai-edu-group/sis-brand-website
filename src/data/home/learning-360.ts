@@ -55,7 +55,6 @@ export const learning360Content = [
               
               <p><strong>Assessment & Remediation</strong> - Assessment is a purposeful and continuous process designed to enhance learning and ensure accountability. A balanced mix of class tests, projects, and ongoing evaluations provides meaningful feedback and supports student growth. Digital assessment through the SAI Academic Management System (SAMS) tracks academic progress, maps performance, and generates detailed reports aligned with CBSE guidelines. SAMS enables data-driven insights, goal setting, and timely interventions. Structured remediation classes and targeted support ensure every learner receives the guidance needed to overcome gaps, strengthen understanding, and achieve their full academic potential.</p>
               `,
-
   },
   {
     id: 2,
