@@ -2,7 +2,7 @@ export const imageBasedSlider = [
   {
     src: "/images/admission-2627.jpg",
     alt: "Result Image 1",
-    url: "https://sai.edu.in/national-achievers/",
+    url: "https://sai.edu.in/set/",
   },
   {
     src: "/images/result-image.png",
