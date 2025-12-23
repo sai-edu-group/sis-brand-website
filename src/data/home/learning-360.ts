@@ -8,7 +8,7 @@ export const learning360Content = [
         title: "Smart Classrooms",
         description:
           "Engaging spaces that inspire active and joyful learning.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/smart-classroom.jpg",
       },
       {
         id: 2,
@@ -22,14 +22,14 @@ export const learning360Content = [
         title: "Labs & Experiential Learning",
         description:
           "Hands-on experiences that bring concepts to life.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/labs-explearning.jpg",
       },
       {
         id: 4,
         title: "Assessment & Remediation",
         description:
           "Ongoing evaluation with targeted support for growth.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/assessment.jpg",
       },
     ],
     landscapeImg: "/images/learning.png",
