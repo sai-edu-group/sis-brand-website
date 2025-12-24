@@ -8,6 +8,10 @@ import { URLS } from "@/infrastructure/constants/urls";
 // Breadcrumbs
 export const achieversBreadcrumbItems: BreadcrumbData[] = [
   {
+    label: "Student Leaders",
+    href: URLS.STUDENT_LEADERS.ROOT,
+  },
+  {
     label: "Achievers",
     href: URLS.STUDENT_LEADERS.ICONS_ACHIEVERS,
   },
@@ -27,15 +31,16 @@ export const achievers: AchieversData = {
     2025: [
       {
         id: 1,
-        name: "John Doe",
-        description: "John Doe",
-        year: 2025,
+        name: "Atiksh Nayak",
+        description:
+          "Selected amongst top 30 winner in the grand finale of the 18th edition of Young Astronomer Talent Search",
+        date: "November 2025",
       },
       {
         id: 2,
-        name: "John Doe",
-        description: "John Doe",
-        year: 2025,
+        name: "Mehr Seal",
+        description: `Received title "Fellow of the Fellowship" Artivist Fellowship conducted by Young Leaders for Active Citizenship (YLAC)`,
+        date: "November 2025",
       },
     ],
     2024: [
@@ -43,13 +48,13 @@ export const achievers: AchieversData = {
         id: 1,
         name: "John Doe",
         description: "John Doe",
-        year: 2024,
+        date: "November 2025",
       },
       {
         id: 2,
         name: "John Doe",
         description: "John Doe",
-        year: 2024,
+        date: "November 2025",
       },
     ],
   },

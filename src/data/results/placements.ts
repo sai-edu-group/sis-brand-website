@@ -46,6 +46,10 @@ export const placementsSectionHeader: SectionHeaderMainData = {
 
 export const placementsBreadcrumbItems: BreadcrumbData[] = [
   {
+    label: "Results",
+    href: URLS.RESULTS.ROOT,
+  },
+  {
     label: "Placements",
     href: URLS.RESULTS.PLACEMENTS,
   },

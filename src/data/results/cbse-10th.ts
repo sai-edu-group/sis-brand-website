@@ -150,6 +150,10 @@ export const cbseTenth: ClassData = {
 };
 
 export const cbseTenthBreadcrumbItems: BreadcrumbData[] = [
+  {
+    label: "Results",
+    href: URLS.RESULTS.ROOT,
+  },
   { label: "10th Results", href: URLS.RESULTS.CBSE_10 },
 ];
 

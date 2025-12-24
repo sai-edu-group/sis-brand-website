@@ -13,7 +13,7 @@ export const transferCertificates = [
   {
     id: 2,
     name: "TC-10625",
-    image: "/images/admissions/transfer-certificates/tc-13691.jpg",
+    image: "/images/admissions/transfer-certificates/tc-10625.jpg",
   },
 ];
 

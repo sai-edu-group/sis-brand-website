@@ -19,7 +19,7 @@ export const menu: MenuItemData[] = [
     title: "HOME",
     submenu: [
       { title: "Ethos of SAI", href: `${URLS.HOME}#ethos` },
-      { title: "Guru Shishya Parampara", href: `${URLS.HOME}#ethos` },
+      { title: "Guru Shishya Parampara", href: `${URLS.HOME}#guru-shishya` },
       { title: "Our Founder", href: `${URLS.HOME}#our-founder` },
       { title: "Learning @360", href: `${URLS.HOME}#learning-360` },
       { title: "Awards", href: `${URLS.HOME}#awards` },
@@ -32,22 +32,29 @@ export const menu: MenuItemData[] = [
     title: "ABOUT US",
     submenu: [
       { title: "The Perfect Master", href: `${URLS.ABOUT.ROOT}#ethos` },
-      // { title: "Vision, Mission & Values", href: "#" },
+      {
+        title: "Vision, Mission & Values",
+        href: URLS.ABOUT.VISION_MISSION_VALUES,
+      },
       { title: "Founder – Chairman", href: `${URLS.ABOUT.ROOT}#our-founder` },
       { title: "Key Personnel", href: `${URLS.ABOUT.ROOT}#key-personnel` },
       { title: "Advisory Board", href: `${URLS.ABOUT.ROOT}#advisory-board` },
       { title: "Learning & Beyond", href: URLS.ABOUT.LEARNING_AND_BEYOND.ROOT },
-      { title: "Our Affiliations", href: "/about/affiliations", active: true },
+      {
+        title: "Our Affiliations",
+        href: URLS.ABOUT.AFFILIATIONS.ROOT,
+        active: true,
+      },
     ],
     icon: "about",
   },
   {
     title: "RESULTS",
     submenu: [
-      { title: "Academic Achievements", href: URLS.RESULTS.CBSE_12.ROOT },
-      { title: "Sports Performance", href: "#" },
-      { title: "University Rankers", href: "#" },
-      { title: "International Awards", href: "#" },
+      { title: "CBSE Results – Class XII", href: URLS.RESULTS.CBSE_12.ROOT },
+      { title: "CBSE Results – Class X", href: URLS.RESULTS.CBSE_10 },
+      { title: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
+      { title: "Placements", href: URLS.RESULTS.PLACEMENTS },
     ],
     icon: "results",
   },
@@ -64,19 +71,22 @@ export const menu: MenuItemData[] = [
     ],
     icon: "globe",
   },
-  // {
-  //   title: "STUDENT LEADERS",
-  //   submenu: [
-  //     { title: "Leadership Council", href: "#" },
-  //     { title: "Class Representatives", href: "#" },
-  //     { title: "Ambassador Programs", href: "#" },
-  //   ],
-  //   icon: "leaders",
-  // },
+  {
+    title: "STUDENT LEADERS",
+    submenu: [
+      { title: "Student Council", href: URLS.STUDENT_LEADERS.STUDENT_COUNCIL },
+      { title: "Global SAIoneers", href: URLS.STUDENT_LEADERS.GLOBAL_SIONEERS },
+      {
+        title: "Icons & Achievers",
+        href: URLS.STUDENT_LEADERS.ICONS_ACHIEVERS,
+      },
+    ],
+    icon: "leaders",
+  },
   {
     title: "MEDIA",
     submenu: [
-      { title: "News", href: URLS.MEDIA.NEWS.ROOT },
+      { title: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
       { title: "Press Releases", href: URLS.MEDIA.PRESS_RELEASE },
       { title: "News Bulletin", href: URLS.MEDIA.NEWS_BULLETIN.ROOT },
       { title: "Albums", href: URLS.MEDIA.ALBUMS.ROOT },
@@ -102,9 +112,19 @@ export const menu: MenuItemData[] = [
         href: URLS.ADMISSIONS.TRANSFER_CERTIFICATES,
       },
       { title: "Admissions Guidelines", href: URLS.ADMISSIONS.GUIDELINE },
-      // { title: "Fee Structure", href: "#" },
-      // { title: "Scholarships", href: "#" },
+      { title: "EWS Admissions", href: URLS.ADMISSIONS.EWS },
+      { title: "Apply Now", href: `${URLS.ADMISSIONS.ROOT}#how-to-apply` },
     ],
     icon: "admissions",
+  },
+  {
+    title: "CONTACT",
+    submenu: [
+      {
+        title: "Reach Us",
+        href: URLS.CONTACT,
+      },
+    ],
+    icon: "phone",
   },
 ];

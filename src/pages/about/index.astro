@@ -1,6 +1,6 @@
 ---
 // COMPONENTS //
-import Hero from "@/components/Hero.astro";
+import Hero from "@/components/ui/Hero.astro";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
@@ -12,7 +12,8 @@ import Ethos from "@/sections/home/Ethos.astro";
 import Founder from "@/sections/home/Founder.astro";
 
 // DATA //
-import aboutMeta from "@/data/meta/about.json";
+import aboutMeta from "@/data/meta/about/about.json";
+import LearningAndBeyond from "@/sections/about/LearningAndBeyond.astro";
 
 const heroSectionDetails = {
   title: "Nurturing Global Citizens with Indian Values",
@@ -25,6 +26,7 @@ const heroSectionDetails = {
   <Hero {...heroSectionDetails} />
   <Ethos />
   <Founder />
+  <LearningAndBeyond />
   <Team />
   <AdvisoryBoard />
 </Layout>

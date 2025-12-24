@@ -20,16 +20,16 @@ export const advancedPlacementsContent = {
 
 <p class="fade-in">
   For more information visit College Board's website:
-  <a href="#">Click here</a>
+  <a href="https://international.collegeboard.org/students/ap/taking-ap-india" target="_blank">Click here</a>
 </p>
 
 <p class="fade-in">
   Access the list of Universities around the world offering AP credits:
-  <a href="#">Click here</a>
+  <a href="https://international.collegeboard.org/find-universities-that-recognize-ap-sat" target="_blank">Click here</a>
 </p>
 <h3 class="fade-in">AP Benefits enable motivated students like you to –</h3>
 
-<ul>
+<ul class="fade-in">
   <li>Stand out in university admissions</li>
   <li>Earn university credit.</li>
   <li>Skip introductory university classes.</li>

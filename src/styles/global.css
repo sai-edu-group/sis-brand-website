@@ -238,3 +238,14 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-orange-600); /* hover color */
 }
+
+.embla__container {
+  transition: height 0.2s;
+}
+
+/* Hide number input arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

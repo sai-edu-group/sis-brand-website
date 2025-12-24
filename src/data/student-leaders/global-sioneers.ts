@@ -8,6 +8,10 @@ import { URLS } from "@/infrastructure/constants/urls";
 // Breadcrumbs
 export const globalSioneersBreadcrumbItems: BreadcrumbData[] = [
   {
+    label: "Student Leaders",
+    href: URLS.STUDENT_LEADERS.ROOT,
+  },
+  {
     label: "Global Sioneers",
     href: URLS.STUDENT_LEADERS.GLOBAL_SIONEERS,
   },

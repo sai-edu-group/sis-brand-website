@@ -1,7 +1,7 @@
 ---
 // COMPONENTS //
-import ArticleCard from "@/components/ArticleCard.astro";
-import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import ArticleCard from "@/components/ui/ArticleCard.astro";
+import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import { Icon } from "astro-icon/components";
 
 // DATA //
@@ -34,15 +34,13 @@ import { URLS } from "@/infrastructure/constants/urls";
           <!-- Sai Seva Slides -->
           {
             saiSevaContent.map((saiSevaContentItem) => (
-              <div
-                class="ns-slide card-anim card-bottom cursor-pointer"
-                data-embla-slide
-              >
+              <div class="ns-slide cursor-pointer" data-embla-slide>
                 <ArticleCard
                   title={saiSevaContentItem.title}
                   img={saiSevaContentItem.img}
                   href={URLS.ABOUT.LEARNING_AND_BEYOND.SAI_SEVA(
                     saiSevaContentItem.id.toString(),
+                    saiSevaContentItem.title.toLowerCase().replaceAll(" ", "-"),
                   )}
                   description={saiSevaContentItem.description}
                   badgeText=""
@@ -132,8 +130,6 @@ import { URLS } from "@/infrastructure/constants/urls";
 
     // Initialize the slider
     initEmblaRoot(root, {
-      align: "start",
-      dragFree: false,
       slidesToScroll: "auto",
     });
   });
