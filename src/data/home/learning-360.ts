@@ -65,7 +65,7 @@ export const learning360Content = [
         title: "Music & Dance",
         description:
           "Nurturing rhythm, expression, and creativity through performance.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/music-360.jpg",
       },
       {
         id: 2,
