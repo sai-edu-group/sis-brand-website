@@ -72,7 +72,7 @@ export const learning360Content = [
         title: "Visual Arts",
         description:
           "Encouraging imagination and skill through hands-on artistic exploration.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/visual-art.jpg",
       },
       {
         id: 3,
