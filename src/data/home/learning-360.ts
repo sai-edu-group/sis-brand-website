@@ -79,7 +79,7 @@ export const learning360Content = [
         title: "Drama & Theatre",
         description:
           "Building confidence, storytelling, and collaborative creativity on stage.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/drama-theatre.jpg",
       },
     ],
     landscapeImg: "/images/learning.png",
