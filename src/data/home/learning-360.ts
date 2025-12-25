@@ -104,7 +104,7 @@ export const learning360Content = [
         id: 2,
         title: "Yoga & Fitness",
         description: "Promoting physical well-being, mindfulness, and a balanced lifestyle.",
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/yoga.jpg",
       },
     ],
     landscapeImg: "/images/learning.png",
