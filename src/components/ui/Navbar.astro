@@ -7,7 +7,13 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // Props
 interface Props {
-  navItems: { name: string; href: string; active?: boolean; target?: string }[];
+  navItems: {
+    name: string;
+    href: string;
+    active?: boolean;
+    target?: string;
+    id: string;
+  }[];
 }
 
 const { navItems } = Astro.props;
@@ -22,6 +28,7 @@ const { navItems } = Astro.props;
       navItems.map((navItem) => (
         <li class="text-nowrap">
           <a
+            id={navItem.id}
             href={navItem.href}
             target={navItem.target}
             class={`relative transition-colors duration-200 hover:text-orange-500 ${
@@ -38,12 +45,16 @@ const { navItems } = Astro.props;
   </ul>
   <div class="flex gap-3.5">
     <!-- Apply Now button -->
-    <a href={URLS.ADMISSIONS.ROOT} class="hidden sm:block">
+    <a
+      class="hidden sm:block"
+      id="apply-now-desktop"
+      href={URLS.ADMISSIONS.ROOT}
+    >
       <Button text="Apply Now" variant="solid" rightArrow />
     </a>
 
     <!-- Apply Now Icon Button on mobile -->
-    <div class="block sm:hidden">
+    <div class="block sm:hidden" id="apply-now-mobile">
       <IconButton href={URLS.ADMISSIONS.ROOT} extraClasses="!rounded-lg" />
     </div>
 
@@ -56,3 +67,33 @@ const { navItems } = Astro.props;
     <Hamburger />
   </div>
 </nav>
+
+<script>
+  import {
+    setupClickTracking,
+    trackApplyNowClick,
+    trackCommonClickEvents,
+  } from "@/scripts/analytics";
+
+  // Enums //
+  import { EVENTS } from "@/enums/analytics.enum";
+
+  // Track Apply Now button clicks (desktop and mobile)
+  setupClickTracking("apply-now-desktop", trackApplyNowClick);
+  setupClickTracking("apply-now-mobile", trackApplyNowClick);
+
+  // Track Explore button clicks
+  setupClickTracking("explore-btn", () =>
+    trackCommonClickEvents(EVENTS.MENU_EXPLORE_BTN_CLICKED),
+  );
+
+  // Track Pay Fees button clicks
+  setupClickTracking("pay-fee", () =>
+    trackCommonClickEvents(EVENTS.MENU_PAY_FEES_CLICKED),
+  );
+
+  // Track School Tour button clicks
+  setupClickTracking("school-tour", () =>
+    trackCommonClickEvents(EVENTS.SCHOOL_TOUR_CLICKED),
+  );
+</script>
