@@ -1,7 +1,7 @@
 export const founderDetails = {
   id: 1,
   name: "Late Dr. Bijaya Kumar Sahoo",
-  position: "Founder - Chairman of SAI International",
+  position: "Founder of SAI International Education Group",
   quote:
     "Happiness is the foundation on which great lives are built and a happy learning environment creates a lifelong impact on students",
   img: "",
@@ -17,7 +17,7 @@ export const founderDetails = {
 
 <p class="fade-in">He focused that it is crucial for children to feel happy about themselves for positive development and spread the aura of positivity all around. Happiness encourages a growth mindset. Children can only be happy if they are aware of their strengths. SAI International celebrates the inherent talent of each individual child by providing opportunities through diversified events and celebrations, introducing them to a broad range of subjects. All achievements, however big or small, fill them with self-esteem and develop a respect for the self. A happy child hones the capability to cope with failures and not let success rule the head.</p>
 
-<p class="fade-in">In his pursuit of building a happy nation, his work ‘SAI International’, got recognised by the Indian Institute of Management Calcutta (IIMC). IIMC published a case study on the life of our Founder-Chairman and the journey of SAI International. The case, namely, “SAI International School: In Pursuit of Academic Happiness”, will be taught to all management students who attend the MBA program at the prestigious institution. One of Asia’s finest management institution, IIM Calcutta, has included this case within their core curriculum of management to teach the country’s finest leaders the concept of SAI, the art of entrepreneurship, and education management.</p>
+<p class="fade-in">In his pursuit of building a happy nation, his work ‘SAI International’, got recognised by the Indian Institute of Management Calcutta (IIMC). IIMC published a case study on the life of our Founder and the journey of SAI International. The case, namely, “SAI International School: In Pursuit of Academic Happiness”, will be taught to all management students who attend the MBA program at the prestigious institution. One of Asia’s finest management institution, IIM Calcutta, has included this case within their core curriculum of management to teach the country’s finest leaders the concept of SAI, the art of entrepreneurship, and education management.</p>
 
 <p class="fade-in">To strengthen the Education sector of the State, the Government of Odisha had bestowed Dr Sahoo with an opportunity to serve the 314 blocks across Odisha and set up quality English Medium CBSE Schools in the year 2019. This mammoth responsibility required a lot of effort and sacrifice. His aim was to work towards the betterment of the State and bring the Odisha Adarsha Vidyalayas (OAVs) at par with private schools.</p>
 
