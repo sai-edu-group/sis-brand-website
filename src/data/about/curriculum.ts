@@ -122,16 +122,22 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/learning-center.png",
       description:
         "Encourages reading to boost knowledge, language skills, and imagination.",
-      content: `<p>Reading is one of the best activities and hobbies that children can indulge in. It not only improves their general knowledge and awareness, but also works wonders to improve their communication skills and vocabulary, along with enhancing the imagination.</p>
-      <p>To enrich our students, we at SAI International have four well-stocked libraries in 3 different wings of the school, catering to the needs and likes of both junior and senior students. From daily newspapers, periodicals, magazines, course related books, autobiographies, encyclopedias, manuscripts to story books, novels, bestsellers, classics etc, the libraries are an organized collection of documented information from across the globe.</p>
-      <p>Our experienced and trained librarians, who are experts at finding and organizing information and at interpreting information needs, make the experience simple and enriching.</p>
-      <p>There are three different libraries for each wing;</p>
-        <ul>
-          <li>The Primary Wing Library – The Mahatma Gandhi Learning Resource Center.</li>
-          <li>The Secondary Wing Library – Vivekananda Learning Resource Center.</li>
-          <li>The Higher Secondary Wing Library – Tagore Learning Resource Center.</li>
-        </ul><br>
-      <p>The Learning Resource Center of SAI International School houses 19,793 books in all, CDs, magazines, newspapers and many other resources. The library also comprises of an e-library. There are a wide array of books from different genres for the skill and knowledge enhancement of the students.</p>`,
+      content: `
+      <p><strong>Where Reading Inspires Lifelong Learning</strong></p>
+      <p>Reading is one of the most enriching habits a child can develop. It expands knowledge, sharpens communication skills, builds vocabulary, and fuels imagination, opening doors to new ideas, cultures, and perspectives. At SAI International School, reading is nurtured as a joyful journey that inspires curiosity and a lifelong love for learning.</p>
+      <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
+      <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+      <p><strong>Our Learning Resource Centers</strong></p>
+          <ul>
+            <li>Primary Wing – Mahatma Gandhi Learning Resource Center</li>
+            <li>Secondary Wing – Vivekananda Learning Resource Center</li>
+            <li>Higher Secondary Wing – Tagore Learning Resource Center</li>
+          </ul>
+      <p>Together, the Learning Resource Centers at SAI International School house <strong>19,793 books</strong>, along with CDs, newspapers, magazines, and a comprehensive <strong>e-library</strong>, offering seamless access to both print and digital resources. With a wide array of genres and academic materials, the centers play a pivotal role in enhancing students’ knowledge, skills, creativity, and critical thinking.</p>   
+      <p>At SAI, our Learning Resource Centers are more than libraries, they are vibrant spaces where minds grow, ideas flourish, and learning comes alive.</p>
+      
+      
+      `,
     },
 
     {
