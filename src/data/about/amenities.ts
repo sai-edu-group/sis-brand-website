@@ -37,8 +37,13 @@ export const amenitiesDetails = {
       description:
         "Spacious and hygienic dining area designed for comfort and efficiency during busy hours.",
       landscapeImg: "/images/amenities/cafeteria.png",
-      content: `<p><strong>Cafeteria –</strong> The SAI International School cafeteria features a spacious, large and hygienic eating place. The seating has been immaculately designed to keep the cafeteria hassle free during rush hours.</p>
-      <p><strong>Our Aim –</strong> Our aim is to provide nutritious, healthy and tasty food to the students. The menu is well designed, keeping in mind the parameters of taste and a balanced diet. We give prime importance to quality and hygiene in the preparation and handling of the food. The self service cafeteria is loved by the students.</p>
+      content: `<p><strong>Nourishing Bodies, Delighting Young Minds –</strong> The cafeteria at SAI International School is a spacious, bright, and hygienic dining space designed to offer students a comfortable and pleasant mealtime experience. Thoughtfully planned seating ensures smooth movement and a hassle-free environment, even during peak hours, allowing students to relax and enjoy their meals.</p>
+
+      <p><strong>Our Aim –</strong> Our aim is to provide <strong>nutritious, wholesome, and delicious food</strong> that supports the healthy growth and well-being of our students. Carefully curated menus strike the perfect balance between taste and nutrition, ensuring that every meal contributes to a balanced diet.</p>
+
+      <p>We place the highest emphasis on <strong>quality, hygiene, and food safety</strong> at every stage, from preparation to serving. The self-service model encourages independence and responsibility, and has become a favourite among students for its convenience and variety.</p>
+
+      <p>At SAI International School, the cafeteria is more than just a dining area, it is a welcoming space where healthy habits are nurtured and mealtimes become moments of comfort and joy.</p>
       `,
     },
     {
