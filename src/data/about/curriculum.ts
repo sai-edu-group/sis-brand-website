@@ -14,71 +14,104 @@ export const curriculumDetails = {
       description:
         "Hands-on labs integrate theory with practical learning for deeper concept understanding.",
       content: `
-<p><strong>Labs –</strong> Effective teaching and learning of subject matter involves a strong combination of the theory and the practical, hence SAI International School combines classroom teaching with laboratory learning to ensure that the students grasp each and every concept thoroughly.</p>
+<p><strong>Learning Beyond Classrooms</strong></p>
+<p>At SAI International School, effective teaching and meaningful learning thrive at the intersection of theory and practice. Classroom instruction is seamlessly complemented by hands-on laboratory experiences, enabling students to explore concepts deeply, ask questions freely, and gain clarity through experimentation. This integrated approach ensures that learning is not merely memorised, but understood, experienced, and retained for life.</p>
 
-<p>Benefits of Laboratories – Laboratory teaching and experiments are conducted to help encourage deep understanding of the subject and satisfy the queries arising in the curious minds of the children. Therefore, they can retain the knowledge gained long after they have conducted the experiments. The main objective of the labs is to induce SAI Learning skills and SAI Social skills; qualities that help one to rise above the ordinary and emerge as global thought leaders and thinkers.</p>
+<p>Our laboratories are thoughtfully designed to nurture curiosity, encourage inquiry, and strengthen conceptual understanding. Through experiential learning, students develop critical thinking, creativity, collaboration, and problem-solving abilities, skills essential for success in a rapidly evolving global landscape.</p>
 
-<p>Experiential learning is the key to better understanding and hence SAI International has multiple states of the art labs relating to different subjects to enable students to better understand the complex topics.</p>
+<p>The primary objective of our laboratories is to cultivate <strong>SAI Learning Skills </strong> and <strong>SAI Social Skills</strong>, empowering students to rise above the ordinary and emerge as confident global thinkers and leaders.</p>
 
-<p>The advanced labs include the ATAL tinkering, SAI TV, Radio Orange, Robotics, Visual Performing Art, Visual Art, Maths, International Language, Physics, Chemistry, Biology, Sports and Science, extending the experiential learning support to the students.</p>
+<p><strong>Benefits of Laboratory Learning</strong></p>
 
-<p><strong>ATAL Tinkering Lab - </strong> ATAL Tinkering Lab (ATL) is a Government of India initiative to create an environment of scientific temperament, innovation, creativity amongst Indian students. It is a step towards a new, shining and digital India. ATL lab would teach the essentials of 21st century skills, which will help them in developing their professional and personal skills. Skilled India is the need of the hour for a smarter, enhanced and digital India.</p>
+<p>Laboratory teaching transforms abstract ideas into tangible experiences. Experiments and practical activities help students satisfy their natural curiosity, deepen their understanding of subjects, and retain knowledge long after the lesson is complete. By engaging both mind and hand, laboratories foster independent thinking, scientific temperament, teamwork, and innovation.</p>
 
-<p>The main objective of this scheme is to instill curiosity, creativity, and imagination in the young minds and inculcate skills such as design mindset, computational thinking, adaptive learning, physical computing etc. ATL has educational and learn “do it yourself” kits and equipment on – science, electronics, robotics, open source microcontroller boards, sensors and 3D printers etc.</p>
+<p>Experiential learning lies at the heart of our philosophy, and to support this vision, SAI International School offers multiple <strong>state-of-the-art laboratories</strong> across disciplines.</p>
 
-<p>SAI International School was selected by NITI Aayog Government of India (GOI), to establish ATL in the school. The Atal Tinkering laboratory (ATL) at SAI International School provides opportunities for students to explore skills of the future like design and computational thinking, adaptive learning and artificial intelligence through state-of-the-art technologies and competent faculties.</p>
+<p><strong>Our Advanced Laboratories</strong></p>
 
-<p>The lab is a brilliant way to bring the do-it-yourself culture to the forefront, encourage and motivate students to become solution providers and get engaged in self-learning that will not only lead to the development of higher order thinking skills, but may eventually lead to discoveries, innovations and inventions. The lab helps each child develop his or her own unique potential far more effectively.</p>
+<p><strong>ATAL Tinkering Lab (ATL)</strong></p>
 
-<p><strong>Entrepreneurship Lab - </strong> Entrepreneurship is in vogue and young entrepreneurs are in the big league of the globalised world. To facilitate the senior students with a common interface, where they can share innovative ideas and keep track of difficult challenges by combining technical, business and market skills, SAI International conceived and delivered the idea of an Entrepreneurship Lab.</p>
+<p>The Atal Tinkering Lab is a prestigious Government of India initiative by NITI Aayog, established at SAI International School to promote scientific temperament, creativity, and innovation among young learners. ATL introduces students to essential 21st-century skills, preparing them for a future shaped by technology and innovation.</p>
 
-<p>An entrepreneur is trained amidst contemporary and futuristic projects, through the time machine. The concept of the time machine transmits the learner into the future with a futuristic problem, adding several cutting-edge issues to their problem solving approach. Each learner is trained individually with numerous realistic projects which sharpens the business acumen, to reap a rich harvest in the near and distant future.</p>
+<p>The lab provides hands-on exposure to <strong>science, electronics, robotics, open-source microcontrollers, sensors, artificial intelligence, and 3D printing</strong> through DIY kits and modern equipment. Students develop skills such as design thinking, computational thinking, adaptive learning, and physical computing.</p>
 
-<p>SAI International School had devised the unique concept of time machine, wherein a student moves into the future and imagines what he or she will do and where he or she will be. Based on this concept, students travel to their future and dream of their vision. They blend their project in the school’s entrepreneurship lab and create a project report at the end of the program. Thus, begins their journey to the future.</p>
+<p>The ATL at SAI International School encourages a strong do-it-yourself culture, motivating students to become problem solvers and solution providers. It nurtures higher-order thinking skills and lays the foundation for future discoveries, innovations, and inventions, helping every child realise their unique potential.</p>
 
-<p>Leadership, risk taking, team work, discipline are some of the facets that are largely seen to be the points of discussion. Under the excellent guidance and expertise of the Chairman, the Entrepreneurship Lab is a hub of innovation and creativity.</p>
+<p><strong>Robotics Lab</strong></p>
 
-<p><strong>Robotics Lab - </strong> As the technological advances continue, it becomes imperative to keep the generation in tandem with the processes of the present that are largely futuristic. Robotics is the branch of technology that deals with innovation, design, construction and operation of robots. To bring the students closer to science and engineering, the Robotics lab was introduced in the school campus.</p>
+<p>In an era defined by rapid technological advancement, robotics plays a pivotal role in shaping the innovators of tomorrow. The Robotics Lab at SAI International School introduces students to the principles of design, construction, programming, and operation of robots.</p>
 
-<p>Robotics, a fusion of innovative challenge-based activities, helps in fostering problem solving skills. It helps the students to think more about the application of the concepts taught in the classrooms.</p>
+<p>Through challenge-based learning, students apply classroom concepts to real-life scenarios, fostering problem-solving skills, logical reasoning, and innovation. Robotics encourages creativity, collaboration, and hands-on exploration, preparing students to confidently face future technological challenges.</p>
 
-<p>SAI International believes that the 21st century belongs to people who innovate, and Robotics is a big part of innovation hence the School is taking big strides to train the gen-next to face future challenges.</p>
+<p><strong>Aryabhatta Math Lab</strong></p>
 
-<p><strong>Aryabhatta Math Lab - </strong> The Aryabhatta Math lab is based on the three pillars of imagination, investigation and interaction. It offers multiple teaching and learning aids as well as a complete theme-based ambience which helps students to visualize and feel mathematics. It is a place where students can learn and explore mathematical concepts and verify mathematical facts and theorems through a variety of activities, using different materials. These activities may be carried out by the teacher or the student to explore, to learn, to stimulate interest and develop a favorable attitude towards mathematics.</p>
+<p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
 
-<p><strong>International Language Lab - </strong> The International language lab provides adequate opportunities to the students to learn languages effectively through the Wordsworth courseware that develops the four skills of reading, writing, listening and speaking.</p>
+<p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
 
-<p>The International language laboratory plays an important role in the language learning process of the School and helps the students to learn the language with proficiency. Detailed attention is given to clarity and accuracy as it is vital for effective and efficient communication.</p>
+<p><strong>International Language Lab</strong></p>
 
-<p>The Language Lab helps learners to develop their speaking abilities, when they listen to sample pronunciations of native speakers, record their voices and correct themselves.</p>
+<p>The International Language Lab provides a dynamic environment for effective language learning using the <strong>Wordsworth courseware</strong>, focusing on the four core skills—reading, writing, listening, and speaking.</p>
 
-<p><strong>Dhyan Chand Sports Lab - </strong> This highly technically advanced laboratory is primarily used for teaching, research and testing in the area of sports and the science of exercise. The lab is about 400 square metres in size and is a vibrant space of the School. The sports laboratory increases the possibility to test and analyze things that are of utmost interest for athletes, such as conditioning, strength and speed. The lab is incorporated with a football ground, two basketball courts, swimming pools for both boys and girls separately, table tennis, badminton court, horse riding and many more.</p>
+<p>Students improve pronunciation, clarity, and fluency by listening to native speakers, recording their own voices, and self-correcting. The lab plays a crucial role in enhancing communication skills and building confidence for global interaction.</p>
 
-<p><strong>Performing Arts Lab - </strong> Guru Kelucharan was an Indian classical dancer, guru and proponent of Odissi dance, who is credited with the revival of the classical dance form in the 20th century. As a salutation to the great personality the Guru Kelucharan Dance Lab was built in the School campus. Young dancers begin with classes such as aerobics / yoga or turn! jump! leap! which explore movements and teach the basics of dance and class etiquette. As children get older, they begin the understanding of working towards injecting the choreography with their own experiences and feelings to give their moves more emotional depth and find a method of expression that is their very own.</p>
+<p><strong>Dhyan Chand Sports Lab</strong></p>
 
-<p><strong>Visual Arts Lab - </strong> To enhance the fine art and craft skills, the students are exposed to different mediums and techniques for visual expression of artistic ideas. The objective of this lab is to show the transformative power of art and help put the student’s creativity on paper more beautifully. Besides this, the lab also aids in making the child trust his/her inherent abilities, put joy in their work and augment creativity.</p>
+<p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
 
-<p><strong>SAI TV - </strong> SAI TV is one of the most exciting clubs that enables the students to get an exposure on the basics of film making and television production. Through activities like panel discussions, anchoring, comparing, interviews, studio discussions, outdoor recordings etc., students gain an in-depth idea and a hands-on experience on: Script writing, Scouting, Audio, video & lighting, Use of camera, Editing, Studio production, Digital cinematography, Producing and directing.</p>
+<p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
 
-<p>Revolving around the four Ps of movie-making/television production, namely, Planning, Production, Programming and Publicity, SAI TV emphasizes teamwork, respect, leadership and goal achievement.</p>
+<p><strong>Performing Arts Lab – Guru Kelucharan Dance Lab</strong></p>
 
-<p><strong>Radio Orange - </strong> SAI International School is the first school to introduce the concept of an in-house radio station that gives the students a platform to share their thoughts, develop communication skills and unleash creativity.</p>
+<p>Named in honour of the legendary Odissi dancer and guru, <strong>Padma Vibhushan Guru Kelucharan Mohapatra</strong>, this lab celebrates movement, rhythm, and expression. Students begin with foundational practices such as aerobics and yoga before progressing to structured dance forms.</p>
 
-<p>Once a week, the students meet to write scripts and work on campus news to be shared. Under the guidance of teacher leaders, students make the most of this wonderful opportunity.</p>
+<p>As learners grow, they explore choreography, emotional expression, and storytelling through movement, discovering their unique artistic voice while building discipline, confidence, and creativity.</p>
 
-<p><strong>Computer Labs - </strong> Information Technology has become an integral part of daily life. SAI International has junior and senior computer labs with 250 systems in total.</p>
+<p><strong>Visual Arts Lab</strong></p>
 
-<p>Students are taught Web Application, Java, C++, Tux Paint, Logo, MS Office, Digital Presentation, Email messaging and Database development. The labs maintain a 1:1 student-machine ratio.</p>
+<p>The Visual Arts Lab nurtures creativity by exposing students to diverse art forms, mediums, and techniques. From sketching and painting to mixed media and craft, students learn to translate imagination into artistic expression.</p>
 
-<p><strong>Science Labs - </strong> The school has well-designed individual science labs for Physics, Chemistry and Biology — fully equipped per CBSE guidelines.</p>
+<p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
 
-<p><strong>Library - </strong> There are three libraries: Mahatma Gandhi Learning Resource Center (primary), Vivekananda Learning Resources Center (secondary), and Tagore Learning Resource Center (higher secondary). They house 19,793 books, CDs, magazines and an e-library.</p>
+<p><strong>SAI TV</strong></p>
+<p>SAI TV offers students hands-on exposure to filmmaking and television production. Through activities such as anchoring, interviews, panel discussions, studio recordings, and outdoor shoots, students gain practical experience in scriptwriting, camera work, editing, lighting, production, and direction.</p>
 
-<p><strong>Science Park - </strong> The Science Park helps students understand science through practical, visually attractive models that explain mechanisms and principles.</p>
+<p>Based on the four Ps—Planning, Production, Programming, and Publicity—SAI TV fosters teamwork, leadership, creativity, and media literacy.</p>
 
-<p><strong>The Social Science Lab - </strong> Equipped with maps, charts and models, this lab makes social studies interactive and engaging.</p>
+<p><strong>Radio Orange</strong></p>
+<p>SAI International School is proud to be the first school to introduce an in-house radio station: <strong>Radio Orange</strong>. This unique platform allows students to express ideas, enhance communication skills, and showcase creativity.</p>
 
-<p><strong>Art Lab - </strong> The Art Lab helps students refine their artistic skills through sketching, mixed media, watercolors, acrylics, clay modeling and experimental work.</p>
+<p>Students collaborate weekly to write scripts, produce content, and share campus news under the guidance of teacher mentors, gaining confidence and a strong voice.</p>
+
+<p><strong>Computer Labs</strong></p>
+
+<p>Recognising the importance of technology in modern life, the school houses well-equipped junior and senior computer labs with <strong>250 systems</strong>, maintaining a <strong> 1:1 student-to-machine ratio.<strong></p>
+
+<p>Students are trained in web applications, Java, C++, Tux Paint, Logo, MS Office, digital presentations, email communication, and database development.</p>
+
+<p><strong>Science Labs</strong></p>
+
+<p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
+
+<p><strong>Library and Learning Resource Centres</strong></p>
+<p>SAI International School has three well-stocked libraries:</p>
+<ul>
+  <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
+  <li>Vivekananda Learning Resource Centre (Secondary)</li>
+  <li>Tagore Learning Resource Centre (Higher Secondary)</li>
+</ul>
+
+<p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
+
+<p><strong>Science Park</strong></p>
+<p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
+
+<p><strong>Social Science Lab</strong></p>
+<p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+
+<p><strong>Art Lab</strong></p>
+<p>The Art Lab enables students to refine artistic skills through sketching, watercolours, acrylics, clay modelling, mixed media, and experimental art, fostering creativity and innovation.</p>
+
 `,
     },
 
