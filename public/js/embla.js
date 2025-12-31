@@ -2,13 +2,17 @@ export const initEmblaRoot = (root, options) => {
   const viewport = root.querySelector("[data-embla-viewport]");
   if (!viewport) return;
 
-  const embla = EmblaCarousel(viewport, {
-    align: "start",
-    containScroll: "trimSnaps",
-    loop: true,
-    dragFree: false,
-    ...options,
-  });
+  const embla = EmblaCarousel(
+    viewport,
+    {
+      align: "start",
+      containScroll: false,
+      loop: true,
+      dragFree: false,
+      ...options,
+    },
+    [EmblaCarouselAutoHeight(), EmblaCarouselFade()],
+  );
 
   const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages
 
@@ -20,7 +24,9 @@ export const initEmblaRoot = (root, options) => {
     prevBtn.style.display = "flex";
     nextBtn.style.display = "flex";
     prevBtn?.addEventListener("click", () => embla.scrollPrev());
-    nextBtn?.addEventListener("click", () => embla.scrollNext());
+    nextBtn?.addEventListener("click", () => {
+      embla.scrollNext();
+    });
   }
   // Build dots FROM SNAP LIST (groups), not slides
   const dotsHost = root.querySelector("[data-embla-dots]");

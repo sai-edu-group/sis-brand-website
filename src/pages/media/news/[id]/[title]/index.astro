@@ -1,17 +1,66 @@
 ---
-/**
- * Generate static paths for all albums
- * @returns Array of static paths with album data
- */
-export async function getStaticPaths() {
-  const paths: Array<{
-    params: { id: string; title: string };
-    props: {
-      id: string;
-      title: string;
-    };
-  }> = [];
+export const prerender = false;
 
-  return paths;
-}
+import Article from "@/components/ui/Article.astro";
+import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
+// DATA //
+import { newsDetails } from "@/data/media/news";
+import { URLS } from "@/infrastructure/constants/urls";
+import Layout from "@/layouts/Layout.astro";
+import Image from "astro/components/Image.astro";
+
+const year: number =
+  Number(Astro.url.searchParams.get("year")) || newsDetails.years[0];
+
+const newsId = Astro.params.id;
+
+// Find that one item dynamically (no static paths)
+const newsItem = newsDetails.news[year].find(
+  (item) => item.id.toString() === newsId,
+);
+
+// Prepare breadcrumb items based on personType
+const breadcrumbItems = [
+  { label: "News", href: URLS.MEDIA.NEWS.ROOT },
+  { label: "Sai News", href: `#` },
+];
 ---
+
+<Layout>
+  <section class="bg-n-50 relative w-full overflow-hidden">
+    <div
+      class="container mx-auto flex flex-col gap-5 px-6 pt-34 pb-30 md:gap-8 md:px-8 md:pt-40 md:pb-40 lg:gap-9 2xl:px-0"
+    >
+      <Breadcrumbs items={breadcrumbItems} />
+      <!-- Radio Orange Section -->
+      <Article
+        title={newsItem?.title ?? "News"}
+        metaStripDetails={{
+          author: newsItem?.author ?? "",
+          date: newsItem?.date ?? "",
+          readTimeMins: newsItem?.readTimeMins,
+        }}
+      >
+        <!--  News Consumption Content -->
+        <div class="flex flex-col gap-10 md:gap-14 lg:gap-20">
+          <!-- News Consumption Image and Details -->
+          {
+            newsItem?.img && (
+              <Image
+                src={newsItem.img}
+                alt="News Consumption Image"
+                class="card-anim card-bottom h-[257px] w-full rounded-3xl object-cover md:h-[524px] lg:h-[600px]"
+                style={`--delay: 0.1s`}
+                width={1200}
+                height={600}
+              />
+            )
+          }
+
+          <!--  News Consumption Description -->
+          <div set:html={newsItem?.content} />
+        </div>
+      </Article>
+    </div>
+  </section>
+</Layout>

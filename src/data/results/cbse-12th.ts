@@ -390,6 +390,10 @@ export const cbseClasses: ClassData[] = [
 ];
 
 export const cbseTwelthBreadcrumbItems: BreadcrumbData[] = [
+  {
+    label: "Results",
+    href: URLS.RESULTS.ROOT,
+  },
   { label: "12th Results", href: URLS.RESULTS.CBSE_12.ROOT },
 ];
 

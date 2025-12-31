@@ -1,6 +1,6 @@
 ---
-import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
-import CampusCard from "@/components/CampusCard.astro";
+import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
+import CampusCard from "@/components/ui/CampusCard.astro";
 
 const campusDetails = {
   campus: [
@@ -8,13 +8,15 @@ const campusDetails = {
       title: "SAI Angan",
       img: "/images/sai-campus.png",
       subTitle: "Preschool & Early Childhood",
-      gradeRange: "Playgroup – Grade 2 ",
+      gradeRange: "Playgroup – Grade III ",
+      href: "https://saiangan.co.in/",
     },
     {
-      title: "SAI Residential",
+      title: "SAI International Residential School",
       img: "/images/sai-resident.png",
       subTitle: "Boarding & Senior Years",
-      gradeRange: "Grades 5 – 12 ",
+      gradeRange: "Grades IV – Grade XII ",
+      href: "https://sirs.edu.in/",
     },
   ],
 };
@@ -22,7 +24,7 @@ const campusDetails = {
 
 <section class="bg-n-100" id="other-campus">
   <div
-    class="container mx-auto flex flex-col gap-11 px-6 py-24 md:gap-12 lg:gap-16 lg:px-8 lg:py-28 2xl:px-0"
+    class="container mx-auto flex flex-col gap-11 px-6 py-14 md:gap-12 lg:gap-16 lg:px-8 lg:py-16 2xl:px-0"
   >
     <!-- Section Header -->
     <SectionHeaderMain
@@ -31,19 +33,17 @@ const campusDetails = {
     />
 
     <!-- Campus card wrapper -->
-    <div
-      class="flex flex-col justify-center gap-8 md:flex-row md:gap-5 lg:gap-12"
-    >
+    <div class="m-auto grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
       {
         campusDetails.campus.map((card) => (
-          <div class="w-full lg:w-[46%] lg:max-w-[600px]">
-            <CampusCard
-              title={card.title}
-              img={card.img}
-              subTitle={card.subTitle}
-              gradeRange={card.gradeRange}
-            />
-          </div>
+          <CampusCard
+            title={card.title}
+            href={`window.open(
+ "${card.href}","_blank")`}
+            img={card.img}
+            subTitle={card.subTitle}
+            gradeRange={card.gradeRange}
+          />
         ))
       }
     </div>
