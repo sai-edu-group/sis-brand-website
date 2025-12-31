@@ -24,16 +24,24 @@ export const flagshipContent = [
       "Eastern India’s largest International MUN, accredited by UNESCO and UNIC. It promotes global awareness, diplomacy, and leadership among 600+ delegates globally.",
     img: "/images/flagship/saimun.jpg",
     landscapeImg: "/images/flagship/saimun.jpg",
-    content: `<p>SAI Model United Nations Conference is the annual MUN of the School. Initiated in the year 2013, SAIMUN has leveraged both in scale and grandeur over the years to become Eastern India’s largest International MUN. Every year more than 600 delegates from across the globe participate in the mega event.</p>
-    <p>SAIMUN is a 3-day conceptual replication of the United Nations (UN) International Committees where students from Class IX to XII assume the role of UN representatives and the members of the International bodies, to deliberate on challenging global issues and come up with solutions through consensus.</p>
-    <p><strong>Accreditation –</strong> It is a duly accredited registered event of UNESCO and the United Nations Information Centre for India and Bhutan (UNIC), under the aegis of the UN. The theme of the event is Vasudhaiva Kutumbakam – One World, One Family.</p>
-    <p><strong>Objective – </strong>SAIMUN is a challenging platform for the students to build leadership skills; increase global literacy and expand critical thinking to foster international co-operation in solving global problems. Students get to participate in challenging debates on historic as well as contemporary global issues to envisage innovative perspective to comprehend the world we live in.</p>
-    <p>A lot of global interactions are organized during the Conference which complements the experiences of the delegates.</p>
-    <p>Global Village where International delegates showcase their culture and tradition through performances, PPTs and accessories.</p>
-    <p>Social Connect activities, where International Delegates along with SAIoneers work together for the society.</p>
-    <p>Inclusivity, where students from a Special School are invited.</p>
-    <p>Motivational Talk by renowned Speakers to inspire the participants.</p>
-    <p><a href="https://saimun.in/" target="_blank" >Visit Site</a></p>
+    content: `<p><strong>SAIMUN</strong>, the annual <strong>Model United Nations Conference</strong> of SAI International School, has grown since its inception in <strong>2013</strong> into <strong>Eastern India’s largest International MUN</strong>, attracting over <strong>700+ delegates from across the globe</strong> every year.</p>
+
+    <p>This <strong>three-day immersive experience</strong> is a conceptual replication of the <strong>United Nations International Committees</strong>, where students from <strong>Classes IX to XII</strong> step into the roles of UN representatives and members of international bodies. Here, they <strong>deliberate on pressing global challenges,</strong> negotiate, and arrive at solutions through <strong>consensus-building.</strong></p>
+
+    <p><strong>Accreditation:</strong> SAIMUN is a <strong>duly accredited event</strong> by UNESCO and the United Nations Information Centre for India and Bhutan (UNIC), proudly conducted under the aegis of the UN. The conference celebrates the theme: <strong>“Vasudhaiva Kutumbakam – One World, One Family.”</strong></p>
+    
+    
+    <p><strong>Objective:</strong> The platform is designed to <strong>cultivate leadership, critical thinking, and global literacy</strong> among students while fostering <strong>international cooperation</strong>. Delegates engage in dynamic debates on historical and contemporary issues, gaining innovative perspectives to better understand the interconnected world.</p>
+
+    <p><strong>Conference Highlights</strong></p>
+    
+    <ul>
+      <li><strong>Global Village</strong>: International delegates showcase their culture, traditions, and heritage through performances, presentations, and displays.</li>
+      <li><strong>Social Connect Activities</strong>: SAIoneers collaborate with international delegates on community-driven initiatives</li>
+      <li><strong>Inclusivity</strong>: Students from special schools are invited to participate, promoting empathy and diversity.</li>
+      <li><strong>Motivational Talks</strong>: Renowned speakers inspire delegates with insights on leadership, global issues, and social responsibility.</li>
+    </ul><br>
+    <p>SAIMUN is not just a conference, it’s an <strong>arena for young leaders to think critically, act responsibly, and engage meaningfully with the world</strong>.</p>
     `,
   },
   {
