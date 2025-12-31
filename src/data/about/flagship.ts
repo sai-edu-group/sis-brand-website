@@ -83,26 +83,32 @@ export const flagshipContent = [
       "A student-driven science event graced by global luminaries (e.g., NASA Astronaut Dr. Jack D. Fischer). It prepares students to become future innovators and researchers.",
     img: "/images/flagship/saited.jpg",
     landscapeImg: "/images/flagship/saited.jpg",
-    content: `<p>SAITED is one of the biggest School-level Science based event of the country. The mega event was graced by the presence of eminent personalities like NASA Astronaut, Dr. Jack D. Fischer and Scientist, Presenter, Author Prof. Lewis Dartnell.</p>
-    <p>It was initiated in the year 2016 to orient, educate and prepare students to work towards becoming future innovators, researchers, consultants and designers in their preferred fields. It is a day-long conclave where students from various schools participate in different activities related to science and technology. The event is open to students from class VI to XII from schools across the state.</p>
-    <p>Student-led – SAITED is a student driven event, managed by students of Class XI from the Science stream with handholding support from mentors. It is headed by Student Office Bearers and has nine different departments like Finance, Logistics, Management, Advertisement, IT, CSR, Research, Medical and Technology.</p>
-    <p><strong>Events</strong>
+    content: `<p><strong>SAITED – India’s Premier School-Level Science Conclave</strong></p>
+
+    <p><strong>SAITED</strong> stands as one of the <strong>largest school-level science and technology events in India,</strong> bringing together young innovators and aspiring researchers on a single platform. Since its inception in <strong>2016</strong>, SAITED has inspired students to explore, experiment, and excel in the fields of <strong>science, technology, engineering, and design</strong>. The event has been graced by global luminaries, including <strong>NASA Astronaut Dr. Jack D. Fischer and scientist, author, and TED speaker Prof. Lewis Dartnell</strong>.</p>
+
+    <p><strong>Student-Led Initiative</strong> – SAITED is entirely <strong>student-driven</strong>, managed by Class XI Science students under the guidance of mentors. A <strong>Student Office Bearer Committee</strong> oversees nine departments, Finance, Logistics, Management, Advertisement, IT, CSR, Research, Medical, and Technology, ensuring seamless planning and execution while fostering leadership, teamwork, and innovation.</p>
+
+    <p><strong>Event Highlights</strong></p>
     <ul>
-      <li>TED Talk by eminent guests</li>
-      <li>Tech-Fair – An innovative science fair by the students</li>
-      <li>Science based quiz competition</li>
-      <li>Seminars where students make presentations on a specific topic</li>
-      <li>Competitions on Scientific parodies, JAMS, Speak Out Your Mind, Comedy on Science etc</li>
-      <li>Workshops like Aero-modelling, Film-making, Crime Forensic, Coding, Photography, where students get trained by eminent resource persons.</li>
-      <li>A Mini Planetarium where students experience a literal walk through a replica of space</li>
+    <li><strong>TED Talks</strong> by eminent scientists and thought leaders</li>
+    <li><strong>Tech-Fair</strong> A showcase of innovative student projects</li>
+    <li><strong>Science Quizzes & Seminars:</strong> Platform for presenting and debating ideas</li>
+    <li><strong>Creative Competitions:</strong> Scientific parodies, JAM sessions, Speak Out Your Mind, Comedy on Science</li>
+    <li><strong>Hands-On Workshops:</strong> Aero-modelling, Coding, Film-making, Crime Forensics, Photography</li>
+    <li><strong>Mini Planetarium:</strong> An immersive walk-through experience of space</li>
     </ul>
-    </p>
-    <p><strong>Interacting with Luminaries – </strong>The event provides students with an excellent opportunity to interact with luminaries from the field of research, engineering, medicine, health and technology from across the globe. Students get to enrich themselves by listening to eminent personalities on topics of great relevance, which encourage and empower them to take up innovative scientific activities and think outside the box. In the year 2016, renowned TED speaker, Scientist, Presenter, Author Prof. Lewis Dartnell, and in 2017, Famous Space Scientist and NASA Astronaut, Dr. Jack D. Fischer graced the occasion.</p>
-    <p><strong>Learning Outcomes – </strong>The free and open platform of SAITED enables students to share their ideas, discuss and deliberate amidst like-minded people, besides getting an opportunity to present their ideas as well as share their views on latest happenings in the field of technology, engineering and design.</p>
-    <p> It is an ideal platform for school children to connect themselves to the world of technology. Students get an opportunity to present their ideas and research work based on the theme and obtain valuable advice to strengthen their work. SAITED creates a deep curiosity among students on the potential of scientific and technological possibilities and lay the foundation on the basics of scientific knowledge.</p>
-    <p>Speading the culture of knowledge creation – The School also encourages participation of inquisitive students from various schools to spread a culture of knowledge creation, assimilation and sharing through involvement in designed activities and competitions.</p>
-    <p>SAI International School believes in promoting Science and Technology through various pioneering platforms to induce the spirit of curiosity and creativity amongst the students, as well as encourage and empower them to take up innovative scientific activities for a wider contribution to society. SAITED is one such attempt to imbibe interest in the students and expose them to the interesting world of science and technology.</p>
+
+    <p><strong>Interact with Luminaries:</strong> SAITED offers students a rare opportunity to <strong>engage with global experts</strong> in research, medicine, technology, and engineering, gaining insights that inspire them to <strong>think critically and innovate boldly.</strong></p>
+
+    <p><strong>Learning Outcomes:</strong> The open and collaborative environment at SAITED encourages students to <strong>share ideas, receive constructive feedback, and present research projects.</strong> It cultivates curiosity, nurtures scientific thinking, and lays a strong foundation for future innovators, designers, and problem-solvers.</p>
+
+    <p><strong>Spreading a Culture of Knowledge:</strong> SAITED fosters <strong>scientific exploration, creativity, and knowledge-sharing.</strong> By encouraging participation from students across the state, it nurtures a spirit of inquiry, collaboration, and intellectual curiosity that extends beyond the classroom.</p>
+
+    <p>At <strong>SAI International School</strong>, SAITED exemplifies the <strong>passion for science and technology,</strong> inspiring students to explore, innovate, and contribute meaningfully to society.</p>
+
     <p><a href="https://saited.com/" target="_blank" >Visit Site</a></p>
+
     `,
   },
   {
