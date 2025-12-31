@@ -52,26 +52,34 @@ export const flagshipContent = [
       "The country's largest student-led mega fest (30,000+ footfall) focused on 21st-century skills. It's a major fundraising event for philanthropic projects like 'Building 100 Libraries'.",
     img: "/images/flagship/sai-unwind.jpg",
     landscapeImg: "/images/flagship/sai-unwind.jpg",
-    content: `<p>UNWIND is the largest School event of the country, held every year to inculcate the 21st-century skills in the students. Initiated in the year 2008, a one-day mega fest is completely a student-led event, encompassing a gamut of activities and witnesses a footfall of around 30 thousand people. The event houses more than 100 food stalls having a wide array of scrumptious national and international cuisines and around 100 game stalls with fun-filled activities.</p>
-      <p>Student-led – The entire planning and execution of the event is conducted by the students of Class XI (Commerce and Humanities). A Student Office Bearer Committee is formed with eight different departments like Marketing, Finance, Logistic, Resource, CSR, Advertisement, Marketing, IT and Corps. Each department has a Director and a Joint Director supported by selected student Advisors</p>
-    <p><strong>The Events</strong></p>
-        <ul>
-        <li>Parents of the school achievers showcasing academic brilliance for the last academic session are felicitated with the Holistic Parenting award</li>
-        <li>Students showcase their talent through songs, dance and music throughout the day-long event.</li>
-        <li>Four different stages are constructed for Junior, Middle and Senior Secondary students to give an opportunity to each student.</li>
-        <li>It is also a memorable strolling event for the visitors, who have a gala time enjoying the sumptuous food and the various games.</li>
-        </ul>
-    <p><strong>Embedding Empathy –</strong> UNWIND is also a fundraising event, financed by philanthropic Institutions through a sponsorship drive by the students, to support various underprivileged schools and communities around Cuttack and Bhubaneswar. We have brought a smile on many faces with the surplus generated fund during the fete.</p>
-    <p><strong>The Major Project –</strong> Building 100 Libraries – It is a philanthropic project envisioned by students of SAI International School, to support students from under-privileged schools in and around the twin cities of Cuttack and Bhubaneswar, by providing them with a fully functional library. The project also involves imparting training to teachers on book keeping and record keeping.</p>
-    <p><strong> A Learning Platform – </strong>It enables students to imbibe the knowledge methodically, through conceptualization to knowledge synthesis. It encourages the students to hone every aspect of their communication skills, become proactive problem solvers, enhance information fluency and become better collaborators.</p>
-    <p>The event also showcases quality leadership and handholding support by senior management, systematic thinking and total involvement of a workforce as well as working towards further improvement through continuous and rigorous analysis of the process. UNWIND helps in imbibing the spirit of teamwork, leadership, innovations along with fostering compassion and humility.</p>
-    <p><strong>>Recognitions –</strong>
-      <ul>
-      <li>Won the prestigious D.L.Shah Quality Gold Award by Quality Council of India</li>
-      <li>Winner of the Design for Change I CAN School Challenge 2017 as “Top 20 Most Innovative Stories” and Top 100 I CAN Stories of Change 2017.</li>
-      <li>The event has been published on the online media platform The Better India</li>
-      <li>UNWIND was selected to represent India in the DFC Global Be the Change Conference (BTC) 2018 at Taiwan.</li>
-      </ul>
+    content: `<p><strong>UNWIND – India’s Largest Student-Led School Festival</strong></p>
+    <p><strong>UNWIND</strong> is <strong>India’s largest school event,</strong> held annually to <strong>nurture 21st-century skills</strong> in students. Since its inception in <strong>2008,</strong> this one-day mega fest has evolved into a vibrant, fully <strong>student-led extravaganza,</strong> attracting around <strong>30,000 visitors</strong> each year. The event features <strong>over 100 food stalls</strong> serving delectable national and international cuisines, and <strong>100+ game stalls</strong> brimming with fun and excitement.</p>
+
+    <p><strong>Student-Led Leadership –</strong> The festival is entirely <strong>planned and executed by Class XI students</strong> (Commerce and Humanities). A <strong>Student Office Bearer Committee</strong> operates through eight specialized departments: Marketing, Finance, Logistics, Resource, CSR, Advertisement, IT, and Corps, each led by a Director and Joint Director, supported by student Advisors. This framework fosters <strong>leadership, strategic thinking, and teamwork</strong> among students.</p>
+
+    <p><strong>Event Highlights:</strong></p>
+    <ul>
+    <li><strong>Holistic Parenting Award:</strong> Celebrating parents of school achievers for their unwavering support.</li>
+    <li><strong>Talent Showcase:</strong> Students mesmerize audiences with songs, dance, and musical performances across <strong>four dedicated stages</strong> for Junior, Middle, and Senior Secondary students.</li>
+    <li><strong>Strolling Extravaganza:</strong> Visitors enjoy a lively carnival atmosphere with delicious food and exciting games.</li>
+    </ul>
+
+    <p><strong>Embedding Empathy:</strong> UNWIND doubles as a <strong>fundraising platform,</strong> with sponsorships supporting underprivileged schools and communities in Cuttack and Bhubaneswar. The festival brings <strong>joy to countless lives</strong> through its philanthropic initiatives.</p>
+
+    <p><strong>Flagship Initiative - The 100 Libraries Project:</strong> Students envision and execute the creation of fully functional libraries in underprivileged schools, including <strong>teacher training on book and record management,</strong> fostering literacy and lifelong learning.</p>
+
+    <p><strong>Learning Platform:</strong> UNWIND is more than a festival, it is a <strong>dynamic learning ground.</strong> Students enhance communication, problem-solving, collaboration, and leadership while cultivating <strong>empathy, humility, and innovation.</strong></p>
+
+    <p><strong>Recognitions:</strong></p>
+    <ul>
+    <li><strong>D.L. Shah Quality Gold Award – </strong>Quality Council of India</li>
+    <li><strong>Design for Change I CAN School Challenge 2017 – </strong>Top 20 Most Innovative Stories & Top 100 I CAN Stories of Change</li>
+    <li>Featured on <strong>The Better India</strong> online platform</li>
+    <li>Selected to represent India at the <strong>DFC Global Be the Change Conference 2018,</strong> Taiwan</li>
+    </ul>
+    <br>
+
+    <p>UNWIND exemplifies the <strong>power of student initiative,</strong> where vision meets execution, learning meets leadership, and celebration meets compassion.</p>
 
     `,
   },
