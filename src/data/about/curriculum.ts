@@ -147,21 +147,51 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/sports.png",
       description:
         "Offers diverse indoor and outdoor sports for fitness and holistic development.",
-      content: `<p>SAI Sports Academy offers a plethora of sporting activities at SAI International School which include swimming, horse riding, lawn tennis, table tennis, snooker, football, basketball, cricket, hockey, gymnasium, wall climbing, skating, karate, yoga, kho-kho, badminton, volley ball, chess, rifle shooting, athletics.</p>
-      <p>The School gives a lot of importance to develop and work on the talent of the students in the field of sports. Therefore, to provide each student with an option of choosing a sport of their liking and giving them an ideal space to practice and play, we have in our flamboyant campus well designed Tennis Courts (2 nos.) : 120×60 & 60×30 ft, Basketball Court: 120×55 ft, a Football Field : 325×165 ft and four different swimming pools.</p>
-      <p><strong>Objectives – </strong> Sports is an indispensable element in the school as it has multiple benefits, both for the physical and mental well-being. It helps in building the collaborative skills in the students, provides a sense of belonging, and being part of a group, besides helping the students to interact with peers in a social and friendly manner. It builds empathy through considering the interests of teammates and practicing mutual respect and co-operation, it instills resilience and helps the students cope both with success and failure as a team or an individual. When children share time, emotional space and other resources, it helps them to understand each other and can forge strong bonds and lasting friendships with schoolmates. It fosters a sense of belongingness and helps in team building.</p>
-      <p><strong>Gymnasium – </strong> Health plays an important role in every field of life and to maintain a healthy body and a healthy mind, the right balance of exercise and meditation is a pre-requisite. Keeping in mind the health and fitness of its students, the School provides a state-of-the-art gymnasium within the campus. Instructors and trainers are available throughout the day to train the students. A number of floor exercises, aerobics and stretching exercises are done in the gymnasium to ensure the physical well being of the students.</p>
-      <p><strong>Swimming – </strong>Four swimming pools adorn the campus of SAI International School, each one a big favorite among both the senior and junior students. All the pools are well designed and spotlessly maintained throughout the year. Once a week, the students of each class are taken for swimming class and in addition to this, the students are also allowed to use the pools at other specified times for enhancing performance. For the convenience of the students, lockers and shower cubicles are installed.</p>
+      content: `<p><strong>Building Strength, Spirit and Sportsmanship</strong></p>
+
+      <p>The <strong>SAI Sports Academy</strong> at SAI International School offers a dynamic and comprehensive sports programme that encourages every student to discover their passion for fitness and play. With a wide range of indoor and outdoor sporting activities, the school ensures holistic physical development alongside mental resilience and team spirit.</p>
+
+      <p>Students can choose from an impressive array of sports including <strong>swimming, horse riding, lawn tennis, table tennis, snooker, football, basketball, cricket, hockey, gymnasium training, wall climbing, skating, karate, yoga, kho-kho, badminton, volleyball, chess, rifle shooting, and athletics,</strong> providing something for every interest and aptitude.</p>
+
+      <p><strong>World-Class Sports Infrastructure</strong></p>
+
+      <p>Recognising the importance of nurturing sporting talent, the school provides students with the freedom to select sports of their choice and the ideal environment to practise and excel. Spread across the expansive and vibrant campus are:</p>
+
+      <ul>
+      <li><strong>Tennis Courts (2):</strong> 120 × 60 ft and 60 × 30 ft</li>
+      <li><strong>Basketball Court:</strong> 120 × 55 ft</li>
+      <li><strong>Football Field:</strong> 325 × 165 ft</li>
+      <li><strong>Four well-maintained Swimming Pools</strong></li>
+      </ul>
+
+      <p>These professionally designed facilities ensure students train, compete, and perform in safe, inspiring, and high-quality spaces.</p>
       
-      <div class="flex flex-col lg:flex-row-reverse lg:gap-8">
-      <p class="flex-1"><strong>Horse Riding – </strong> The equestrian program immensely excites the SAIoneers. Horse Riding is a special feature of SAI International School with experienced instructors who trains the children for the art of riding and training a horse in a manner that develops obedience, flexibility, balance, show jumping, tent pegging and various other skills. Horse riding is recognized as having excellent therapeutic qualities. The psychological benefits can be of equal importance to riders as the physical benefits. Simply being outdoors and enjoying the ride on an open field boosts the general well-being and acts as a great stress buster. There is a real sense of excitement and freedom when one rides, a feeling that is second to none. Furthermore, developing a relationship and sense of trust between the students and another living being is highly rewarding. We believe that when students learn to control and care for an animal much larger than themselves, it can have a profound effect on their confidence. The horses under the expert training of our trainers can be seen in the campus and are a much cherished part of the SAI family.</p>
-      <img src="/images/curriculum/sports.png" alt="Horse Riding" class="lg:w-2/5 object-cover"/>
-      </div>
-      
-      <div class="flex flex-col lg:flex-row lg:gap-8">
-      <p class="flex-1"><strong>Horse Riding – </strong> The equestrian program immensely excites the SAIoneers. Horse Riding is a special feature of SAI International School with experienced instructors who trains the children for the art of riding and training a horse in a manner that develops obedience, flexibility, balance, show jumping, tent pegging and various other skills. Horse riding is recognized as having excellent therapeutic qualities. The psychological benefits can be of equal importance to riders as the physical benefits. Simply being outdoors and enjoying the ride on an open field boosts the general well-being and acts as a great stress buster. There is a real sense of excitement and freedom when one rides, a feeling that is second to none. Furthermore, developing a relationship and sense of trust between the students and another living being is highly rewarding. We believe that when students learn to control and care for an animal much larger than themselves, it can have a profound effect on their confidence. The horses under the expert training of our trainers can be seen in the campus and are a much cherished part of the SAI family.</p>
-      <img src="/images/curriculum/sports.png" alt="Horse Riding" class="lg:w-2/5 object-cover"/>
-      </div>
+      <p><strong>Objectives of Sports Education</strong></p>
+
+      <p>Sports form an indispensable part of life at SAI International School, contributing significantly to both physical fitness and emotional well-being. Participation in sports:</p>
+      <ul>
+      <li>Builds teamwork, collaboration, and leadership skills</li>
+      <li>Instils discipline, resilience, and perseverance</li>
+      <li>Encourages empathy, mutual respect, and cooperation</li>
+      <li>Teaches students to embrace success and face challenges with confidence</li>
+      <li>Fosters a strong sense of belonging and lasting friendships</li>
+      </ul>
+      <p>Through shared experiences, emotional engagement, and collective goals, students learn the true spirit of sportsmanship and teamwork, skills that extend far beyond the playing field.</p>
+
+      <p><strong>Gymnasium</strong></p>
+
+      <p>Understanding that good health is the foundation of excellence, the school houses a <strong>state-of-the-art gymnasium</strong> equipped with modern fitness facilities. Qualified instructors and trainers guide students through structured routines that include floor exercises, aerobics, stretching, and strength training.</p>
+      <p>Balanced with mindfulness practices, the gymnasium supports the development of physical strength, flexibility, stamina, and mental focus, ensuring overall well-being.</p>
+
+      <p><strong>Swimming</strong></p>
+
+      <p>Swimming is one of the most loved activities at SAI International School. The campus boasts <strong>four spotlessly maintained swimming pools,</strong> catering to both junior and senior students.</p>
+
+      <p>Each class is scheduled for a weekly swimming session, and students are also provided additional access during specified times to enhance performance and skill development. For added comfort and convenience, the swimming facilities include <strong>lockers and shower cubicles,</strong> ensuring a safe and enjoyable experience.</p>
+
+      <p>At SAI International School, sports are not just activities, they are a way of life, shaping confident individuals who are physically strong, mentally resilient, and guided by the values of teamwork and perseverance.</p>
+
+
       `,
     },
 
