@@ -1,10 +1,11 @@
 ---
-import Input from "@/components/Input.astro";
-import StepCard from "@/components/FormStepsCard.astro";
-import Select from "@/components/Select.astro";
-import Textarea from "@/components/Textarea.astro";
-import Button from "@/components/Button.astro";
-import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import Input from "@/components/ui/Input.astro";
+import StepCard from "@/components/ui/FormStepsCard.astro";
+import Select from "@/components/ui/Select.astro";
+import Textarea from "@/components/ui/Textarea.astro";
+import Button from "@/components/ui/Button.astro";
+import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
+import Image from "astro/components/Image.astro";
 ---
 
 <section class="bg-n-100 mx-auto w-full space-y-6" id="contact-form">
@@ -32,7 +33,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
                 name="fullName"
                 required
                 placeholder="Enter full name"
-                errorMessage="Full name is required."
+                errorMessage="Full name cannot be empty and should not contain numbers."
               />
             </div>
 
@@ -41,9 +42,10 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
               <Input
                 label="Phone Number"
                 name="phoneNumber"
+                type="number"
                 required
                 placeholder="Enter phone number"
-                errorMessage="Phone number is required."
+                errorMessage="Phone number is required and must contain 10 digits."
               />
             </div>
 
@@ -96,7 +98,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
               type="submit"
               text="Send Message"
               variant="solid"
-              size="medium"
+              size="large"
             />
           </div>
         </div>
@@ -108,10 +110,12 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
         class="border-n-200 bg-n-50 flex flex-col items-center gap-6 rounded-3xl border px-6 py-8 text-center md:gap-8 md:py-12 lg:gap-10 lg:py-24"
       >
         <!-- Paper plan icon -->
-        <img
+        <Image
           src="/icons/paper-plane.svg"
           alt=""
           class="h-12 -rotate-10 md:h-24 lg:h-32"
+          width={128}
+          height={128}
         />
         <div class="flex flex-col items-center gap-2">
           <!-- Success panel title -->
@@ -130,13 +134,13 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
           shortly.
         </p>
         <!-- Download brochure button -->
-        <Button text="Back to Home" variant="outline" />
+        <Button text="Back to Home" variant="outline" size="large" />
       </article>
     </form>
   </div>
 </section>
-<script is:inline type="module">
-  import { contactEnquiryRequest } from "/js/form.js";
+<script>
+  import { contactEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
     const step1 = document.getElementById("step-1");
@@ -158,17 +162,30 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
           .closest("[data-field]")
           ?.querySelector("[data-error]");
         let fieldValid = true;
+        const value = el.value.trim();
 
         // Required check
-        if (el.hasAttribute("required") && !el.value.trim()) fieldValid = false;
+        if (el.hasAttribute("required") && !value) fieldValid = false;
 
         // Email check
-        if (el.type === "email" && el.value.trim() !== "") {
+        if (el.type === "email" && value !== "") {
           const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailPattern.test(el.value.trim())) fieldValid = false;
+          if (!emailPattern.test(value)) fieldValid = false;
         }
 
-        // Update styles
+        // ❌ NAME VALIDATION: should NOT contain digits
+        if (el.name === "fullName" && value !== "") {
+          const hasDigits = /\d/.test(value);
+          if (hasDigits) fieldValid = false;
+        }
+
+        // ❌ PHONE VALIDATION: should contain ONLY digits
+        if (el.name === "phoneNumber" && value !== "") {
+          const notNumbers = /\D/.test(value);
+          if (notNumbers || el.value.length !== 10) fieldValid = false;
+        }
+
+        // Style updates
         if (!fieldValid) {
           valid = false;
           el.classList.add("border-red-500", "focus:ring-red-500");
@@ -199,12 +216,12 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
 
       try {
         // Call API
-        const response = await admissionEnquiryRequest(payload);
+        const response = await contactEnquiryRequest(payload);
         console.log("✅ Enquiry submitted:", response);
 
         if (response.status === false) {
           alert(
-            "Something went wrong while submitting your enquiry. Please try again."
+            "Something went wrong while submitting your enquiry. Please try again.",
           );
           return;
         }
@@ -215,7 +232,7 @@ import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
       } catch (err) {
         console.error("❌ Failed to submit enquiry:", err);
         alert(
-          "Something went wrong while submitting your enquiry. Please try again."
+          "Something went wrong while submitting your enquiry. Please try again.",
         );
       }
     });

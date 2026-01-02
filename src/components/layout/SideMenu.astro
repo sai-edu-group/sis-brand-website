@@ -1,5 +1,6 @@
 ---
 import { menu, type MenuItemData } from "@/infrastructure/constants/side-menu";
+import Image from "astro/components/Image.astro";
 ---
 
 <!-- Backdrop --><!-- This is the dark overlay behind the sidebar when open -->
@@ -16,11 +17,9 @@ import { menu, type MenuItemData } from "@/infrastructure/constants/side-menu";
   class="fixed inset-y-0 right-0 z-52 w-full translate-x-full transform overflow-y-scroll bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
   <nav class="flex h-full flex-col" data-accordion>
-    <div class="pt-38 pb-10 md:pt-10">
+    <div class="py-10">
       <!-- Close Button for Sidebar -->
-      <div
-        class="z-3 mb-10 hidden w-full justify-end bg-violet-600 pr-10 md:flex"
-      >
+      <div class="z-3 mb-10 flex w-full justify-end bg-violet-600 pr-10">
         <div
           class="bg-n-50/10 hover:bg-n-50/20 cursor-pointer items-center justify-center rounded-xl p-3 transition-all duration-300 hover:scale-110 md:p-5"
           id="menu-close"
@@ -71,12 +70,14 @@ import { menu, type MenuItemData } from "@/infrastructure/constants/side-menu";
                 <span class="flex items-center gap-5">
                   {/* Menu icon */}
                   <span class="inline-flex size-5">
-                    <img
+                    <Image
                       src={`/icons/${menuItem.icon}.svg`}
                       alt=""
                       class="h-full w-full"
                       loading="lazy"
                       decoding="async"
+                      width={20}
+                      height={20}
                     />
                   </span>
                   {/* Menu title */}

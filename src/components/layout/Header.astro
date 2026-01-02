@@ -1,17 +1,23 @@
 ---
-import Navbar from "../Navbar.astro";
-import Hamburger from "../Hamburger.astro";
+import Image from "astro/components/Image.astro";
+import Navbar from "../ui/Navbar.astro";
+import { URLS } from "@/infrastructure/constants/urls";
 
 // DATA //
 const baseItems = [
-  { name: "About Us", href: "/about", active: true },
+  { name: "About Us", href: URLS.ABOUT.ROOT, active: true },
   {
     name: "School Tour",
+    target: "_blank",
     href: "https://youtube.com/watch?si=Rdg7vMlOqIGNyqxZ&v=EwX0-sGD_l4&feature=youtu.be",
   },
-  // { name: "News & Blogs", href: "/news" },
-  { name: "Pay Fee", href: "https://sis.edunexttechnologies.com/Index" },
-  { name: "Reach Us", href: "/contact-us" },
+  { name: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
+  {
+    name: "Pay Fee",
+    target: "_blank",
+    href: "https://sis.edunexttechnologies.com/Index",
+  },
+  { name: "Reach Us", href: URLS.CONTACT },
 ];
 
 // Normalize a path (removes trailing slash except for "/")
@@ -44,7 +50,13 @@ const navItemWithActive = baseItems.map((item) => {
 >
   <!-- Brand logo -->
   <a href="/" class="w-22 xl:w-26">
-    <img src="/images/sai-brand-logo.png" alt="" class="h-full w-full" />
+    <Image
+      src="/images/sai-brand-logo.png"
+      alt=""
+      class="h-full w-full"
+      width={104}
+      height={33}
+    />
   </a>
 
   <!-- Navbar component -->
