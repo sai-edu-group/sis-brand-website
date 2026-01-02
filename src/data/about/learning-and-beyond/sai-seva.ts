@@ -142,7 +142,7 @@ export const saiSevaContent = [
     landscapeImg: "/images/saiseva/recognitions.jpg",
     description:
       "Acknowledged globally for CSR work with multiple Dada Saheb Phalke Film Festival Awards, QCI Quality Awards, and the Disney 'I CAN' Award.",
-    content: `<p>Acknowledged globally for its impactful CSR work with multiple recognitions such as the Dada Saheb Phalke Film Festival Awards, QCI Quality Awards, and the Disney 'I CAN' Award. These accolades celebrate the institution’s commitment to creating meaningful social change through sustained community efforts.</p>`,
+    content: `<p>SAI International School has been <strong>globally acknowledged </strong>for its transformative CSR initiatives, earning prestigious accolades such as the <strong>Dadasaheb Phalke Film Festival Awards, QCI Quality Awards,</strong> and the <strong>Disney 'I CAN' Award.</strong> These honors celebrate the School’s unwavering commitment to <strong>driving meaningful social change,</strong> inspiring communities, and empowering students to become compassionate, socially responsible leaders of tomorrow.</p>`,
     href: "#",
   },
 ];
