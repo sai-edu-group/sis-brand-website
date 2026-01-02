@@ -54,11 +54,22 @@ export const amenitiesDetails = {
         "State-of-the-art auditoriums hosting events, performances, and assemblies for student engagement.",
 
       landscapeImg: "/images/amenities/auditoriums.png",
-      content: `<p><strong>Auditoriums –</strong> The Auditoriums of a school are the hub of activities. SAI International School has two magnificent state-of-the-art auditoriums, well equipped modern stage lighting, digital sound systems with ample space to benefit the students. These multipurpose auditoriums are used for meetings, assemblies, seminars, celebrations, drama, choirs, orchestras, and other extra-curricular activities.</p>
-      <p><strong>Sushila Devi Auditorium –</strong> Sushila Devi, a multipurpose and centrally air-conditioned auditorium with impeccable acoustics, is built to host meetings, training, performances, special lectures, small events. It has the capacity of holding 140 people, with an area of 2500 sq ft, the auditorium is the hub of SAI International School, where the students are brought in for rendezvous with eminent personalities.</p>
-      <p><strong>Indraprastha Auditorium –</strong> Yet another highlight of SAI International School is the Indraprastha Auditorium that is loved by both the students and the staff. With a seating capacity of over 1500 people and covering an area of 10,000 sq ft., the Indraprastha Auditorium is a prized possession of the SAI family.</p>
-      <p>The open-air auditorium flaunts a balcony seating that is enjoyed by the senior students. The large stage is appropriate for the major functions that are held in the school. It is also a venue for most of the annual events like Mother’s Day, Father’s Day, Art from the Heart, Grandparents Day, SAI Confluence, Foundation Lecture etc. The auditorium has a sound system of 3000 W and is well lighted with high intensity 20 coloured and 12 white lights. It also has a green room that is essential during stage shows and events.</p>
-      <p><strong>Workshop Room –</strong> To hold workshops, seminars and meetings, an air-conditioned workshop room with a capacity of 100 seats is fully functional at SAI International School.</p>
+      content: `<p><stron>Where Ideas Perform and Celebrations Come Alive</strong></p>
+      <p>Auditoriums are the heartbeat of a school’s cultural and intellectual life. At SAI International School, our two magnificent, state-of-the-art auditoriums serve as vibrant hubs for expression, learning, and celebration. Equipped with modern stage lighting, advanced digital sound systems, and thoughtfully designed seating, these multipurpose spaces provide the perfect setting for assemblies, seminars, performances, celebrations, and a wide range of co-curricular activities.</p>
+      <p>From drama and orchestras to choirs, lectures, and milestone events, the auditoriums offer students inspiring platforms to showcase talent, share ideas, and engage with the wider community</p>
+      <p><strong>Sushila Devi Auditorium</strong></p>
+      <p>The <strong>Sushila Devi Auditorium</strong> is a centrally air-conditioned, multipurpose space designed with impeccable acoustics to host meetings, training programmes, performances, special lectures, and intimate events. Spanning <srong>2,500 sq. ft.</strong> with a seating capacity of <strong>140,</strong> it stands at the very heart of the campus.</p>
+      <p>This auditorium regularly welcomes students for enriching interactions and rendezvous with eminent personalities, making it a vital space for intellectual exchange and inspiration.</p>
+      <p><strong>Indraprastha Auditorium</strong></p>
+      <p>A true landmark of the campus, the <strong>Indraprastha Auditorium</strong> is a much-loved venue for both students and staff. With a generous seating capacity of <strong>over 1,500</strong> and covering an impressive <strong>10,000 sq. ft.,</strong> it is one of the school’s most prized facilities.</p>
+      <p>This open-air auditorium features <strong>balcony seating,</strong> especially enjoyed by senior students, and a large stage ideally suited for grand celebrations and performances. It serves as the venue for major annual events such as <strong>Mother’s Day, Father’s Day, Art from the Heart, Grandparents’ Day, SAI Confluence, Foundation Lectures,</strong> and more.</p>
+      <p>The auditorium is equipped with a powerful <strong>3,000 W sound system,</strong> high-intensity lighting comprising <strong>20 coloured and 12 white lights,<strong> and a dedicated <strong>green room,</strong> ensuring seamless execution of large-scale events and stage productions.</p>
+
+      <p><strong>Workshop Room</strong></p>
+      <p>Complementing the auditoriums is a fully air-conditioned <strong>Workshop Room</strong> with a seating capacity of <strong>100</strong>, designed to host workshops, seminars, meetings, and interactive sessions in a focused and comfortable setting.</p>
+
+      <p>At SAI International School, our auditoriums are more than venues, they are spaces where voices are heard, talents are celebrated, and memorable moments are created.</p>
+
       `,
     },
     {

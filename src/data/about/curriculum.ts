@@ -208,6 +208,25 @@ export const curriculumDetails = {
       <p><strong>Benefits of STEAM Learning</strong></p>
       <p>To stimulate curiosity and innovation, students engage in <strong>interdisciplinary projects</strong> across subjects such as Mathematics, Science, English, Social Studies, Computer Science, and Hindi. Through structured brainstorming sessions and guided exploration, learners are encouraged to interpret themes, experiment with ideas, and showcase their understanding in unique and creative ways.</p>
       <p>This approach not only deepens subject comprehension but also fosters originality, collaboration, and independent thinking.</p>
+      <p><strong>Our Objectives</strong></p>
+
+      <p>Through STEAM education, we aim to:</p>
+      <ul>
+        <li>Build a strong knowledge base aligned with contemporary advancements</li>
+        <li>Strengthen the ability to integrate and apply interdisciplinary learning</li>
+        <li>Nurture creativity, innovation, and critical thinking</li>
+        <li>Develop collaboration, communication, and problem-solving skills</li>
+        <li>Cultivate resilience, adaptability, and an entrepreneurial mindset</li>
+
+        <p>Transforming ideas into tangible outcomes goes beyond fabrication, it involves exploration, experimentation, self-learning, and reflective thinking. Students learn to take calculated risks, embrace challenges, and bounce back stronger from setbacks.</p>
+        <p>The school facilitates <strong>hands-on practice</strong> using digital tools that allow students to design, create, prototype, and implement ideas. Workshops, maker sessions, inspiring talks, and exposure to innovative work by other creators further enrich the learning journey.</p>
+
+        <p><strong>Experiential Learning in Action</strong></p>
+        <p>Students actively participate in flagship, student-led events such as <strong>UNWIND and SAITED,</strong> where learning extends far beyond classrooms. From financial planning and marketing strategies to digital design, sales, liaisoning, and collaboration, students manage every aspect of these large-scale events.</p>
+        <p>Through this immersive, collaborative experience, learners acquire real-world skills, leadership qualities, and confidence, learning by doing, reflecting, and growing together.</p>
+        <p>At SAI International School, STEAM education ignites curiosity, fuels innovation, and empowers students to transform ideas into action, preparing them to thrive in the 21st-century world.</p>
+
+      </ul>
 
 
 
