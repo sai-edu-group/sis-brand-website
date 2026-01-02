@@ -240,10 +240,16 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/fine-arts.png",
       description:
         "Promotes creative expression through art and sculpting to develop imagination and aesthetics.",
-      content: `<p>Fine Arts is the creative art mostly visual, whose products are appreciated solely for their imaginative, aesthetic, or intellectual content.</p>
-      <p>Art and Sculpting are popular fine arts subjects that encourage individuals to explore and develop their creative potential. It helps the students to unleash the inner budding artist– and better understand art as a subject and just not a mere hobby.</p>
-      <p>The school has an Art Lab with facilities for drawing, painting, sculpturing, pottery and fabric design that invigorates the soul and nurtures the imagination of the students. School has five well trained art and craft faculty who work with the children throughout the year to enhance the talent in them.</p>
-      <p>Art lab offers practical learning of art, craft and clay modeling.</p>`,
+      content: `<p><strong>Where Imagination Takes Shape</strong></p>
+      <p>Fine Arts celebrate creativity through visual expression, where ideas, emotions, and intellect come together to create works appreciated for their aesthetic and imaginative value. At SAI International School, Fine Arts are not just an activity, they are a vital part of holistic education, enabling students to discover their creative voice and express it with confidence.</p>
+
+      <p>Art and sculpting are integral to the Fine Arts programme, encouraging students to explore form, colour, texture, and space. Through guided practice, learners move beyond viewing art as a hobby and begin to understand it as a meaningful subject that sharpens observation, nurtures creativity, and builds artistic sensibility.</p>
+
+      <p><strong>Art Lab and Learning Experience</strong></p>
+      <p>The school’s well-equipped <strong>Art Lab</strong> provides a vibrant space for creative exploration. Facilities support a wide range of artistic pursuits including <strong>drawing, painting, sculpting, pottery, fabric design, craftwork, and clay modelling.</strong> These hands-on experiences invigorate the soul, stimulate imagination, and foster originality.</p>
+      <p>Students are mentored throughout the year by a team of <strong>skilled and dedicated art and craft faculty,</strong> who guide them in refining techniques, experimenting with mediums, and developing their individual artistic style.</p>
+            
+      <p>Through practical learning and creative freedom, the Fine Arts programme helps students transform ideas into art, nurturing imagination, confidence, and a lifelong appreciation for creativity.</p>`,
     },
 
     {
