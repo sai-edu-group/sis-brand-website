@@ -132,7 +132,16 @@ export const saiSevaContent = [
     landscapeImg: "/images/saiseva/projects.jpg",
     description:
       "Engaging in collaborative community service projects with international partners (UK), including teacher training for special schools and creating sensory learning walls.",
-    content: `<p>Engaging in collaborative community service projects with international partners, especially from the UK. These include teacher training programs for special schools, designing sensory learning walls, and creating supportive environments that help children with diverse learning needs thrive academically and socially.</p>`,
+    content: `<p><strong>Global Collaborative Projects</strong></p>
+    <p>SAI International School actively engages in <strong>collaborative community service projects</strong> with international partners, including esteemed institutions from the UK. These initiatives focus on empowering education and creating inclusive learning environments for children with diverse needs.</p>
+    <p>Our projects include:</p>
+    <ul>
+    <li><strong>Teacher Training Programs – </strong>Equipping educators of special schools with innovative teaching strategies and best practices to support every learner.</li>
+    <li><strong>Designing Sensory Learning Walls –</strong>Creating interactive and stimulating environments that enhance cognitive, emotional, and sensory development.</li>
+    <li><strong>Inclusive Educational Spaces –</strong> Developing supportive settings where children with varied learning needs can thrive academically, socially, and emotionally.</li>
+    </ul>
+    <p>Through these initiatives, SAIoneers gain <strong>global exposure, hands-on experience, and the ability to make a meaningful impact</strong> in the lives of children across communities, fostering empathy, collaboration, and innovation.</p>
+    `,
     href: "#",
   },
   {
