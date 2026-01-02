@@ -202,11 +202,35 @@ export const curriculumDetails = {
       landscapeImg: "/images/curriculum/arts.png",
       description:
         "Music and dance nurture creativity and support 360-degree student growth.",
-      content: `<p>In affirmation with our adopted theory of Multiple Intelligence by Dr. Howard Gardener, we work on the 360 degree development of the students. Music and Dance or the SAI Nritya and Sangeet Kala are important components of school education, the benefits of which have been largely documented. We have eight music labs and a dance lab in the School, catering to the likes and interests of our students.</p>
-      <p><strong>Purpose – </strong> The purpose of having music and dance labs is to provide the students an understanding of the fundamentals of these forms of expression at the same time strengthening their bond with one of the finest forms of art. Exploring the various dimensions of music, whether performing a vocal solo, rehearsing to tune the strings or creating compositions, the main aim of the music labs of the school is to nurture creativity.</p>
-      <p>At the dance lab children learning the classical as well as modern form of dance</p>
-      <p><strong>Faculty –</strong> The trained music faculty is committed to give the students the tools they need to study and perform, as well as the confidence and inspiration to pursue the music they find inspiring, ultimately making them calm, composed and in sync with their spiritual self.</p>
-      <p>SAI International School has dedicated music and dance teachers with music and dance labs such as Piano and Keyboard Lab, Guitar Lab, Flute Lab, Sitar Lab, Tabla, Drums Percussion, Violin and Vocal labs.</p>`,
+      content: `<p><strong>Nurturing Expression, Creativity and Inner Harmony</strong></p>
+
+      <p>In alignment with the <strong>Theory of Multiple Intelligences by Dr. Howard Gardner,</strong> SAI International School believes in the holistic, 360-degree development of every learner. The performing arts, <strong>SAI Nritya and Sangeet Kala,</strong> form an integral part of our educational framework, enriching students intellectually, emotionally, and spiritually.</p>
+
+      <p>Music and dance are powerful forms of expression with well-documented benefits, fostering creativity, discipline, confidence, and emotional balance. To support diverse interests and talents, the school offers <strong>eight well-equipped music laboratories and a dedicated dance lab,</strong> providing students with ample opportunities to explore and excel in the performing arts.</p>
+
+      <p><strong>Purpose of the Performing Arts Programme</strong></p>
+      <p>The music and dance laboratories are designed to introduce students to the fundamentals of these expressive art forms while deepening their connection with artistic traditions. Whether students are performing a vocal solo, tuning the strings of an instrument, experimenting with rhythm, or creating original compositions, the core aim is to <strong>ignite creativity and encourage self-expression.</strong></p>
+
+      <p>The <strong>Dance Lab</strong> provides structured training in both <strong>classical and contemporary dance forms,</strong> enabling students to develop grace, coordination, rhythm, and emotional storytelling through movement.</p>
+
+      <p><strong>Faculty and Facilities</strong></p>
+      <p>Our highly trained and dedicated performing arts faculty guide students with expertise, passion, and sensitivity. They equip learners with technical skills, artistic discipline, and the confidence to perform, while inspiring them to explore music and dance as lifelong pursuits.</p>
+      <p>The school features specialised music and dance laboratories, including:</p>
+      <p><ul>
+      <li>Piano and Keyboard Lab</li>
+      <li>Guitar Lab</li>
+      <li>Flute Lab</li>
+      <li>Sitar Lab</li>
+      <li>Tabla Lab</li>
+      <li>Drums and Percussion Lab</li>
+      <li>Violin Lab</li>
+      <li>Vocal Music Lab</li>
+      <li>Dedicated Dance Lab</li></p>
+
+    <p>Through structured instruction and creative exploration, the performing arts programme helps students become calm, composed, emotionally aware, and in harmony with their inner selves.</p>
+
+    <p>At SAI International School, performing arts are not merely extracurricular activities, they are a celebration of expression, culture, and creativity that shapes confident, expressive, and well-rounded individuals.</p>
+`,
     },
 
     {
