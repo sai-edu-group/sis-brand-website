@@ -5,19 +5,22 @@ export const prerender = false; // Render on Server
 import type { NewsData, NewsItemData } from "@/types/media/news";
 
 // COMPONENTS //
-import FilterBar from "@/components/FilterBar.astro";
-import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import Lightbox from "@/components/Lightbox.astro";
-import EmptyState from "@/components/EmptyState.astro";
-import Pagination from "@/components/Pagination.astro";
-import ArticleCard from "@/components/ArticleCard.astro";
+import FilterBar from "@/components/ui/FilterBar.astro";
+import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
+import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
+import Lightbox from "@/components/ui/Lightbox.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
+import Pagination from "@/components/ui/Pagination.astro";
+import ArticleCard from "@/components/ui/ArticleCard.astro";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
+
+// META //
+import newsMeta from "@/data/meta/media/news/news.json";
 
 // DATA //
 import {
@@ -49,7 +52,7 @@ const totalPages = totalItems > 0 ? Math.ceil(totalItems / 10) : 0;
 const shouldShowPagination = totalPages > 1;
 ---
 
-<Layout>
+<Layout meta={newsMeta}>
   <section class="bg-n-50 relative w-full overflow-hidden">
     <div
       class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
@@ -89,7 +92,7 @@ const shouldShowPagination = totalPages > 1;
                       date={newsItem.date}
                       href={URLS.MEDIA.NEWS.ITEM(
                         newsItem.id.toString(),
-                        newsItem.title.replaceAll(" ", "-"),
+                        newsItem.title.toLowerCase().replaceAll(" ", "-"),
                       )}
                       tags={newsItem.tags}
                     />

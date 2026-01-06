@@ -1,10 +1,15 @@
 ---
-import Input from "@/components/Input.astro";
-import StepCard from "@/components/FormStepsCard.astro";
-import Select from "@/components/Select.astro";
-import Textarea from "@/components/Textarea.astro";
-import Button from "@/components/Button.astro";
-import SectionHeader from "@/components/SectionHeader.astro";
+// COMPONENTS //
+import Input from "@/components/ui/Input.astro";
+import StepCard from "@/components/ui/FormStepsCard.astro";
+import Select from "@/components/ui/Select.astro";
+import Textarea from "@/components/ui/Textarea.astro";
+import Button from "@/components/ui/Button.astro";
+import SectionHeader from "@/components/ui/SectionHeader.astro";
+import Image from "astro/components/Image.astro";
+
+// DATA //
+import { grades } from "@/data/admissions/form";
 
 const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 ---
@@ -35,7 +40,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
                 name="name"
                 required
                 placeholder="Enter Full Name"
-                errorMessage="Student name is required."
+                errorMessage="Student name is required and should not contain numbers.."
               />
             </div>
 
@@ -69,10 +74,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
               name="className"
               required
               placeholder="Select Class"
-              options={[
-                { label: "XII Humanities", value: "12-hum" },
-                { label: "XI Science", value: "11-sci" },
-              ]}
+              options={grades}
               errorMessage="Please select the class for admission."
             />
           </div>
@@ -111,7 +113,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
                 label="Parent / Guardian’s Full Name"
                 name="parentName"
                 required
-                errorMessage="Parent/Guardian name is required."
+                errorMessage="Parent/Guardian name is required and should not contain numbers..."
               />
             </div>
 
@@ -239,13 +241,15 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       <!-- THANK YOU -->
       <article
         id="thank-you"
-        class="border-n-200 bg-n-50 flex flex-col items-center gap-8 rounded-3xl border px-6 py-8 text-center md:gap-10 md:py-12 lg:gap-12 lg:py-24"
+        class="border-n-200 slide-parent stagger bg-n-50 flex flex-col items-center gap-8 rounded-3xl border px-6 py-8 text-center md:gap-10 md:py-12 lg:gap-12 lg:py-24"
       >
         <!-- Paper plan icon -->
-        <img
+        <Image
           src="/icons/paper-plane.svg"
           alt=""
-          class="h-12 -rotate-10 md:h-24 lg:h-32"
+          class="floating-icon h-12 -rotate-10 md:h-24 lg:h-32"
+          width={128}
+          height={128}
         />
         <div class="flex flex-col items-center gap-2">
           <!-- Success panel title -->
@@ -268,14 +272,97 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
         >
           Our admissions team will be in touch with you shortly.
         </p>
-        <!-- Download brochure button -->
-        <Button text="Download Brochure" variant="outline" />
+      </article>
+
+      <!-- SUBMITTING SCREEN -->
+      <article
+        id="submitting"
+        class="bg-n-50 flex hidden flex-col items-center gap-6 py-16 text-center"
+      >
+        <div class="loader"></div>
+        <p class="text-n-700 text-xl font-medium md:text-2xl">
+          Submitting your form, please wait…
+        </p>
       </article>
     </form>
   </div>
 </section>
-<script is:inline type="module">
-  // import { admissionEnquiryRequest } from "/js/form.js";
+
+<style>
+  /* Parent slide animation */
+  .slide-parent {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideParent 0.45s ease-out forwards;
+  }
+
+  @keyframes slideParent {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger children */
+  .stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideChild 0.5s ease-out forwards;
+    &:nth-child(1) {
+      opacity: 1;
+      animation: float 6s ease-in-out infinite;
+      will-change: transform;
+    }
+  }
+
+  .stagger > *:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  .stagger > *:nth-child(3) {
+    animation-delay: 0.45s;
+  }
+  .stagger > *:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+
+  @keyframes slideChild {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Loader animation */
+  .loader {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e0e0e0;
+    border-top-color: #c9443a;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-16px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  import { admissionEnquiryRequest } from "@/services/api/form.api.service";
   window.addEventListener("DOMContentLoaded", () => {
     const steps = [
       document.getElementById("step-1"),
@@ -284,7 +371,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     ];
     const thankYou = document.getElementById("thank-you");
 
-    const showStep = (idx) => {
+    const showStep = (idx: number) => {
       steps.forEach((el, i) => el?.classList.toggle("hidden", i !== idx));
       thankYou?.classList.add("hidden");
     };
@@ -293,12 +380,12 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     showStep(0);
 
     // ✅ Validation
-    const validateStep = (stepEl) => {
+    const validateStep = (stepEl: any) => {
       if (!stepEl) return false;
       const fields = stepEl.querySelectorAll("input, select, textarea");
       let valid = true;
 
-      fields.forEach((el) => {
+      fields.forEach((el: any) => {
         const errorText = el
           .closest("[data-field]")
           ?.querySelector("[data-error]");
@@ -309,6 +396,21 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
         if (el.type === "email" && el.value.trim() !== "") {
           const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           if (!emailPattern.test(el.value.trim())) fieldValid = false;
+        }
+
+        // ❌ NAME VALIDATION: should NOT contain digits
+        if (
+          el.name === "parentName" ||
+          (el.name === "name" && el.value !== "")
+        ) {
+          const hasDigits = /\d/.test(el.value);
+          if (hasDigits) fieldValid = false;
+        }
+
+        // ❌ PHONE VALIDATION: should contain ONLY digits
+        if (el.name === "mobileNo" && el.value !== "") {
+          const notNumbers = /\D/.test(el.value);
+          if (notNumbers || el.value.length !== 10) fieldValid = false;
         }
 
         if (!fieldValid) {
@@ -341,29 +443,68 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       .getElementById("back-3")
       ?.addEventListener("click", () => showStep(1));
 
+    /** 🔥 Convert your form fields → LeadSquared Attribute/Value array  */
+    const mapToLeadSquared = (formObj: any) => {
+      return [
+        { Attribute: "Student's Full Name", Value: formObj.name || "" },
+        { Attribute: "Email Address", Value: formObj.emailId || "" },
+        { Attribute: "Phone", Value: formObj.mobileNo || "" },
+        { Attribute: "Student DOB", Value: formObj.dob || "" },
+        { Attribute: "Admission Year", Value: formObj.academicyear_name || "" },
+        { Attribute: "Class Name", Value: formObj.className || "" },
+        { Attribute: "Parent Name", Value: formObj.parentName || "" },
+        { Attribute: "Hostel", Value: formObj.hostel || "" },
+        { Attribute: "Message", Value: formObj.message || "" },
+      ];
+    };
+
     // ✅ Submit handler
     document.getElementById("submit")?.addEventListener("click", async (e) => {
       e.preventDefault();
       if (!validateStep(steps[2])) return;
 
-      const form = document.querySelector("form");
+      const form = document.querySelector("form") as HTMLFormElement;
       const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
+      const formObj = Object.fromEntries(formData.entries());
+
+      // Convert to LeadSquared format
+      const leadSquaredPayload = mapToLeadSquared(formObj);
+
+      const submitting = document.getElementById("submitting");
+
+      // Hide steps, reset visibility
+      steps.forEach((el) => el?.classList.add("hidden"));
+      thankYou?.classList.add("hidden");
+
+      // Remove old animation classes to re-trigger
+      submitting?.classList.remove("slide-parent");
+      submitting?.offsetHeight; // force reflow
+      submitting?.classList.add("slide-parent");
+
+      // Show submitting screen
+      submitting?.classList.remove("hidden");
 
       try {
-        const response = await admissionEnquiryRequest(payload);
-        console.log("✅ Enquiry submitted:", response);
+        const response = await admissionEnquiryRequest(leadSquaredPayload);
 
-        if (response.status === false) {
+        // Check LSQ errors
+        if (response.ExceptionMessage || response.Status !== "Success") {
           alert(
-            "Something went wrong while submitting your enquiry. Please try again.",
+            "Something went wrong submitting your enquiry. Please try again.",
           );
           return;
         }
 
-        steps.forEach((el) => el?.classList.add("hidden"));
+        // Hide loader & show thank you with stagger animation
+        submitting?.classList.add("hidden");
+
+        thankYou?.classList.remove("slide-parent");
+        thankYou?.offsetHeight;
+        thankYou?.classList.add("slide-parent");
+
         thankYou?.classList.remove("hidden");
       } catch (err) {
+        submitting?.classList.add("hidden");
         console.error("❌ Failed to submit enquiry:", err);
         alert(
           "Something went wrong while submitting your enquiry. Please try again.",

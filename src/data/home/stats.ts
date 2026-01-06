@@ -6,14 +6,14 @@ export const sectionHeaderDetails = {
 export const statsCard = [
   {
     id: 1,
-    title: "of Class X students scored above 90%",
-    statsCount: "50.6%",
+    title: "of students scored above 90%",
+    statsCount: "44.6%",
     img: "/images/stats-image-1.png",
   },
   {
     id: 2,
-    title: "Competitive Exam Qualifiers",
-    statsCount: "200+",
+    title: "National and International competitive examinations",
+    statsCount: "335+",
     subTitle: "(JEE/NEET/CLAT/SAT)",
     img: "/images/stats-image-2.png",
   },
@@ -25,20 +25,20 @@ export const statsCard = [
   },
   {
     id: 4,
-    title: "sq.ft. of world-class art and sports facilities",
+    title: "sq.ft. of Square Feet of campus with world-class Sports Facilities",
     statsCount: "335K+",
-    img: "/images/stats-image-4.png",
+    img: "/images/sports-facilities.jpg",
   },
   {
     id: 5,
-    title: "Clubs & Activities — From tech to arts & sports",
-    statsCount: "20+",
-    img: "/images/stats-image-1.png",
+    title: "Clubs and Societies to Explore. Engage. Excel",
+    statsCount: "25+",
+    img: "/images/activities.jpg",
   },
   {
     id: 6,
-    title: "Global/Ivy University Admits",
-    statsCount: "40+",
-    img: "/images/stats-image-1.png",
+    title: "Ivy League and top Global Universities.",
+    statsCount: "20+",
+    img: "/images/stats-image-4.png",
   },
 ];

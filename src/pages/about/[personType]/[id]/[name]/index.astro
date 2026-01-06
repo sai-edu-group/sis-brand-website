@@ -4,11 +4,14 @@ export const prerender = true;
 // TYPES //
 import type { MemberData } from "@/types/member";
 
+// COMPONENTS //
+import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
+
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
-
-// COMPONENTS //
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
 
 // SECTIONS //
 import MemberConsumption from "@/sections/member-consumption/MemberConsumption.astro";
@@ -37,7 +40,7 @@ export async function getStaticPaths() {
       params: {
         personType: "team",
         id: member.id.toString(),
-        name: member.name.replaceAll(" ", "-"),
+        name: member.name.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
         personType: "team",
@@ -51,7 +54,7 @@ export async function getStaticPaths() {
     params: {
       personType: "founder",
       id: "1",
-      name: founderDetails.name.replaceAll(" ", "-"),
+      name: founderDetails.name.toLowerCase().replaceAll(" ", "-"),
     },
     props: {
       personType: "founder",
@@ -65,7 +68,7 @@ export async function getStaticPaths() {
       params: {
         personType: "advisory",
         id: member.id.toString(),
-        name: member.name.replaceAll(" ", "-"),
+        name: member.name.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
         personType: "advisory",
@@ -85,16 +88,22 @@ console.log(member);
 const breadcrumbItems =
   personType === "team"
     ? [
-        { label: "Key Personnel", href: "/about#key-personnel" },
+        { label: "Key Personnel", href: `${URLS.ABOUT.ROOT}#key-personnel` },
         { label: member.name, href: `#` },
       ]
     : personType === "founder"
       ? [
-          { label: "Founder – Chairman", href: "/about#our-founder" },
+          {
+            label: "Founder – Chairman",
+            href: `${URLS.ABOUT.ROOT}#our-founder`,
+          },
           { label: member.name, href: `#` },
         ]
       : [
-          { label: "Advisory Board", href: "/about#advisory-board" },
+          {
+            label: "Advisory Board",
+            href: `${URLS.ABOUT.ROOT}#advisory-board`,
+          },
           { label: member.name, href: `#` },
         ];
 

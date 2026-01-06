@@ -1,7 +1,6 @@
 ---
 export const prerender = false; // Render on Server
 
-// LAYOUT //
 // COMPONENTS //
 import FilterBar from "@/components/FilterBar.astro";
 import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
@@ -17,6 +16,9 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
+        
+// META //
+import awardsMeta from "@/data/meta/awards/awards.json";
 
 // DATA //
 import {
@@ -43,7 +45,7 @@ if (!year) {
 const awardItems = await fetchAwardsRequest(year);
 ---
 
-<Layout>
+<Layout meta={awardsMeta}>
   <section class="bg-n-50 relative w-full overflow-hidden">
     <div
       class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"

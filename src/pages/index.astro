@@ -2,6 +2,9 @@
 // LAYOUT //
 import Layout from "@/layouts/Layout.astro";
 
+// META //
+import homeMeta from "@/data/meta/site.json";
+
 // SECTIONS //
 import Awards from "@/sections/home/Awards.astro";
 import BookATour from "@/sections/home/BookATour.astro";
@@ -19,7 +22,7 @@ import Hero from "@/sections/home/Hero.astro";
 import NewsLetter from "@/sections/home/NewsLetter.astro";
 ---
 
-<Layout>
+<Layout meta={homeMeta}>
   <Hero />
   <Stats />
   <Learning360 />

@@ -1,7 +1,7 @@
 ---
 // COMPONENTS //
-import PersonCard from "@/components/PersonCard.astro";
-import SectionHeaderMain from "@/components/SectionHeaderMain.astro";
+import PersonCard from "@/components/ui/PersonCard.astro";
+import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 
 // DATA //
 import {
@@ -31,7 +31,7 @@ import {
               personName={advisoryMemberItem.name}
               designation={advisoryMemberItem.position}
               image={advisoryMemberItem.jpgImg}
-              href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}`}
+              href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.toLowerCase().replaceAll(" ", "-")}`}
             />
           </div>
         ))
@@ -57,7 +57,7 @@ import {
                   personName={advisoryMemberItem.name}
                   designation={advisoryMemberItem.position}
                   image={advisoryMemberItem.jpgImg}
-                  href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.replaceAll(" ", "-")}`}
+                  href={`/about/advisory/${advisoryMemberItem.id}/${advisoryMemberItem.name.toLowerCase().replaceAll(" ", "-")}`}
                 />
               </div>
             ))

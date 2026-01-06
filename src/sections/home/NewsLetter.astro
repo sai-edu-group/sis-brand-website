@@ -1,6 +1,8 @@
 ---
 // COMPONENTS //
-import Button from "@/components/Button.astro";
+import Button from "@/components/ui/Button.astro";
+import Image from "astro/components/Image.astro";
+import NewsLetterImage from "@/assets/images/news-letter.png";
 ---
 
 <!-- News letter -->
@@ -9,10 +11,12 @@ import Button from "@/components/Button.astro";
     class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
   >
     <div class="h-52 md:h-[430px] lg:h-auto lg:w-[40%] 2xl:w-[46%]">
-      <img
-        src="/images/news-letter.png"
+      <Image
+        src={NewsLetterImage}
         alt=""
         class="h-full w-full object-cover"
+        width={600}
+        height={430}
       />
     </div>
     <div class="flex flex-1 flex-col gap-8 md:gap-11">
@@ -48,7 +52,7 @@ import Button from "@/components/Button.astro";
             required
           />
           <p id="email-error" data-error class="hidden text-sm text-red-600">
-            Enter your email ID
+            Enter a valid Email ID
           </p>
         </div>
 
@@ -63,27 +67,41 @@ import Button from "@/components/Button.astro";
 
 <script>
   import { subcribeNewsLetterRequest } from "@/services/api/form.api.service.ts";
-  const subscribeNewsletterButton = document.querySelector(
-    "[data-subscribe-newsletter-button]",
-  );
-  if (subscribeNewsletterButton) {
-    subscribeNewsletterButton.addEventListener("click", async (e) => {
-      e.preventDefault();
-      // Hide all previous errors
-      document
-        .querySelectorAll("[data-error]")
-        .forEach((p) => p.classList.add("hidden"));
-      const email = document.querySelector('input[name="emailId"]').value;
-      if (!email) {
-        document.querySelector("#email-error").classList.remove("hidden");
-        return;
-      }
-      const response = await subcribeNewsLetterRequest({ email });
-      if (response.status) {
-        document.querySelector("#email-error").classList.add("hidden");
-      } else {
-        document.querySelector("#email-error").classList.remove("hidden");
-      }
-    });
-  }
+  
+  window.addEventListener("DOMContentLoaded", () => {
+    const subscribeNewsletterButton = document.querySelector(
+      "[data-subscribe-newsletter-button]",
+    );
+    if (subscribeNewsletterButton) {
+      subscribeNewsletterButton.addEventListener("click", async (e) => {
+        e.preventDefault();
+        // Hide all previous errors
+
+        document
+          .querySelectorAll("[data-error]")
+          .forEach((p) => p.classList.add("hidden"));
+        const email = document.querySelector('input[name="emailId"]').value;
+        if (!email) {
+          document.querySelector("#email-error").classList.remove("hidden");
+          return;
+        }
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+          document.querySelector("#email-error").classList.remove("hidden");
+          return;
+        }
+
+        const response = await subcribeNewsLetterRequest({ email });
+        if (response.status) {
+          document.querySelector("#email-error").classList.add("hidden");
+          alert(
+            "Thank you for subscribing! You have been added to our newsletter.",
+          );
+        } else {
+          document.querySelector("#email-error").classList.remove("hidden");
+          alert("Something went wrong. Please try again later.");
+        }
+      });
+    }
+  });
 </script>

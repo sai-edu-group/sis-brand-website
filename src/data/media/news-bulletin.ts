@@ -14,7 +14,7 @@ export const newsBulletin: NewsBulletinData = {
         id: 1,
         name: "3rd December",
         image: "/images/media/news-bulletin/17nov.jpg",
-        contentUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        contentUrl: "https://saiinternational.edu.in/mail/new/171125/",
       },
       {
         id: 2,

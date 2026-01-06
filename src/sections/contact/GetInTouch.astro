@@ -1,7 +1,7 @@
 ---
 // COMPONENTS //
-import SectionHeader from "@/components/SectionHeader.astro";
-import GetInTouchCard from "@/components/GetInTouchCard.astro";
+import SectionHeader from "@/components/ui/SectionHeader.astro";
+import GetInTouchCard from "@/components/ui/GetInTouchCard.astro";
 
 const contactDetails: {
   icon: string;
@@ -22,7 +22,7 @@ const contactDetails: {
     icon: "footer-phone",
     title: "Connect by Phone",
     type: "phone",
-    infoText: ["+91 06747100200", "+91 09338169966"],
+    infoText: ["+91 6747100200", "+91 9338169966"],
   },
   {
     icon: "campus",
@@ -45,13 +45,21 @@ const contactDetails: {
       class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:gap-6"
     >
       {
-        contactDetails.map((step) => (
-          <GetInTouchCard
-            icon={step.icon}
-            title={step.title}
-            infoText={step.infoText}
-            type={step.type}
-          />
+        contactDetails.map((step, index) => (
+          <div
+            class={`${
+              index === contactDetails.length - 1
+                ? "sm:col-span-2 xl:col-span-1"
+                : ""
+            }`}
+          >
+            <GetInTouchCard
+              icon={step.icon}
+              title={step.title}
+              infoText={step.infoText}
+              type={step.type}
+            />
+          </div>
         ))
       }
     </div>
