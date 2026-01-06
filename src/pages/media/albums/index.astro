@@ -28,10 +28,13 @@ import {
   albumsBreadcrumbItems,
   albumsSectionHeader,
 } from "@/data/media/albums";
+import { fetchAlbumsByYearRequest } from "@/services/api/albums.api.service";
 
 // Get the Year from the Search Params
 const year: number =
   Number(Astro.url.searchParams.get("year")) || albums.years[0];
+
+const albumsItems = await fetchAlbumsByYearRequest(year);
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -43,12 +46,11 @@ if (!year) {
   });
 }
 
-const albumsItems: AlbumsItemData[] = albums.images[year] ?? [];
+// const albumsItems: AlbumsItemData[] = albums.images[year] ?? [];
 
 // Get this from API
 const totalItems = albumsItems.length;
 const totalPages = totalItems > 0 ? Math.ceil(totalItems / 10) : 0;
-
 const shouldShowPagination = totalPages > 1;
 ---
 
@@ -80,28 +82,26 @@ const shouldShowPagination = totalPages > 1;
           {
             albumsItems && albumsItems.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                {albumsItems.map(
-                  (albumItem: AlbumsItemData, albumsItemIndex) => (
-                    <a
-                      href={`${URLS.MEDIA.ALBUMS.ITEM(
-                        albumItem.id.toString(),
-                      )}?year=${year}`}
+                {albumsItems.map((albumItem, albumsItemIndex) => (
+                  <a
+                    href={`${URLS.MEDIA.ALBUMS.ITEM(
+                      albumItem.id.toString()
+                    )}?year=${year}`}
+                  >
+                    <div
+                      class="card-anim"
+                      style={`--delay: ${albumsItemIndex * 0.2}s`}
                     >
-                      <div
-                        class="card-anim"
-                        style={`--delay: ${albumsItemIndex * 0.2}s`}
-                      >
-                        <ImageCard
-                          image={albumItem.image}
-                          caption={albumItem.name}
-                          index={albumItem.id}
-                          classes="max-h-[350px] md:h-[350px]"
-                          showExpandButton={false}
-                        />
-                      </div>
-                    </a>
-                  ),
-                )}
+                      <ImageCard
+                        image={albumItem.image}
+                        caption={albumItem.name}
+                        index={Number(albumItem.id)}
+                        classes="max-h-[350px] md:h-[350px]"
+                        showExpandButton={false}
+                      />
+                    </div>
+                  </a>
+                ))}
               </div>
             ) : (
               <EmptyState />

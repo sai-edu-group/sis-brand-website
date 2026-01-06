@@ -24,6 +24,8 @@ const year: number =
 
 // Get the Students for the Year Selected
 const students = studentCouncil?.studentCouncil[year];
+const STUDENT_COUNCIL_IMAGE_PREFIX =
+  "https://saicloudschool.in/myerp/uploads/sis_studentcouncil/";
 ---
 
 <Layout meta={studentCouncilMeta}>
@@ -54,7 +56,7 @@ const students = studentCouncil?.studentCouncil[year];
             {
               students?.map((studentsItem) => (
                 <ResultsCard
-                  image={studentsItem.image}
+                  image={`${STUDENT_COUNCIL_IMAGE_PREFIX}${studentsItem.image}`}
                   studentName={studentsItem.name}
                   grade={studentsItem.designation}
                 />
