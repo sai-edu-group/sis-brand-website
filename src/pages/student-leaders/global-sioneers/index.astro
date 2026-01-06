@@ -11,19 +11,26 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import FilterBar from "@/components/ui/FilterBar.astro";
 
+// API SERVICES //
+import { fetchSioneersRequest } from "@/services/api/sioneers.api.service";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
 // DATA //
 import {
   globalSioneers,
   globalSioneersBreadcrumbItems,
   globalSioneersSectionHeader,
 } from "@/data/student-leaders/global-sioneers";
+import EmptyState from "@/components/EmptyState.astro";
 
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
   Number(Astro.url.searchParams.get("year")) || globalSioneers?.years[0];
 
 // Get the Students for the Year Selected
-const students = globalSioneers?.globalSioneers[year];
+const students = await fetchSioneersRequest(year.toString());
 ---
 
 <Layout meta={globalSioneersMeta}>
@@ -52,13 +59,19 @@ const students = globalSioneers?.globalSioneers[year];
             class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
             {
-              students?.map((studentsItem) => (
-                <ResultsCard
-                  image={studentsItem.image}
-                  studentName={studentsItem.name}
-                  grade={studentsItem.instituteName}
-                />
-              ))
+              students && students.length > 0 ? (
+                students?.map((studentsItem) => (
+                  <ResultsCard
+                    image={"/images/student-leaders/global-sioneers/2025/1.png"}
+                    studentName={studentsItem.className}
+                    grade={studentsItem.universityName}
+                  />
+                ))
+              ) : (
+                <div class="col-span-full">
+                  <EmptyState />
+                </div>
+              )
             }
           </div>
         </div>

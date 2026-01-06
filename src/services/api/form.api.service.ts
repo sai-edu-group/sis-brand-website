@@ -2,6 +2,10 @@
 import axios from "axios";
 import type { AxiosRequestConfig } from "axios";
 
+//  Get default API URL from environment variables  //
+const API_URL = import.meta.env.PUBLIC_API_URL;
+
+
 /** ✅ LeadSquared Lead Capture API Call */
 export const admissionEnquiryRequest = async (leadData: any) => {
   try {
@@ -10,7 +14,7 @@ export const admissionEnquiryRequest = async (leadData: any) => {
 
     const config: AxiosRequestConfig = {
       method: "post",
-      url,
+      url: API_URL,
       headers: {
         "Content-Type": "application/json",
       },
@@ -31,7 +35,7 @@ export const contactEnquiryRequest = async (data: any) => {
   try {
     const config: AxiosRequestConfig = {
       method: "post",
-      url: "https://sis-api.neevohub.com/contacts/",
+      url: API_URL,
       headers: {
         "Content-Type": "application/json",
       },
@@ -51,13 +55,12 @@ export const subcribeNewsLetterRequest = async (data: any) => {
   try {
     const config: AxiosRequestConfig = {
       method: "post",
-      url: process.env.API_URL,
+      url: `${API_URL}contacts/newsletter`,
       headers: {
         "Content-Type": "application/json",
       },
       data,
     };
-    console.log(data);
 
     const response = await axios.request(config);
     return response.data;
