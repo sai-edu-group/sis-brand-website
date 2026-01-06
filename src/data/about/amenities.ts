@@ -78,11 +78,12 @@ export const amenitiesDetails = {
       img: "/images/amenities/infirmary.png",
       description:
         "Well-equipped medical facility ensuring the health and wellness of students and staff.",
-      landscapeImg: "/images/amenities/infirmary.png",
-      content: `<p><strong>Infirmary –</strong> For the well being of the new age learners, SAI International School houses a hygienic Infirmary. Here, the school provides direct nursing services to learners and staff members, to maximize health and wellness in the school community.</p>
-      <p><strong>On-site doctor and nurse –</strong> An on-site qualified doctor and trained and qualified nurses are available to manage and assess any health issues that may arise during school hours.</p>
-      <p><strong>Emergency Services –</strong> We understand that as the children spend most of their time in school, there could be emergencies pertaining to their wellness. Minor injuries during sports and games or while performing experiments and even common fever are unavoidable parts of growing up. To meet these emergencies, we have an Infirmary at the heart of the School premise.</p>
-      <p><strong>Facilities –</strong> The school infirmary is equipped with the basic materials and facilities to address the health needs of learners while in school. With a six bed capacity for both boys and girls, the infirmary is hygienically maintained, confirming to our belief of wellness of mind, body and soul.</p>
+      landscapeImg: "/images/amenities/infirmary.jpg",
+      content: `<p><strong>Caring for Health, Comfort and Well-being</strong></p>
+      <p>At <strong>SAI International School,</strong> the health and well-being of our learners are of paramount importance. To support the needs of today’s students, the school houses a <strong>clean, hygienic, and well-equipped Infirmary,</strong> dedicated to promoting health, safety, and overall wellness within the school community.</p>
+      <p>The infirmary provides <strong>direct nursing care and medical support</strong> to both students and staff, ensuring a safe and nurturing environment where learning can flourish.</p>
+      <p><strong>On-Site Medical Support</strong></p>
+      <p>A qualified on-site doctor and trained, experienced nursing staff are available during school hours to assess, manage, and respond promptly to any health concerns. Their presence ensures immediate care, professional supervision, and peace of mind for students, parents, and staff alike.</p>
       `,
     },
     {
