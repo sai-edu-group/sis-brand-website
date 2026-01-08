@@ -1,5 +1,4 @@
 export type MemberData = {
-  id: number;
   name: string;
   position: string;
   quote: string;

@@ -11,10 +11,10 @@ export const URLS = {
 
     LEARNING_AND_BEYOND: {
       ROOT: "/about/learning-and-beyond",
-      AMENITY: (amenityId: string, amenityTitle: string) =>
-        `/about/learning-and-beyond/amenities/${amenityId}/${amenityTitle}`,
-      CURRICULUM: (curriculumId: string, curriculumTitle: string) =>
-        `/about/learning-and-beyond/curriculum/${curriculumId}/${curriculumTitle}`,
+      AMENITY: (amenityTitle: string) =>
+        `/about/learning-and-beyond/amenities/${amenityTitle}`,
+      CURRICULUM: (curriculumTitle: string) =>
+        `/about/learning-and-beyond/curriculum/${curriculumTitle}`,
       SAI_SEVA: (sevaId: string, sevaTitle: string) =>
         `/about/learning-and-beyond/sai-seva/${sevaId}/${sevaTitle}`,
       FLAGSHIP_EVENT: (eventId: string, eventTitle: string) =>
@@ -26,7 +26,7 @@ export const URLS = {
       ITEM: (name: string) => `/about/affiliations/${name}`,
     },
 
-    TEAM_MEMBER: (id: string, name: string) => `/about/team/${id}/${name}/`,
+    TEAM_MEMBER: (name: string) => `/about/team/${name}/`,
 
     ADVISOR: {
       ITEM: (id: string, name: string) => `/about/founder/${id}/${name}`,

@@ -27,7 +27,7 @@ import { founderDetails } from "@/data/about/members/founder";
  */
 export async function getStaticPaths() {
   const paths: Array<{
-    params: { personType: string; id: string; name: string };
+    params: { personType: string; name: string };
     props: {
       personType: string;
       member: MemberData;
@@ -39,7 +39,6 @@ export async function getStaticPaths() {
     paths.push({
       params: {
         personType: "team",
-        id: member.id.toString(),
         name: member.name.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
@@ -53,7 +52,6 @@ export async function getStaticPaths() {
   paths.push({
     params: {
       personType: "founder",
-      id: "1",
       name: founderDetails.name.toLowerCase().replaceAll(" ", "-"),
     },
     props: {
@@ -67,7 +65,6 @@ export async function getStaticPaths() {
     paths.push({
       params: {
         personType: "advisory",
-        id: member.id.toString(),
         name: member.name.toLowerCase().replaceAll(" ", "-"),
       },
       props: {
