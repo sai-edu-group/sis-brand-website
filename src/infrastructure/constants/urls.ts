@@ -5,8 +5,8 @@ export const URLS = {
     ROOT: "/about",
 
     LEARNING_360: {
-      ITEM: (learning360id: string, name: string) =>
-        `/about/learning-360/${learning360id}/${name}`,
+      ITEM: (name: string) =>
+        `/about/learning-360/${name}`,
     },
 
     LEARNING_AND_BEYOND: {
