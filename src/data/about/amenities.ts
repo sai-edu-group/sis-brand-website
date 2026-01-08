@@ -100,10 +100,51 @@ export const amenitiesDetails = {
       description:
         "Well-equipped medical facility ensuring the health and wellness of students and staff.",
       landscapeImg: "/images/amenities/infirmary.png",
-      content: `<p><strong>Infirmary –</strong> For the well being of the new age learners, SAI International School houses a hygienic Infirmary. Here, the school provides direct nursing services to learners and staff members, to maximize health and wellness in the school community.</p>
-      <p><strong>On-site doctor and nurse –</strong> An on-site qualified doctor and trained and qualified nurses are available to manage and assess any health issues that may arise during school hours.</p>
-      <p><strong>Emergency Services –</strong> We understand that as the children spend most of their time in school, there could be emergencies pertaining to their wellness. Minor injuries during sports and games or while performing experiments and even common fever are unavoidable parts of growing up. To meet these emergencies, we have an Infirmary at the heart of the School premise.</p>
-      <p><strong>Facilities –</strong> The school infirmary is equipped with the basic materials and facilities to address the health needs of learners while in school. With a six bed capacity for both boys and girls, the infirmary is hygienically maintained, confirming to our belief of wellness of mind, body and soul.</p>
+      content: `<p><strong>Caring for Health, Comfort and Well-being</strong> </p>
+
+      <p>At <strong>SAI International School,</strong> the health and well-being of our learners are of paramount importance. To support the needs of today’s students, the school houses a <strong>clean, hygienic, and well-equipped Infirmary,</strong> dedicated to promoting health, safety, and overall wellness within the school community.</p>
+
+      <p>The infirmary provides <strong>direct nursing care and medical support</strong> to both students and staff, ensuring a safe and nurturing environment where learning can flourish.</p>
+
+      <div>
+        <h3>On-Site Medical Support</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The <strong>On-Site Medical Support</strong> A <strong>qualified on-site doctor</strong> and <strong>trained, experienced nursing staff</strong> are available during school hours to assess, manage, and respond promptly to any health concerns. Their presence ensures immediate care, professional supervision, and peace of mind for students, parents, and staff alike.</p>
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+      <div>
+        <h3>Emergency Care</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The <strong>Emergency Care</strong> Recognising that students spend a significant part of their day at school, the infirmary is prepared to handle medical situations that may arise. From minor injuries during sports or laboratory activities to common illnesses such as fever or fatigue, timely care is provided with sensitivity and efficiency.</p>
+
+            <p>Located at the heart of the campus, the infirmary ensures swift access during emergencies, reinforcing the school’s commitment to student safety.</p>
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+        <div>
+        <h3>Facilities</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The <strong>Emergency Care</strong> The school infirmary is equipped with essential medical supplies and facilities to address everyday health needs. With a <strong>six-bed capacity for both boys and girls</strong>, the space is thoughtfully designed and meticulously maintained to ensure comfort, cleanliness, and dignity.</p>
+
+            <p>At SAI International School, the infirmary reflects our belief in nurturing the <strong>wellness of mind, body, and soul,</strong> ensuring every child feels cared for, secure, and supported.</p>
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+
+
       `,
     },
     {
