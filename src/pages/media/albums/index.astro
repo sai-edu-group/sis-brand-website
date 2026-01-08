@@ -1,9 +1,6 @@
 ---
 export const prerender = false; // Render on Server
 
-// TYPES //
-import type { AlbumsItemData } from "@/types/media/albums";
-
 // COMPONENTS //
 import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -11,7 +8,6 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ImageCard from "@/components/ui/ImageCard.astro";
 import Lightbox from "@/components/ui/Lightbox.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
-import Pagination from "@/components/ui/Pagination.astro";
 
 // API SERVICES //
 import { fetchAlbumsByYearRequest } from "@/services/api/albums.api.service";
@@ -35,12 +31,9 @@ import {
 
 // Get the Year from the Search Params
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || albums.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
 const albumItems = await fetchAlbumsByYearRequest(year);
-const selectedYear = year;
-const selectedMonth = 12;
-const selectedDay = 22;
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -51,11 +44,6 @@ if (!year) {
     },
   });
 }
-
-// Get this from API
-const totalItems = albumItems.length;
-const totalPages = totalItems > 0 ? Math.ceil(totalItems / 10) : 0;
-const shouldShowPagination = totalPages > 1;
 ---
 
 <Layout meta={albumsMeta}>
@@ -89,7 +77,7 @@ const shouldShowPagination = totalPages > 1;
                 {albumItems.map((albumItem, albumsItemIndex) => (
                   <a
                     href={`${URLS.MEDIA.ALBUMS.ITEM(
-                      albumItem.id.toString()
+                      albumItem.id.toString(),
                     )}?year=${year}`}
                   >
                     <div
@@ -98,9 +86,9 @@ const shouldShowPagination = totalPages > 1;
                     >
                       <ImageCard
                         image={generateImagePath(
-                          `${selectedYear}/${selectedMonth}/${selectedDay}/${albumItem.id}`,
+                          `${albumItem.photo_path}`,
                           albumItem.thumbnail,
-                          "gallery"
+                          "gallery",
                         )}
                         caption={albumItem.title}
                         index={Number(albumItem.id)}
@@ -116,9 +104,6 @@ const shouldShowPagination = totalPages > 1;
             )
           }
         </div>
-        <!-- Pagination -->
-        {shouldShowPagination && <Pagination totalPages={totalPages} />}
-        <Lightbox />
       </div>
     </div>
   </section>

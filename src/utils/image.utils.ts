@@ -27,7 +27,7 @@ export const generateImagePath = (
   if (imageType) {
     switch (imageType.toLowerCase()) {
       case "gallery":
-        finalPath = `uploads/gallery/${path}`;
+        finalPath = `${path}${imageName}`;
         break;
       case "result":
         finalPath = `uploads/results/${path}`;
@@ -44,9 +44,6 @@ export const generateImagePath = (
     }
   }
 
-  // Removing any trailing slash from path
-  finalPath = finalPath.replace(/\/$/, "");
-
   // Returning full URL
-  return `${IMAGE_BASE_URL}/${finalPath}/${encodeURIComponent(imageName)}`;
+  return `${IMAGE_BASE_URL}/${finalPath}`;
 };
