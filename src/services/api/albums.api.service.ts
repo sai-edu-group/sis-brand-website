@@ -1,24 +1,20 @@
-// MODULES
-// REACT //
-import { image } from "motion/react-client";
-
 // MODULES //
 import axios from "axios";
 
 // Get default API URL from environment variables
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
-// CONSTANTS
-const GALLERY_IMAGE_PREFIX = "https://saicloudschool.in/myerp/uploads/gallery/";
-
-// TYPES
+// TYPES //
 export type AlbumItem = {
   id: number | string;
-  name: string;
-  image: string;
+  title: string;
+  thumbnail: string;
 };
 
 export type AlbumPhotosItem = {
+  id: number | string;
+  title: string;
+  photoPath: string;
   images: string[];
 };
 
@@ -53,10 +49,8 @@ export const fetchAlbumsByYearRequest = async (
 
     return albums.map((album: any) => ({
       id: album.id,
-      name: album.title,
-      image: album.cover_image
-        ? `${GALLERY_IMAGE_PREFIX}/${album.cover_image}`
-        : "",
+      title: album.title,
+      thumbnail: album.thumbnail,
     }));
   } catch (error) {
     console.error("Failed to fetch albums: ", error);
@@ -87,10 +81,17 @@ export const fetchAlbumPhotosRequest = async (
 
     const data = response.data;
 
-    const photos: string[] = Array.isArray(data?.data) ? data.data : [];
+    const album = data?.data;
+    const images =
+      typeof album?.gallery_photo === "string"
+        ? album.gallery_photo.split(",")
+        : [];
 
     return {
-      images: photos.map((img: string) => `${GALLERY_IMAGE_PREFIX}/${img}`),
+      id: albumId,
+      title: data?.data?.title ?? "Album",
+      photoPath: album.photo_path,
+      images,
     };
   } catch (error) {
     console.error("Failed to fetch album photos: ", error);

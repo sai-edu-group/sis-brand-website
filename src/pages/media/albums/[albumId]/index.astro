@@ -9,18 +9,23 @@ import Pagination from "@/components/ui/Pagination.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import PhotoCard from "@/components/ui/PhotoCard.astro";
 
+// API SERVICES //
+import { fetchAlbumPhotosRequest } from "@/services/api/albums.api.service";
+
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import { albums } from "@/data/media/albums";
-import { fetchAlbumPhotosRequest } from "@/services/api/albums.api.service";
 
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || albums.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
 const albumId = Astro.params.albumId;
 
@@ -28,11 +33,6 @@ if (!albumId) {
   throw new Error("Album ID is missing");
 }
 const albumPhotos = await fetchAlbumPhotosRequest(albumId);
-
-// // Find that one item dynamically (no static paths)
-// const albumsItem = albums.images[year].find(
-//   (item) => item.id.toString() === albumId
-// );
 
 // Get this from API
 const totalItems = albumPhotos?.images.length ?? 10;
@@ -43,7 +43,14 @@ const shouldShowPagination = totalPages > 1;
 // Prepare breadcrumb items based on personType
 const breadcrumbItems = [
   { label: "Media", href: URLS.MEDIA.ROOT },
-  { label: "Album", href: `#` },
+  {
+    label: "Albums",
+    href: `${URLS.MEDIA.ALBUMS.ROOT}?year=${new Date().getFullYear()}`,
+  },
+  {
+    label: albumPhotos?.title ?? "Album",
+    href: "#",
+  },
 ];
 ---
 
@@ -58,7 +65,7 @@ const breadcrumbItems = [
       <!-- Body of the Albums -->
       <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
         <!-- Section Header -->
-        <SectionHeaderMain title={"Album"} />
+        <SectionHeaderMain title={albumPhotos?.title ?? "Album"} />
 
         <!-- Albums -->
         <div class="fade-in flex flex-col gap-7 md:gap-8 lg:gap-11">
@@ -73,7 +80,10 @@ const breadcrumbItems = [
                       style={`--delay: ${albumsPhotosIndex * 0.2}s`}
                     >
                       <PhotoCard
-                        image={imageItem}
+                        image={generateImagePath(
+                          albumPhotos.photoPath,
+                          imageItem
+                        )}
                         index={albumsPhotosIndex}
                         classes="h-[350px]"
                       />
