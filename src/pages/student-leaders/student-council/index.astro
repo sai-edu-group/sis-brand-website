@@ -18,6 +18,9 @@ import {
   studentCouncilSectionHeader,
 } from "@/data/student-leaders/student-council";
 
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
   Number(Astro.url.searchParams.get("year")) || studentCouncil?.years[0];
@@ -54,7 +57,11 @@ const students = studentCouncil?.studentCouncil[year];
             {
               students?.map((studentsItem) => (
                 <ResultsCard
-                  image={studentsItem.image}
+                  image={generateImagePath(
+                    "",
+                    studentsItem.image,
+                    "sis_studentcouncil",
+                  )}
                   studentName={studentsItem.name}
                   grade={studentsItem.designation}
                 />

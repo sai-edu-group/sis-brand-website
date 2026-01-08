@@ -32,3 +32,5 @@ pnpm-lock.yaml
 .vercel/*
 
 .vercel/
+
+package-lock.json
