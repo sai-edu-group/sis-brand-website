@@ -63,7 +63,7 @@ export const amenitiesDetails = {
 
       <div>
         <h3>Sushila Devi Auditorium</h3>
-        <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="flex flex-col md:flex-row items-start gap-8">
           <div class="md:w-2/3 order-2">
             <p>The <strong>Sushila Devi Auditorium</strong> is a centrally air-conditioned, multipurpose space designed with impeccable acoustics to host meetings, training programmes, performances, special lectures, and intimate events. Spanning <srong>2,500 sq. ft.</strong> with a seating capacity of <strong>140,</strong> it stands at the very heart of the campus.</p>
             <p>This auditorium regularly welcomes students for enriching interactions and rendezvous with eminent personalities, making it a vital space for intellectual exchange and inspiration.</p>
