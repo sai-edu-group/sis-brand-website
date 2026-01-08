@@ -10,6 +10,7 @@ import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import FilterBar from "@/components/ui/FilterBar.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
 import { fetchSioneersRequest } from "@/services/api/sioneers.api.service";
@@ -23,7 +24,6 @@ import {
   globalSioneersBreadcrumbItems,
   globalSioneersSectionHeader,
 } from "@/data/student-leaders/global-sioneers";
-import EmptyState from "@/components/EmptyState.astro";
 
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
