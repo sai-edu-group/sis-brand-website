@@ -18,6 +18,8 @@ export type AlbumPhotosItem = {
   images: string[];
 };
 
+// API Requests
+
 /** Fetch Albums by Year */
 export const fetchAlbumsByYearRequest = async (
   year: number,
@@ -28,7 +30,7 @@ export const fetchAlbumsByYearRequest = async (
     headers: {
       "Content-Type": "application/json",
     },
-    timeout: 8000,
+    timeout: 8000, // 8 seconds timeout
   };
 
   try {
@@ -40,13 +42,14 @@ export const fetchAlbumsByYearRequest = async (
     });
 
     const data = response.data;
-
+    // Ensure data is an array, handling possible variations
     const albums = Array.isArray(data?.data)
       ? data.data
       : Array.isArray(data)
         ? data
         : [];
 
+    // Mapping API response to AlbumItem
     return albums.map((album: any) => ({
       id: album.id,
       title: album.title,
@@ -82,11 +85,14 @@ export const fetchAlbumPhotosRequest = async (
     const data = response.data;
 
     const album = data?.data;
+
+    // Split gallery_photo string into array
     const images =
       typeof album?.gallery_photo === "string"
         ? album.gallery_photo.split(",")
         : [];
 
+    // Returning AlbumPhotosItem object
     return {
       id: albumId,
       title: data?.data?.title ?? "Album",

@@ -38,6 +38,9 @@ const year: number =
   Number(Astro.url.searchParams.get("year")) || albums.years[0];
 
 const albumItems = await fetchAlbumsByYearRequest(year);
+const selectedYear = year;
+const selectedMonth = 12;
+const selectedDay = 22;
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -95,8 +98,9 @@ const shouldShowPagination = totalPages > 1;
                     >
                       <ImageCard
                         image={generateImagePath(
-                          "uploads/gallery",
-                          albumItem.thumbnail
+                          `${selectedYear}/${selectedMonth}/${selectedDay}/${albumItem.id}`,
+                          albumItem.thumbnail,
+                          "gallery"
                         )}
                         caption={albumItem.title}
                         index={Number(albumItem.id)}
