@@ -152,13 +152,7 @@ export const saiSevaContent = [
           </div>
           <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
         </div>
-    </div>
-
-
-
-
-
-    `,
+    </div>    `,
     href: "#",
   },
   {
