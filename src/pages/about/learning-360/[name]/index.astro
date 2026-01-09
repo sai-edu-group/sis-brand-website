@@ -16,7 +16,7 @@ import { learning360Content } from "@/data/home/learning-360";
  */
 export async function getStaticPaths() {
   const paths: Array<{
-    params: { id: string; name: string };
+    params: {name: string };
     props: {
       learning360Item: any;
     };
@@ -26,7 +26,6 @@ export async function getStaticPaths() {
   learning360Content.forEach((learning360ContentItem: any) => {
     paths.push({
       params: {
-        id: learning360ContentItem.id,
         name: learning360ContentItem.title.toLowerCase().replaceAll(" ", "-"),
       },
       props: {

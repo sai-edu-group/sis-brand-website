@@ -7,7 +7,6 @@ export const sectionHeaderDetails = {
 
 export const advisoryBoard = [
   {
-    id: 1,
     name: "Dr. C.B. Satpathy",
     position: "Spiritual Thinker, Writer and Philanthropist",
     quote:
@@ -20,7 +19,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 2,
     name: "Dr. Prasant Mohapatra",
     position: "Provost, University of South Florida",
     quote:
@@ -33,7 +31,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 3,
     name: "CA P.R. Ramesh",
     position: "Former Chairman, Deloitte India",
     quote:
@@ -46,7 +43,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 4,
     name: "Dr. Damodar Acharya",
     position: "Former Director, IIT-Kharagpur & Former Chairman, AICTE",
     quote:
@@ -59,7 +55,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 5,
     name: "Dr. P.C. Jain",
     position: "Central Council Member ICAI & Former Principal, SRCC",
     quote:
@@ -72,7 +67,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 6,
     name: "Shri Amitabh Jhingan",
     position: "Partner, Head of Education Centre of Excellence, Parthenon-EY",
     quote:
@@ -85,7 +79,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 7,
     name: "Shri Rakesh Sethi",
     position: "Former Chairman & Managing Director, Allahabad Bank",
     quote:
@@ -98,7 +91,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 8,
     name: "Ms. Ameeta Mulla Wattal",
     position: "Former Chairperson, NPSC",
     quote:
@@ -111,7 +103,6 @@ export const advisoryBoard = [
   },
 
   {
-    id: 9,
     name: "Shri Ronesh Puri",
     position: "Managing Director, Executive Access",
     quote:

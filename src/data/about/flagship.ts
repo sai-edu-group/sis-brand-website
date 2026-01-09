@@ -5,7 +5,6 @@ export const sectionHeaderContent = {
 };
 export const flagshipContent = [
   {
-    id: 1,
     title: "Founder’s Memorial Series",
     subTitle: "Tribute to Vision and Legacy",
     description:
@@ -17,7 +16,6 @@ export const flagshipContent = [
     <p><strong>Vision - </strong>The prominent vision of this series is revisiting the values and principles professed by Founder-Chairman, Dr Bijay Kumar Sahoo, to be instilled in the students for nurturing the future stakeholders of the nation. The Founder Memorial Series is an endeavour by the school to embed the eternal learnings as envisioned by the Founder, to help raise rational, empathetic & resilient leaders who bring about a prolific positive change in the society.</p>`,
   },
   {
-    id: 2,
     title: "SAIMUN",
     subTitle: "SAI Model United Nations",
     description:
@@ -45,7 +43,6 @@ export const flagshipContent = [
     `,
   },
   {
-    id: 3,
     title: "SAI UNWIND",
     subTitle: "Largest Student-Led School Fest",
     description:
@@ -84,7 +81,6 @@ export const flagshipContent = [
     `,
   },
   {
-    id: 4,
     title: "SAITED",
     subTitle: "Science, Technology, Engineering, Design Conclave",
     description:
@@ -120,7 +116,6 @@ export const flagshipContent = [
     `,
   },
   {
-    id: 5,
     title: "SAI Confluence",
     subTitle: "The Grand Cultural Showcase",
     description:
@@ -134,7 +129,6 @@ export const flagshipContent = [
     `,
   },
   {
-    id: 6,
     title: "SAI Olympics",
     subTitle: "Annual Sporting Extravaganza",
     description:
