@@ -100,10 +100,51 @@ export const amenitiesDetails = {
       description:
         "Well-equipped medical facility ensuring the health and wellness of students and staff.",
       landscapeImg: "/images/amenities/infirmary.png",
-      content: `<p><strong>Infirmary –</strong> For the well being of the new age learners, SAI International School houses a hygienic Infirmary. Here, the school provides direct nursing services to learners and staff members, to maximize health and wellness in the school community.</p>
-      <p><strong>On-site doctor and nurse –</strong> An on-site qualified doctor and trained and qualified nurses are available to manage and assess any health issues that may arise during school hours.</p>
-      <p><strong>Emergency Services –</strong> We understand that as the children spend most of their time in school, there could be emergencies pertaining to their wellness. Minor injuries during sports and games or while performing experiments and even common fever are unavoidable parts of growing up. To meet these emergencies, we have an Infirmary at the heart of the School premise.</p>
-      <p><strong>Facilities –</strong> The school infirmary is equipped with the basic materials and facilities to address the health needs of learners while in school. With a six bed capacity for both boys and girls, the infirmary is hygienically maintained, confirming to our belief of wellness of mind, body and soul.</p>
+      content: `<p><strong>Caring for Health, Comfort and Well-being</strong> </p>
+
+      <p>At <strong>SAI International School,</strong> the health and well-being of our learners are of paramount importance. To support the needs of today’s students, the school houses a <strong>clean, hygienic, and well-equipped Infirmary,</strong> dedicated to promoting health, safety, and overall wellness within the school community.</p>
+
+      <p>The infirmary provides <strong>direct nursing care and medical support</strong> to both students and staff, ensuring a safe and nurturing environment where learning can flourish.</p>
+
+      <div>
+        <h3>On-Site Medical Support</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The <strong>On-Site Medical Support</strong> A <strong>qualified on-site doctor</strong> and <strong>trained, experienced nursing staff</strong> are available during school hours to assess, manage, and respond promptly to any health concerns. Their presence ensures immediate care, professional supervision, and peace of mind for students, parents, and staff alike.</p>
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+      <div>
+        <h3>Emergency Care</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The <strong>Emergency Care</strong> Recognising that students spend a significant part of their day at school, the infirmary is prepared to handle medical situations that may arise. From minor injuries during sports or laboratory activities to common illnesses such as fever or fatigue, timely care is provided with sensitivity and efficiency.</p>
+
+            <p>Located at the heart of the campus, the infirmary ensures swift access during emergencies, reinforcing the school’s commitment to student safety.</p>
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+        <div>
+        <h3>Facilities</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p><strong>The Emergency Care</strong> The school infirmary is equipped with essential medical supplies and facilities to address everyday health needs. With a <strong>six-bed capacity for both boys and girls</strong>, the space is thoughtfully designed and meticulously maintained to ensure comfort, cleanliness, and dignity.</p>
+
+            <p>At SAI International School, the infirmary reflects our belief in nurturing the <strong>wellness of mind, body, and soul,</strong> ensuring every child feels cared for, secure, and supported.</p>
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+
+
       `,
     },
     {
@@ -113,42 +154,136 @@ export const amenitiesDetails = {
       description:
         "Encourages eco-conscious learning through hands-on initiatives promoting global citizenship.",
       landscapeImg: "/images/amenities/sustainable.png",
-      content: `<p><strong>Sustainable Development –</strong> Learning at SAI International School spreads beyond classrooms as we believe in reinforcing the book learning through hands-on activities. The entire school is designed to enrich the knowledge vistas of the students to help them become responsible global citizens. Various steps are taken to enable the students to get an awareness of making the place environment-friendly.</p>
-      <p><strong>Rain Water Harvesting –</strong> The School has a system for Rain Water Harvesting, where water is collected from rooftops and kept in specially built pits. The rainwater outlets from the various rooftops are connected with each other through a network of pipes, which leads to several collection chambers and finally to the underground storage tank. This is used for-</p>
-        <ul>
-          <li>Supplying water to the Wash Rooms</li>
-          <li>Mopping and Cleaning the School</li>
-          <li>Recharge into the ground level to help increase the level of ground water</li>
-        </ul>
-      <p>The entire system is demonstrated to the students to encourage them to make optimal use of rainwater at their home as well as inspire others in their locality.</p>
-      <p><strong>Sewage Treatment Plant –</strong> The School houses a waste water treatment plant which removes pollutants from waste water, mainly from sewage generated from School and hostel. The Sewage Treatment Plant (STP) with a capacity of 25 KLD MBBR, cleans the solids and pollutants, break down organic matter and restore the oxygen content of treated water. It is placed inside the school campus to help children understand the concept of STP.</p>
-      <ul>
-        <li>Used for watering the garden and the plants</li>
-        <li>Recharge the ground level of water</li>
-      </ul>  
-      <p><strong>Solar Panel –</strong> Solar Panels are installed in the School hostels to supply green energy to the hostel and school. It is used to light the bulbs and heat the water both in the School and the hostels. It also gives students a great opportunity to enrich their classroom learning with real-life examples of the benefits of renewable energy. The Solar Panels helps –</p>
-      <ul>
-        <li>To drive Solar power forward</li>
-        <li>Enhance Student learning</li>
-        <li>In Energy Conservation</li>
-      </ul>
-      <p><strong>Vermi Compost –</strong> SAI International School believes in organic farming. It houses pits of 3 feet by 4 feet dimension to prepare organic manure for the plants. It is prepared by layering the dried leaves, vegetable and fruit peels with mud. The enriched compost or the natural fertilizer is used to manure plants and the lawn of the school. It helps in –</p>
-      <ul>
-        <li>the healthy growth of plants</li>
-        <li>return valuable nutrients back into the soil</li>
-        <li>create better foot products</li>
-        <li>turn waste into excellent, nutrient-rich organic fertilizer and soil conditioner</li>
-        <li>Non-hazardous for students and the environment</li>
-      </ul>
-      <p>Students from Play Group on wards actively take part in the entire process of preparing the manure. It is a hand-on learning activity which is enjoyed by everyone.</p>
-      <p><strong>Green House –</strong> SAI International School believes in creating a cleaner and greener environment for the students to have a pollution free space. Apart from having a lush green environment, it has a Green House, where plants ranging from medicinal to ornamental are grown.</p>
-      <p>The Green House acts as a mini lab for students to learn about climate change, global warming and the various ways to protect plant life. They also get an in-depth idea on plants’ reaction to light, heat, and cold and the measures to counter them. Students also learn about various plants. The space is used to grow plants which is used –</p>
-      <ul>
-        <li>During plantation drives</li>
-        <li>For gifting purpose (At SAI International School, we discourage the use of flower bouquet and encourage gifting plants)</li>
-      </ul>
-      <p>he School was adjudged the 4th place in India among 2300 participating Schools, in the CII Green I contest, for being a pioneer in imparting Environmental Education in the School by 2030. The School received the Award from the Cabinet Minister (Energy), Govt. of India, at the 9th edition of Green Building Congress.</p>
-      <p><strong>SAI International School has been continuously receiving the Green School Award since 2011 for the Best School Garden. It takes pride in dedicating a large area for gardening and planting new saplings on every auspicious occasion, as a small step to preserve the green cover and inculcate the spirit in the students.</strong></p>
+      content: `<p><strong>Learning to Care for the Planet</strong> </p>
+
+      <p>At SAI International School, learning extends far beyond textbooks and classrooms. We believe that true education nurtures awareness, responsibility, and action. The campus itself is thoughtfully designed as a living learning space, enabling students to experience sustainability first-hand and grow into environmentally conscious global citizens.</p>
+
+      <p>Through hands-on initiatives and eco-friendly practices, students gain practical understanding of how everyday actions can contribute to a healthier planet.</p>
+      
+      <div>
+        <h3>Rainwater Harvesting</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The school has a well-structured Rainwater Harvesting System that collects water from rooftops and channels it through a network of pipes into specially designed collection chambers and underground storage tanks.</p>
+            <p>The harvested rainwater is used for:</p>
+            <ul>
+              <li>Supplying water to washrooms</li>
+              <li>Mopping and cleaning the school premises</li>
+              <li>Recharging groundwater levels</li>
+            </ul>
+          <br>  
+          <p>This entire system is demonstrated to students, inspiring them to practise water conservation at home and motivate their communities to use this precious resource responsibly</p>  
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+       <div>
+        <h3>Rainwater Harvesting</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The school has a well-structured Rainwater Harvesting System that collects water from rooftops and channels it through a network of pipes into specially designed collection chambers and underground storage tanks.</p>
+            <p>The harvested rainwater is used for:</p>
+            <ul>
+              <li>Supplying water to washrooms</li>
+              <li>Mopping and cleaning the school premises</li>
+              <li>Recharging groundwater levels</li>
+            </ul>
+          <br>  
+          <p>This entire system is demonstrated to students, inspiring them to practise water conservation at home and motivate their communities to use this precious resource responsibly</p>  
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+        <div>
+        <h3>Sewage Treatment Plant (STP)</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI International School houses an in-campus <strong>Sewage Treatment Plant (STP)</strong> with a capacity of <strong>25 KLD (MBBR technology)</strong>. The plant treats wastewater generated from the school and hostels by removing pollutants, breaking down organic matter, and restoring oxygen levels in the treated water.</p>
+            <p>The recycled water is used to:</p>
+            <ul>
+              <li>Water gardens and plants</li>
+              <li>Recharge groundwater</li>
+            </ul>
+          <br>  
+          <p>By situating the STP within the campus, students gain a clear understanding of wastewater management and sustainable water reuse through direct observation.</p>  
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+      <div>
+        <h3>Solar Energy Initiative</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>To promote clean and renewable energy, <strong>solar panels</strong> are installed across the school and hostel premises. The solar energy generated is used for:</p>
+            <ul>
+              <li>Lighting the campus</li>
+              <li>Heating water in the school and hostels</li>
+            </ul>
+          <br>  
+          <p>This initiative not only conserves energy but also serves as a real-life classroom, helping students understand the importance and impact of renewable energy sources and responsible consumption.</p>  
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+      <div>
+        <h3>Vermi Composting</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Committed to organic and sustainable practices, the school maintains <strong>vermi-compost pits</strong> that transform biodegradable waste into nutrient-rich organic manure. Dried leaves, vegetable and fruit peels, and soil are layered to create natural fertilizer used for the school gardens and lawns.</p>
+            <p>Vermi-composting helps:</p>
+            <ul>
+              <li>Promote healthy plant growth</li>
+              <li>Restore nutrients to the soil</li>
+              <li>Convert waste into valuable organic fertiliser</li>
+              <li>Ensure a non-hazardous, eco-friendly process</li>
+            </ul>
+          <br>  
+          <p>Students from Play Group onwards actively participate in this hands-on activity, making learning engaging, enjoyable, and impactful.</p>  
+            
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+       <div>
+        <h3>Green House</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The school’s Green House is a thriving space dedicated to nurturing plant life and environmental learning. A variety of medicinal and ornamental plants are cultivated here, reinforcing the importance of biodiversity and green living.</p>
+            <p>Functioning as a mini environmental lab, the Green House allows students to study:</p>
+            <ul>
+              <li>Climate change and global warming</li>
+              <li>Plant responses to light, heat, and cold</li>
+              <li>Methods to protect and sustain plant life</li>
+            </ul>
+          <br>  
+          <p>Plants grown here are used during plantation drives and as eco-friendly gifts, reflecting the school’s philosophy of encouraging <strong>plant gifting over flower bouquets.</strong></p>  
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+
+          <div>
+        <h3>Recognition and Commitment</h3>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-2/3 order-2">
+          <p>SAI International School’s dedication to environmental education has earned national recognition. The school was <strong>adjudged 4th in India among 2,300 schools</strong> in the <strong>CII Green I Contest</strong>, for its pioneering efforts in imparting environmental education by 2030. The award was presented by the <strong>Hon’ble Cabinet Minister (Energy), Government of India,</strong> at the <strong>9th Green Building Congress.</strong></p>
+           
+          <p>Additionally, the school has been a proud recipient of the <strong>Green School Award</strong> since 2011 for the Best School Garden. With extensive green spaces and plantation drives on every auspicious occasion, the school continues to take meaningful steps towards preserving the environment and instilling sustainability values in students.</p>  
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+      </div>
+      
+
       `,
     },
     {
