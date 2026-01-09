@@ -36,7 +36,7 @@ export const menu: MenuItemData[] = [
         title: "Vision, Mission & Values",
         href: URLS.ABOUT.VISION_MISSION_VALUES,
       },
-      { title: "Founder – Chairman", href: `${URLS.ABOUT.ROOT}#our-founder` },
+      { title: "Our Founder", href: `${URLS.ABOUT.ROOT}#our-founder` },
       { title: "Key Personnel", href: `${URLS.ABOUT.ROOT}#key-personnel` },
       { title: "Advisory Board", href: `${URLS.ABOUT.ROOT}#advisory-board` },
       { title: "Learning & Beyond", href: URLS.ABOUT.LEARNING_AND_BEYOND.ROOT },
