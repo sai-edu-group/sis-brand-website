@@ -1,45 +1,55 @@
 ---
 export const prerender = false; // Render on Server
 
-// 1. LAYOUT & COMPONENTS
+// 1. COMPONENTS
 import Layout from "@/layouts/Layout.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
+import FilterBar from "@/components/ui/FilterBar.astro";
 
-// 2. IMPORT API & UTILS
+// 2. DATA CONFIG (We keep this for Names and Years)
+import { cbseClasses } from "@/data/results/cbse-12th";
+
+// 3. API & UTILS (We use this for the actual students)
 import { fetchResultsRequest } from "@/services/api/results.api.service";
 import { generateResultImagePath } from "@/utils/image.utils";
 
-// 3. GET PARAMS
-const { streamId } = Astro.params; 
+// 4. GET PARAMS
+const { streamId } = Astro.params;
 
-// Get Year (Default to 2025)
+// 5. GET CLASS CONFIG
+// We find the class details (Name: "Science", Years: [2024, 2023]) from your local config.
+const classItem = cbseClasses.find(
+  (item) => item.id.toString() === streamId
+);
+
+// Safety: If someone types a random ID (e.g. /99), redirect home.
+if (!classItem) {
+  return Astro.redirect("/");
+}
+
+// 6. GET YEAR
 const urlYear = Astro.url.searchParams.get("year");
-const currentYear = urlYear ? Number(urlYear) : 2025; 
+// Default to the first available year in the config if URL param is missing
+const currentYear = urlYear ? Number(urlYear) : classItem.years[0];
 
-// 4. FETCH DATA
+// 7. FETCH DATA (API CALL)
+// We use the ID and Year to get real student data
 const results = await fetchResultsRequest(currentYear, streamId ?? "11");
 
-// 5. DETERMINE TITLE (REMOVED "Results" word)
-// If API gives a class name (e.g. "XII Science"), use it directly.
-// Otherwise, fall back to "Class 11".
-const pageTitle = (results && results.length > 0 && results[0].className) 
-  ? results[0].className 
-  : `Class ${streamId}`;
+// 8. PAGE CONFIG
+const PAGE_TYPE = "results";
 
-// 6. SET FOLDER TYPE
-const PAGE_TYPE = "results"; 
-
-// BREADCRUMBS
+// 9. BREADCRUMBS
 const breadcrumbItems = [
   { label: "12th Results", href: "/results/cbse-12th" },
-  { label: pageTitle, href: "#" },
+  { label: classItem.name, href: "#" },
 ];
 
 const pageMeta = {
-  title: `${pageTitle} - ${currentYear}`,
+  title: `${classItem.name} - ${currentYear}`,
   description: `Celebrating our students hard work`
 };
 ---
@@ -54,12 +64,14 @@ const pageMeta = {
       <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
         
         <SectionHeaderMain
-          title={pageTitle}
+          title={classItem.name}
           subtitle="Celebrating our students hard work and achievements"
         />
 
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
           
+          <FilterBar showSearch={false} years={classItem.years} />
+
           <div
             class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
@@ -69,6 +81,7 @@ const pageMeta = {
                   <ResultsCard
                     studentName={student.studentName}
                     score={student.percentage}
+                    /* Dynamic Image URL */
                     image={generateResultImagePath(student.studentProfilePic, PAGE_TYPE)}
                   />
                 ))
