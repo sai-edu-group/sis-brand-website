@@ -15,10 +15,10 @@ export const URLS = {
         `/about/learning-and-beyond/amenities/${amenityTitle}`,
       CURRICULUM: (curriculumTitle: string) =>
         `/about/learning-and-beyond/curriculum/${curriculumTitle}`,
-      SAI_SEVA: (sevaId: string, sevaTitle: string) =>
-        `/about/learning-and-beyond/sai-seva/${sevaId}/${sevaTitle}`,
-      FLAGSHIP_EVENT: (eventId: string, eventTitle: string) =>
-        `/about/learning-and-beyond/flagship-events/${eventId}/${eventTitle}`,
+      SAI_SEVA: (sevaTitle: string) =>
+        `/about/learning-and-beyond/sai-seva/${sevaTitle}`,
+      FLAGSHIP_EVENT: (eventTitle: string) =>
+        `/about/learning-and-beyond/flagship-events/${eventTitle}`,
     },
 
     AFFILIATIONS: {

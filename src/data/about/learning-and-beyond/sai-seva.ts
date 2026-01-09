@@ -7,7 +7,6 @@ export const sectionHeaderContent = {
 
 export const saiSevaContent = [
   {
-    id: 1,
     title: "Dr. B K Sahoo 100 Libraries",
     img: "/images/saiseva/library.jpg",
     landscapeImg: "/images/saiseva/library.jpg",
@@ -33,7 +32,6 @@ export const saiSevaContent = [
     href: "#",
   },
   {
-    id: 2,
     title: "Initiatives",
     img: "/images/saiseva/initiative.jpg",
     landscapeImg: "/images/saiseva/initiative.jpg",
@@ -126,7 +124,6 @@ export const saiSevaContent = [
     href: "#",
   },
   {
-    id: 3,
     title: "Projects",
     img: "/images/saiseva/projects.jpg",
     landscapeImg: "/images/saiseva/projects.jpg",
@@ -145,7 +142,6 @@ export const saiSevaContent = [
     href: "#",
   },
   {
-    id: 4,
     title: "Recognitions",
     img: "/images/saiseva/recognitions.jpg",
     landscapeImg: "/images/saiseva/recognitions.jpg",

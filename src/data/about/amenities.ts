@@ -7,7 +7,6 @@ export const amenitiesDetails = {
   },
   amenitiesCards: [
     {
-      id: 1,
       title: "Hostel",
       img: "/images/amenities/hostel.png",
       description:
@@ -31,7 +30,6 @@ export const amenitiesDetails = {
       `,
     },
     {
-      id: 2,
       title: "Cafeteria",
       img: "/images/amenities/cafeteria.png",
       description:
@@ -47,7 +45,6 @@ export const amenitiesDetails = {
       `,
     },
     {
-      id: 3,
       title: "Auditoriums",
       img: "/images/amenities/auditoriums.png",
       description:
@@ -73,7 +70,6 @@ export const amenitiesDetails = {
       `,
     },
     {
-      id: 4,
       title: "Infirmary",
       img: "/images/amenities/infirmary.png",
       description:
@@ -86,7 +82,6 @@ export const amenitiesDetails = {
       `,
     },
     {
-      id: 5,
       title: "Sustainable Development",
       img: "/images/amenities/sustainable.png",
       description:
@@ -131,7 +126,6 @@ export const amenitiesDetails = {
       `,
     },
     {
-      id: 6,
       title: "STEAM",
       img: "/images/amenities/steam.png",
       description:
