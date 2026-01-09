@@ -44,6 +44,18 @@ export const curriculumDetails = {
         </div>
       </div>
 
+      <div>
+        <h3>Robotics Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>In an era defined by rapid technological advancement, robotics plays a pivotal role in shaping the innovators of tomorrow. The Robotics Lab at SAI International School introduces students to the principles of design, construction, programming, and operation of robots.</p>
+
+            <p>Through challenge-based learning, students apply classroom concepts to real-life scenarios, fostering problem-solving skills, logical reasoning, and innovation. Robotics encourages creativity, collaboration, and hands-on exploration, preparing students to confidently face future technological challenges.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/roboticslab.jpg" alt="Robotics Lab" />
+        </div>
+      </div>
 
 
 
@@ -52,11 +64,12 @@ export const curriculumDetails = {
 
 
 
-<p><strong>Robotics Lab</strong></p>
 
-<p>In an era defined by rapid technological advancement, robotics plays a pivotal role in shaping the innovators of tomorrow. The Robotics Lab at SAI International School introduces students to the principles of design, construction, programming, and operation of robots.</p>
+<p><strong></strong></p>
 
-<p>Through challenge-based learning, students apply classroom concepts to real-life scenarios, fostering problem-solving skills, logical reasoning, and innovation. Robotics encourages creativity, collaboration, and hands-on exploration, preparing students to confidently face future technological challenges.</p>
+
+
+
 
 <p><strong>Aryabhatta Math Lab</strong></p>
 
