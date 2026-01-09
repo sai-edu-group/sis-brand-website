@@ -39,84 +39,120 @@ export const saiSevaContent = [
     landscapeImg: "/images/saiseva/initiative.jpg",
     description:
       "Focuses on instilling empathy and compassion through activities like the International Day of Service, visits to old age homes/orphanages, and environmental stewardship.",
-    content: `<p>Compassion stands as the ultimate and most profound manifestation of emotional maturity. It is through the channel of compassion that an individual attains the zenith of personal growth and delves into the most profound depths of self-actualization. Undoubtedly, it serves as the cornerstone of all moral principles. At SAI International School, we embrace the notion of instilling in our students a heightened sensitivity from an early age, nurturing them into beings characterized by empathy and compassion. Our conviction lies in guiding them to independently recognize that the profound affection for a fellow human constitutes the paramount virtue.</p>
-    <p>In this context, SAI International School has proactively and assiduously undertaken the mantle of Community Service initiatives. These initiatives serve as distinctive avenues where students consciously choose to contribute towards a more refined society and a cleaner environment. Corporate social responsibility finds its embodiment in the altruistic endeavors of businesses towards societal advancement through both their operational endeavors and social investments.</p>
-    <p>In the pursuit of our Community Service Initiatives, our students have actively participated in a multitude of community development undertakings. Since 2010, SAI International has observed the International Day of Service, thereby embodying the principle that effecting positive change in the life of another holds a place of utmost significance within our institution.</p>
-    <p>SAI International School has orchestrated a diverse array of Community Service projects, including but not limited to:</p>
-    <p><strong>2023</strong></p>
-    <p><strong>A Day of Compassion</strong></p>
-    <p>Going Global undertook a heartwarming visit to Utkalmani Gopabandhu Old Age Home. Their acts of service brought joy, comfort, and fostered empathy among SAIoneers. Interactive engagement, thoughtful gifts, and heartfelt conversations left a lasting impact on volunteers and residents, forging a strong sense of community.</p>
-    <p><strong>Outcomes</strong></p>
-    <p><strong>Cherished Memories and Thoughtful Gifts</strong></p>
-    <p>Volunteers crafted a memorable day with considerate gifts. Bhagavad Gita copies enriched spiritual journeys, canes symbolized care, and Caravan music systems evoked nostalgia through evergreen songs, fostering an atmosphere of joy and happiness among residents.</p>
-    <p><strong>Instilling Compassion and Sense of Community</strong></p>
-    <p>Acts of Service at Utkalmani Gopabandhu Old Age Home imprinted lasting impressions on volunteers and residents. Engaging with the elderly, SAIoneers nurtured deep compassion and empathy. Witnessing their kindness' effect, they grasped community's significance, transcending age and background barriers to foster unity and support.</p>
-    <p><strong>Reflections: Lessons Learned and Personal Growth</strong></p>
-    <p>The old age home visit bestowed invaluable lessons and personal growth chances upon Going Global members. They discovered the potency of modest acts of benevolence and their life-altering impact. This encounter heightened their grasp of empathy, compassion, and community bonds' importance. Forever treasured, the connections forged serve as enduring reminders of their potential for positive influence.</p>
-    <p><strong>2022</strong></p>
-    <p><strong>Interact Club's Heartwarming Children's Day with Asha Kiran Orphanage</strong></p>
-    <p>To celebrate Children's Day on November 14, 2022, SAI International's Interact Club hosted 21 girls from Asha Kiran Orphanage. The day featured vibrant attires, engaging activities, a school tour, and heartfelt gifts from the students' wish lists. The club collaborated with teachers to gather two months' worth of ration for the orphanage and provided educational materials. This initiative instilled empathy and community engagement in the Interact Club members, reinforcing the lesson that giving yields personal fulfilment. The event radiated warmth, fostering compassion and a sense of accomplishment among SAIoneers, highlighting the reciprocal nature of giving.</p>
-    <p><strong>Outcome</strong></p>
-    <p>Through engaging activities, thoughtful gifts, and collaborative efforts to support the orphanage, the students of SAI International  gained a deeper understanding of community involvement and the positive impact of their actions. This experience left the participants with a sense of fulfilment and a realization that giving back brings personal growth and a sense of accomplishment.</p>
-    <p><strong>Interact Club SAIoneers Visit Pratibha Orphanage</strong></p>
-    <p>Interact is a club for youngsters who want to connect with others in their community or school. It helps to recognize & develop constructive leadership & personal integrity by encouraging & practising thoughtfulness & helpfulness to others. Class XI SAIoneers of the Interact Club went on a visit to Pratibha an Orphanage near Dumduma, Bhubaneswar on July 26, 2022. The orphanage comprised 35 inmates whose faces lit up with joy and mirth when they saw our SAIoneers visit them. The students and teachers of SAI International contributed study kits, encyclopaedias, biscuits, cup cakes & various board games such as ludo, chess and carrom.</p>
-    <p>The inmates sang a soulful song for our SAIoneers & grooved joyously while showcasing a high voltage dance performance. The students along with the inmates proactively participated in various engaging activities, had heart-to-heart conversations about each other’s hobbies & aspirations, and painted ingenious pieces of artwork together.</p>
-    <p><strong>Outcomes</strong></p>
-    <p>As a whole, this whole session was a ‘shower of warmth’ and filled the SAIoneers with compassion and they experienced a feeling of self-actualization by contributing towards making a small change in their communities. The prominent take away from this visit for the students was that in giving we always receive!!!!<p>
-    <p><strong>A Humble offering by SAI International towards Flood Relief</strong></p>
-    <p>In support of flood relief efforts in Northern Odisha, SAI International contributed essential supplies such as Sanitary Pads, Candles, Matchbox, Mosquito Repellent, Biscuits, Chhatua Powder, Sugar, and Chuda Mixture. With nearly a million lives affected, the school's contribution aimed to provide crucial necessities to those in flooded regions. The donated items underwent thorough sanitation and sealing before distribution, showcasing SAI International's commitment to aiding the affected communities.</p>
-    <p><strong>Outcome</strong></p>
-    <p>Instilling empathy in the students.</p>
-    <p><strong>2021</strong></p>
-    <p><strong>The Big Green Bang- Seed Bombing</strong></p>
-    <p>SAI International, in conjunction with the Rotary Club, orchestrated a noteworthy event titled "The Big Green Bang - Seed Bombing" on the 28th of October, 2021. This event, a virtual workshop dedicated to climate action, was spearheaded by the school's environmentally conscious Eco-Club known as "The Planeteers." The occasion extended its reach by inviting the participation of 17 Round Square Schools and Interact Clubs hailing from six different nations.</p>
-    <p>With a deliberate emphasis on the Round Square IDEALS, particularly placing significance on the "E" which symbolizes Environmentalism, the event revolved around the pivotal themes of climate action, the reduction of carbon footprints, and the innovative technique of aerial reforestation through the method of Seed Bombing. A truly international assemblage of 300 enthusiastic participants convened to partake in this event, serving as a compelling testament to the potency of collaborative efforts amongst the youth in their resolute endeavor to confront and conquer the pressing challenges posed by our environment.</p>
-    <p><strong>Outcome </strong></p>
-    <p>Students gain environmental awareness, collaborative skills, and leadership through "The Big Green Bang - Seed Bombing." They learn climate action, problem-solving, and cross-cultural communication with peers from 17 schools globally. This event fosters empowerment for change and application of Round Square IDEALS, encouraging proactive conservation efforts.</p>
-    <p><strong>Plantation Drive</strong></p>
-    <p>SAI International School conducted a Tree Plantation activity in collaboration with the Rotary Club on Thursday,2 September, 2021. The activity was held on the campus of the school. The students participated in the drive enthusiastically and helped each other in planting the saplings. All the saplings were planted in the school ground by students. The students along with the teachers also planted the saplings, and discussed about plant more and more trees and encourage others to do the same. Some of the students also shared their previous experiences and shared their joy with others present. The drive was a great success, enriching students with adequate knowledge of environment and plants.</p>
-    <p><strong>Outcome</strong></p>
-    <p>The main aim of the drive was to direct student’s mind in being involved in constructive activities that present positive outcome through the facilitation the betterment of society. </p>
-    <p><strong>Service in Action Symposium</strong></p>
-    <p>AI International School conducted a virtual Service in Action Symposium on May 6 2021.The event had 46 schools joining us from 11 countries. We had a detailed discussion on Volunteering by keynote speaker Shri Sujit Mohapatra, Founder Bakul Foundation, India joining us on the forum. Challenging all normal perspectives of what community service looked like in the past, forcing students to think of new and creative acts of service that can be done via the virtual mode. This month-long event is in commemoration of ‘The International Day of Service’, globally recognized and celebrated annually on May 7.</p>
-    <p><strong>Outcome</strong></p>
-    <p>Service work can be done individually or in collaboration with a group of people with the goal of benefiting others.</p>
-    <p><strong>High on Hygiene </strong></p>
-    <p>On May 3, 2021, SAI International commemorated the Day of Service, where the Going Global and Interact Clubs embraced innovative approaches due to the pandemic's challenges. Undeterred, SAIoneers orchestrated a virtual donation drive, "High on Hygiene," combating COVID-19's impact. Over three weeks, via social media, they rallied support, amassing unused masks, sanitizers, and sanitary napkins for the less privileged and frontline workers. People donated funds to acquire masks, totaling 1,000 cloth and medical masks, 50 sanitizer bottles, and 40 sanitary pad packs. The donations were disbursed to local police, vegetable market vendors, BMC Safai Karamcharis, and neighboring slums, showcasing resilient community engagement.</p>
-    <p><strong>Outcome</strong></p>
-    <p>Engaging in the "High on Hygiene" donation drive, students learn resilience, adaptability, and empathy in addressing community needs during a pandemic. They develop organizational skills, utilize virtual platforms for social impact, and comprehend the significance of collective efforts in supporting the vulnerable and frontline workers.</p>
-    <p><strong>2020</strong></p>
-    <p>Saluting Odisha Police– As a token of appreciation and gratitude to the Odisha Police for their relentless effort to ensure the safety of the people, SAI International distributed 500 food packets on Monday, March 30, 2020 to the Police personnel stationed in and around areas KIIT Square, Patia Square, Acharya Vihar Square, Vani Vihar Square, Sainik School Square, Kalinga Hospital Square as well as in Infocity and Chandrasekharpur Police Stations.</p>
-    <p>Felicitating the Safai Sevaks– To acknowledge and appreciate the commendable work of the Safai Sevaks during COVID 19 pandemic, SAI International felicitated the front line workers on Saturday, April 25, 2020. SAI International family feels privileged to have gifted a towel each, along with dry food items like flattened rice, sugar, semolina, biscuits and soap to more than 70 Safai Sevaks of Ward No 6.</p>
-    <p>International Day of Service observed– From the confines of their own homes, SAIoneers joined hands to observe the International Day of Service with great enthusiasm on Thursday, May 7, 2020. Like every year, the Members of the Interact and Going Global Club rolled up their sleeves to serve the needy. The pandemic and the lockdown did not deter their spirit and they stepped forward in reaching out to the most vulnerable species – stray dogs, cats, goats, cows and birds. Each student pledged to feed one meal for one week to stray animals during the lockdown.</p>
-    <p><strong>Humble Offering by SAI International –</strong>SAI International distributed food packets in nearby slum areas on Tuesday, May 19, 2020, owing to anticipated cyclone Amphan, amidst the ongoing coronavirus pandemic. The representatives of SAI International also counselled the slum dwellers on the importance of adhering to the safety measures as mandated by the Government. They demonstrated the right way of using the mask, on hand washing and using sanitizers.</p>
-    <p>Basic dry food items like rice, flour, pulses, biscuits, sugar, salt along with soap was gifted to people living in the slums of Bhubaneswar like Nageswar Basti I & II-Sishu Vihar, Jagannath Ambatota Basti, Co-operative Colony, Bagicha Colony and Co-operative Housing Colony-Sailashree Vihar, Chandrasekharpur and Japani Sahoo Colony- Pragati Vihar.</p>
-    <p>Most of the people residing in slum areas are either daily wage labourers, street vendors or domestic helps. The lockdown has drastically affected their income leading to dampened spirits and an unsure future. Adding to their woes, the news of the impending Cyclone Amhan, revived the bitter memories of Cyclone Fani which created havoc during May last year. The SAI International Representatives boosted the morale of the slum dwellers by inspiring them to think positively and be each other’s support during this crucial time.</p>
-    <p><strong>2019</strong></p>
-    <p>SAIoneers joins the Nation to propagate the ideals of Gandhiji– To commemorate the 150th Birth Anniversary of Mahatma Gandhi and show solidarity towards the Nation for ‘Swachh Bharat’, around 1200 students of SAI International School and SAI International Residential School (SIRS) joined students from various Schools of Bhubaneswar to form a 4km-Human Chain on Wednesday, October 2, 2019. It aimed to spread the teachings of Mahatma Gandhi among the public. The event was organised by the Department of State Information and Public Relations Department and the Odia Language, literature and Culture.</p>
-    <p><strong>Celebrating Daan Utsav– </strong> The Joy of Giving Week was celebrated by spending quality time with the inmates of Swami Bichitrananda Kalyan Ashram, Cuttack on Friday, October 4, 2019. Students danced and sang together as well as shared some pleasant experiences. SAIoneers gifted the inmates a pouch each called ‘Apna Thaili’, to store their souvenirs. They were briefed on the importance of cleanliness and presented with a towel and some stationery.</p>
-    <p><strong>Cultivating Kindness –</strong> SAIoneers had a wonderful time interacting with the inmates of Ashraya, an organisation for the care and protection of destitute and orphan children on Wednesday, October 16, 2019. It was a day to commemorate the birthday of Hon’ble Chief Minister of Odisha, Shri Naveen Patnaik, who urged the people of the state to spend quality time with orphans and differently-abled children on his birthday. The SAIoneers served them lunch with great care and spent some valuable time chitchatting on diversified areas.</p>
-    <p><strong>Escorting Special children to Kala Bhoomi – </strong>Forty students of Shri Harsha Memorial School for Deaf (SHMSD) were escorted to visit Kala Bhoomi on Thursday, July 25, 2019.The Special students were given a guided tour to explore the rich heritage of the state in the famous craft’s museum of Odisha.</p>
-    <p><strong>100 Library Project – </strong> As part of the ‘100 Library Project’ of SAI International School, SAIoneers gifted a library, consisting of an Almirah and valuable books to the ‘Anathashrama Government Primary School’ Cuttack and Naranpur Upper Primary School, Trishulia. They also spoke about the significance of book reading and inspired the students to inculcate the habit at an earliest.</p>
-    <p><strong>Swasthya Suraksha –</strong> SAIoneers have always lent their support for the under privileged through their acts and deeds. This year, a group of students held an awareness session individually for the boys and girls at Shri Harsha Memorial School for the Deaf. While the girls learnt about personal and menstrual hygiene, the boys were briefed about personal hygiene and cleanliness. The young SAIoneers from classes X to XII briefed the students of SHMSD through charts, PPT’s and videos. The teachers of SAI International School and SAI Angan donated sanitary napkins to the students of SHMSD.</p>
-    <p>The Organic Farm – </strong>SAIoneers transformed an unused land in front of the Girl’s Hostel of SHMSD into a Kitchen Garden. They cleaned the area and planted selected plants like Banana, Papaya, Bitter gourd, Pumpkin etc which would supplement their kitchen needs. The young students also taught the inmates of SHMSD on how to maintain the garden.</p>
-    <p><strong>Walls of Vibrance – </strong> The young students of SAI International School painted the walls of SHMSD to pep up the mood of the students and teachers. The fresh coat indeed was a welcome move which was appreciated by the entire school, especially the Boys who spent their entire day and night within those four walls.</p>
-    <p><strong>Fani-A Humble Offering – </strong>To lend support to the people affected by cyclone ‘Fani’, students and staff of SAI International came together to make a humble offering.</p>
-    <p>An amount of Rs. Five lakhs was contributed to the Chief Minister’s Relief Fund on Thursday, May 16, 2019. The philanthropic students led by Dr. Bijaya Kumar Sahoo, Founder & Chief Mentor, presented the cheque to Chief Minister Shri Naveen Patnaik in the Chief Minister’s Office (CMO).</p>
-    <p>SAI International had also organised a community feeding initiative for the cyclone affected people of Chigrortola slum at Patia in Bhubaneswar. On an average, around 1000 people residing in the area were served with lunch, followed by clean drinking water through a community kitchen. The lunch programme continued on a daily basis till normalcy was restored in the area.</p>
-    <p>The enthusiastic students and staff of SAI International selflessly and whole heartedly served the people with great care and enthusiasm. The young SAIoneers were deeply touched by the plight of the slum dwellers. The inhabitants of the slum, especially the women and children expressed their happiness for the timely help.</p>
-    <p><strong>Hariyali ki Aur –</strong>The week-long Van Mahotsav or the annual tree planting festival of India is celebrated every year by the young SAIoneers to create an awareness about the importance of tress and forests. Several activities were organized this year to commemorate the Van Mahotsav week 2019.</p>
-    <p>SAI International School in association with the Department of Forest and Environment, Government of Odisha, organized a Tree Plantation programme on Wednesday, July 17, 2019. On the occasion, Shri Kedar Kumar Swain, Divisional Forest Officer, Chandaka Wildlife Division spoke on the importance of Van Mahotsav and nature conservation to the students. As a step towards protecting the green cover, he distributed seedlings to the young students and urged them to join the Tree Plantation drive.</p>
-    <p>Students of Bharat Scouts and Guides as well as the NCC Cadets organised a Tree Plantation drive on Wednesday, July 3, 2019. They took the initiative to plant saplings near the School boundary, in the empty spaces left behind by the devastating cyclone Fani. The enthusiastic students actively participated in the programme with a mission to render their contribution to restore the eco-balance.</p>
-    <p>Students also inspired their peers through a well-scripted drama to spread awareness on the harmful effects of cutting down the trees. The strong message on the importance of tree plantations was also spread through songs and dances during the special assembly.</p>
-    <p><strong>Sewa aur Sneh –</strong> The International Day of Service was celebrated at Missionaries of Charity, St. Mother Teresa’s Home by the Going Global Club of SAI International School on Monday, April 29, 2019. A small group of SAIoneers spent an enriching time interacting with the elderly residents of the Home, speaking, laughing, singing and even dancing.</p>
-    <p>It was a heart-warming occasion for both the young students and the elderly inmates, who with big smiles danced to their hearts content and also merrily sang the famous Odia song, ‘Rangabati’. Although the young students had a great time, yet they were sad to see the old, physically and mentally challenged inmates who were not cared for by the family members and who tried to find happiness in each other’s company. The students lauded the selfless effort of the Missionary Sisters who took great pains to ensure that the needs of the inmates are met.</p>
-    <p>International Day of Service is held every year to spread happiness among the less fortunate. The thrill of stepping out of the regular routine to help another human being is one every SAIoneer looks forward to.</p>
-    <p><strong>2018</strong></p>
-    <p><strong>Khusi -</strong>A group of 20 students of SAI International School along with two teacher coordinators visited Subhadra Mahtab Seva Sadan, a home for the orphans in Bhubaneswar, to observe the International Day of Service. They enthusiastically interacted with the 65 inmates who were between new borns to eighteen years of age. The inmates entertained the visitors with melodious songs and graceful dance performances, showcasing their talent as well as leaving the students teary eyed and touched. Some of the inmates also shared their dreams and aspirations with the SAI students.</p>
-    <p>The SAI students gifted 65 gift hampers consisting of note books, tiffin boxes, water bottles and pencil boxes with stationery, by means of fund raised in the school. They also gave cerelac, lactogen, roohafza, tang, biscuits, namkeen and fruits for the use of the inmates. It was a life changing experience for the students, who realized the importance of appreciating little things in life. They thanked the school for giving this opportunity of rendering selfless service to God’s children.</p>
-    <p><strong>Nayi Gunj –</strong> Realizing the importance of the youth power and empower them by providing safe spaces to come together, engage in activities related to their diverse needs and interests, participate in decision making processes and freely express themselves, the United Nations (UN) declared the theme for 2018 International Youth Day as “Safe Spaces for Youth”.</p>
-    <p>To support UN theme and spread the message, SAI International School celebrated the day in an eloquent manner. Around sixty students from six different Clubs, Masks Club (theatre), Photography Club, SAI TV, Symphony Club (choir), Rhythmic Vibrations (dance), Global Club and Interact Club participated in the event. It was thoroughly planned and successfully implemented by the energetic students. Preparation started a week before the event to optimize the reach of message. Students designed the back drops, T-shirts and the badges to be used and started a media campaign on facebook and twitter. To spread the message to the general public, students performed skits, dances and live music in tune with the dynamic theme at Pal Heights on Saturday, August 25, 2018.</p>
+    content: `<p><strong>Initiatives: Cultivating Compassion, Community, and Change</strong></p>
+    <p>At SAI International School, <strong>compassion is the cornerstone of character.</strong> We believe that true emotional maturity and personal growth are rooted in empathy, understanding, and selfless action. From an early age, SAIoneers are guided to recognize that caring for others is the highest virtue, fostering a lifelong commitment to community and social responsibility.</p>
+
+    <p>Through our <strong>Community Service Initiatives,</strong> students actively engage in projects that benefit society, nurture environmental stewardship, and create meaningful impact. These efforts reflect our dedication to shaping well-rounded individuals who are aware, responsible, and empathetic citizens of the world.</p>
+
+    <p><strong>Flagship Community Initiatives</strong></p>
+
+    <div>
+        <h3>2023 – A Day of Compassion</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Going Global visited Utkalmani Gopabandhu Old Age Home, bringing joy, comfort, and connection to the residents. Thoughtful gifts like Bhagavad Gita copies, walking canes, and music systems sparked smiles and memories, while SAIoneers learned firsthand the power of empathy and service.</p>
+            <p><strong>Impact:</strong> Instilled compassion, built community bonds, and taught that small acts of kindness create lasting change.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
+
+    <div>
+        <h3>2022 – Heartwarming Outreach</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p><strong>Interact Club’s Children’s Day at Asha Kiran Orphanage:</strong> 21 girls enjoyed a vibrant day with games, gifts, educational materials, and school tours. Students contributed two months’ worth of ration, learning that giving fosters personal fulfillment.</p>
+
+            <p><strong>Visit to Pratibha Orphanage:</strong> SAIoneers engaged with 35 children through games, music, dance, and art activities, experiencing the joy of selfless service.</p>
+
+            <p><strong>Flood Relief Efforts:</strong> Essential supplies were provided to flood-affected communities in Northern Odisha, teaching empathy and social responsibility.</p>
+
+            <p><strong>Impact:</strong>Deepened understanding of community service, empathy, and collective responsibility.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
+
+      <div>
+        <h3>2021 – Environmental & Virtual Service Projects</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p><strong>The Big Green Bang – Seed Bombing:</strong> A virtual workshop in collaboration with the Rotary Club, engaging 17 Round Square schools globally in climate action and aerial reforestation initiatives.</p>
+
+            <p><strong>Tree Plantation Drives:</strong> Students planted saplings on campus and shared environmental awareness, promoting sustainable practices.</p>
+
+            <p><strong>Service in Action Symposium:</strong> A virtual international forum connecting 46 schools to rethink and innovate community service projects.</p>
+
+            <p><strong>High on Hygiene Donation Drive:</strong> Students collected masks, sanitizers, and sanitary items to support frontline workers and vulnerable communities during the pandemic.</p>
+
+            <p><strong>Impact:</strong> Cultivated environmental awareness, collaborative problem-solving, leadership, and resilience in challenging circumstances.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
+
+    <div>
+        <h3>2020 –  Acts of Gratitude & Relief</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Distributed food packets and essential items to <strong>Odisha Police, frontline workers, and slum dwellers</strong> during the COVID-19 pandemic.</p>
+
+            <p>Observed the <strong>International Day of Service</strong> by feeding stray animals and supporting vulnerable populations despite lockdown restrictions.</p>
+
+            <p><strong>Impact:</strong> Fostered empathy, adaptability, and a sense of civic responsibility among students.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
+
+    <div>
+        <h3>2019 –  Gandhian Ideals & Social Awareness</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Participated in a <strong>4km Human Chain for Swachh Bharat</strong> to commemorate Mahatma Gandhi’s 150th Birth Anniversary.</p>
+
+            <p>Celebrated <strong>Daan Utsav</strong> and engaged with orphanages and underprivileged children, spreading joy, education, and awareness about hygiene and environmental care.</p>
+
+            <p>Supported communities affected by <strong>Cyclone Fani</strong> with relief efforts and community kitchens.</p>
+
+            <p>Conducted <strong>Van Mahotsav Tree Plantation drives</strong> to promote environmental stewardship.</p>
+
+            <p><strong>Impact:</strong> Encouraged students to embody Gandhian values, social empathy, and active citizenship.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
+
+    <div>
+        <h3>2018 – Khusi & Nayi Gunj Initiatives</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p><strong>Khusi:</strong> Visiting Subhadra Mahtab Seva Sadan, students brought gifts, food, and joy to orphaned children, understanding the importance of gratitude and compassion.</p>
+
+            <p><strong>Nayi Gunj:</strong> Celebrated <strong>International Youth Day</strong> by creating safe spaces for youth expression, engagement, and leadership through arts, music, theatre, and media campaigns.</p>
+
+            <p><strong>Impact:</strong> Empowered youth to lead with creativity, responsibility, and service-oriented values.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
+
+      <div>
+        <h3>The Spirit of Giving</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>At SAI International School, <strong>service is a way of life.</strong> From nurturing the elderly, supporting orphanages, and aiding disaster-affected communities, to leading environmental campaigns and spreading awareness on hygiene and sustainability, SAIoneers are encouraged to <strong>act with empathy, think critically, and make a tangible difference.</strong></p>
+
+            <p>Our initiatives inspire students to understand that in giving, <strong>we always receive lessons</strong> in compassion, responsibility, and leadership that last a lifetime.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+        </div>
+    </div>
 
 
 
