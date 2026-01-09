@@ -29,13 +29,28 @@ export const curriculumDetails = {
 
 <p><strong>Our Advanced Laboratories</strong></p>
 
-<p><strong>ATAL Tinkering Lab (ATL)</strong></p>
+      <div>
+        <h3>ATAL Tinkering Lab (ATL)</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Atal Tinkering Lab is a prestigious Government of India initiative by NITI Aayog, established at SAI International School to promote scientific temperament, creativity, and innovation among young learners. ATL introduces students to essential 21st-century skills, preparing them for a future shaped by technology and innovation.</p>
 
-<p>The Atal Tinkering Lab is a prestigious Government of India initiative by NITI Aayog, established at SAI International School to promote scientific temperament, creativity, and innovation among young learners. ATL introduces students to essential 21st-century skills, preparing them for a future shaped by technology and innovation.</p>
+            <p>The lab provides hands-on exposure to <strong>science, electronics, robotics, open-source microcontrollers, sensors, artificial intelligence, and 3D printing</strong> through DIY kits and modern equipment. Students develop skills such as design thinking, computational thinking, adaptive learning, and physical computing.</p>
 
-<p>The lab provides hands-on exposure to <strong>science, electronics, robotics, open-source microcontrollers, sensors, artificial intelligence, and 3D printing</strong> through DIY kits and modern equipment. Students develop skills such as design thinking, computational thinking, adaptive learning, and physical computing.</p>
+            <p>The ATL at SAI International School encourages a strong do-it-yourself culture, motivating students to become problem solvers and solution providers. It nurtures higher-order thinking skills and lays the foundation for future discoveries, innovations, and inventions, helping every child realise their unique potential.</p>
 
-<p>The ATL at SAI International School encourages a strong do-it-yourself culture, motivating students to become problem solvers and solution providers. It nurtures higher-order thinking skills and lays the foundation for future discoveries, innovations, and inventions, helping every child realise their unique potential.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/atallab.jpg" alt="Atal Tinkering Lab" />
+        </div>
+      </div>
+
+
+
+
+
+
+
+
 
 <p><strong>Robotics Lab</strong></p>
 
