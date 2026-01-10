@@ -40,7 +40,7 @@ export const curriculumDetails = {
             <p>The ATL at SAI International School encourages a strong do-it-yourself culture, motivating students to become problem solvers and solution providers. It nurtures higher-order thinking skills and lays the foundation for future discoveries, innovations, and inventions, helping every child realise their unique potential.</p>
 
           </div>
-          <img class="md:w-1/3 order-1" src="/images/curriculum/atallab.jpg" alt="Atal Tinkering Lab" />
+          <img class="md:w-1/3 order-1" src="/images/curriculum/atallab.png" alt="Atal Tinkering Lab" />
         </div>
       </div>
 
