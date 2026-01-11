@@ -10,7 +10,7 @@ export const curriculumDetails = {
       id: 1,
       title: "Laboratories",
       img: "/images/curriculum/lab.png",
-      landscapeImg: "/images/curriculum/lab.png",
+      landscapeImg: "/images/curriculum/labbanner.jpg",
       description:
         "Hands-on labs integrate theory with practical learning for deeper concept understanding.",
       content: `
