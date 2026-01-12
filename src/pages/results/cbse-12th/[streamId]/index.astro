@@ -1,26 +1,28 @@
 ---
 export const prerender = false; // Render on Server
 
-// 1. COMPONENTS
-import Layout from "@/layouts/Layout.astro";
+// COMPONENTS //
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 import FilterBar from "@/components/ui/FilterBar.astro";
 
-// 2. DATA CONFIG (We keep this for Names and Years)
+// API SERVICES //
+import { fetchResultsRequest } from "@/services/api/results.api.service";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
+// DATA //
 import { cbseClasses } from "@/data/results/cbse-12th";
 
-// 3. API & UTILS (We use this for the actual students)
-import { fetchResultsRequest } from "@/services/api/results.api.service";
-import { generateResultImagePath } from "@/utils/image.utils";
-
-// 4. GET PARAMS
 const { streamId } = Astro.params;
 
-// 5. GET CLASS CONFIG
-// We find the class details (Name: "Science", Years: [2024, 2023]) from your local config.
+// We find the class details (Name: "Science", Years: [2024, 2023]) from local config.
 const classItem = cbseClasses.find(
   (item) => item.id.toString() === streamId
 );
@@ -30,19 +32,15 @@ if (!classItem) {
   return Astro.redirect("/");
 }
 
-// 6. GET YEAR
 const urlYear = Astro.url.searchParams.get("year");
 // Default to the first available year in the config if URL param is missing
 const currentYear = urlYear ? Number(urlYear) : classItem.years[0];
 
-// 7. FETCH DATA (API CALL)
 // We use the ID and Year to get real student data
 const results = await fetchResultsRequest(currentYear, streamId ?? "11");
 
-// 8. PAGE CONFIG
-const PAGE_TYPE = "results";
+const PAGE_TYPE = "result";
 
-// 9. BREADCRUMBS
 const breadcrumbItems = [
   { label: "12th Results", href: "/results/cbse-12th" },
   { label: classItem.name, href: "#" },
@@ -82,7 +80,7 @@ const pageMeta = {
                     studentName={student.studentName}
                     score={student.percentage}
                     /* Dynamic Image URL */
-                    image={generateResultImagePath(student.studentProfilePic, PAGE_TYPE)}
+                    image={generateImagePath("results",student.studentProfilePic, PAGE_TYPE)}
                   />
                 ))
               ) : (

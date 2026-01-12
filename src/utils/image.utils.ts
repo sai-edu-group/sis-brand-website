@@ -29,9 +29,10 @@ export const generateImagePath = (
       case "gallery":
         finalPath = `${path}${imageName}`;
         break;
-      case "result":
-        finalPath = `uploads/results/${path}`;
-        break;
+      case "result": {
+        const folder = path === "placements" ? "placements" : "sis_cbseresult";
+        return `${IMAGE_BASE_URL}/uploads/${folder}/${imageName}`;
+      }
       case "student":
         finalPath = `uploads/students/${path}`;
         break;
@@ -46,30 +47,4 @@ export const generateImagePath = (
 
   // Returning full URL
   return `${IMAGE_BASE_URL}/${finalPath}`;
-};
-// --- PASTE THIS AT THE VERY BOTTOM OF YOUR EXISTING FILE ---
-
-const RESULTS_BASE_URL = "https://saicloudschool.in/myerp/uploads/";
-
-// This is a NEW function specifically for your task
-export const generateResultImagePath = (filename: string, type: string): string => {
-  // 1. Safety Check
-  if (!filename) return "/assets/images/placeholder.png";
-
-  let folder = "";
-
-  // 2. Select Folder
-  switch (type) {
-    case "results":
-      folder = "sis_cbseresult";
-      break;
-    case "placements":
-      folder = "placements";
-      break;
-    default:
-      folder = "sis_cbseresult";
-  }
-
-  // 3. Return Full URL (Prevents the crash)
-  return `${RESULTS_BASE_URL}${folder}/${filename}`;
 };
