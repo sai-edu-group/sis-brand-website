@@ -49,11 +49,11 @@ export const amenitiesDetails = {
     {
       id: 3,
       title: "Auditoriums",
-      img: "/images/amenities/auditoriums.png",
+      img: "/images/amenities/auditorium-banner.jpg",
       description:
         "State-of-the-art auditoriums hosting events, performances, and assemblies for student engagement.",
 
-      landscapeImg: "/images/amenities/auditoriums.png",
+      landscapeImg: "/images/amenities/auditorium-banner.jpg",
       content: `
       <div>
         <h2>Where Ideas Perform and Celebrations Come Alive</h2>
