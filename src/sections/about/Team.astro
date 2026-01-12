@@ -13,6 +13,7 @@ import Image from "astro/components/Image.astro";
 <section
   class="bg-n-50 ns-slider relative w-full overflow-hidden"
   id="key-personnel"
+  data-section="Key Personnel"
 >
   <div id="team-data" data-members={JSON.stringify(teamMembers)} hidden></div>
   <div
@@ -228,6 +229,21 @@ import Image from "astro/components/Image.astro";
       </div>
     </div>
   </div>
+
+  <script>
+    import { trackReadMoreClick } from "@/scripts/analytics";
+
+    // Single event listener for ALL cards (event delegation)
+    document.addEventListener("click", (e) => {
+      const card = (e.target as HTMLElement).closest(".result-card");
+      if (card) {
+        const personName = card.getAttribute("data-person-name");
+        if (personName) {
+          trackReadMoreClick(personName);
+        }
+      }
+    });
+  </script>
 </section>
 
 <style>
