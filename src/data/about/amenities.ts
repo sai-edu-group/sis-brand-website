@@ -80,7 +80,7 @@ export const amenitiesDetails = {
             <p>This open-air auditorium features <strong>balcony seating,</strong> especially enjoyed by senior students, and a large stage ideally suited for grand celebrations and performances. It serves as the venue for major annual events such as <strong>Mother’s Day, Father’s Day, Art from the Heart, Grandparents’ Day, SAI Confluence, Foundation Lectures,</strong> and more.</p>
             <p>The auditorium is equipped with a powerful <strong>3,000 W sound system,</strong> high-intensity lighting comprising <strong>20 coloured and 12 white lights,</strong> and a dedicated <strong>green room,</strong> ensuring seamless execution of large-scale events and stage productions.</p>
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Indraprastha Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/ipauditorium.jpg" alt="Indraprastha Auditorium" />
         </div>
       <div>
 
