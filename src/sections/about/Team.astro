@@ -4,10 +4,13 @@ import Button from "@/components/ui/Button.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Tooltip from "@/components/ui/Tooltip.astro";
 import PersonCard from "@/components/ui/PersonCard.astro";
+import Image from "astro/components/Image.astro";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 
 // DATA //
 import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
-import Image from "astro/components/Image.astro";
 ---
 
 <section
@@ -56,7 +59,16 @@ import Image from "astro/components/Image.astro";
             <a
               class="team-button-animate"
               id="team-button"
-              href={`/about/team/${teamMembers[0].name}`}
+              data-team-urls={JSON.stringify(
+                teamMembers.map((member) =>
+                  URLS.ABOUT.TEAM_MEMBER(
+                    member.name.toLowerCase().replaceAll(" ", "-")
+                  )
+                )
+              )}
+              href={URLS.ABOUT.TEAM_MEMBER(
+                teamMembers[0].name.toLowerCase().replaceAll(" ", "-")
+              )}
             >
               <Button
                 text="Explore their Journey"
@@ -321,6 +333,8 @@ import Image from "astro/components/Image.astro";
   const listEl = document.getElementById("team-list");
   const buttonEl = document.getElementById("team-button");
   const AUTO_DURATION_MS = 10000;
+  const urls = JSON.parse(buttonEl.dataset.teamUrls);
+
   let currentIndex = Math.max(
     0,
     members.findIndex((m) => m.isActive)
@@ -359,10 +373,8 @@ import Image from "astro/components/Image.astro";
     bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 45.67%, var(--color-n-50) 100%), url('${member.bgImg}') center/cover no-repeat`;
     imgEl.setAttribute("src", member.img);
     imgEl.setAttribute("alt", member.name);
-    buttonEl.setAttribute(
-      "href",
-      `/about/team/${member.name.toLowerCase().replaceAll(" ", "-")}`
-    );
+    buttonEl.setAttribute("href", urls[index]);
+
     quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;
     posEl.textContent = member.position;

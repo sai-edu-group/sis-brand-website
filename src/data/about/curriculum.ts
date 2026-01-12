@@ -7,6 +7,7 @@ export const curriculumDetails = {
   },
   curriculumContent: [
     {
+      id: 1,
       title: "Laboratories",
       img: "/images/curriculum/lab.png",
       landscapeImg: "/images/curriculum/lab.png",

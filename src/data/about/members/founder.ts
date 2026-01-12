@@ -1,4 +1,5 @@
 export const founderDetails = {
+  id: 1,
   name: "Late Dr. Bijaya Kumar Sahoo",
   position: "Founder of SAI International Education Group",
   quote:
