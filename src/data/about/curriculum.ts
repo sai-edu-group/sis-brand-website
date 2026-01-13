@@ -105,15 +105,22 @@ export const curriculumDetails = {
             <p>Based on the four Ps—Planning, Production, Programming, and Publicity—SAI TV fosters teamwork, leadership, creativity, and media literacy.</p>
 
           </div>
-          <img class="md:w-1/3 order-1" src="/images/curriculum/saitv.jpg" alt="SAI TV" />
+          <img class="md:w-1/3 order-1" src="/images/curriculum/saitv.jpg" alt="SAI-TV" />
         </div>
       </div>
 
+       <div>
+        <h3>Radio Orange</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI International School is proud to be the first school to introduce an in-house radio station: <strong>Radio Orange</strong>. This unique platform allows students to express ideas, enhance communication skills, and showcase creativity.</p>
 
-<p><strong>Radio Orange</strong></p>
-<p>SAI International School is proud to be the first school to introduce an in-house radio station: <strong>Radio Orange</strong>. This unique platform allows students to express ideas, enhance communication skills, and showcase creativity.</p>
+            <p>Students collaborate weekly to write scripts, produce content, and share campus news under the guidance of teacher mentors, gaining confidence and a strong voice.</p>
 
-<p>Students collaborate weekly to write scripts, produce content, and share campus news under the guidance of teacher mentors, gaining confidence and a strong voice.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/radio-orange.jpg" alt="radio-orange" />
+        </div>
+      </div>
 
 <p><strong>Computer Labs</strong></p>
 
