@@ -84,13 +84,21 @@ export const curriculumDetails = {
 
 <p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
 
-<p><strong>Performing Arts Lab – Guru Kelucharan Dance Lab</strong></p>
+      <div>
+        <h3>Performing Arts Lab – Guru Kelucharan Dance Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Named in honour of the legendary Odissi dancer and guru, <strong>Padma Vibhushan Guru Kelucharan Mohapatra</strong>, this lab celebrates movement, rhythm, and expression. Students begin with foundational practices such as aerobics and yoga before progressing to structured dance forms.</p>
 
-<p>Named in honour of the legendary Odissi dancer and guru, <strong>Padma Vibhushan Guru Kelucharan Mohapatra</strong>, this lab celebrates movement, rhythm, and expression. Students begin with foundational practices such as aerobics and yoga before progressing to structured dance forms.</p>
+            <p>As learners grow, they explore choreography, emotional expression, and storytelling through movement, discovering their unique artistic voice while building discipline, confidence, and creativity.</p>
 
-<p>As learners grow, they explore choreography, emotional expression, and storytelling through movement, discovering their unique artistic voice while building discipline, confidence, and creativity.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/dancelab.jpg" alt="Performing Arts Lab" />
+        </div>
+      </div>
 
- <div>
+
+      <div>
         <h3>Visual Arts Lab</h3>
         <div class="flex flex-col md:flex-row items-start gap-8">
           <div class="md:w-2/3 order-2">
