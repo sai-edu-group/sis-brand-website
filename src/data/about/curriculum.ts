@@ -179,9 +179,16 @@ export const curriculumDetails = {
         </div>
       </div>
 
+      <div>
+        <h3>Science Park</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sciencepark.jpg" alt="Science Park" />
+        </div>
+      </div>
 
-<p><strong>Science Park</strong></p>
-<p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
 
       <div>
         <h3>Social Science Lab</h3>
