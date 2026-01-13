@@ -163,17 +163,29 @@ export const curriculumDetails = {
         </div>
       </div>
 
+      <div>
+        <h3>Library and Learning Resource Centres</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI International School has three well-stocked libraries:</p>
+                <ul>
+                    <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
+                    <li>Vivekananda Learning Resource Centre (Secondary)</li>
+                    <li>Tagore Learning Resource Centre (Higher Secondary)</li>
+                </ul>
+                <p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/library.jpg" alt="Learning Centre" />
+        </div>
+      </div>
 
 
-<p><strong>Library and Learning Resource Centres</strong></p>
-<p>SAI International School has three well-stocked libraries:</p>
-<ul>
-  <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
-  <li>Vivekananda Learning Resource Centre (Secondary)</li>
-  <li>Tagore Learning Resource Centre (Higher Secondary)</li>
-</ul>
 
-<p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
+<p><strong></strong></p>
+
+
+
 
 <p><strong>Science Park</strong></p>
 <p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
