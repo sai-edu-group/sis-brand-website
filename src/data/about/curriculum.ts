@@ -122,11 +122,20 @@ export const curriculumDetails = {
         </div>
       </div>
 
-<p><strong>Computer Labs</strong></p>
+       <div>
+        <h3>Computer Labs</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Recognising the importance of technology in modern life, the school houses well-equipped junior and senior computer labs with <strong>250 systems</strong>, maintaining a <strong> 1:1 student-to-machine ratio.</strong></p>
 
-<p>Recognising the importance of technology in modern life, the school houses well-equipped junior and senior computer labs with <strong>250 systems</strong>, maintaining a <strong> 1:1 student-to-machine ratio.<strong></p>
+            <p>Students are trained in web applications, Java, C++, Tux Paint, Logo, MS Office, digital presentations, email communication, and database development.</p>
 
-<p>Students are trained in web applications, Java, C++, Tux Paint, Logo, MS Office, digital presentations, email communication, and database development.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/computerlab.jpg" alt="Computer Lab" />
+        </div>
+      </div>
+
+    
 
 <p><strong>Science Labs</strong></p>
 
