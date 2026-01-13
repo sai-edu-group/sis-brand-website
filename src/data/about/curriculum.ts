@@ -90,11 +90,20 @@ export const curriculumDetails = {
 
 <p>As learners grow, they explore choreography, emotional expression, and storytelling through movement, discovering their unique artistic voice while building discipline, confidence, and creativity.</p>
 
-<p><strong>Visual Arts Lab</strong></p>
+ <div>
+        <h3>Visual Arts Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Visual Arts Lab nurtures creativity by exposing students to diverse art forms, mediums, and techniques. From sketching and painting to mixed media and craft, students learn to translate imagination into artistic expression.</p>
 
-<p>The Visual Arts Lab nurtures creativity by exposing students to diverse art forms, mediums, and techniques. From sketching and painting to mixed media and craft, students learn to translate imagination into artistic expression.</p>
+            <p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
 
-<p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/art.jpg" alt="ART Lab" />
+        </div>
+      </div>
+
+
 
       <div>
         <h3>SAITV</h3>
