@@ -153,31 +153,13 @@ export const amenitiesDetails = {
       img: "/images/amenities/sustainable.png",
       description:
         "Encourages eco-conscious learning through hands-on initiatives promoting global citizenship.",
-      landscapeImg: "/images/amenities/sustainable.png",
+      landscapeImg: "/images/amenities/green-energy-banner.jpg",
       content: `<p><strong>Learning to Care for the Planet</strong> </p>
 
       <p>At SAI International School, learning extends far beyond textbooks and classrooms. We believe that true education nurtures awareness, responsibility, and action. The campus itself is thoughtfully designed as a living learning space, enabling students to experience sustainability first-hand and grow into environmentally conscious global citizens.</p>
 
       <p>Through hands-on initiatives and eco-friendly practices, students gain practical understanding of how everyday actions can contribute to a healthier planet.</p>
-      
-      <div>
-        <h3>Rainwater Harvesting</h3>
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div class="md:w-2/3 order-2">
-            <p>The school has a well-structured Rainwater Harvesting System that collects water from rooftops and channels it through a network of pipes into specially designed collection chambers and underground storage tanks.</p>
-            <p>The harvested rainwater is used for:</p>
-            <ul>
-              <li>Supplying water to washrooms</li>
-              <li>Mopping and cleaning the school premises</li>
-              <li>Recharging groundwater levels</li>
-            </ul>
-          <br>  
-          <p>This entire system is demonstrated to students, inspiring them to practise water conservation at home and motivate their communities to use this precious resource responsibly</p>  
-            
-          </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
-        </div>
-      </div>
+    
 
        <div>
         <h3>Rainwater Harvesting</h3>
@@ -194,7 +176,7 @@ export const amenitiesDetails = {
           <p>This entire system is demonstrated to students, inspiring them to practise water conservation at home and motivate their communities to use this precious resource responsibly</p>  
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/rainwater.jpg" alt="Rainwater Harvesting" />
         </div>
       </div>
 
@@ -212,7 +194,7 @@ export const amenitiesDetails = {
           <p>By situating the STP within the campus, students gain a clear understanding of wastewater management and sustainable water reuse through direct observation.</p>  
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/water.jpg" alt="Sewage Treatment Plant" />
         </div>
       </div>
 
@@ -229,7 +211,7 @@ export const amenitiesDetails = {
           <p>This initiative not only conserves energy but also serves as a real-life classroom, helping students understand the importance and impact of renewable energy sources and responsible consumption.</p>  
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/solar-energy.jpg" alt="Solar Energy Initiative" />
         </div>
       </div>
 
@@ -249,7 +231,7 @@ export const amenitiesDetails = {
           <p>Students from Play Group onwards actively participate in this hands-on activity, making learning engaging, enjoyable, and impactful.</p>  
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/vermicompost.jpg" alt="Vermi Composting" />
         </div>
       </div>
 
@@ -267,7 +249,7 @@ export const amenitiesDetails = {
           <br>  
           <p>Plants grown here are used during plantation drives and as eco-friendly gifts, reflecting the school’s philosophy of encouraging <strong>plant gifting over flower bouquets.</strong></p>  
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/green-house.jpg" alt="green-house" />
         </div>
       </div>
 
@@ -279,7 +261,7 @@ export const amenitiesDetails = {
            
           <p>Additionally, the school has been a proud recipient of the <strong>Green School Award</strong> since 2011 for the Best School Garden. With extensive green spaces and plantation drives on every auspicious occasion, the school continues to take meaningful steps towards preserving the environment and instilling sustainability values in students.</p>  
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/award-green.jpg" alt="Recognition and Commitment" />
         </div>
       </div>
       
