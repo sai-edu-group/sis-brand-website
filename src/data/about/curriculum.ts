@@ -96,10 +96,19 @@ export const curriculumDetails = {
 
 <p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
 
-<p><strong>SAI TV</strong></p>
-<p>SAI TV offers students hands-on exposure to filmmaking and television production. Through activities such as anchoring, interviews, panel discussions, studio recordings, and outdoor shoots, students gain practical experience in scriptwriting, camera work, editing, lighting, production, and direction.</p>
+      <div>
+        <h3>SAITV</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI TV offers students hands-on exposure to filmmaking and television production. Through activities such as anchoring, interviews, panel discussions, studio recordings, and outdoor shoots, students gain practical experience in scriptwriting, camera work, editing, lighting, production, and direction.</p>
 
-<p>Based on the four Ps—Planning, Production, Programming, and Publicity—SAI TV fosters teamwork, leadership, creativity, and media literacy.</p>
+            <p>Based on the four Ps—Planning, Production, Programming, and Publicity—SAI TV fosters teamwork, leadership, creativity, and media literacy.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/saitv.jpg" alt="SAI TV" />
+        </div>
+      </div>
+
 
 <p><strong>Radio Orange</strong></p>
 <p>SAI International School is proud to be the first school to introduce an in-house radio station: <strong>Radio Orange</strong>. This unique platform allows students to express ideas, enhance communication skills, and showcase creativity.</p>
