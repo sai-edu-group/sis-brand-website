@@ -9,16 +9,18 @@ const baseItems = [
   { name: "About Us", href: URLS.ABOUT.ROOT, active: true },
   {
     name: "School Tour",
+    id: "school-tour",
     target: "_blank",
     href: "https://youtube.com/watch?si=Rdg7vMlOqIGNyqxZ&v=EwX0-sGD_l4&feature=youtu.be",
   },
-  { name: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
+  { name: "News & Blogs", id: "news-blogs", href: URLS.MEDIA.NEWS.ROOT },
   {
     name: "Pay Fee",
+    id: "pay-fee",
     target: "_blank",
     href: "https://sis.edunexttechnologies.com/Index",
   },
-  { name: "Reach Us", href: URLS.CONTACT },
+  { name: "Reach Us", id: "reach-us", href: URLS.CONTACT },
 ];
 
 // Normalize a path (removes trailing slash except for "/")

@@ -1,22 +1,27 @@
 ---
+// COMPONENTS //
 import AwardsCard from "@/components/ui/AwardsCard.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
+import Button from "@/components/ui/Button.astro";
+
+// SERVICES //
+import { fetchLatestAwardsRequest } from "@/services/api/awards.api.service";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 
 // DATA //
-import {
-  awardsCardContent,
-  sectionHeaderContent,
-} from "../../data/home/awards";
-import Button from "@/components/ui/Button.astro";
-import { URLS } from "@/infrastructure/constants/urls";
+import { sectionHeaderContent } from "@/data/home/awards";
 
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
 
+const awardsCardContent = await fetchLatestAwardsRequest();
+
 // Data (sample)
 ---
 
-<section class="ns-slider" id="awards">
+<section class="ns-slider" id="awards" data-section="Awards">
   <div
     class="container mx-auto flex flex-col gap-9 px-6 py-14 md:gap-16 lg:gap-20 lg:px-8 lg:py-16 2xl:px-0"
   >
@@ -34,16 +39,17 @@ const uid = "embla-awards";
           style="gap: var(--gap)"
         >
           {
-            awardsCardContent.map((awardsCardContentItem) => (
-              <div class="ns-slide" data-embla-slide>
-                <AwardsCard
-                  title={awardsCardContentItem.title}
-                  img={awardsCardContentItem.img}
-                  subTitle={awardsCardContentItem.subTitle}
-                  year={awardsCardContentItem.year}
-                />
-              </div>
-            ))
+            awardsCardContent &&
+              awardsCardContent.map((awardsCardContentItem) => (
+                <div class="ns-slide" data-embla-slide>
+                  <AwardsCard
+                    title={awardsCardContentItem.awardName ?? ""}
+                    img={awardsCardContentItem.thumbnailImg ?? ""}
+                    subTitle={awardsCardContentItem.awardDesc ?? ""}
+                    year={(awardsCardContentItem.year ?? "2025").toString()}
+                  />
+                </div>
+              ))
           }
         </div>
       </div>

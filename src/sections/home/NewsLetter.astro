@@ -6,7 +6,7 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
 ---
 
 <!-- News letter -->
-<section class="bg-n-100">
+<section class="bg-n-100" data-section="Newsletter">
   <div
     class="container mx-auto flex flex-col items-center gap-14 px-6 py-16 md:py-20 lg:flex-row lg:gap-20 lg:px-8 lg:py-28 2xl:px-0"
   >
@@ -66,8 +66,8 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
 </section>
 
 <script>
-  import { subcribeNewsLetterRequest } from "@/services/api/form.api.service";
-
+  import { subcribeNewsLetterRequest } from "@/services/api/form.api.service.ts";
+  
   window.addEventListener("DOMContentLoaded", () => {
     const subscribeNewsletterButton = document.querySelector(
       "[data-subscribe-newsletter-button]",

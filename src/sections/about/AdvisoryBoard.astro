@@ -13,6 +13,7 @@ import {
 <section
   class="bg-n-100 ns-slider relative w-full overflow-hidden"
   id="advisory-board"
+  data-section="Advisory Board"
 >
   <div
     class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-24 2xl:px-0"
@@ -128,6 +129,20 @@ import {
     </div>
   </div>
 </section>
+<script>
+  import { trackReadMoreClick } from "@/scripts/analytics";
+
+  // Single event listener for ALL cards (event delegation)
+  document.addEventListener("click", (e) => {
+    const card = (e.target as HTMLElement).closest(".result-card");
+    if (card) {
+      const personName = card.getAttribute("data-person-name");
+      if (personName) {
+        trackReadMoreClick(personName);
+      }
+    }
+  });
+</script>
 
 <style>
   /* Slider-level variables (like your tb-slider reference) */
