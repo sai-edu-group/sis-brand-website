@@ -152,11 +152,18 @@ export const curriculumDetails = {
         </div>
       </div>
 
-    
+      <div>
+        <h3>Science Labs</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
 
-<p><strong>Science Labs</strong></p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sciencelab.jpg" alt="Science Lab" />
+        </div>
+      </div>
 
-<p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
+
 
 <p><strong>Library and Learning Resource Centres</strong></p>
 <p>SAI International School has three well-stocked libraries:</p>
