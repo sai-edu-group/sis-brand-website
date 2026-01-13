@@ -58,30 +58,25 @@ export const curriculumDetails = {
       </div>
 
 
-
-
-
-
-
-
-
-<p><strong></strong></p>
-
-
-
-
-
 <p><strong>Aryabhatta Math Lab</strong></p>
 
 <p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
 
 <p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
 
-<p><strong>International Language Lab</strong></p>
 
-<p>The International Language Lab provides a dynamic environment for effective language learning using the <strong>Wordsworth courseware</strong>, focusing on the four core skills—reading, writing, listening, and speaking.</p>
+      <div>
+        <h3>International Language Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The International Language Lab provides a dynamic environment for effective language learning using the <strong>Wordsworth courseware</strong>, focusing on the four core skills—reading, writing, listening, and speaking.</p>
 
-<p>Students improve pronunciation, clarity, and fluency by listening to native speakers, recording their own voices, and self-correcting. The lab plays a crucial role in enhancing communication skills and building confidence for global interaction.</p>
+            <p>Students improve pronunciation, clarity, and fluency by listening to native speakers, recording their own voices, and self-correcting. The lab plays a crucial role in enhancing communication skills and building confidence for global interaction.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/languagelab.jpg" alt="International Language Lab" />
+        </div>
+      </div>
 
 <p><strong>Dhyan Chand Sports Lab</strong></p>
 
