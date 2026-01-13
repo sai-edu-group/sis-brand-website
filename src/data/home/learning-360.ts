@@ -94,7 +94,7 @@ export const learning360Content = [
         description:
           "Developing skills, teamwork, and discipline through active play.",
         isOpen: true,
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/sports-home.jpg",
       },
       {
         id: 2,
