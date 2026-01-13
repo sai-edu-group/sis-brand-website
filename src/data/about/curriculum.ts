@@ -57,12 +57,16 @@ export const curriculumDetails = {
         </div>
       </div>
 
-
-<p><strong>Aryabhatta Math Lab</strong></p>
-
-<p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
-
-<p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
+      <div>
+        <h3>Aryabhatta Math Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
+            <p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/mathlab.jpg" alt="Maths Lab" />
+        </div>
+      </div>
 
 
       <div>
@@ -78,11 +82,17 @@ export const curriculumDetails = {
         </div>
       </div>
 
-<p><strong>Dhyan Chand Sports Lab</strong></p>
+      <div>
+        <h3>Dhyan Chand Sports Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
+            <p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sportslab.jpg" alt="Sports Lab" />
+        </div>
+      </div>
 
-<p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
-
-<p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
 
       <div>
         <h3>Performing Arts Lab – Guru Kelucharan Dance Lab</h3>
