@@ -29,10 +29,10 @@ export const generateImagePath = (
       case "gallery":
         finalPath = `${path}${imageName}`;
         break;
-      case "result": {
-        const folder = path === "placements" ? "placements" : "sis_cbseresult";
-        return `${IMAGE_BASE_URL}/uploads/${folder}/${imageName}`;
-      }
+      case "result":
+        return `${IMAGE_BASE_URL}/uploads/sis_cbseresult/${imageName}`;
+      case "placements":
+        return `${IMAGE_BASE_URL}/uploads/placements/${imageName}`;
       case "student":
         finalPath = `uploads/students/${path}`;
         break;
