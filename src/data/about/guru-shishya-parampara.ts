@@ -1,12 +1,12 @@
 export const guruShishyaParamparaDetails = {
   sectionHeaderContent: {
-    title: "Ethos",
+    title: "Guru Shishya Parampara",
     subtitle:
       "The campus is designed to support learning, creativity, and well-being.",
     eyebrowText: "Campus Life",
   },
   guruShishyaParamparaContent: {
-      title: "Ethos",
+      title: "Guru Shishya Parampara",
       img: "/images/amenities/hostel.png",
       description:
         "Provides a nurturing, home-like environment that builds independence and lifelong friendships.",
