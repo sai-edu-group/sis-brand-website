@@ -21,28 +21,22 @@ export const generateImagePath = (
 ): string => {
   if (!path || !imageName) return "";
 
-  let finalPath = path;
+  const safePath = path.endsWith("/") ? path : `${path}/`;
+  let finalPath = `${safePath}${imageName}`;
 
   // Handling different image types dynamically
   if (imageType) {
     switch (imageType.toLowerCase()) {
-      case "gallery":
-        finalPath = `${path}${imageName}`;
-        break;
       case "result":
-        finalPath = `uploads/results/${path}`;
+        finalPath = `uploads/results/${safePath}${imageName}`;
         break;
       case "student":
-        finalPath = `uploads/students/${path}`;
+        finalPath = `uploads/students/${safePath}${imageName}`;
         break;
       case "sis_studentcouncil":
-        finalPath = `uploads/sis_studentcouncil/${path}`;
+        finalPath = `uploads/sis_studentcouncil/${safePath}${imageName}`;
       // Add more cases as needed
-      case "blog":
-        finalPath = `uploads/blog/${path}`;
-        break;
       default:
-        finalPath = path; // keep path as-is if no match
         break;
     }
   }

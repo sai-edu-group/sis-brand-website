@@ -4,6 +4,11 @@ import axios from "axios";
 // Get default API URL from environment variables
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
+export type NewsByYearResponse = {
+  blogs: NewsItemData[];
+  total_count: number;
+};
+
 export type NewsItemData = {
   id: number | string;
   title: string;
@@ -23,7 +28,7 @@ export type NewsItem = {
   thumbnail: string;
   banner: string;
   photo_path: string;
-  photo: string;
+  photo: string[];
   created_on: string;
   category_name: string;
 };
@@ -33,11 +38,11 @@ export const fetchBlogsByYearRequest = async (
   year: number,
   pageNumber: number = 1,
   limit: number = 10,
-): Promise<NewsItemData[]> => {
+): Promise<NewsByYearResponse> => {
   // Set up the API request configuration
   const config = {
     endpoint: `${API_URL}blogs/by-year?year=${year}&page=${pageNumber}&limit=${limit}`,
-    method: "GET" as const,
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
@@ -57,28 +62,32 @@ export const fetchBlogsByYearRequest = async (
     const data = response.data;
     // Ensure data is an array, handling possible variations
     let blogs: NewsItemData[] = [];
-    if (Array.isArray(data?.data?.blogs)) {
-      blogs = data.data.blogs;
-    } else if (Array.isArray(data)) {
-      blogs = data;
+    let total_count = 0;
+    if (data?.data) {
+      if (Array.isArray(data.data.blogs)) {
+        blogs = data.data.blogs;
+      }
+      if (typeof data.data.total_count === "number") {
+        total_count = data.data.total_count;
+      }
     }
 
     // Return Blogs
-    return blogs;
+    return { blogs, total_count };
   } catch (error) {
     console.error("Failed to fetch news items by year: ", error);
-    return [];
+    return { blogs: [], total_count: 0 };
   }
 };
 
-/** Fetch Blogs by id */
-export const fetchBlocksByIdRequest = async (
+/** Fetch Blog by id */
+export const fetchBlogByIdRequest = async (
   id: number | string,
 ): Promise<NewsItem | null> => {
   // Set up the API request configuration
   const config = {
-    endpoint: `${API_URL}by-id?id=${id}`,
-    method: "GET" as const,
+    endpoint: `${API_URL}blogs/by-id?id=${id}`,
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },

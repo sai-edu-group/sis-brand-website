@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import Image from "astro/components/Image.astro";
 
 // API SERVICES //
-import { fetchBlocksByIdRequest } from "@/services/api/news.api.service";
+import { fetchBlogByIdRequest } from "@/services/api/news.api.service";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -31,7 +31,7 @@ const newsId = Astro.params.id;
 if (!newsId) {
   throw new Error("News ID is missing from route");
 }
-const newsItem = await fetchBlocksByIdRequest(newsId);
+const newsItem = await fetchBlogByIdRequest(newsId);
 
 // Prepare breadcrumb items based on personType
 const breadcrumbItems = [
@@ -62,11 +62,7 @@ const breadcrumbItems = [
           {
             newsItem?.photo && (
               <Image
-                src={generateImagePath(
-                  `${newsItem.photo_path}`,
-                  newsItem.photo,
-                  "blog"
-                )}
+                src={generateImagePath(newsItem.photo_path, newsItem.banner)}
                 alt={newsItem.title}
                 class="card-anim card-bottom h-[257px] w-full rounded-3xl object-cover md:h-[524px] lg:h-[600px]"
                 style={`--delay: 0.1s`}

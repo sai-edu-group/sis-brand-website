@@ -32,6 +32,7 @@ import {
   newsBreadcrumbItems,
   newsSectionHeader,
 } from "@/data/media/news";
+import { late } from "astro:schema";
 
 // META //
 
@@ -41,7 +42,9 @@ const year: number =
 
 const page = Number(Astro.url.searchParams.get("page")) || 1;
 const limit = 10;
-const news = await fetchBlogsByYearRequest(year, page, limit);
+const newsResponse = await fetchBlogsByYearRequest(year, page, limit);
+const news = newsResponse.blogs;
+const totalCount = newsResponse.total_count;
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -54,8 +57,14 @@ if (!year) {
 }
 
 // Get this from API
-const totalPages = Math.ceil(news.length / limit);
+const totalPages = Math.ceil(totalCount / limit);
 const shouldShowPagination = totalPages > 1;
+
+const parseHtmlToText = (html: string): string => {
+  if (!html) return "";
+  const text = html.replace(/<[^>]*>/g, "");
+  return text.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&");
+};
 ---
 
 <Layout meta={newsMeta}>
@@ -94,11 +103,13 @@ const shouldShowPagination = totalPages > 1;
                     <ArticleCard
                       title={newsItem.title}
                       img={generateImagePath(
-                        `${newsItem.photo_path}`,
-                        newsItem.thumbnail,
-                        "blog"
+                        newsItem.photo_path,
+                        newsItem.thumbnail
                       )}
-                      topText={newsItem.details.substring(0, 120) + "..."}
+                      topText={
+                        parseHtmlToText(newsItem.details).substring(0, 120) +
+                        "..."
+                      }
                       date={new Date(newsItem.created_on).toLocaleDateString()}
                       href={URLS.MEDIA.NEWS.ITEM(
                         newsItem.id.toString(),
