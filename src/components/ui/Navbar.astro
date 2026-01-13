@@ -69,13 +69,14 @@ const { navItems } = Astro.props;
 </nav>
 
 <script>
+  // SCRIPTS //
   import {
     setupClickTracking,
     trackApplyNowClick,
     trackCommonClickEvents,
   } from "@/scripts/analytics";
 
-  // Enums //
+  // ENUMS //
   import { EVENTS } from "@/enums/analytics.enum";
 
   // Track Apply Now button clicks (desktop and mobile)

@@ -7,6 +7,9 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // IMAGES //
 import ChildImage from "@/assets/images/child.png";
+
+// DATA //
+import site from "@/data/meta/site.json";
 ---
 
 <footer>
@@ -62,12 +65,12 @@ import ChildImage from "@/assets/images/child.png";
                 <!-- Phone number -->
                 <p class="font-medium">
                   <a
-                    href="tel:9338169966"
+                    href={`tel:${site.primary_contact}`}
                     class="text-n-50 data-track-footer text-base font-medium underline-offset-2 hover:underline"
                     data-footer-type="phone"
                     data-footer-value="9338169966"
                   >
-                    9338169966
+                    {site.primary_contact}
                   </a>
                 </p>
               </li>
@@ -92,12 +95,12 @@ import ChildImage from "@/assets/images/child.png";
                 <!-- Email address -->
                 <p class="line-break font-medium">
                   <a
-                    href="mailto:admissions@saiinternational.edu.in"
+                    href={`mailto:${site.primary_email}`}
                     class="text-n-50 data-track-footer text-base font-medium underline-offset-2 hover:underline"
                     data-footer-type="email"
                     data-footer-value="admissions@saiinternational.edu.in"
                   >
-                    admissions@saiinternational.edu.in
+                    {site.primary_email}
                   </a>
                 </p>
               </li>
@@ -122,12 +125,11 @@ import ChildImage from "@/assets/images/child.png";
                 <!-- Address -->
                 <a
                   class="text-n-50 flex-1 text-base font-light hover:underline"
-                  href="https://www.google.com/maps?q=SAI International School"
+                  href={site.google_map_url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  SAI International School, Plot – 5A, Infocity Ave,
-                  Chandrasekharpur, Bhubaneswar, Odisha 751024
+                  {site.full_address}
                 </a>
               </li>
             </ul>
@@ -247,18 +249,24 @@ import ChildImage from "@/assets/images/child.png";
 </footer>
 
 <script>
+  // Events Enum
   import { EVENTS } from "@/enums/analytics.enum";
+
+  // Scripts
   import { trackEvent } from "@/scripts/analytics";
   import { getDeviceType } from "@/scripts/device";
 
+  // Get all Footer Links
   const footerLinks = document.querySelectorAll("a.data-track-footer");
 
+  // Attach Analytics Event to required links
   footerLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const target = e.currentTarget as HTMLAnchorElement;
       const type = target.dataset.footerType;
       const value = target.dataset.footerValue;
 
+      // Track Phone & Email Click
       if (type === "phone") {
         trackEvent(EVENTS.PHONE_CLICK, {
           page_path: window.location.pathname,

@@ -37,6 +37,9 @@ export const trackEvent = (
   }
 };
 
+/**
+ * Track form start event
+ */
 export const trackFormStartEvent = (
   fieldName: string,
   fieldValue: any,
@@ -49,6 +52,9 @@ export const trackFormStartEvent = (
   });
 };
 
+/**
+ * Track form completion event
+ */
 export const trackFormCompletionEvent = (
   fields: Record<string, any>,
   eventName: EVENTS,
@@ -63,6 +69,9 @@ export const trackFormCompletionEvent = (
   });
 };
 
+/**
+ Track the Form View Event
+*/
 export const trackFormViewEvent = (formId: string, eventName: EVENTS) => {
   trackEvent(eventName, {
     device_type: getDeviceType(),
@@ -70,6 +79,9 @@ export const trackFormViewEvent = (formId: string, eventName: EVENTS) => {
   });
 };
 
+/**
+ * Track section view event
+ */
 export const trackSectionViewEvent = (
   sectionName: string,
   eventName: EVENTS,

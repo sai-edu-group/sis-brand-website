@@ -165,8 +165,13 @@ import Image from "astro/components/Image.astro";
 </script>
 
 <script>
+  // ENUMS //
   import { EVENTS } from "@/enums/analytics.enum";
+
+  // SCRIPTS //
   import { trackEvent } from "@/scripts/analytics";
+
+  // SERVICES //
   import { contactEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
@@ -179,7 +184,7 @@ import Image from "astro/components/Image.astro";
     thankYou?.classList.add("hidden");
 
     // ✅ Validation function (same as admission form)
-    const validateStep = (stepEl) => {
+    const validateStep = (stepEl: HTMLElement) => {
       if (!stepEl) return false;
       const fields = stepEl.querySelectorAll("input, select, textarea");
       let valid = true;

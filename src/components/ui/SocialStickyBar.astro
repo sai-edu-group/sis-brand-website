@@ -111,16 +111,20 @@ import { contactLinks } from "@/data/home/social-links";
 </div>
 
 <script>
+  // SCRIPTS //
   import { trackEvent } from "@/scripts/analytics";
   import { getDeviceType } from "@/scripts/device";
+
+  // ENUMS //
   import { EVENTS } from "@/enums/analytics.enum";
 
   // Track Social Media Redirects
   const socialLinks = document.querySelectorAll("a.data-track-social");
 
+  // Add analytics to them
   socialLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
-      const target = e.currentTarget;
+      const target = e.currentTarget as HTMLAnchorElement;
       const type = target.dataset.socialType;
       const value = target.dataset.socialValue;
 
