@@ -49,11 +49,11 @@ export const amenitiesDetails = {
     {
       id: 3,
       title: "Auditoriums",
-      img: "/images/amenities/auditoriums.png",
+      img: "/images/amenities/auditorium-banner.jpg",
       description:
         "State-of-the-art auditoriums hosting events, performances, and assemblies for student engagement.",
 
-      landscapeImg: "/images/amenities/auditoriums.png",
+      landscapeImg: "/images/amenities/auditorium-banner.jpg",
       content: `
       <div>
         <h2>Where Ideas Perform and Celebrations Come Alive</h2>
@@ -68,7 +68,7 @@ export const amenitiesDetails = {
             <p>The <strong>Sushila Devi Auditorium</strong> is a centrally air-conditioned, multipurpose space designed with impeccable acoustics to host meetings, training programmes, performances, special lectures, and intimate events. Spanning <srong>2,500 sq. ft.</strong> with a seating capacity of <strong>140,</strong> it stands at the very heart of the campus.</p>
             <p>This auditorium regularly welcomes students for enriching interactions and rendezvous with eminent personalities, making it a vital space for intellectual exchange and inspiration.</p>
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/sushiladevi-aud.jpg" alt="Sushila Devi Auditorium" />
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export const amenitiesDetails = {
             <p>This open-air auditorium features <strong>balcony seating,</strong> especially enjoyed by senior students, and a large stage ideally suited for grand celebrations and performances. It serves as the venue for major annual events such as <strong>Mother’s Day, Father’s Day, Art from the Heart, Grandparents’ Day, SAI Confluence, Foundation Lectures,</strong> and more.</p>
             <p>The auditorium is equipped with a powerful <strong>3,000 W sound system,</strong> high-intensity lighting comprising <strong>20 coloured and 12 white lights,</strong> and a dedicated <strong>green room,</strong> ensuring seamless execution of large-scale events and stage productions.</p>
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Indraprastha Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/ipauditorium.jpg" alt="Indraprastha Auditorium" />
         </div>
       <div>
 
