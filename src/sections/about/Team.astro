@@ -4,10 +4,13 @@ import Button from "@/components/ui/Button.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Tooltip from "@/components/ui/Tooltip.astro";
 import PersonCard from "@/components/ui/PersonCard.astro";
+import Image from "astro/components/Image.astro";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 
 // DATA //
 import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
-import Image from "astro/components/Image.astro";
 ---
 
 <section
@@ -57,7 +60,16 @@ import Image from "astro/components/Image.astro";
             <a
               class="team-button-animate"
               id="team-button"
-              href={`/about/team/${teamMembers[0].id}/${teamMembers[0].name}`}
+              data-team-urls={JSON.stringify(
+                teamMembers.map((member) =>
+                  URLS.ABOUT.TEAM_MEMBER(
+                    member.name.toLowerCase().replaceAll(" ", "-")
+                  )
+                )
+              )}
+              href={URLS.ABOUT.TEAM_MEMBER(
+                teamMembers[0].name.toLowerCase().replaceAll(" ", "-")
+              )}
             >
               <Button
                 text="Explore their Journey"
@@ -159,7 +171,7 @@ import Image from "astro/components/Image.astro";
                   personName={teamMemberItem.name}
                   designation={teamMemberItem.position}
                   image={teamMemberItem.jpgImg}
-                  href={`/about/team/${teamMemberItem.id}/${teamMemberItem.name.toLowerCase().replaceAll(" ", "-")}`}
+                  href={`/about/team/${teamMemberItem.name.toLowerCase().replaceAll(" ", "-")}`}
                 />
               </div>
             ))
@@ -337,9 +349,11 @@ import Image from "astro/components/Image.astro";
   const listEl = document.getElementById("team-list");
   const buttonEl = document.getElementById("team-button");
   const AUTO_DURATION_MS = 10000;
+  const urls = JSON.parse(buttonEl.dataset.teamUrls);
+
   let currentIndex = Math.max(
     0,
-    members.findIndex((m) => m.isActive),
+    members.findIndex((m) => m.isActive)
   );
   if (currentIndex === -1) currentIndex = 0;
   let rafId = null;
@@ -348,7 +362,7 @@ import Image from "astro/components/Image.astro";
   /** Trigger animations for all animated elements */
   function triggerAnimations() {
     const animatedElements = document.querySelectorAll(
-      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate",
+      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate"
     );
 
     // Remove animate class first
@@ -375,10 +389,8 @@ import Image from "astro/components/Image.astro";
     bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 45.67%, var(--color-n-50) 100%), url('${member.bgImg}') center/cover no-repeat`;
     imgEl.setAttribute("src", member.img);
     imgEl.setAttribute("alt", member.name);
-    buttonEl.setAttribute(
-      "href",
-      `/about/team/${member.id}/${member.name.toLowerCase().replaceAll(" ", "-")}`,
-    );
+    buttonEl.setAttribute("href", urls[index]);
+
     quoteEl.textContent = "“" + member.quote + "”";
     nameEl.textContent = member.name;
     posEl.textContent = member.position;
@@ -421,7 +433,7 @@ import Image from "astro/components/Image.astro";
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / AUTO_DURATION_MS, 1);
     const activeFill = listEl.querySelector(
-      `[data-index="${currentIndex}"] [data-fill]`,
+      `[data-index="${currentIndex}"] [data-fill]`
     );
     if (activeFill) {
       activeFill.style.transform = `scaleX(${progress})`;

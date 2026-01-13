@@ -5,20 +5,20 @@ export const URLS = {
     ROOT: "/about",
 
     LEARNING_360: {
-      ITEM: (learning360id: string, name: string) =>
-        `/about/learning-360/${learning360id}/${name}`,
+      ITEM: (name: string) =>
+        `/about/learning-360/${name}`,
     },
 
     LEARNING_AND_BEYOND: {
       ROOT: "/about/learning-and-beyond",
-      AMENITY: (amenityId: string, amenityTitle: string) =>
-        `/about/learning-and-beyond/amenities/${amenityId}/${amenityTitle}`,
-      CURRICULUM: (curriculumId: string, curriculumTitle: string) =>
-        `/about/learning-and-beyond/curriculum/${curriculumId}/${curriculumTitle}`,
-      SAI_SEVA: (sevaId: string, sevaTitle: string) =>
-        `/about/learning-and-beyond/sai-seva/${sevaId}/${sevaTitle}`,
-      FLAGSHIP_EVENT: (eventId: string, eventTitle: string) =>
-        `/about/learning-and-beyond/flagship-events/${eventId}/${eventTitle}`,
+      AMENITY: (amenityTitle: string) =>
+        `/about/learning-and-beyond/amenities/${amenityTitle}`,
+      CURRICULUM: (curriculumTitle: string) =>
+        `/about/learning-and-beyond/curriculum/${curriculumTitle}`,
+      SAI_SEVA: (sevaTitle: string) =>
+        `/about/learning-and-beyond/sai-seva/${sevaTitle}`,
+      FLAGSHIP_EVENT: (eventTitle: string) =>
+        `/about/learning-and-beyond/flagship-events/${eventTitle}`,
     },
 
     AFFILIATIONS: {
@@ -26,7 +26,7 @@ export const URLS = {
       ITEM: (name: string) => `/about/affiliations/${name}`,
     },
 
-    TEAM_MEMBER: (id: string, name: string) => `/about/team/${id}/${name}/`,
+    TEAM_MEMBER: (name: string) => `/about/team/${name}/`,
 
     ADVISOR: {
       ITEM: (id: string, name: string) => `/about/founder/${id}/${name}`,

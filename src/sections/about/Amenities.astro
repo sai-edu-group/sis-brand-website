@@ -32,7 +32,6 @@ import { amenitiesDetails } from "@/data/about/amenities";
               title={amenitiesCardItem.title}
               img={amenitiesCardItem.img}
               href={`${URLS.ABOUT.LEARNING_AND_BEYOND.AMENITY(
-                amenitiesCardItem.id.toString(),
                 amenitiesCardItem.title.toLowerCase().replaceAll(" ", "-"),
               )}`}
               description={amenitiesCardItem.description}
