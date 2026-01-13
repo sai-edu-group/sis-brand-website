@@ -183,8 +183,15 @@ export const curriculumDetails = {
 <p><strong>Science Park</strong></p>
 <p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
 
-<p><strong>Social Science Lab</strong></p>
-<p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+      <div>
+        <h3>Social Science Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/socialscience.jpg" alt="socialscience" />
+        </div>
+      </div>
 
       <div>
         <h3>Art Lab</h3>
