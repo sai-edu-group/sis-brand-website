@@ -4,6 +4,9 @@ export const URLS = {
   ABOUT: {
     ROOT: "/about",
 
+    ETHOS: "/about/ethos",
+    GURU_SHISHYA: "/about/guru-shishya-parampara",
+
     LEARNING_360: {
       ITEM: (name: string) =>
         `/about/learning-360/${name}`,
