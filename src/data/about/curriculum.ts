@@ -229,14 +229,27 @@ export const curriculumDetails = {
       id: 2,
       title: "Learning Resource Centers",
       img: "/images/curriculum/learning-center.png",
-      landscapeImg: "/images/curriculum/learning-center.png",
+      landscapeImg: "/images/curriculum/learning-banner.jpg",
       description:
         "Encourages reading to boost knowledge, language skills, and imagination.",
       content: `
       <p><strong>Where Reading Inspires Lifelong Learning</strong></p>
       <p>Reading is one of the most enriching habits a child can develop. It expands knowledge, sharpens communication skills, builds vocabulary, and fuels imagination, opening doors to new ideas, cultures, and perspectives. At SAI International School, reading is nurtured as a joyful journey that inspires curiosity and a lifelong love for learning.</p>
-      <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
-      <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+
+      <div>
+        
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
+
+            <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/library.jpg" alt="Library" />
+        </div>
+      </div>
+
+
       <p><strong>Our Learning Resource Centers</strong></p>
           <ul>
             <li>Primary Wing – Mahatma Gandhi Learning Resource Center</li>
