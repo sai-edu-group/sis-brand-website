@@ -37,7 +37,7 @@ const { icon, title, type, infoText = [] } = Astro.props;
     {
       type !== "location" && (
         <ul class="font-secondary space-y-1.5">
-          {infoText.map((value, index) => {
+          {infoText.map((value) => {
             const href =
               type === "email"
                 ? `mailto:${value}`
@@ -94,12 +94,17 @@ const { icon, title, type, infoText = [] } = Astro.props;
 </div>
 
 <script>
+  // ENUMS //
   import { EVENTS } from "@/enums/analytics.enum";
+
+  // SCRIPTS //
   import { trackEvent } from "@/scripts/analytics";
   import { getDeviceType } from "@/scripts/device";
 
+  // Get the contact Links
   const contactLinks = document.querySelectorAll("a.data-track-contact");
 
+  // Add Analytics to them
   contactLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       const target = e.currentTarget as HTMLAnchorElement;

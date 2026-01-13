@@ -366,10 +366,16 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 </style>
 
 <script>
+  // ENUMS //
   import { EVENTS } from "@/enums/analytics.enum";
+
+  // SCRIPTS //
   import { trackEvent, trackFormCompletionEvent } from "@/scripts/analytics";
   import { getDeviceType } from "@/scripts/device";
+
+  // SERVICES //
   import { admissionEnquiryRequest } from "@/services/api/form.api.service";
+
   window.addEventListener("DOMContentLoaded", () => {
     const steps = [
       document.getElementById("step-1"),
