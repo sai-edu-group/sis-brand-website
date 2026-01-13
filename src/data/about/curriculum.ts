@@ -249,7 +249,6 @@ export const curriculumDetails = {
         </div>
       </div>
 
-
       <p><strong>Our Learning Resource Centers</strong></p>
           <ul>
             <li>Primary Wing – Mahatma Gandhi Learning Resource Center</li>
