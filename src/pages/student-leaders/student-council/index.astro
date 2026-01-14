@@ -58,9 +58,8 @@ const students = studentCouncil?.studentCouncil[year];
               students?.map((studentsItem) => (
                 <ResultsCard
                   image={generateImagePath(
-                    "",
                     studentsItem.image,
-                    "sis_studentcouncil",
+                    "sis_studentcouncil"
                   )}
                   studentName={studentsItem.name}
                   grade={studentsItem.designation}

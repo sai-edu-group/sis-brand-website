@@ -15,26 +15,25 @@ const IMAGE_BASE_URL = "https://saicloudschool.in/myerp";
  */
 
 export const generateImagePath = (
-  path: string,
   imageName: string,
   imageType?: string, // optional: "gallery", "result", "student", etc.
+  path?: string,
 ): string => {
   if (!path || !imageName) return "";
 
-  const safePath = path.endsWith("/") ? path : `${path}/`;
-  let finalPath = `${safePath}${imageName}`;
+  let finalPath = `${path}${imageName}`;
 
   // Handling different image types dynamically
   if (imageType) {
     switch (imageType.toLowerCase()) {
       case "result":
-        finalPath = `uploads/results/${safePath}${imageName}`;
+        finalPath = `uploads/results/${path}${imageName}`;
         break;
       case "student":
-        finalPath = `uploads/students/${safePath}${imageName}`;
+        finalPath = `uploads/students/${path}${imageName}`;
         break;
       case "sis_studentcouncil":
-        finalPath = `uploads/sis_studentcouncil/${safePath}${imageName}`;
+        finalPath = `uploads/sis_studentcouncil/${path}${imageName}`;
       // Add more cases as needed
       default:
         break;

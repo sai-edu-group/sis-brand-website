@@ -4,7 +4,7 @@ import axios from "axios";
 // Get default API URL from environment variables
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
-export type NewsByYearResponse = {
+export type NewsByYearResponseData = {
   blogs: NewsItemData[];
   total_count: number;
 };
@@ -21,24 +21,12 @@ export type NewsItemData = {
   category_name: string;
 };
 
-export type NewsItem = {
-  id: number | string;
-  title: string;
-  details: string;
-  thumbnail: string;
-  banner: string;
-  photo_path: string;
-  photo: string[];
-  created_on: string;
-  category_name: string;
-};
-
 /** Fetch Blogs by Year with Pagination */
 export const fetchBlogsByYearRequest = async (
   year: number,
   pageNumber: number = 1,
   limit: number = 10,
-): Promise<NewsByYearResponse> => {
+): Promise<NewsByYearResponseData> => {
   // Set up the API request configuration
   const config = {
     endpoint: `${API_URL}blogs/by-year?year=${year}&page=${pageNumber}&limit=${limit}`,
@@ -83,7 +71,7 @@ export const fetchBlogsByYearRequest = async (
 /** Fetch Blog by id */
 export const fetchBlogByIdRequest = async (
   id: number | string,
-): Promise<NewsItem | null> => {
+): Promise<NewsItemData | null> => {
   // Set up the API request configuration
   const config = {
     endpoint: `${API_URL}blogs/by-id?id=${id}`,

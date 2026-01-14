@@ -32,7 +32,6 @@ import {
   newsBreadcrumbItems,
   newsSectionHeader,
 } from "@/data/media/news";
-import { late } from "astro:schema";
 
 // META //
 
@@ -40,8 +39,10 @@ import { late } from "astro:schema";
 const year: number =
   Number(Astro.url.searchParams.get("year")) || newsDetails.years[0];
 
+// Get the Page from the Search Params
 const page = Number(Astro.url.searchParams.get("page")) || 1;
 const limit = 10;
+
 const newsResponse = await fetchBlogsByYearRequest(year, page, limit);
 const news = newsResponse.blogs;
 const totalCount = newsResponse.total_count;
@@ -59,6 +60,18 @@ if (!year) {
 // Get this from API
 const totalPages = Math.ceil(totalCount / limit);
 const shouldShowPagination = totalPages > 1;
+
+/**
+ * Converts HTML string into plain text by removing all HTML tags
+ * and decoding common HTML entities like `&nbsp;` and `&amp;`.
+ *
+ * @param {string} html - The HTML string to be converted. If empty or null, returns an empty string.
+ * @returns {string} The plain text representation of input HTML.
+ *
+ * @example
+ * parseHtmlToText("<p>Hello&nbsp;World</p>");
+ * // Returns: "Hello World"
+ */
 
 const parseHtmlToText = (html: string): string => {
   if (!html) return "";
@@ -103,8 +116,9 @@ const parseHtmlToText = (html: string): string => {
                     <ArticleCard
                       title={newsItem.title}
                       img={generateImagePath(
-                        newsItem.photo_path,
-                        newsItem.thumbnail
+                        newsItem.thumbnail,
+                        "",
+                        newsItem.photo_path
                       )}
                       topText={
                         parseHtmlToText(newsItem.details).substring(0, 120) +

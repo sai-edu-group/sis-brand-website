@@ -62,7 +62,11 @@ const breadcrumbItems = [
           {
             newsItem?.photo && (
               <Image
-                src={generateImagePath(newsItem.photo_path, newsItem.banner)}
+                src={generateImagePath(
+                  newsItem.banner,
+                  "",
+                  newsItem.photo_path
+                )}
                 alt={newsItem.title}
                 class="card-anim card-bottom h-[257px] w-full rounded-3xl object-cover md:h-[524px] lg:h-[600px]"
                 style={`--delay: 0.1s`}
