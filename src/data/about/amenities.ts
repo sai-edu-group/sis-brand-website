@@ -99,7 +99,7 @@ export const amenitiesDetails = {
       img: "/images/amenities/infirmary.png",
       description:
         "Well-equipped medical facility ensuring the health and wellness of students and staff.",
-      landscapeImg: "/images/amenities/infirmary.png",
+      landscapeImg: "/images/amenities/banner-infirmary.jpg",
       content: `<p><strong>Caring for Health, Comfort and Well-being</strong> </p>
 
       <p>At <strong>SAI International School,</strong> the health and well-being of our learners are of paramount importance. To support the needs of today’s students, the school houses a <strong>clean, hygienic, and well-equipped Infirmary,</strong> dedicated to promoting health, safety, and overall wellness within the school community.</p>
@@ -113,7 +113,7 @@ export const amenitiesDetails = {
             <p>The <strong>On-Site Medical Support</strong> A <strong>qualified on-site doctor</strong> and <strong>trained, experienced nursing staff</strong> are available during school hours to assess, manage, and respond promptly to any health concerns. Their presence ensures immediate care, professional supervision, and peace of mind for students, parents, and staff alike.</p>
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/medical-support.jpg" alt="Onsite Medical Support" />
         </div>
       </div>
 
@@ -126,7 +126,7 @@ export const amenitiesDetails = {
             <p>Located at the heart of the campus, the infirmary ensures swift access during emergencies, reinforcing the school’s commitment to student safety.</p>
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/onsitemedical.jpg" alt="Emergency care" />
         </div>
       </div>
 
@@ -139,7 +139,7 @@ export const amenitiesDetails = {
             <p>At SAI International School, the infirmary reflects our belief in nurturing the <strong>wellness of mind, body, and soul,</strong> ensuring every child feels cared for, secure, and supported.</p>
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/emergencycare.jpg" alt="Onsite Medical Support" />
         </div>
       </div>
 
