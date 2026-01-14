@@ -37,6 +37,13 @@ export const generateImagePath = (
         break;
       case "sis_studentcouncil":
         finalPath = `uploads/sis_studentcouncil/${path}`;
+        break;
+      case "sis_press":
+        finalPath = `uploads/sis_press/${imageName}`;
+        break;
+      case "sis_globalambassador":
+        finalPath = `uploads/sis_globalambassador/${imageName}`;
+        break;
       // Add more cases as needed
       default:
         finalPath = path; // keep path as-is if no match
