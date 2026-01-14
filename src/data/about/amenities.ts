@@ -45,12 +45,13 @@ export const amenitiesDetails = {
           <div class="md:w-2/3 order-2">
             <p>Our aim is to provide <strong>nutritious, wholesome, and delicious food</strong> that supports the healthy growth and well-being of our students. Carefully curated menus strike the perfect balance between taste and nutrition, ensuring that every meal contributes to a balanced diet.</p>
             <p>We place the highest emphasis on <strong>quality, hygiene, and food safety</strong> at every stage, from preparation to serving. The self-service model encourages independence and responsibility, and has become a favourite among students for its convenience and variety.</p>
+            <p>At SAI International School, the cafeteria is more than just a dining area, it is a welcoming space where healthy habits are nurtured and mealtimes become moments of comfort and joy.</p>
           </div>
           <img class="md:w-1/3 order-1" src="/images/amenities/cafeteria-thumb.jpg" alt="Cafeteria" />
         </div>
       </div>
 
-      <p>At SAI International School, the cafeteria is more than just a dining area, it is a welcoming space where healthy habits are nurtured and mealtimes become moments of comfort and joy.</p>
+      
       `,
     },
     {
