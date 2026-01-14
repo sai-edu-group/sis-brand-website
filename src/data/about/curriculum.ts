@@ -57,12 +57,16 @@ export const curriculumDetails = {
         </div>
       </div>
 
-
-<p><strong>Aryabhatta Math Lab</strong></p>
-
-<p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
-
-<p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
+      <div>
+        <h3>Aryabhatta Math Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
+            <p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/mathlab.jpg" alt="Maths Lab" />
+        </div>
+      </div>
 
 
       <div>
@@ -78,11 +82,17 @@ export const curriculumDetails = {
         </div>
       </div>
 
-<p><strong>Dhyan Chand Sports Lab</strong></p>
+      <div>
+        <h3>Dhyan Chand Sports Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
+            <p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sportslab.jpg" alt="Sports Lab" />
+        </div>
+      </div>
 
-<p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
-
-<p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
 
       <div>
         <h3>Performing Arts Lab – Guru Kelucharan Dance Lab</h3>
@@ -107,7 +117,7 @@ export const curriculumDetails = {
             <p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
 
           </div>
-          <img class="md:w-1/3 order-1" src="/images/curriculum/art.jpg" alt="ART Lab" />
+          <img class="md:w-1/3 order-1" src="/images/curriculum/visualatallab.jpg" alt="Visual ART Lab" />
         </div>
       </div>
 
@@ -152,30 +162,65 @@ export const curriculumDetails = {
         </div>
       </div>
 
-    
+      <div>
+        <h3>Science Labs</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sciencelab.jpg" alt="sciencelab" />
+        </div>
+      </div>
 
-<p><strong>Science Labs</strong></p>
 
-<p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
+      <div>
+        <h3>Library and Learning Resource Centres</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI International School has three well-stocked libraries:</p>
+              <ul>
+                <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
+                <li>Vivekananda Learning Resource Centre (Secondary)</li>
+                <li>Tagore Learning Resource Centre (Higher Secondary)</li>
+              </ul>
+            <p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/library.jpg" alt="Library" />
+        </div>
+      </div>
 
-<p><strong>Library and Learning Resource Centres</strong></p>
-<p>SAI International School has three well-stocked libraries:</p>
-<ul>
-  <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
-  <li>Vivekananda Learning Resource Centre (Secondary)</li>
-  <li>Tagore Learning Resource Centre (Higher Secondary)</li>
-</ul>
+      <div>
+        <h3>Science Park</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sciencepark.jpg" alt="Science Park" />
+        </div>
+      </div>
 
-<p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
 
-<p><strong>Science Park</strong></p>
-<p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
+      <div>
+        <h3>Social Science Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/socialscience.jpg" alt="socialscience" />
+        </div>
+      </div>
 
-<p><strong>Social Science Lab</strong></p>
-<p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+      <div>
+        <h3>Art Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Art Lab enables students to refine artistic skills through sketching, watercolours, acrylics, clay modelling, mixed media, and experimental art, fostering creativity and innovation.</p>
 
-<p><strong>Art Lab</strong></p>
-<p>The Art Lab enables students to refine artistic skills through sketching, watercolours, acrylics, clay modelling, mixed media, and experimental art, fostering creativity and innovation.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/atallab.jpg" alt="ART Lab" />
+        </div>
+      </div>
+
 
 `,
     },
@@ -184,14 +229,26 @@ export const curriculumDetails = {
       id: 2,
       title: "Learning Resource Centers",
       img: "/images/curriculum/learning-center.png",
-      landscapeImg: "/images/curriculum/learning-center.png",
+      landscapeImg: "/images/curriculum/learning-banner.jpg",
       description:
         "Encourages reading to boost knowledge, language skills, and imagination.",
       content: `
       <p><strong>Where Reading Inspires Lifelong Learning</strong></p>
       <p>Reading is one of the most enriching habits a child can develop. It expands knowledge, sharpens communication skills, builds vocabulary, and fuels imagination, opening doors to new ideas, cultures, and perspectives. At SAI International School, reading is nurtured as a joyful journey that inspires curiosity and a lifelong love for learning.</p>
-      <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
-      <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+
+      <div>
+        
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
+
+            <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/library.jpg" alt="Library" />
+        </div>
+      </div>
+
       <p><strong>Our Learning Resource Centers</strong></p>
           <ul>
             <li>Primary Wing – Mahatma Gandhi Learning Resource Center</li>
