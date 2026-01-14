@@ -12,6 +12,13 @@ import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
+
+// API SERVICES //
+import { fetchResultsRequest } from "@/services/api/results.api.service";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
 
 // DATA //
 import {
@@ -25,10 +32,16 @@ import { URLS } from "@/infrastructure/constants/urls";
 import type { ResultData } from "@/types/results/results";
 
 // Get the Year from the Search Params
-const year: number =
-  Number(Astro.url.searchParams.get("year")) || cbseTenth.years[0];
+const urlYear = Astro.url.searchParams.get("year");
 
-// If streamId is missing or invalid — go back or redirect
+// Default to the first available year in the config if URL param is missing
+const year: number = urlYear ? Number(urlYear) : cbseTenth.years[0];
+
+// Fetch Results from API (Hardcoded ID 7 for 10th Grade)
+// This replaces the old 'cbseTenth.results[year]' line
+const results = await fetchResultsRequest(year, "7");
+
+// If year is invalid — go back or redirect
 if (!year) {
   return new Response(null, {
     status: 302,
@@ -37,9 +50,6 @@ if (!year) {
     },
   });
 }
-
-// Extract the Results. TODO: Will be API Call
-const results: ResultData[] = cbseTenth.results[year];
 ---
 
 <Layout meta={cbse10thMeta}>
@@ -47,34 +57,37 @@ const results: ResultData[] = cbseTenth.results[year];
     <div
       class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
     >
-      <!-- Breadcrumbs -->
       <Breadcrumbs items={cbseTenthBreadcrumbItems} />
 
-      <!-- Body of the Results -->
       <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
-        <!-- Section Header -->
         <SectionHeaderMain
           title={cbseTenthSectionHeader.title}
           subtitle={cbseTenthSectionHeader.subtitle}
         />
 
-        <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
-          <!-- Years Filters -->
           <FilterBar showSearch={false} years={cbseTenth.years} />
 
-          <!-- Results -->
           <div
             class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
             {
-              results?.map((resultItem) => (
-                <ResultsCard
-                  studentName={resultItem.studname}
-                  score={resultItem.percentage}
-                  image={resultItem.studprofilepic}
-                />
-              ))
+              results && results.length > 0 ? (
+                results.map((student: any) => (
+                  <ResultsCard
+                    studentName={student.studentName}
+                    score={student.percentage}
+                    /* Dynamic Image URL for 10th Results */
+                    image={generateImagePath(
+                      "results",
+                      student.studentProfilePic,
+                      "result"
+                    )}
+                  />
+                ))
+              ) : (
+                <EmptyState />
+              )
             }
           </div>
         </div>
