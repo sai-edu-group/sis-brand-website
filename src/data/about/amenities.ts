@@ -116,7 +116,7 @@ export const amenitiesDetails = {
             <p>The <strong>Sushila Devi Auditorium</strong> is a centrally air-conditioned, multipurpose space designed with impeccable acoustics to host meetings, training programmes, performances, special lectures, and intimate events. Spanning <srong>2,500 sq. ft.</strong> with a seating capacity of <strong>140,</strong> it stands at the very heart of the campus.</p>
             <p>This auditorium regularly welcomes students for enriching interactions and rendezvous with eminent personalities, making it a vital space for intellectual exchange and inspiration.</p>
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/sushiladevi-aud.jpg" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/sushiladevi-aud.jpg" alt="Sushila-Devi-Auditorium" />
         </div>
       </div>
 
