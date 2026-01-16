@@ -67,7 +67,7 @@ const students = await fetchStudentsByYearRequest(year);
                       /* Student profile image (dynamic path) */
                       image={generateImagePath(
                         studentsItem.studentProfilePic,
-                        "sis_studentcouncil"
+                        "studentcouncil"
                       )}
 
                       /* Student name */
@@ -80,7 +80,7 @@ const students = await fetchStudentsByYearRequest(year);
                 }
               </div>
             ) : (
-              <!-- Empty State: shown when no students are available -->
+              // Empty State: shown when no students are available
               <EmptyState
                 title="No Student Council Data"
                 description="Student council details for the selected year are currently unavailable."
