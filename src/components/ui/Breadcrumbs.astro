@@ -56,7 +56,11 @@ const { items } = Astro.props;
         {/* Breadcrumb Link */}
         <a
           href={item.href}
-          class={`font-secondary text-n-700 text-xs text-nowrap md:text-lg ${index === items.length - 1 ? "font-semibold" : "hover:text-n-900 font-light"}`}
+          class={`font-secondary text-n-700 max-w-[140px] truncate text-xs text-nowrap md:max-w-[240px] md:text-lg ${
+            index === items.length - 1
+              ? "font-semibold"
+              : "hover:text-n-900 font-light"
+          }`}
         >
           {item.label}
         </a>

@@ -19,20 +19,41 @@ export const generateImagePath = (
   imageType: string, // "gallery", "result", "student", etc.
   path?: string,
 ): string => {
-  if (!path || !imageName) return "";
+  // If Image Name not available then return empty string
+  if (!imageName) return "";
 
-  let finalPath = `${path}${imageName}`;
+  let finalPath = "";
 
   // Handling different image types dynamically
   switch (imageType.toLowerCase()) {
+    // RESULT
     case "result":
-      finalPath = `uploads/results/${path}${imageName}`;
+      finalPath = `uploads/sis_cbseresult/${path}${imageName}`;
       break;
-    case "student":
-      finalPath = `uploads/students/${path}${imageName}`;
-      break;
-    case "sis_studentcouncil":
+    // STUDENT COUNCIL
+    case "studentcouncil":
       finalPath = `uploads/sis_studentcouncil/${path}${imageName}`;
+      break;
+    // NEWS (BLOGS)
+    case "blog":
+      finalPath = `${path}${imageName}`;
+      break;
+    // AWARDS
+    case "awards":
+      finalPath = `uploads/blog/${path}${imageName}`;
+      break;
+    // GLOBAL SIONEERS
+    case "global_sioneers":
+      finalPath = `uploads/sis_globalambassador/${path}${imageName}`;
+      break;
+    // PRESS RELEASE
+    case "press_release":
+      finalPath = `uploads/sis_press/${path}${imageName}`;
+      break;
+    // PRESS RELEASE
+    case "gallery":
+      finalPath = `uploads/gallery/${path}${imageName}`;
+      break;
     // Add more cases as needed
     default:
       break;

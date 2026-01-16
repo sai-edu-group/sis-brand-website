@@ -60,24 +60,6 @@ if (!year) {
 // Get this from API
 const totalPages = Math.ceil(totalCount / limit);
 const shouldShowPagination = totalPages > 1;
-
-/**
- * Converts HTML string into plain text by removing all HTML tags
- * and decoding common HTML entities like `&nbsp;` and `&amp;`.
- *
- * @param {string} html - The HTML string to be converted. If empty or null, returns an empty string.
- * @returns {string} The plain text representation of input HTML.
- *
- * @example
- * parseHtmlToText("<p>Hello&nbsp;World</p>");
- * // Returns: "Hello World"
- */
-
-const parseHtmlToText = (html: string): string => {
-  if (!html) return "";
-  const text = html.replace(/<[^>]*>/g, "");
-  return text.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&");
-};
 ---
 
 <Layout meta={newsMeta}>
@@ -117,17 +99,14 @@ const parseHtmlToText = (html: string): string => {
                       title={newsItem.title}
                       img={generateImagePath(
                         newsItem.thumbnail,
-                        "",
-                        newsItem.photo_path
+                        "blog",
+                        newsItem.photo_path,
                       )}
-                      topText={
-                        parseHtmlToText(newsItem.details).substring(0, 120) +
-                        "..."
-                      }
-                      date={new Date(newsItem.created_on).toLocaleDateString()}
+                      topText={"SAI Admin"}
+                      date={newsItem.created_on}
                       href={URLS.MEDIA.NEWS.ITEM(
                         newsItem.id.toString(),
-                        newsItem.title.toLowerCase().replaceAll(" ", "-")
+                        newsItem.title.toLowerCase().replaceAll(" ", "-"),
                       )}
                       tags={[newsItem.category_name]}
                     />
