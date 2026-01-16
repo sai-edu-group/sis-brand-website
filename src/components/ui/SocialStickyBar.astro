@@ -10,7 +10,9 @@ import { contactLinks } from "@/data/home/social-links";
   <a
     href={`mailto:${contactLinks[0].href}`}
     target="_blank"
-    class="group inline-flex items-center justify-center"
+    class="group data-track-social inline-flex items-center justify-center"
+    data-social-type="email"
+    data-social-value={contactLinks[0].href}
     ><svg
       width="20"
       height="20"
@@ -32,7 +34,9 @@ import { contactLinks } from "@/data/home/social-links";
   <a
     href={contactLinks[1].href}
     target="_blank"
-    class="group inline-flex items-center justify-center"
+    class="group data-track-social inline-flex items-center justify-center"
+    data-social-type="linkedin"
+    data-social-value={contactLinks[1].href}
   >
     <svg
       width="20"
@@ -55,7 +59,9 @@ import { contactLinks } from "@/data/home/social-links";
   <a
     href={contactLinks[2].href}
     target="_blank"
-    class="group inline-flex items-center justify-center"
+    class="group data-track-social inline-flex items-center justify-center"
+    data-social-type="instagram"
+    data-social-value={contactLinks[2].href}
   >
     <svg
       width="20"
@@ -77,7 +83,9 @@ import { contactLinks } from "@/data/home/social-links";
   <!-- Phone Icon -->
   <a
     href={`tel:${contactLinks[3].href}`}
-    class="group inline-flex items-center justify-center"
+    class="group data-track-social inline-flex items-center justify-center"
+    data-social-type="phone"
+    data-social-value={contactLinks[3].href}
     ><svg
       width="20"
       height="20"
@@ -101,3 +109,46 @@ import { contactLinks } from "@/data/home/social-links";
     </svg>
   </a>
 </div>
+
+<script>
+  // SCRIPTS //
+  import { trackEvent } from "@/scripts/analytics";
+  import { getDeviceType } from "@/scripts/device";
+
+  // ENUMS //
+  import { EVENTS } from "@/enums/analytics.enum";
+
+  // Track Social Media Redirects
+  const socialLinks = document.querySelectorAll("a.data-track-social");
+
+  // Add analytics to them
+  socialLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLAnchorElement;
+      const type = target.dataset.socialType;
+      const value = target.dataset.socialValue;
+
+      if (type === "email") {
+        trackEvent(EVENTS.EMAIL_CLICK, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          button_location: "sticky_bar",
+          contacted_email: value,
+        });
+      } else if (type === "phone") {
+        trackEvent(EVENTS.PHONE_CLICK, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          button_location: "sticky_bar",
+          contacted_number: value,
+        });
+      } else if (type === "linkedin" || type === "instagram") {
+        trackEvent(EVENTS.SOCIAL_MEDIA_REDIRECTED, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          social_media_platform: type,
+        });
+      }
+    });
+  });
+</script>

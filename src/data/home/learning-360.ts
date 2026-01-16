@@ -6,29 +6,25 @@ export const learning360Content = [
       {
         id: 1,
         title: "Smart Classrooms",
-        description:
-          "Engaging spaces that inspire active and joyful learning.",
+        description: "Engaging spaces that inspire active and joyful learning.",
         imageUrl: "/images/smart-classroom.jpg",
       },
       {
         id: 2,
         title: "Future-Ready Curriculum",
-        description:
-          "Learning designed for tomorrow’s skills and challenges.",
+        description: "Learning designed for tomorrow’s skills and challenges.",
         imageUrl: "/images/future-ready.jpeg",
       },
       {
         id: 3,
         title: "Labs & Experiential Learning",
-        description:
-          "Hands-on experiences that bring concepts to life.",
+        description: "Hands-on experiences that bring concepts to life.",
         imageUrl: "/images/labs-explearning.jpg",
       },
       {
         id: 4,
         title: "Assessment & Remediation",
-        description:
-          "Ongoing evaluation with targeted support for growth.",
+        description: "Ongoing evaluation with targeted support for growth.",
         imageUrl: "/images/assessment.jpg",
       },
     ],
@@ -98,12 +94,13 @@ export const learning360Content = [
         description:
           "Developing skills, teamwork, and discipline through active play.",
         isOpen: true,
-        imageUrl: "/images/learning.png",
+        imageUrl: "/images/sports-home.jpg",
       },
       {
         id: 2,
         title: "Yoga & Fitness",
-        description: "Promoting physical well-being, mindfulness, and a balanced lifestyle.",
+        description:
+          "Promoting physical well-being, mindfulness, and a balanced lifestyle.",
         imageUrl: "/images/yoga.jpg",
       },
     ],

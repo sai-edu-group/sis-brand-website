@@ -51,6 +51,7 @@ const grades = [
 <section
   class="bg-n-50 relative w-full overflow-hidden bg-[url('/images/school-background.webp')] bg-cover bg-center pt-24 md:pt-36"
   data-name="hero-section"
+  data-section="Home Hero"
 >
   <!-- Main Content -->
   <div
@@ -277,12 +278,13 @@ const grades = [
 </style>
 
 <script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { trackFormCompletionEvent } from "@/scripts/analytics";
   import { admissionEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("[data-hero-form]") as HTMLFormElement;
     const loader = document.getElementById("hero-loader");
-    const submitBtn = form?.querySelector("button[type='submit']");
 
     if (!form) return;
 
@@ -328,6 +330,18 @@ const grades = [
 
       if (hasError) return;
 
+      // Example placeholder for API call:
+      // await admissionEnquiryRequest({ studentName, grade, phone });
+
+      // Track form completion
+      trackFormCompletionEvent(
+        {
+          student_name: studentName,
+          grade: grade,
+          phone: phone,
+        },
+        EVENTS.INTEREST_FORM_COMPLETED,
+      );
       // 🔥 Show loader & disable button
       loader?.classList.remove("hidden");
 
@@ -360,4 +374,16 @@ const grades = [
       }
     });
   });
+</script>
+
+<script>
+  import { setupFormStartTracking } from "@/scripts/analytics";
+
+  const form = document.querySelector(
+    "[data-hero-form]",
+  ) as HTMLFormElement | null;
+
+  if (form) {
+    setupFormStartTracking(form);
+  }
 </script>

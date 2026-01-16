@@ -10,7 +10,7 @@ export const curriculumDetails = {
       id: 1,
       title: "Laboratories",
       img: "/images/curriculum/lab.png",
-      landscapeImg: "/images/curriculum/lab.png",
+      landscapeImg: "/images/curriculum/labbanner.jpg",
       description:
         "Hands-on labs integrate theory with practical learning for deeper concept understanding.",
       content: `
@@ -29,88 +29,198 @@ export const curriculumDetails = {
 
 <p><strong>Our Advanced Laboratories</strong></p>
 
-<p><strong>ATAL Tinkering Lab (ATL)</strong></p>
+      <div>
+        <h3>ATAL Tinkering Lab (ATL)</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Atal Tinkering Lab is a prestigious Government of India initiative by NITI Aayog, established at SAI International School to promote scientific temperament, creativity, and innovation among young learners. ATL introduces students to essential 21st-century skills, preparing them for a future shaped by technology and innovation.</p>
 
-<p>The Atal Tinkering Lab is a prestigious Government of India initiative by NITI Aayog, established at SAI International School to promote scientific temperament, creativity, and innovation among young learners. ATL introduces students to essential 21st-century skills, preparing them for a future shaped by technology and innovation.</p>
+            <p>The lab provides hands-on exposure to <strong>science, electronics, robotics, open-source microcontrollers, sensors, artificial intelligence, and 3D printing</strong> through DIY kits and modern equipment. Students develop skills such as design thinking, computational thinking, adaptive learning, and physical computing.</p>
 
-<p>The lab provides hands-on exposure to <strong>science, electronics, robotics, open-source microcontrollers, sensors, artificial intelligence, and 3D printing</strong> through DIY kits and modern equipment. Students develop skills such as design thinking, computational thinking, adaptive learning, and physical computing.</p>
+            <p>The ATL at SAI International School encourages a strong do-it-yourself culture, motivating students to become problem solvers and solution providers. It nurtures higher-order thinking skills and lays the foundation for future discoveries, innovations, and inventions, helping every child realise their unique potential.</p>
 
-<p>The ATL at SAI International School encourages a strong do-it-yourself culture, motivating students to become problem solvers and solution providers. It nurtures higher-order thinking skills and lays the foundation for future discoveries, innovations, and inventions, helping every child realise their unique potential.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/atallab.png" alt="Atal Tinkering Lab" />
+        </div>
+      </div>
 
-<p><strong>Robotics Lab</strong></p>
+      <div>
+        <h3>Robotics Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>In an era defined by rapid technological advancement, robotics plays a pivotal role in shaping the innovators of tomorrow. The Robotics Lab at SAI International School introduces students to the principles of design, construction, programming, and operation of robots.</p>
 
-<p>In an era defined by rapid technological advancement, robotics plays a pivotal role in shaping the innovators of tomorrow. The Robotics Lab at SAI International School introduces students to the principles of design, construction, programming, and operation of robots.</p>
+            <p>Through challenge-based learning, students apply classroom concepts to real-life scenarios, fostering problem-solving skills, logical reasoning, and innovation. Robotics encourages creativity, collaboration, and hands-on exploration, preparing students to confidently face future technological challenges.</p>
 
-<p>Through challenge-based learning, students apply classroom concepts to real-life scenarios, fostering problem-solving skills, logical reasoning, and innovation. Robotics encourages creativity, collaboration, and hands-on exploration, preparing students to confidently face future technological challenges.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/roboticslab.jpg" alt="Robotics Lab" />
+        </div>
+      </div>
 
-<p><strong>Aryabhatta Math Lab</strong></p>
+      <div>
+        <h3>Aryabhatta Math Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
+            <p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/mathlab.jpg" alt="Maths Lab" />
+        </div>
+      </div>
 
-<p>Built on the three pillars of <strong>imagination, investigation, and interaction,</strong> the Aryabhatta Math Lab transforms mathematics into an engaging and enjoyable experience. With theme-based ambience and innovative teaching aids, the lab allows students to visualise abstract concepts and verify mathematical facts and theorems through hands-on activities.</p>
 
-<p>Students explore, experiment, and learn at their own pace, developing a positive attitude towards mathematics while strengthening analytical and reasoning skills.</p>
+      <div>
+        <h3>International Language Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The International Language Lab provides a dynamic environment for effective language learning using the <strong>Wordsworth courseware</strong>, focusing on the four core skills—reading, writing, listening, and speaking.</p>
 
-<p><strong>International Language Lab</strong></p>
+            <p>Students improve pronunciation, clarity, and fluency by listening to native speakers, recording their own voices, and self-correcting. The lab plays a crucial role in enhancing communication skills and building confidence for global interaction.</p>
 
-<p>The International Language Lab provides a dynamic environment for effective language learning using the <strong>Wordsworth courseware</strong>, focusing on the four core skills—reading, writing, listening, and speaking.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/languagelab.jpg" alt="International Language Lab" />
+        </div>
+      </div>
 
-<p>Students improve pronunciation, clarity, and fluency by listening to native speakers, recording their own voices, and self-correcting. The lab plays a crucial role in enhancing communication skills and building confidence for global interaction.</p>
+      <div>
+        <h3>Dhyan Chand Sports Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
+            <p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sportslab.jpg" alt="Sports Lab" />
+        </div>
+      </div>
 
-<p><strong>Dhyan Chand Sports Lab</strong></p>
 
-<p>The Dhyan Chand Sports Lab is a technologically advanced facility dedicated to sports science, fitness, and performance analysis. Spread across approximately 400 square metres, the lab supports research, training, and testing in strength, speed, conditioning, and overall athletic development.</p>
+      <div>
+        <h3>Performing Arts Lab – Guru Kelucharan Dance Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Named in honour of the legendary Odissi dancer and guru, <strong>Padma Vibhushan Guru Kelucharan Mohapatra</strong>, this lab celebrates movement, rhythm, and expression. Students begin with foundational practices such as aerobics and yoga before progressing to structured dance forms.</p>
 
-<p>Complemented by world-class sports infrastructure including football grounds, basketball courts, swimming pools, badminton courts, table tennis, horse riding facilities, and more, the lab nurtures physical excellence alongside scientific understanding.</p>
+            <p>As learners grow, they explore choreography, emotional expression, and storytelling through movement, discovering their unique artistic voice while building discipline, confidence, and creativity.</p>
 
-<p><strong>Performing Arts Lab – Guru Kelucharan Dance Lab</strong></p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/dancelab.jpg" alt="Performing Arts Lab" />
+        </div>
+      </div>
 
-<p>Named in honour of the legendary Odissi dancer and guru, <strong>Padma Vibhushan Guru Kelucharan Mohapatra</strong>, this lab celebrates movement, rhythm, and expression. Students begin with foundational practices such as aerobics and yoga before progressing to structured dance forms.</p>
 
-<p>As learners grow, they explore choreography, emotional expression, and storytelling through movement, discovering their unique artistic voice while building discipline, confidence, and creativity.</p>
+      <div>
+        <h3>Visual Arts Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Visual Arts Lab nurtures creativity by exposing students to diverse art forms, mediums, and techniques. From sketching and painting to mixed media and craft, students learn to translate imagination into artistic expression.</p>
 
-<p><strong>Visual Arts Lab</strong></p>
+            <p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
 
-<p>The Visual Arts Lab nurtures creativity by exposing students to diverse art forms, mediums, and techniques. From sketching and painting to mixed media and craft, students learn to translate imagination into artistic expression.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/visualatallab.jpg" alt="Visual ART Lab" />
+        </div>
+      </div>
 
-<p>The lab encourages self-belief, joy in creation, and appreciation of the transformative power of art.</p>
 
-<p><strong>SAI TV</strong></p>
-<p>SAI TV offers students hands-on exposure to filmmaking and television production. Through activities such as anchoring, interviews, panel discussions, studio recordings, and outdoor shoots, students gain practical experience in scriptwriting, camera work, editing, lighting, production, and direction.</p>
 
-<p>Based on the four Ps—Planning, Production, Programming, and Publicity—SAI TV fosters teamwork, leadership, creativity, and media literacy.</p>
+      <div>
+        <h3>SAITV</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI TV offers students hands-on exposure to filmmaking and television production. Through activities such as anchoring, interviews, panel discussions, studio recordings, and outdoor shoots, students gain practical experience in scriptwriting, camera work, editing, lighting, production, and direction.</p>
 
-<p><strong>Radio Orange</strong></p>
-<p>SAI International School is proud to be the first school to introduce an in-house radio station: <strong>Radio Orange</strong>. This unique platform allows students to express ideas, enhance communication skills, and showcase creativity.</p>
+            <p>Based on the four Ps—Planning, Production, Programming, and Publicity—SAI TV fosters teamwork, leadership, creativity, and media literacy.</p>
 
-<p>Students collaborate weekly to write scripts, produce content, and share campus news under the guidance of teacher mentors, gaining confidence and a strong voice.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/saitv.jpg" alt="SAI-TV" />
+        </div>
+      </div>
 
-<p><strong>Computer Labs</strong></p>
+       <div>
+        <h3>Radio Orange</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI International School is proud to be the first school to introduce an in-house radio station: <strong>Radio Orange</strong>. This unique platform allows students to express ideas, enhance communication skills, and showcase creativity.</p>
 
-<p>Recognising the importance of technology in modern life, the school houses well-equipped junior and senior computer labs with <strong>250 systems</strong>, maintaining a <strong> 1:1 student-to-machine ratio.<strong></p>
+            <p>Students collaborate weekly to write scripts, produce content, and share campus news under the guidance of teacher mentors, gaining confidence and a strong voice.</p>
 
-<p>Students are trained in web applications, Java, C++, Tux Paint, Logo, MS Office, digital presentations, email communication, and database development.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/radio-orange.jpg" alt="radio-orange" />
+        </div>
+      </div>
 
-<p><strong>Science Labs</strong></p>
+       <div>
+        <h3>Computer Labs</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Recognising the importance of technology in modern life, the school houses well-equipped junior and senior computer labs with <strong>250 systems</strong>, maintaining a <strong> 1:1 student-to-machine ratio.</strong></p>
 
-<p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
+            <p>Students are trained in web applications, Java, C++, Tux Paint, Logo, MS Office, digital presentations, email communication, and database development.</p>
 
-<p><strong>Library and Learning Resource Centres</strong></p>
-<p>SAI International School has three well-stocked libraries:</p>
-<ul>
-  <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
-  <li>Vivekananda Learning Resource Centre (Secondary)</li>
-  <li>Tagore Learning Resource Centre (Higher Secondary)</li>
-</ul>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/computerlab.jpg" alt="Computer Lab" />
+        </div>
+      </div>
 
-<p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
+      <div>
+        <h3>Science Labs</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Separate, fully equipped laboratories for <strong>Physics, Chemistry, and Biology</strong> are designed as per CBSE guidelines. These labs provide students with safe, structured environments to explore scientific principles through experiments and observation.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sciencelab.jpg" alt="sciencelab" />
+        </div>
+      </div>
 
-<p><strong>Science Park</strong></p>
-<p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
 
-<p><strong>Social Science Lab</strong></p>
-<p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+      <div>
+        <h3>Library and Learning Resource Centres</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>SAI International School has three well-stocked libraries:</p>
+              <ul>
+                <li>Mahatma Gandhi Learning Resource Centre (Primary)</li>
+                <li>Vivekananda Learning Resource Centre (Secondary)</li>
+                <li>Tagore Learning Resource Centre (Higher Secondary)</li>
+              </ul>
+            <p>Together, they house <strong>19,793 books,</strong> magazines, CDs, digital resources, and an extensive e-library to support research and reading culture.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/library.jpg" alt="Library" />
+        </div>
+      </div>
 
-<p><strong>Art Lab</strong></p>
-<p>The Art Lab enables students to refine artistic skills through sketching, watercolours, acrylics, clay modelling, mixed media, and experimental art, fostering creativity and innovation.</p>
+      <div>
+        <h3>Science Park</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Science Park brings learning outdoors through visually engaging models that demonstrate scientific mechanisms and principles, making science interactive and enjoyable.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/sciencepark.jpg" alt="Science Park" />
+        </div>
+      </div>
+
+
+      <div>
+        <h3>Social Science Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Equipped with maps, charts, globes, and models, the Social Science Lab transforms history, geography, civics, and economics into immersive learning experiences.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/socialscience.jpg" alt="socialscience" />
+        </div>
+      </div>
+
+      <div>
+        <h3>Art Lab</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The Art Lab enables students to refine artistic skills through sketching, watercolours, acrylics, clay modelling, mixed media, and experimental art, fostering creativity and innovation.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/atallab.jpg" alt="ART Lab" />
+        </div>
+      </div>
+
 
 `,
     },
@@ -119,14 +229,26 @@ export const curriculumDetails = {
       id: 2,
       title: "Learning Resource Centers",
       img: "/images/curriculum/learning-center.png",
-      landscapeImg: "/images/curriculum/learning-center.png",
+      landscapeImg: "/images/curriculum/learning-banner.jpg",
       description:
         "Encourages reading to boost knowledge, language skills, and imagination.",
       content: `
       <p><strong>Where Reading Inspires Lifelong Learning</strong></p>
       <p>Reading is one of the most enriching habits a child can develop. It expands knowledge, sharpens communication skills, builds vocabulary, and fuels imagination, opening doors to new ideas, cultures, and perspectives. At SAI International School, reading is nurtured as a joyful journey that inspires curiosity and a lifelong love for learning.</p>
-      <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
-      <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+
+      <div>
+        
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>To support this vision, the school offers <strong>four well-stocked Learning Resource Centers</strong> across <strong>three distinct wings</strong>, thoughtfully designed to cater to the reading interests and academic needs of both junior and senior students. From daily newspapers and magazines to curriculum-aligned texts, autobiographies, encyclopedias, manuscripts, novels, classics, and global bestsellers, our libraries house a rich and diverse collection of knowledge from around the world.</p>
+
+            <p>Guided by experienced and professionally trained librarians, students are encouraged to explore, research, and discover with ease. Our librarians expertly curate resources, assist learners in finding relevant information, and make every library visit a meaningful and enriching experience.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/curriculum/library.jpg" alt="Library" />
+        </div>
+      </div>
+
       <p><strong>Our Learning Resource Centers</strong></p>
           <ul>
             <li>Primary Wing – Mahatma Gandhi Learning Resource Center</li>

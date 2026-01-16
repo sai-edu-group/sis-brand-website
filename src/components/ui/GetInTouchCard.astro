@@ -37,7 +37,7 @@ const { icon, title, type, infoText = [] } = Astro.props;
     {
       type !== "location" && (
         <ul class="font-secondary space-y-1.5">
-          {infoText.map((value, index) => {
+          {infoText.map((value) => {
             const href =
               type === "email"
                 ? `mailto:${value}`
@@ -48,7 +48,12 @@ const { icon, title, type, infoText = [] } = Astro.props;
 
             return (
               <li>
-                <a href={href} class={linkClass}>
+                <a
+                  href={href}
+                  class={`${linkClass} data-track-contact`}
+                  data-contact-type={type}
+                  data-contact-value={value}
+                >
                   {value}
                 </a>
               </li>
@@ -87,3 +92,40 @@ const { icon, title, type, infoText = [] } = Astro.props;
     decoding="async"
   />
 </div>
+
+<script>
+  // ENUMS //
+  import { EVENTS } from "@/enums/analytics.enum";
+
+  // SCRIPTS //
+  import { trackEvent } from "@/scripts/analytics";
+  import { getDeviceType } from "@/scripts/device";
+
+  // Get the contact Links
+  const contactLinks = document.querySelectorAll("a.data-track-contact");
+
+  // Add Analytics to them
+  contactLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const target = e.currentTarget as HTMLAnchorElement;
+      const type = target.dataset.contactType;
+      const value = target.dataset.contactValue;
+
+      if (type === "phone") {
+        trackEvent(EVENTS.PHONE_CLICK, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          section: "how to reach us",
+          contacted_number: value,
+        });
+      } else if (type === "email") {
+        trackEvent(EVENTS.EMAIL_CLICK, {
+          page_path: window.location.pathname,
+          device_type: getDeviceType(),
+          section: "how to reach us",
+          contacted_email: value,
+        });
+      }
+    });
+  });
+</script>
