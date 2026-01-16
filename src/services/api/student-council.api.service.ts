@@ -26,7 +26,6 @@ export type StudentCouncilData = {
  * A promise that resolves to an array of student council members.
  * If the API call fails or no data is found, an empty array is returned.
  */
-
 export const fetchStudentsByYearRequest = async (
   year: number,
 ): Promise<StudentCouncilData[]> => {
