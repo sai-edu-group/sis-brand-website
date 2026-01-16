@@ -28,7 +28,7 @@ export const generateImagePath = (
   switch (imageType.toLowerCase()) {
     // RESULT
     case "result":
-      finalPath = `uploads/sis_cbseresult/${path}${imageName}`;
+      finalPath = `uploads/sis_cbseresult/${imageName}`;
       break;
     // STUDENT COUNCIL
     case "studentcouncil":
