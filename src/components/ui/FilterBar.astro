@@ -41,7 +41,7 @@ const dropdownYears = years.slice(2);
 
       {
         dropdownYears.length > 0 && (
-          <details class="group relative" id="year-dropdown">
+          <details class="group relative" id="modal">
             <summary class="border-n-500 text-n-500 hover:bg-n-50 flex cursor-pointer list-none items-center gap-3 rounded-full border px-3.5 py-3 font-medium select-none md:gap-5 md:px-6 lg:px-8 lg:py-4">
               <span
                 id="year-selected"
@@ -158,7 +158,7 @@ const dropdownYears = years.slice(2);
 
     const yearButtons = document.querySelectorAll("[data-year]");
     const searchInput = document.getElementById("search-input");
-    const dropdown = document.getElementById("year-dropdown");
+    const dropdown = document.getElementById("modal");
     const yearSelected = document.getElementById("year-selected");
 
     // Sort Dropdown Elements
@@ -174,7 +174,7 @@ const dropdownYears = years.slice(2);
       firstBtn.classList.add(
         "bg-orange-500",
         "text-white",
-        "hover:bg-orange-500",
+        "hover:bg-orange-500"
       );
       firstBtn.classList.remove("bg-n-50", "text-n-500");
     }
@@ -217,14 +217,14 @@ const dropdownYears = years.slice(2);
     if (sortDropdown) {
       // Set current sort text
       const activeSortItem = sortDropdown.querySelector(
-        `[data-value="${currentSort}"]`,
+        `[data-value="${currentSort}"]`
       );
       if (activeSortItem) {
         sortSelected.textContent = activeSortItem.textContent;
         activeSortItem.classList.add(
           "bg-orange-500",
           "text-white",
-          "rounded-md",
+          "rounded-md"
         );
       } else {
         sortSelected.textContent = "Recommended";
@@ -246,7 +246,7 @@ const dropdownYears = years.slice(2);
           sortList
             .querySelectorAll("li")
             .forEach((li) =>
-              li.classList.remove("bg-orange-500", "text-white", "rounded-md"),
+              li.classList.remove("bg-orange-500", "text-white", "rounded-md")
             );
 
           // Highlight the selected one
