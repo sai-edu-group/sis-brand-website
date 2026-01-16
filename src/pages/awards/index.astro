@@ -27,6 +27,9 @@ import {
   awardsSectionHeader,
 } from "@/data/awards/awards";
 
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
 // Get the Year from the Search Params
 const year: number =
   parseInt(Astro.url.searchParams.get("year") as string) || awards.years[0];
@@ -74,7 +77,7 @@ const awardItems = await fetchAwardsRequest(year);
                   <AwardsCard
                     title={awardItem.awardName}
                     subTitle={awardItem.awardDesc}
-                    img={awardItem.thumbnailImg}
+                    img={generateImagePath(awardItem.thumbnailImg, "awards")}
                     year={year.toString()}
                   />
                 ))
