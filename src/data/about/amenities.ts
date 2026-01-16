@@ -12,21 +12,61 @@ export const amenitiesDetails = {
       img: "/images/amenities/hostel.png",
       description:
         "Provides a nurturing, home-like environment that builds independence and lifelong friendships.",
-      landscapeImg: "/images/amenities/hostel.png",
+      landscapeImg: "/images/amenities/hostel.jpg",
       content: `<p><strong>Hostel – Home away from Home</strong></p>
       <p>Life in a hostel means a whole panorama of experiences that span across making friends for life, and gaining the confidence to face life independently. Hence, we lay tremendous emphasis on creating a warm, welcoming, invigorating and home-like atmosphere in the hostels. ‘A home away from home’ where the children develop the confidence to be independent, be it through friendships, food, belongings, rooms, joys, sorrows, challenges or other uncountable experiences of growing-up together.</p>
+      
       <p>There are separate, comfortable and fully air-conditioned hostels for boys and girls, where the students follow a routine life with discipline. Rana Pratap and Chandra Gupta Maurya hostel for boys while for girls it’s Sushila Devi and Ramadevi.</p>
+
       <p><strong>Sushila Devi and Rama Devi Hostel –</strong> Girls – The hostel for girls, representing intelligence, courage, integrity and determination of the great freedom fighter, is a home away from home. All the rooms are air conditioned and well furnished to provide comfort to the residents. Security of the students is given high priority and hence there is a 24-hour tight security, provided by well-trained male and female security guards.</p>
       <p>Yoga sessions keep the girls fit and active. Good food is served to the utmost satisfaction of the students. Discipline is the prime criteria for safety of the girls.</p>
-      <p><strong>Care and compassion –</strong> Our hostel is different from all others because it caters to individual needs under the caring supervision of two wardens and a supervisor. Teachers support is provided to the students in the evenings for clarification of doubts.</p>
+
+      <div>
+        <h3>Sushila Devi and Rama Devi Hostel</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The hostel for girls, representing intelligence, courage, integrity and determination of the great freedom fighter, is a home away from home. All the rooms are air conditioned and well furnished to provide comfort to the residents. Security of the students is given high priority and hence there is a 24-hour tight security, provided by well-trained male and female security guards.</p>
+            <p>Yoga sessions keep the girls fit and active. Good food is served to the utmost satisfaction of the students. Discipline is the prime criteria for safety of the girls.</p>
+            <p><strong>Care and compassion –</strong> Our hostel is different from all others because it caters to individual needs under the caring supervision of two wardens and a supervisor. Teachers support is provided to the students in the evenings for clarification of doubts.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/girls-hostel.jpg" alt="Sushila Devi and Rama Devi Hostel" />
+        </div>
+      </div>
+
       <p><strong>The Recreation facility – </strong>The recreation facility for the students includes watching TV after the study hours are over. The girls come to the school every Sunday for music and swimming practice. It is a heaven for the girls who look forward to coming back to its cozy comforts after a day at school.</p>
       <p><strong>Firm Rules –</strong> The students have strict yet compassionate hostel wardens, who take care of the needs of the hostel students. They are empathetic listeners who gel with the students’ emotional needs. Students are restricted from retaining mobile phones; they can make phone calls to their parents every day from 5.30 to 6 pm. They are taken out once a fortnight.</p>
-      <p><strong>Rana Pratap and Chandragupta Hostel –</strong> Boys – The name says it all. The hostel is a home to young, dynamic and confident boys of class XI and XII, who enjoy their stay in the air-conditioned rooms under the nurturing care of two wardens. Though discipline is the prime focus, freedom is not restricted. The boys, protected 24×7 by ever vigilant security guards, get to enjoy unlimited facilities provided by the school. Yoga sessions are held to keep them fit and healthy, which is complemented by ensuring quality food.</p>
-      <p><strong>The Recreation Facility –</strong> The hostel has a recreation centre to play indoor games and watch television. The students have access to computers for completion of school assignments and to the library during evening hours. They have fun and enjoyment practicing music and swimming every day and twice a month, they get a wonderful chance to go for picnic or shopping.</p>
+
+      <div>
+        <h3>Rana Pratap and Chandragupta Hostel</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The name says it all. The hostel is a home to young, dynamic and confident boys of class XI and XII, who enjoy their stay in the air-conditioned rooms under the nurturing care of two wardens. Though discipline is the prime focus, freedom is not restricted. The boys, protected 24×7 by ever vigilant security guards, get to enjoy unlimited facilities provided by the school. Yoga sessions are held to keep them fit and healthy, which is complemented by ensuring quality food.</p>
+            <p><strong>The Recreation Facility –</strong> The hostel has a recreation centre to play indoor games and watch television. The students have access to computers for completion of school assignments and to the library during evening hours. They have fun and enjoyment practicing music and swimming every day and twice a month, they get a wonderful chance to go for picnic or shopping.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/boys-hostel.jpg" alt="Rana Pratap and Chandragupta Hostel" />
+        </div>
+      </div>
+
       <p><strong>Firm Rules –</strong> The students have a strict at the same time compassionate hostel wardens who take care of their needs. They are empathetic listeners who gel with the students’ emotional needs. Though the boys are allowed to keep all modern gadgets, they are permitted to use them only under the supervision of the wardens. The students can make phone calls to their parents every evening from 9.30 to 10pm.</p>
-      <p><strong>Care and Compassion –</strong> Individual attention is extended to the students by the Sr.Principal. Evening classes are conducted every day after school hours. Our hostel is not just a place for students to reside, but also to enhance their talents in several ways, amidst friends.</p>
-      <p><strong>Faculty Support –</strong>The hostel also has faculty support in the evening hours for clearing all the doubts. An extended library hour and reading room facility caters to the needs of the avid readers. A regular health check-up is done for the hostel students and in case of some medical attention parents are informed.</p>
-      <p><strong>Mentoring and Counseling –</strong> The school has proper mentoring and counseling sessions for the students. This ensures that the emotional well-being of the hostellers is also well attended to. SAI International is a Home away from Home</p>
+
+      
+
+      <div>
+        <h3>Faculty Support</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>The hostel also has faculty support in the evening hours for clearing all the doubts. An extended library hour and reading room facility caters to the needs of the avid readers. A regular health check-up is done for the hostel students and in case of some medical attention parents are informed.</p>
+
+            <p><strong>Mentoring and Counseling –</strong> The school has proper mentoring and counseling sessions for the students. This ensures that the emotional well-being of the hostellers is also well attended to. SAI International is a Home away from Home</p>
+
+            <p><strong>Care and Compassion –</strong> Individual attention is extended to the students by the Sr.Principal. Evening classes are conducted every day after school hours. Our hostel is not just a place for students to reside, but also to enhance their talents in several ways, amidst friends.</p>
+
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/doubtclearing.jpg" alt="Faculty Support" />
+        </div>
+      </div>
+      
 
       `,
     },
@@ -36,14 +76,22 @@ export const amenitiesDetails = {
       img: "/images/amenities/cafeteria.png",
       description:
         "Spacious and hygienic dining area designed for comfort and efficiency during busy hours.",
-      landscapeImg: "/images/amenities/cafeteria.png",
+      landscapeImg: "/images/amenities/labcafeteria.jpg",
       content: `<p><strong>Nourishing Bodies, Delighting Young Minds –</strong> The cafeteria at SAI International School is a spacious, bright, and hygienic dining space designed to offer students a comfortable and pleasant mealtime experience. Thoughtfully planned seating ensures smooth movement and a hassle-free environment, even during peak hours, allowing students to relax and enjoy their meals.</p>
 
-      <p><strong>Our Aim –</strong> Our aim is to provide <strong>nutritious, wholesome, and delicious food</strong> that supports the healthy growth and well-being of our students. Carefully curated menus strike the perfect balance between taste and nutrition, ensuring that every meal contributes to a balanced diet.</p>
+      <div>
+        <h3>Our Aim</h3>
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          <div class="md:w-2/3 order-2">
+            <p>Our aim is to provide <strong>nutritious, wholesome, and delicious food</strong> that supports the healthy growth and well-being of our students. Carefully curated menus strike the perfect balance between taste and nutrition, ensuring that every meal contributes to a balanced diet.</p>
+            <p>We place the highest emphasis on <strong>quality, hygiene, and food safety</strong> at every stage, from preparation to serving. The self-service model encourages independence and responsibility, and has become a favourite among students for its convenience and variety.</p>
+            <p>At SAI International School, the cafeteria is more than just a dining area, it is a welcoming space where healthy habits are nurtured and mealtimes become moments of comfort and joy.</p>
+          </div>
+          <img class="md:w-1/3 order-1" src="/images/amenities/cafeteria-thumb.jpg" alt="Cafeteria" />
+        </div>
+      </div>
 
-      <p>We place the highest emphasis on <strong>quality, hygiene, and food safety</strong> at every stage, from preparation to serving. The self-service model encourages independence and responsibility, and has become a favourite among students for its convenience and variety.</p>
-
-      <p>At SAI International School, the cafeteria is more than just a dining area, it is a welcoming space where healthy habits are nurtured and mealtimes become moments of comfort and joy.</p>
+      
       `,
     },
     {
@@ -68,7 +116,7 @@ export const amenitiesDetails = {
             <p>The <strong>Sushila Devi Auditorium</strong> is a centrally air-conditioned, multipurpose space designed with impeccable acoustics to host meetings, training programmes, performances, special lectures, and intimate events. Spanning <srong>2,500 sq. ft.</strong> with a seating capacity of <strong>140,</strong> it stands at the very heart of the campus.</p>
             <p>This auditorium regularly welcomes students for enriching interactions and rendezvous with eminent personalities, making it a vital space for intellectual exchange and inspiration.</p>
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/sushiladevi-aud.jpg" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/sushiladevi-aud.jpg" alt="Sushila-Devi-Auditorium" />
         </div>
       </div>
 
@@ -99,7 +147,7 @@ export const amenitiesDetails = {
       img: "/images/amenities/infirmary.png",
       description:
         "Well-equipped medical facility ensuring the health and wellness of students and staff.",
-      landscapeImg: "/images/amenities/infirmary.png",
+      landscapeImg: "/images/amenities/banner-infirmary.jpg",
       content: `<p><strong>Caring for Health, Comfort and Well-being</strong> </p>
 
       <p>At <strong>SAI International School,</strong> the health and well-being of our learners are of paramount importance. To support the needs of today’s students, the school houses a <strong>clean, hygienic, and well-equipped Infirmary,</strong> dedicated to promoting health, safety, and overall wellness within the school community.</p>
@@ -113,7 +161,7 @@ export const amenitiesDetails = {
             <p>The <strong>On-Site Medical Support</strong> A <strong>qualified on-site doctor</strong> and <strong>trained, experienced nursing staff</strong> are available during school hours to assess, manage, and respond promptly to any health concerns. Their presence ensures immediate care, professional supervision, and peace of mind for students, parents, and staff alike.</p>
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/medical-support.jpg" alt="Onsite Medical Support" />
         </div>
       </div>
 
@@ -126,7 +174,7 @@ export const amenitiesDetails = {
             <p>Located at the heart of the campus, the infirmary ensures swift access during emergencies, reinforcing the school’s commitment to student safety.</p>
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/onsitemedical.jpg" alt="Emergency care" />
         </div>
       </div>
 
@@ -139,7 +187,7 @@ export const amenitiesDetails = {
             <p>At SAI International School, the infirmary reflects our belief in nurturing the <strong>wellness of mind, body, and soul,</strong> ensuring every child feels cared for, secure, and supported.</p>
             
           </div>
-          <img class="md:w-1/3 order-1" src="/images/amenities/auditoriums.png" alt="Sushila Devi Auditorium" />
+          <img class="md:w-1/3 order-1" src="/images/amenities/emergencycare.jpg" alt="Onsite Medical Support" />
         </div>
       </div>
 
