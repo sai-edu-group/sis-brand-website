@@ -46,7 +46,7 @@ const uid = "embla-news";
                     title={article.title}
                     img={generateImagePath(
                       article.thumbnail,
-                     IMAGE_TYPES.BLOG,
+                      IMAGE_TYPES.BLOG,
                       article.photo_path,
                     )}
                     topText="SAI Admin"
@@ -58,7 +58,10 @@ const uid = "embla-news";
               ))}
             </div>
           ) : (
-            <EmptyState title="No News Found" description="We couldn't find any news. Please check back later." />
+            <EmptyState
+              title="No News Found"
+              description="We couldn't find any news. Please check back later."
+            />
           )
         }
       </div>

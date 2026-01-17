@@ -353,7 +353,7 @@ const grades = [
           grade: grade,
           phone: phone,
         },
-        EVENTS.INTEREST_FORM_COMPLETED
+        EVENTS.INTEREST_FORM_COMPLETED,
       );
       // 🔥 Show loader & disable button
       loader?.classList.remove("hidden");
@@ -365,7 +365,15 @@ const grades = [
           { Attribute: "Class Name", Value: grade },
         ];
 
-        await admissionEnquiryRequest(leadSquaredPayload);
+        const response = await admissionEnquiryRequest(leadSquaredPayload);
+
+        // Check LSQ errors
+        if (response.ExceptionMessage || response.Status !== "Success") {
+          alert(
+            "Something went wrong submitting your enquiry. Please try again.",
+          );
+          return;
+        }
 
         // ✅ Show success message in form
         successMessage?.classList.remove("hidden");
@@ -391,7 +399,7 @@ const grades = [
   import { setupFormStartTracking } from "@/scripts/analytics";
 
   const form = document.querySelector(
-    "[data-hero-form]"
+    "[data-hero-form]",
   ) as HTMLFormElement | null;
 
   if (form) {

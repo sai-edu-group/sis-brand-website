@@ -96,7 +96,7 @@ const shouldShowPagination = totalPages > 1;
                 {news.map((newsItem, newsItemIndex) => (
                   <div
                     class="card-anim"
-                    style={`--delay: ${newsItemIndex * 0.2}s`}
+                    style={`--delay: ${newsItemIndex * 0.01}s`}
                   >
                     <ArticleCard
                       title={newsItem.title}
@@ -117,7 +117,10 @@ const shouldShowPagination = totalPages > 1;
                 ))}
               </div>
             ) : (
-              <EmptyState title="No News Found" description="We couldn't find any news for the selected year. Please check back later." />
+              <EmptyState
+                title="No News Found"
+                description="We couldn't find any news for the selected year. Please check back later."
+              />
             )
           }
         </div>

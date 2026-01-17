@@ -5,7 +5,6 @@ import type { AxiosRequestConfig } from "axios";
 //  Get default API URL from environment variables  //
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
-
 /** ✅ LeadSquared Lead Capture API Call */
 export const admissionEnquiryRequest = async (leadData: any) => {
   try {
@@ -14,7 +13,7 @@ export const admissionEnquiryRequest = async (leadData: any) => {
 
     const config: AxiosRequestConfig = {
       method: "post",
-      url: API_URL,
+      url: url,
       headers: {
         "Content-Type": "application/json",
       },

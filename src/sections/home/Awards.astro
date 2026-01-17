@@ -20,6 +20,7 @@ import { generateImagePath } from "@/utils/image.utils";
 
 // DATA //
 import { sectionHeaderContent } from "@/data/home/awards";
+import EmptyState from "@/components/ui/EmptyState.astro";
 
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
@@ -48,20 +49,26 @@ const awardsCardContent = await fetchLatestAwardsRequest();
           style="gap: var(--gap)"
         >
           {
-            awardsCardContent &&
+            awardsCardContent && awardsCardContent.length > 0 ? (
               awardsCardContent.map((awardsCardContentItem) => (
                 <div class="ns-slide" data-embla-slide>
                   <AwardsCard
                     title={awardsCardContentItem.awardName ?? ""}
                     img={generateImagePath(
                       awardsCardContentItem.thumbnailImg,
-                      IMAGE_TYPES.AWARDS
+                      IMAGE_TYPES.AWARDS,
                     )}
                     subTitle={awardsCardContentItem.awardDesc ?? ""}
                     year={(awardsCardContentItem.year ?? "2025").toString()}
                   />
                 </div>
               ))
+            ) : (
+              <EmptyState
+                title="No Awards Found"
+                description="We couldn't find any awards. Please check back later."
+              />
+            )
           }
         </div>
       </div>
@@ -162,7 +169,7 @@ const awardsCardContent = await fetchLatestAwardsRequest();
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
   import { initEmblaRoot } from "/js/embla.js";
-  
+
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("embla-awards");
     initEmblaRoot(root, {
