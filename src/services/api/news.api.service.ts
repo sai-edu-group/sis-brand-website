@@ -106,3 +106,37 @@ export const fetchBlogByIdRequest = async (
     return null;
   }
 };
+
+/** Fetch Latest Blogs */
+export const fetchlatestBlogsRequest = async (): Promise<
+  NewsItemData[] | null
+> => {
+  // Set up the API request configuration
+  const config = {
+    endpoint: `${API_URL}blogs/get-latest`,
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    timeout: 8000, // 8 seconds timeout
+  };
+
+  //   Make the API call
+  try {
+    const response = await axios({
+      url: config.endpoint,
+      method: config.method,
+      headers: config.headers,
+      timeout: config.timeout,
+    });
+
+    const blogItems = response.data?.data;
+
+    if (!blogItems) return null;
+
+    return [...blogItems];
+  } catch (error) {
+    console.error("Failed to fetch news by id: ", error);
+    return null;
+  }
+};

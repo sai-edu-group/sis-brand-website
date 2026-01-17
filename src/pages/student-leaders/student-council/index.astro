@@ -54,39 +54,23 @@ const students = await fetchStudentsByYearRequest(year);
           <!-- Years Filters -->
           <FilterBar showSearch={false} years={studentCouncil.years} />
 
-          <!-- Student Council Section -->
-          {
-            students && students.length > 0 ? (
-              // Grid of Student Council Cards
-              <div
-                class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
-              >
-                {
-                  students.map((studentsItem) => (
-                    <ResultsCard
-                      /* Student profile image (dynamic path) */
-                      image={generateImagePath(
-                        studentsItem.studentProfilePic,
-                        "studentcouncil"
-                      )}
-
-                      /* Student name */
-                      studentName={studentsItem.studentName}
-
-                      /* Designation / Role shown as grade */
-                      grade={studentsItem.designation}
-                    />
-                  ))
-                }
-              </div>
-            ) : (
-              // Empty State: shown when no students are available
-              <EmptyState
-                title="No Student Council Data"
-                description="Student council details for the selected year are currently unavailable."
-              />
-            )
-          }
+          <!-- Student Council Images -->
+          <div
+            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            {
+              students?.map((studentsItem) => (
+                <ResultsCard
+                  image={generateImagePath(
+                    studentsItem.studentProfilePic,
+                    "student_council",
+                  )}
+                  studentName={studentsItem.studentName}
+                  grade={studentsItem.designation}
+                />
+              ))
+            }
+          </div>
         </div>
       </div>
     </div>
