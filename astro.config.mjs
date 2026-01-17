@@ -3,7 +3,7 @@
 import path from "path";
 
 // OTHERS //
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import astroIcon from "astro-icon";
 import tailwindcss from "@tailwindcss/vite";
 import { fileURLToPath } from "url";
@@ -25,5 +25,8 @@ export default defineConfig({
         "@": path.resolve(__dirname, "./src"),
       },
     },
+  },
+  image: {
+    service: passthroughImageService(),
   },
 });
