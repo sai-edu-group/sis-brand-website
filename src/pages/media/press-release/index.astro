@@ -4,6 +4,9 @@ export const prerender = false; // Render on Server
 // TYPES //
 import type { PressReleaseItemData } from "@/types/media/press-release";
 
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
 // COMPONENTS //
 import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -30,8 +33,6 @@ import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import pressReleaseMeta from "@/data/meta/media/press-release/press-release.json";
-
-// DATA //
 import {
   pressRelease,
   pressReleaseBreadcrumbItems,
@@ -102,7 +103,7 @@ const shouldShowPagination = totalPages > 1;
                       <ImageCard
                         image={generateImagePath(
                           releaseItem.image || "",
-                          "press_release",
+                          IMAGE_TYPES.PRESS_RELEASE,
                         )}
                         caption={releaseItem.title}
                         index={releaseItemIndex}
@@ -113,7 +114,7 @@ const shouldShowPagination = totalPages > 1;
                 )}
               </div>
             ) : (
-              <EmptyState />
+              <EmptyState title="No Press Releases Found" description="We couldn't find any press releases for the selected year. Please check back later." />
             )
           }
         </div>

@@ -1,6 +1,9 @@
 ---
 export const prerender = false; // Render on Server
 
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
 // COMPONENTS //
 import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -14,21 +17,23 @@ import { fetchAwardsRequest } from "@/services/api/awards.api.service";
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
-// META //
-import awardsMeta from "@/data/meta/awards/awards.json";
-
 // DATA //
+import awardsMeta from "@/data/meta/awards/awards.json";
 import {
   awards,
   awardsBreadcrumbItems,
   awardsSectionHeader,
 } from "@/data/awards/awards";
 
-// UTILS //
-import { generateImagePath } from "@/utils/image.utils";
+// META //
+
+
 
 // Get the Year from the Search Params
 const year: number =
@@ -77,13 +82,13 @@ const awardItems = await fetchAwardsRequest(year);
                   <AwardsCard
                     title={awardItem.awardName}
                     subTitle={awardItem.awardDesc}
-                    img={generateImagePath(awardItem.thumbnailImg, "awards")}
+                    img={generateImagePath(awardItem.thumbnailImg, IMAGE_TYPES.AWARDS)}
                     year={year.toString()}
                   />
                 ))
               ) : (
                 <div class="col-span-full">
-                  <EmptyState />
+                  <EmptyState title="No Awards Found" description="We couldn't find any awards for the selected year. Please check back later." />
                 </div>
               )
             }

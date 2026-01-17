@@ -1,9 +1,7 @@
 ---
 // LAYOUT //
-import Layout from "@/layouts/Layout.astro";
-
-// META //
-import studentCouncilMeta from "@/data/meta/student-leaders/student-council/student-council.json";
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 // COMPONENTS //
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -12,18 +10,28 @@ import ResultsCard from "@/components/ui/ResultsCard.astro";
 import FilterBar from "@/components/ui/FilterBar.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 
+// API SERVICES //
+import { fetchStudentsByYearRequest } from "@/services/api/student-council.api.service";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
 // DATA //
+import studentCouncilMeta from "@/data/meta/student-leaders/student-council/student-council.json";
 import {
   studentCouncil,
   studentCouncilBreadcrumbItems,
   studentCouncilSectionHeader,
 } from "@/data/student-leaders/student-council";
 
-// UTILS //
-import { generateImagePath } from "@/utils/image.utils";
+// META //
 
-// SERVICES //
-import { fetchStudentsByYearRequest } from "@/services/api/student-council.api.service";
+
+
+
 
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
@@ -59,16 +67,25 @@ const students = await fetchStudentsByYearRequest(year);
             class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
             {
-              students?.map((studentsItem) => (
-                <ResultsCard
-                  image={generateImagePath(
-                    studentsItem.studentProfilePic,
-                    "student_council",
-                  )}
-                  studentName={studentsItem.studentName}
-                  grade={studentsItem.designation}
-                />
-              ))
+              students && students.length > 0 ? (
+                students?.map((studentsItem) => (
+                  <ResultsCard
+                    image={generateImagePath(
+                      studentsItem.studentProfilePic,
+                      IMAGE_TYPES.STUDENT_COUNCIL,
+                    )}
+                    studentName={studentsItem.studentName}
+                    grade={studentsItem.designation}
+                  />
+                ))
+              ) : (
+                <div class="col-span-full">
+                  <EmptyState
+                    title="No Student Leaders Found"
+                    description="We couldn't find any student leaders for the selected year. Please check back later."
+                  />
+                </div>
+              )
             }
           </div>
         </div>

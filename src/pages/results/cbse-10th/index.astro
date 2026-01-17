@@ -27,6 +27,7 @@ import {
   cbseTenthSectionHeader,
 } from "@/data/results/cbse-10th";
 import { URLS } from "@/infrastructure/constants/urls";
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 // Get the Year from the Search Params
 const urlYear = Astro.url.searchParams.get("year");
@@ -77,14 +78,14 @@ if (!year) {
                     /* Dynamic Image URL for 10th Results */
                     image={generateImagePath(
                       student.studentProfilePic,
-                      "result"
+                      IMAGE_TYPES.RESULT
                     )}
                   />
                 ))
             }
           </div>
           ) : (
-            <EmptyState />
+            <EmptyState title="No Results Found" description="We couldn't find any results for the selected year. Please check back later." />
           )}
         </div>
       </div>

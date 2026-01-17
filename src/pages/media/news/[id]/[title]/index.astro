@@ -1,6 +1,9 @@
 ---
 export const prerender = false;
 
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
 // COMPONENTS //
 import Article from "@/components/ui/Article.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
@@ -64,7 +67,7 @@ const breadcrumbItems = [
               <Image
                 src={generateImagePath(
                   newsItem.banner,
-                  "blog",
+                  IMAGE_TYPES.BLOG,
                   newsItem.photo_path,
                 )}
                 alt={newsItem.title}

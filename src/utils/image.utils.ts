@@ -1,3 +1,5 @@
+import type { IMAGE_TYPES } from "@/enums/image.enum";
+
 const IMAGE_BASE_URL = "https://saicloudschool.in/myerp";
 
 /**
@@ -15,7 +17,7 @@ const IMAGE_BASE_URL = "https://saicloudschool.in/myerp";
  */
 export const generateImagePath = (
   imageName: string,
-  imageType: string, // "gallery", "result", "student", etc.
+  imageType: IMAGE_TYPES, // "gallery", "result", "student", etc.
   path?: string,
 ): string => {
   // If Image Name not available then return empty string

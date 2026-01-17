@@ -1,6 +1,9 @@
 ---
 export const prerender = false; // Render on Server
 
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
 // COMPONENTS //
 import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -87,7 +90,7 @@ if (!year) {
                       <ImageCard
                         image={generateImagePath(
                           albumItem.thumbnail,
-                          "gallery",
+                          IMAGE_TYPES.GALLERY,
                           `${albumItem.photo_path}`,
                         )}
                         caption={albumItem.title}
@@ -100,7 +103,10 @@ if (!year) {
                 ))}
               </div>
             ) : (
-              <EmptyState />
+              <EmptyState
+                title="No Albums Found"
+                description="We couldn't find any albums for the selected year. Please check back later."
+              />
             )
           }
         </div>

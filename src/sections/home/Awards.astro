@@ -1,20 +1,25 @@
 ---
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
 // COMPONENTS //
 import AwardsCard from "@/components/ui/AwardsCard.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Button from "@/components/ui/Button.astro";
 
-// SERVICES //
+// API SERVICES //
 import { fetchLatestAwardsRequest } from "@/services/api/awards.api.service";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
-// DATA //
-import { sectionHeaderContent } from "@/data/home/awards";
-
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+
+// OTHERS //
+
+// DATA //
+import { sectionHeaderContent } from "@/data/home/awards";
 
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
@@ -50,7 +55,7 @@ const awardsCardContent = await fetchLatestAwardsRequest();
                     title={awardsCardContentItem.awardName ?? ""}
                     img={generateImagePath(
                       awardsCardContentItem.thumbnailImg,
-                      "awards",
+                      IMAGE_TYPES.AWARDS
                     )}
                     subTitle={awardsCardContentItem.awardDesc ?? ""}
                     year={(awardsCardContentItem.year ?? "2025").toString()}
@@ -157,6 +162,7 @@ const awardsCardContent = await fetchLatestAwardsRequest();
 <!-- Component-level init: scoped to this slider only -->
 <script type="module">
   import { initEmblaRoot } from "/js/embla.js";
+  
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("embla-awards");
     initEmblaRoot(root, {

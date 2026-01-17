@@ -4,6 +4,9 @@ export const prerender = false; // Render on Server
 // TYPES //
 import type { NewsData, NewsItemData } from "@/types/media/news";
 
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
 // COMPONENTS //
 import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -99,7 +102,7 @@ const shouldShowPagination = totalPages > 1;
                       title={newsItem.title}
                       img={generateImagePath(
                         newsItem.thumbnail,
-                        "blog",
+                        IMAGE_TYPES.BLOG,
                         newsItem.photo_path,
                       )}
                       topText={"SAI Admin"}
@@ -114,7 +117,7 @@ const shouldShowPagination = totalPages > 1;
                 ))}
               </div>
             ) : (
-              <EmptyState />
+              <EmptyState title="No News Found" description="We couldn't find any news for the selected year. Please check back later." />
             )
           }
         </div>

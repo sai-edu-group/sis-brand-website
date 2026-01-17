@@ -19,6 +19,7 @@ import { generateImagePath } from "@/utils/image.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 const albumId = Astro.params.albumId;
 
@@ -77,7 +78,7 @@ const breadcrumbItems = [
                       <PhotoCard
                         image={generateImagePath(
                           imageItem,
-                          "gallery",
+                          IMAGE_TYPES.GALLERY,
                           albumPhotos.photo_path,
                         )}
                         index={albumsPhotosIndex}
@@ -88,7 +89,10 @@ const breadcrumbItems = [
                 )}
               </div>
             ) : (
-              <EmptyState />
+              <EmptyState
+                title="No Photos Found"
+                description="We couldn't find any photos for this album."
+              />
             )
           }
         </div>

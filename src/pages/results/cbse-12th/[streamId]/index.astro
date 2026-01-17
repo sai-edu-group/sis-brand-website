@@ -19,6 +19,7 @@ import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import { cbseClasses } from "@/data/results/cbse-12th";
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 const { streamId } = Astro.params;
 
@@ -75,13 +76,16 @@ const pageMeta = {
                     score={student.percentage}
                     image={generateImagePath(
                       student.studentProfilePic,
-                      "result",
+                      IMAGE_TYPES.RESULT,
                     )}
                   />
                 ))}
               </div>
             ) : (
-              <EmptyState />
+              <EmptyState
+                title="No Results Found"
+                description="We couldn't find any results for the selected year. Please check back later."
+              />
             )
           }
         </div>

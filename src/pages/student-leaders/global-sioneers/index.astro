@@ -2,10 +2,8 @@
 export const prerender = false; // Render on Server
 
 // LAYOUT //
-import Layout from "@/layouts/Layout.astro";
-
-// META //
-import globalSioneersMeta from "@/data/meta/student-leaders/global-sioneers/global-sioneers.json";
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 // COMPONENTS //
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
@@ -20,12 +18,22 @@ import { fetchSioneersRequest } from "@/services/api/sioneers.api.service";
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
 
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
 // DATA //
+import globalSioneersMeta from "@/data/meta/student-leaders/global-sioneers/global-sioneers.json";
 import {
   globalSioneers,
   globalSioneersBreadcrumbItems,
   globalSioneersSectionHeader,
 } from "@/data/student-leaders/global-sioneers";
+
+// META //
+
+
+
+
 
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
@@ -67,7 +75,7 @@ const students = await fetchSioneersRequest(year.toString());
                     /* Dynamic Image using 'sis_globalambassador' case in Utils */
                     image={generateImagePath(
                       studentsItem.profilePicture || "",
-                      "global_sioneers"
+                      IMAGE_TYPES.GLOBAL_SIONEERS
                     )}
                     /* Mapping className to StudentName as per your existing pattern */
                     studentName={studentsItem.className}
@@ -76,7 +84,7 @@ const students = await fetchSioneersRequest(year.toString());
                 ))
               ) : (
                 <div class="col-span-full">
-                  <EmptyState />
+                  <EmptyState title="No Sioneers Found" description="We couldn't find any global sioneers for the selected year. Please check back later." />
                 </div>
               )
             }

@@ -15,6 +15,7 @@ import { fetchlatestBlogsRequest } from "@/services/api/news.api.service";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 const newsItems = await fetchlatestBlogsRequest();
 
@@ -45,7 +46,7 @@ const uid = "embla-news";
                     title={article.title}
                     img={generateImagePath(
                       article.thumbnail,
-                      "blog",
+                     IMAGE_TYPES.BLOG,
                       article.photo_path,
                     )}
                     topText="SAI Admin"
@@ -57,7 +58,7 @@ const uid = "embla-news";
               ))}
             </div>
           ) : (
-            <EmptyState />
+            <EmptyState title="No News Found" description="We couldn't find any news. Please check back later." />
           )
         }
       </div>
