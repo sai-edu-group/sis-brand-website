@@ -10,9 +10,9 @@ const {
 } = Astro.props;
 ---
 
-<a href={href} class="group w-full">
+<a href={href} class="group result-card w-full" data-person-name={personName}>
   <div
-    class="group border-n-200 relative flex h-full w-full flex-col items-center overflow-hidden rounded-2xl border-2 lg:max-w-[413px]"
+    class="group border-n-200 bg-n-50 relative flex h-full w-full flex-col items-center overflow-hidden rounded-2xl border-2 lg:max-w-[413px]"
   >
     <!-- Image -->
     <div class="relative w-full">
@@ -47,7 +47,10 @@ const {
         </p>
       </div>
 
-      <div class="absolute right-5 bottom-6 hidden lg:block">
+      <div
+        class="absolute right-5 bottom-6 hidden lg:block"
+        data-read-more-button
+      >
         <IconButton href={href} extraClasses="" />
       </div>
     </div>

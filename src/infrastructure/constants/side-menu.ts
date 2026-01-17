@@ -36,7 +36,7 @@ export const menu: MenuItemData[] = [
         title: "Vision, Mission & Values",
         href: URLS.ABOUT.VISION_MISSION_VALUES,
       },
-      { title: "Founder – Chairman", href: `${URLS.ABOUT.ROOT}#our-founder` },
+      { title: "Our Founder", href: `${URLS.ABOUT.ROOT}#our-founder` },
       { title: "Key Personnel", href: `${URLS.ABOUT.ROOT}#key-personnel` },
       { title: "Advisory Board", href: `${URLS.ABOUT.ROOT}#advisory-board` },
       { title: "Learning & Beyond", href: URLS.ABOUT.LEARNING_AND_BEYOND.ROOT },
@@ -76,19 +76,19 @@ export const menu: MenuItemData[] = [
     submenu: [
       { title: "Student Council", href: URLS.STUDENT_LEADERS.STUDENT_COUNCIL },
       { title: "Global SAIoneers", href: URLS.STUDENT_LEADERS.GLOBAL_SIONEERS },
-      {
-        title: "Icons & Achievers",
-        href: URLS.STUDENT_LEADERS.ICONS_ACHIEVERS,
-      },
+      // {
+      //   title: "Icons & Achievers",
+      //   href: URLS.STUDENT_LEADERS.ICONS_ACHIEVERS,
+      // },
     ],
     icon: "leaders",
   },
   {
     title: "MEDIA",
     submenu: [
-      { title: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
-      { title: "Press Releases", href: URLS.MEDIA.PRESS_RELEASE },
-      { title: "News Bulletin", href: URLS.MEDIA.NEWS_BULLETIN.ROOT },
+      // { title: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
+      // { title: "Press Releases", href: URLS.MEDIA.PRESS_RELEASE },
+      // { title: "News Bulletin", href: URLS.MEDIA.NEWS_BULLETIN.ROOT },
       { title: "Albums", href: URLS.MEDIA.ALBUMS.ROOT },
       { title: "Radio Orange", href: URLS.MEDIA.RADIO_ORANGE },
       { title: "SAI TV", href: URLS.MEDIA.SAI_TV },

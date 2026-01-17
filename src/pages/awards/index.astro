@@ -1,17 +1,24 @@
 ---
 export const prerender = false; // Render on Server
 
-// LAYOUT //
-import Layout from "@/layouts/Layout.astro";
-
-// META //
-import awardsMeta from "@/data/meta/awards/awards.json";
-
 // COMPONENTS //
 import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import AwardsCard from "@/components/ui/AwardsCard.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
+
+// API SERVICES //
+import { fetchAwardsRequest } from "@/services/api/awards.api.service";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
+// META //
+import awardsMeta from "@/data/meta/awards/awards.json";
 
 // DATA //
 import {
@@ -19,7 +26,9 @@ import {
   awardsBreadcrumbItems,
   awardsSectionHeader,
 } from "@/data/awards/awards";
-import { URLS } from "@/infrastructure/constants/urls";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
 
 // Get the Year from the Search Params
 const year: number =
@@ -36,7 +45,7 @@ if (!year) {
 }
 
 // Extract the Results. TODO: Will be API Call
-const awardItems = awards.awards[year];
+const awardItems = await fetchAwardsRequest(year);
 ---
 
 <Layout meta={awardsMeta}>
@@ -63,14 +72,20 @@ const awardItems = awards.awards[year];
           <!-- Results -->
           <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
             {
-              awardItems?.map((awardItem) => (
-                <AwardsCard
-                  title={awardItem.title}
-                  subTitle={awardItem.description}
-                  img={awardItem.image}
-                  year={awardItem.year}
-                />
-              ))
+              awardItems && awardItems.length > 0 ? (
+                awardItems.map((awardItem) => (
+                  <AwardsCard
+                    title={awardItem.awardName}
+                    subTitle={awardItem.awardDesc}
+                    img={generateImagePath(awardItem.thumbnailImg, "awards")}
+                    year={year.toString()}
+                  />
+                ))
+              ) : (
+                <div class="col-span-full">
+                  <EmptyState />
+                </div>
+              )
             }
           </div>
         </div>

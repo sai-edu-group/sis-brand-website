@@ -51,6 +51,7 @@ const grades = [
 <section
   class="bg-n-50 relative w-full overflow-hidden bg-[url('/images/school-background.webp')] bg-cover bg-center pt-24 md:pt-36"
   data-name="hero-section"
+  data-section="Home Hero"
 >
   <!-- Main Content -->
   <div
@@ -154,6 +155,15 @@ const grades = [
                 <div class="spinner"></div>
                 <span class="text-base font-medium">Submitting...</span>
               </div>
+
+              <!-- Success Message -->
+              <p
+                id="hero-success"
+                class="mt-2 hidden w-full rounded-lg border border-green-200 bg-green-50 px-3 py-2 text-sm font-medium text-green-700 md:text-base"
+              >
+                Form submitted successfully! You will receive the brochure on
+                your phone shortly.
+              </p>
             </form>
 
             <!-- Brochure Text -->
@@ -277,12 +287,13 @@ const grades = [
 </style>
 
 <script>
+  import { EVENTS } from "@/enums/analytics.enum";
+  import { trackFormCompletionEvent } from "@/scripts/analytics";
   import { admissionEnquiryRequest } from "@/services/api/form.api.service";
 
   window.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("[data-hero-form]") as HTMLFormElement;
     const loader = document.getElementById("hero-loader");
-    const submitBtn = form?.querySelector("button[type='submit']");
 
     if (!form) return;
 
@@ -293,6 +304,10 @@ const grades = [
       form
         .querySelectorAll("[data-error]")
         .forEach((p) => p.classList.add("hidden"));
+
+      // Hide previous success message
+      const successMessage = document.getElementById("hero-success");
+      successMessage?.classList.add("hidden");
 
       const studentName =
         form.querySelector('input[name="studentName"]')?.value.trim() || "";
@@ -328,6 +343,18 @@ const grades = [
 
       if (hasError) return;
 
+      // Example placeholder for API call:
+      // await admissionEnquiryRequest({ studentName, grade, phone });
+
+      // Track form completion
+      trackFormCompletionEvent(
+        {
+          student_name: studentName,
+          grade: grade,
+          phone: phone,
+        },
+        EVENTS.INTEREST_FORM_COMPLETED
+      );
       // 🔥 Show loader & disable button
       loader?.classList.remove("hidden");
 
@@ -340,10 +367,8 @@ const grades = [
 
         await admissionEnquiryRequest(leadSquaredPayload);
 
-        // Success message
-        alert(
-          "Form submitted successfully! You will receive the brochure on your phone shortly."
-        );
+        // ✅ Show success message in form
+        successMessage?.classList.remove("hidden");
 
         // Reset fields
         form.reset();
@@ -360,4 +385,16 @@ const grades = [
       }
     });
   });
+</script>
+
+<script>
+  import { setupFormStartTracking } from "@/scripts/analytics";
+
+  const form = document.querySelector(
+    "[data-hero-form]"
+  ) as HTMLFormElement | null;
+
+  if (form) {
+    setupFormStartTracking(form);
+  }
 </script>

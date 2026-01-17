@@ -3,6 +3,9 @@ import Image from "astro/components/Image.astro";
 import SAIImage from "@/assets/images/saibaba.png";
 import GuruImage from "@/assets/images/guru-shishya.png";
 
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls.ts";
+
 // Section Data
 const ethosDetails = {
   left: {
@@ -95,11 +98,12 @@ const ethosDetails = {
       </p>
 
       <!-- Read More text -->
-      <!-- <a
+      <a
+        href={URLS.ABOUT.ETHOS}
         class="font-secondary text-n-600 relative w-fit cursor-pointer text-lg font-medium after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:text-orange-500 hover:after:w-full"
       >
         Read More
-      </a> -->
+      </a>
     </div>
 
     {/* Desktop Vertical Divider */}
@@ -220,11 +224,12 @@ const ethosDetails = {
       </p>
 
       <!-- Read More text -->
-      <!-- <a
+      <a
+        href={URLS.ABOUT.GURU_SHISHYA}
         class="font-secondary text-n-600 relative w-fit cursor-pointer text-lg font-medium after:absolute after:bottom-0 after:left-0 after:h-[1.5px] after:w-0 after:bg-current after:transition-[width] after:duration-300 hover:text-orange-500 hover:after:w-full"
       >
         Read More
-      </a> -->
+      </a>
     </div>
   </div>
 </section>

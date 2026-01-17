@@ -1,4 +1,6 @@
 ---
+export const prerender = false; // Render on Server
+
 // LAYOUT //
 import Layout from "@/layouts/Layout.astro";
 
@@ -10,6 +12,13 @@ import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import FilterBar from "@/components/ui/FilterBar.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
+
+// API SERVICES //
+import { fetchSioneersRequest } from "@/services/api/sioneers.api.service";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
 
 // DATA //
 import {
@@ -23,7 +32,7 @@ const year: number =
   Number(Astro.url.searchParams.get("year")) || globalSioneers?.years[0];
 
 // Get the Students for the Year Selected
-const students = globalSioneers?.globalSioneers[year];
+const students = await fetchSioneersRequest(year.toString());
 ---
 
 <Layout meta={globalSioneersMeta}>
@@ -52,13 +61,24 @@ const students = globalSioneers?.globalSioneers[year];
             class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
           >
             {
-              students?.map((studentsItem) => (
-                <ResultsCard
-                  image={studentsItem.image}
-                  studentName={studentsItem.name}
-                  grade={studentsItem.instituteName}
-                />
-              ))
+              students && students.length > 0 ? (
+                students.map((studentsItem) => (
+                  <ResultsCard
+                    /* Dynamic Image using 'sis_globalambassador' case in Utils */
+                    image={generateImagePath(
+                      studentsItem.profilePicture || "",
+                      "global_sioneers"
+                    )}
+                    /* Mapping className to StudentName as per your existing pattern */
+                    studentName={studentsItem.className}
+                    grade={studentsItem.universityName}
+                  />
+                ))
+              ) : (
+                <div class="col-span-full">
+                  <EmptyState />
+                </div>
+              )
             }
           </div>
         </div>
