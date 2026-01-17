@@ -13,6 +13,9 @@ import { URLS } from "@/infrastructure/constants/urls";
 // DATA //
 import { sectionHeaderContent } from "@/data/home/awards";
 
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
 
@@ -44,7 +47,10 @@ const awardsCardContent = await fetchLatestAwardsRequest();
                 <div class="ns-slide" data-embla-slide>
                   <AwardsCard
                     title={awardsCardContentItem.awardName ?? ""}
-                    img={awardsCardContentItem.thumbnailImg ?? ""}
+                    img={generateImagePath(
+                      awardsCardContentItem.thumbnailImg,
+                      "awards",
+                    )}
                     subTitle={awardsCardContentItem.awardDesc ?? ""}
                     year={(awardsCardContentItem.year ?? "2025").toString()}
                   />
