@@ -1,4 +1,6 @@
 ---
+export const prerender = false; // Render on Server
+
 // LAYOUT //
 import Layout from "@/layouts/Layout.astro";
 
@@ -15,8 +17,8 @@ import EmptyState from "@/components/ui/EmptyState.astro";
 // API SERVICES //
 import { fetchSioneersRequest } from "@/services/api/sioneers.api.service";
 
-// OTHERS //
-import Layout from "@/layouts/Layout.astro";
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
 
 // DATA //
 import {
@@ -60,9 +62,14 @@ const students = await fetchSioneersRequest(year.toString());
           >
             {
               students && students.length > 0 ? (
-                students?.map((studentsItem) => (
+                students.map((studentsItem) => (
                   <ResultsCard
-                    image={"/images/student-leaders/global-sioneers/2025/1.png"}
+                    /* Dynamic Image using 'sis_globalambassador' case in Utils */
+                    image={generateImagePath(
+                      studentsItem.profilePicture || "",
+                      "global_sioneers"
+                    )}
+                    /* Mapping className to StudentName as per your existing pattern */
                     studentName={studentsItem.className}
                     grade={studentsItem.universityName}
                   />

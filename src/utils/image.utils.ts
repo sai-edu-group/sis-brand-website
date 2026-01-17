@@ -13,7 +13,6 @@ const IMAGE_BASE_URL = "https://saicloudschool.in/myerp";
  * generateImagePath("2025/12/22/2", "UNWIND 2025 (5).jpg", "gallery");
  * // "https://saicloudschool.in/myerp/uploads/gallery/2025/12/22/2/UNWIND%202025%20(5).jpg"
  */
-
 export const generateImagePath = (
   imageName: string,
   imageType: string, // "gallery", "result", "student", etc.
@@ -31,7 +30,7 @@ export const generateImagePath = (
       finalPath = `uploads/sis_cbseresult/${imageName}`;
       break;
     // STUDENT COUNCIL
-    case "studentcouncil":
+    case "student_council":
       finalPath = `uploads/sis_studentcouncil/${path}${imageName}`;
       break;
     // NEWS (BLOGS)
