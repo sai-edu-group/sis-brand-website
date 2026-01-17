@@ -8,13 +8,18 @@ export const ethosDetails = {
 <p><strong>SAI International School</strong>, applies this understanding and knowledge of the various dimensions of wellness, to address the changing needs of the children through meaningful, focused activities that engage them and offer support in these different areas to nurture the body, mind and soul. Whole-person wellness strives to help each child achieve and maximize their own individual potential as well as reach greater heights, with a new perspective towards life.</p>
 <p>The School enables holistic growth and development through a progressive curriculum, innovative instructional practices and character building processes, following multiple learning styles. Encouraging and endowing each child to initiate a lifelong pursuit of learning, discovery, innovation and expression in the truest forms, is the belief on which our processes are based.</p>
 <p>In strive for excellence; SAI International School has introduced <strong>SAI Learning Foundation</strong> <strong>and SAI Culture and Value Building</strong>.</p> 
-<table>
-  <tr>
-    <td>
-      <strong>SAI LEARNING FOUNDATION</strong>
-      <table>
-        <tr>
-          <td>
+<div class="w-full border border-n-200">
+  <!-- 2 main columns -->
+  <div class="grid grid-cols-1 md:grid-cols-2 m-0!">
+    <!-- LEFT -->
+    <div class="border-b border-n-200 md:border-b-0 md:border-r m-0!">
+      <div class="border-b border-n-200 px-6 py-4 m-0!">
+        <p class="m-0! font-semibold!">SAI LEARNING FOUNDATION</p>
+      </div>
+
+      <div class="px-6 py-5 m-0!">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 m-0!">
+          <div class="m-0!">
             <ul>
               <li>SAI Vidya</li>
               <li>SAI Samiksha</li>
@@ -22,8 +27,9 @@ export const ethosDetails = {
               <li>SAI Bruti</li>
               <li>SAI Grammar</li>
             </ul>
-          </td>
-          <td>
+          </div>
+
+          <div class="m-0!">
             <ul>
               <li>SAI Financial Studies</li>
               <li>SAI Global Studies</li>
@@ -31,16 +37,20 @@ export const ethosDetails = {
               <li>SAI Nritya-Sangeet Kala</li>
               <li>SAI Shilp Kala</li>
             </ul>
-          </td>
-        </tr>
-      </table>
-    </td>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <td>
-      <strong>SAI CULTURE AND VALUE BUILDING</strong>
-      <table>
-        <tr>
-          <td>
+    <!-- RIGHT -->
+    <div class="m-0!">
+      <div class="border-b border-n-200 px-6 py-4 m-0!">
+        <p class="m-0! font-semibold!">SAI CULTURE AND VALUE BUILDING</p>
+      </div>
+
+      <div class="px-6 py-5 m-0!">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 m-0!">
+          <div class="m-0!">
             <ul>
               <li>SAI Happiness</li>
               <li>SAI Vyaktitva</li>
@@ -48,8 +58,9 @@ export const ethosDetails = {
               <li>SAI Dayitva</li>
               <li>SAI Samskara</li>
             </ul>
-          </td>
-          <td>
+          </div>
+
+          <div class="m-0!">
             <ul>
               <li>SAI Netritva</li>
               <li>SAI Global Immersion Program</li>
@@ -57,12 +68,13 @@ export const ethosDetails = {
               <li>SAI Ujjwala</li>
               <li>SAI Yoga</li>
             </ul>
-          </td>
-        </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <p>In developing these concepts, we transform the inner virtues in children, enabling and empowering them to project their potential for greater insight and inspiration.</p>
 
