@@ -1,4 +1,5 @@
-import type { IMAGE_TYPES } from "@/enums/image.enum";
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
 
 const IMAGE_BASE_URL = "https://saicloudschool.in/myerp";
 
@@ -28,31 +29,31 @@ export const generateImagePath = (
   // Handling different image types dynamically
   switch (imageType.toLowerCase()) {
     // RESULT
-    case "result":
+    case IMAGE_TYPES.RESULT:
       finalPath = `uploads/sis_cbseresult/${imageName}`;
       break;
     // STUDENT COUNCIL
-    case "student_council":
+    case IMAGE_TYPES.STUDENT_COUNCIL:
       finalPath = `uploads/sis_studentcouncil/${path}${imageName}`;
       break;
     // NEWS (BLOGS)
-    case "blog":
+    case IMAGE_TYPES.BLOG:
       finalPath = `${path}${imageName}`;
       break;
     // AWARDS
-    case "awards":
+    case IMAGE_TYPES.AWARDS:
       finalPath = `uploads/sis_awards/${imageName}`;
       break;
     // GLOBAL SIONEERS
-    case "global_sioneers":
+    case IMAGE_TYPES.GLOBAL_SIONEERS:
       finalPath = `uploads/sis_globalambassador/${path}${imageName}`;
       break;
     // PRESS RELEASE
-    case "press_release":
+    case IMAGE_TYPES.PRESS_RELEASE:
       finalPath = `uploads/sis_press/${path}${imageName}`;
       break;
     // PRESS RELEASE
-    case "gallery":
+    case IMAGE_TYPES.GALLERY:
       finalPath = `uploads/gallery/${path}${imageName}`;
       break;
     // Add more cases as needed
