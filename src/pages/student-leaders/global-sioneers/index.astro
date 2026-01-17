@@ -66,9 +66,8 @@ const students = await fetchSioneersRequest(year.toString());
                   <ResultsCard
                     /* Dynamic Image using 'sis_globalambassador' case in Utils */
                     image={generateImagePath(
-                      "",
                       studentsItem.profilePicture || "",
-                      "sis_globalambassador"
+                      "global_sioneers"
                     )}
                     /* Mapping className to StudentName as per your existing pattern */
                     studentName={studentsItem.className}

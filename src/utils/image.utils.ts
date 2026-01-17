@@ -13,42 +13,49 @@ const IMAGE_BASE_URL = "https://saicloudschool.in/myerp";
  * generateImagePath("2025/12/22/2", "UNWIND 2025 (5).jpg", "gallery");
  * // "https://saicloudschool.in/myerp/uploads/gallery/2025/12/22/2/UNWIND%202025%20(5).jpg"
  */
-
 export const generateImagePath = (
-  path: string,
   imageName: string,
-  imageType?: string, // optional: "gallery", "result", "student", etc.
+  imageType: string, // "gallery", "result", "student", etc.
+  path?: string,
 ): string => {
-  if (!path || !imageName) return "";
+  // If Image Name not available then return empty string
+  if (!imageName) return "";
 
-  let finalPath = path;
+  let finalPath = "";
 
   // Handling different image types dynamically
-  if (imageType) {
-    switch (imageType.toLowerCase()) {
-      case "gallery":
-        finalPath = `${path}${imageName}`;
-        break;
-      case "result":
-        finalPath = `uploads/results/${path}`;
-        break;
-      case "student":
-        finalPath = `uploads/students/${path}`;
-        break;
-      case "sis_studentcouncil":
-        finalPath = `uploads/sis_studentcouncil/${path}`;
-        break;
-      case "sis_press":
-        finalPath = `uploads/sis_press/${imageName}`;
-        break;
-      case "sis_globalambassador":
-        finalPath = `uploads/sis_globalambassador/${imageName}`;
-        break;
-      // Add more cases as needed
-      default:
-        finalPath = path; // keep path as-is if no match
-        break;
-    }
+  switch (imageType.toLowerCase()) {
+    // RESULT
+    case "result":
+      finalPath = `uploads/sis_cbseresult/${imageName}`;
+      break;
+    // STUDENT COUNCIL
+    case "student_council":
+      finalPath = `uploads/sis_studentcouncil/${path}${imageName}`;
+      break;
+    // NEWS (BLOGS)
+    case "blog":
+      finalPath = `${path}${imageName}`;
+      break;
+    // AWARDS
+    case "awards":
+      finalPath = `uploads/blog/${path}${imageName}`;
+      break;
+    // GLOBAL SIONEERS
+    case "global_sioneers":
+      finalPath = `uploads/sis_globalambassador/${path}${imageName}`;
+      break;
+    // PRESS RELEASE
+    case "press_release":
+      finalPath = `uploads/sis_press/${path}${imageName}`;
+      break;
+    // PRESS RELEASE
+    case "gallery":
+      finalPath = `uploads/gallery/${path}${imageName}`;
+      break;
+    // Add more cases as needed
+    default:
+      break;
   }
 
   // Returning full URL
