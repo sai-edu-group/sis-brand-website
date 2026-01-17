@@ -130,16 +130,11 @@ export const fetchlatestBlogsRequest = async (): Promise<
       timeout: config.timeout,
     });
 
-    const blogItem = response.data?.data;
+    const blogItems = response.data?.data;
 
-    if (!blogItem) return null;
+    if (!blogItems) return null;
 
-    return {
-      ...blogItem,
-      photo: blogItem.photo
-        ? blogItem.photo.split(",").map((img: string) => img.trim())
-        : [],
-    };
+    return [...blogItems];
   } catch (error) {
     console.error("Failed to fetch news by id: ", error);
     return null;
