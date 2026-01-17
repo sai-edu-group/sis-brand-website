@@ -86,7 +86,7 @@ export const menu: MenuItemData[] = [
   {
     title: "MEDIA",
     submenu: [
-      // { title: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
+      { title: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
       // { title: "Press Releases", href: URLS.MEDIA.PRESS_RELEASE },
       // { title: "News Bulletin", href: URLS.MEDIA.NEWS_BULLETIN.ROOT },
       { title: "Albums", href: URLS.MEDIA.ALBUMS.ROOT },

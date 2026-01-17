@@ -14,7 +14,7 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
 ---
 
 <section
-  class="bg-n-50 ns-slider relative w-full overflow-hidden"
+  class="bg-n-100 ns-slider relative w-full overflow-hidden"
   id="key-personnel"
   data-section="Key Personnel"
 >
@@ -63,12 +63,12 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
               data-team-urls={JSON.stringify(
                 teamMembers.map((member) =>
                   URLS.ABOUT.TEAM_MEMBER(
-                    member.name.toLowerCase().replaceAll(" ", "-")
-                  )
-                )
+                    member.name.toLowerCase().replaceAll(" ", "-"),
+                  ),
+                ),
               )}
               href={URLS.ABOUT.TEAM_MEMBER(
-                teamMembers[0].name.toLowerCase().replaceAll(" ", "-")
+                teamMembers[0].name.toLowerCase().replaceAll(" ", "-"),
               )}
             >
               <Button
@@ -116,7 +116,7 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
       {/* Right Content - Team Members List */}
       <div
         id="team-list"
-        class="bg-n-50 mr-10 flex w-[110px] flex-col gap-2.5 pt-15 pb-15 2xl:pt-24"
+        class="bg-n-100 mr-10 flex w-[110px] flex-col gap-2.5 pt-15 pb-15 2xl:pt-24"
       >
         {
           teamMembers.map((member, index) => (
@@ -353,7 +353,7 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
 
   let currentIndex = Math.max(
     0,
-    members.findIndex((m) => m.isActive)
+    members.findIndex((m) => m.isActive),
   );
   if (currentIndex === -1) currentIndex = 0;
   let rafId = null;
@@ -362,7 +362,7 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
   /** Trigger animations for all animated elements */
   function triggerAnimations() {
     const animatedElements = document.querySelectorAll(
-      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate"
+      ".team-img-animate, .team-quote-animate, .team-button-animate, .team-name-animate, .team-position-animate",
     );
 
     // Remove animate class first
@@ -386,7 +386,7 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
     currentIndex = index;
 
     // Update left side
-    bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 45.67%, var(--color-n-50) 100%), url('${member.bgImg}') center/cover no-repeat`;
+    bgEl.style.background = `linear-gradient(90deg, rgba(255, 255, 255, 0) -15.48%, rgba(255, 255, 255, 0.87) 45.67%, var(--color-n-100) 100%), url('${member.bgImg}') center/cover no-repeat`;
     imgEl.setAttribute("src", member.img);
     imgEl.setAttribute("alt", member.name);
     buttonEl.setAttribute("href", urls[index]);
@@ -433,7 +433,7 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / AUTO_DURATION_MS, 1);
     const activeFill = listEl.querySelector(
-      `[data-index="${currentIndex}"] [data-fill]`
+      `[data-index="${currentIndex}"] [data-fill]`,
     );
     if (activeFill) {
       activeFill.style.transform = `scaleX(${progress})`;

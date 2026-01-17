@@ -44,7 +44,7 @@ const year: number =
 
 // Get the Page from the Search Params
 const page = Number(Astro.url.searchParams.get("page")) || 1;
-const limit = 10;
+const limit = 12;
 
 const newsResponse = await fetchBlogsByYearRequest(year, page, limit);
 const news = newsResponse.blogs;

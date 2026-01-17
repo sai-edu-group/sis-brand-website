@@ -1,6 +1,6 @@
 ---
 // OTHERS //
-import { timeAgo } from "@/scripts/date-parser";
+import { formatDate } from "@/scripts/date-parser";
 
 interface Props {
   author: string;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { author = "", date = "", readTimeMins, onShare } = Astro.props as Props;
-const formattedDate = date ? timeAgo(date) : "";
+const formattedDate = date ? formatDate(date) : "";
 ---
 
 <div class="flex w-full flex-col gap-6">
@@ -20,6 +20,7 @@ const formattedDate = date ? timeAgo(date) : "";
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-5 md:gap-24">
       <!-- Icon and Author Name -->
+       { author && (
       <div class="flex items-center gap-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,11 +40,12 @@ const formattedDate = date ? timeAgo(date) : "";
         <!-- Author Name -->
         <p class="text-n-600 font-secondary text-xs md:text-lg">{author}</p>
       </div>
+        ) }
       <div class="flex items-center gap-5">
         {
           readTimeMins && (
             <>
-              <p class="text-n-500 font-secondary text-xs md:text-lg">{`${readTimeMins} min read`}</p>
+              <p class="text-n-500 font-secondary text-xs md:text-lg">{`${readTimeMins}`}</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="4"

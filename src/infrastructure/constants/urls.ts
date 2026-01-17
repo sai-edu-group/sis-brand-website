@@ -8,8 +8,7 @@ export const URLS = {
     GURU_SHISHYA: "/about/guru-shishya-parampara",
 
     LEARNING_360: {
-      ITEM: (name: string) =>
-        `/about/learning-360/${name}`,
+      ITEM: (name: string) => `/about/learning-360/${name}`,
     },
 
     LEARNING_AND_BEYOND: {
@@ -100,8 +99,9 @@ export const URLS = {
     ROOT: "/media",
 
     NEWS: {
-      ROOT: "/media/news",
-      ITEM: (id: string, title: string) => `/media/news/${id}/${title}`,
+      ROOT: "/media/news-and-blogs",
+      ITEM: (id: string, title: string) =>
+        `/media/news-and-blogs/${id}/${title}`,
     },
 
     ANNOUNCEMENTS: "/blogs/announcement",

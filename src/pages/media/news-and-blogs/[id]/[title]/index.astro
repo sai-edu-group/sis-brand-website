@@ -53,7 +53,7 @@ const breadcrumbItems = [
       <Article
         title={newsItem?.title ?? "News"}
         metaStripDetails={{
-          author: newsItem?.category_name ?? "",
+          author: "",
           date: newsItem?.created_on
             ? new Date(newsItem.created_on).toDateString()
             : "",

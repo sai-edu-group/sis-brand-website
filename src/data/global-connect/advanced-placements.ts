@@ -79,7 +79,7 @@ export const advancedPlacementsContent = {
 };
 
 export const metaData = {
-  author: "Sai Admin",
+  author: "",
   date: "2025-11-06T21:14:00+05:30",
   readTimeMins: 8,
 };
