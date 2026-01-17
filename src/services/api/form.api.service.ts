@@ -34,7 +34,7 @@ export const contactEnquiryRequest = async (data: any) => {
   try {
     const config: AxiosRequestConfig = {
       method: "post",
-      url: API_URL,
+      url: `${API_URL}contacts`,
       headers: {
         "Content-Type": "application/json",
       },
