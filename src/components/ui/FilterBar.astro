@@ -58,8 +58,8 @@ const dropdownYears = years.slice(2);
 
             {/* Year Dropdown List */}
             <ul
-              class="border-n-500 bg-n-50 absolute top-full left-0 z-10 mt-2 max-h-[250px] w-full overflow-y-auto rounded-xl border shadow-lg transition duration-300 ease-in-out"
-              id="modal"
+              class="border-n-500 scrollbar-hide bg-n-50 absolute top-full left-0 z-10 mt-2 max-h-[250px] w-full overflow-y-auto rounded-xl border shadow-lg transition duration-300 ease-in-out"
+              id="year-dropdown-list"
             >
               {dropdownYears.map((year) => (
                 <li>
@@ -158,7 +158,7 @@ const dropdownYears = years.slice(2);
 
     const yearButtons = document.querySelectorAll("[data-year]");
     const searchInput = document.getElementById("search-input");
-    const dropdown = document.getElementById("modal");
+    const dropdown = document.getElementById("year-dropdown-list");
     const yearSelected = document.getElementById("year-selected");
 
     // Sort Dropdown Elements
@@ -174,7 +174,7 @@ const dropdownYears = years.slice(2);
       firstBtn.classList.add(
         "bg-orange-500",
         "text-white",
-        "hover:bg-orange-500"
+        "hover:bg-orange-500",
       );
       firstBtn.classList.remove("bg-n-50", "text-n-500");
     }
@@ -217,14 +217,14 @@ const dropdownYears = years.slice(2);
     if (sortDropdown) {
       // Set current sort text
       const activeSortItem = sortDropdown.querySelector(
-        `[data-value="${currentSort}"]`
+        `[data-value="${currentSort}"]`,
       );
       if (activeSortItem) {
         sortSelected.textContent = activeSortItem.textContent;
         activeSortItem.classList.add(
           "bg-orange-500",
           "text-white",
-          "rounded-md"
+          "rounded-md",
         );
       } else {
         sortSelected.textContent = "Recommended";
@@ -246,7 +246,7 @@ const dropdownYears = years.slice(2);
           sortList
             .querySelectorAll("li")
             .forEach((li) =>
-              li.classList.remove("bg-orange-500", "text-white", "rounded-md")
+              li.classList.remove("bg-orange-500", "text-white", "rounded-md"),
             );
 
           // Highlight the selected one
