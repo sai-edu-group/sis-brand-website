@@ -1,17 +1,16 @@
 import axios from "axios";
 
-
-export type StudentResultItem = {
+export type StudentResultData = {
   studentName: string;
   studentProfilePic: string;
   percentage: string;
   className: string;
 };
 
-type ApiResponse = {
+type ApiResponseData = {
   status: boolean;
   statusCode: number;
-  data: StudentResultItem[];
+  data: StudentResultData[];
 };
 
 /**
@@ -23,14 +22,14 @@ type ApiResponse = {
  */
 export const fetchResultsRequest = async (
   year: number | string,
-  classId: string
-): Promise<StudentResultItem[]> => {
+  classId: string,
+): Promise<StudentResultData[]> => {
   // Construct API endpoint using public base URL and query parameters
   const endpoint = `${import.meta.env.PUBLIC_API_URL}results/get-results?year=${year}&classId=${classId}`;
 
   try {
     // Perform GET request to fetch results data
-    const response = await axios.get<ApiResponse>(endpoint, {
+    const response = await axios.get<ApiResponseData>(endpoint, {
       headers: { "Content-Type": "application/json" },
       timeout: 8000,
     });
