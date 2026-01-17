@@ -1,91 +1,89 @@
 ---
 export const prerender = false; // Render on Server
 
-// LAYOUT //
-import Layout from "@/layouts/Layout.astro";
-
 // COMPONENTS //
-import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
+import FilterBar from "@/components/ui/FilterBar.astro";
+
+// API SERVICES //
+import { fetchResultsRequest } from "@/services/api/results.api.service";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import { cbseClasses } from "@/data/results/cbse-12th";
-import { URLS } from "@/infrastructure/constants/urls";
 
-// TYPES //
-import type { ClassData, ResultData } from "@/types/results/results";
-
-// Get the Props from the URL [stream]/[year]
 const { streamId } = Astro.params;
 
-// Get the Year from the Search Params
-const year = Astro.url.searchParams.get("year");
+// We find the class details (Name: "Science", Years: [2024, 2023]) from local config.
+const classItem = cbseClasses.find((item) => item.id.toString() === streamId);
 
-// Get the Class Object from "chseClasses" data using the Stream ID
-// TODO: WIll be API Call here
-const classItem: ClassData | undefined = cbseClasses.find(
-  (cbseClassItem) => cbseClassItem.id === parseInt(streamId ?? "0"),
-);
-
-// If streamId is missing or invalid — go back or redirect
-if (!streamId || !year || !classItem) {
-  return new Response(null, {
-    status: 302,
-    headers: {
-      Location: Astro.request.headers.get("referer") || URLS.HOME,
-    },
-  });
+// Safety: If someone types a random ID (e.g. /99), redirect home.
+if (!classItem) {
+  return Astro.redirect("/");
 }
 
-const results: ResultData[] = classItem.results[parseInt(year)];
+const urlYear = Astro.url.searchParams.get("year");
+// Default to the first available year in the config if URL param is missing
+const currentYear = urlYear ? Number(urlYear) : classItem.years[0];
 
-// Breadcrumb Items
+// We use the ID and Year to get real student data
+const results = await fetchResultsRequest(currentYear, streamId ?? "11");
+
 const breadcrumbItems = [
-  { label: "12th Results", href: URLS.RESULTS.CBSE_12.ROOT },
-  {
-    label: classItem.name,
-    href: `${URLS.RESULTS.CBSE_12.STREAM(streamId)}?year=${year}`,
-  },
+  { label: "12th Results", href: "/results/cbse-12th" },
+  { label: classItem.name, href: "#" },
 ];
+
+const pageMeta = {
+  title: `${classItem.name} - ${currentYear}`,
+  description: `Celebrating our students hard work`,
+};
 ---
 
-<Layout>
+<Layout meta={pageMeta}>
   <section class="bg-n-50 relative w-full overflow-hidden">
     <div
       class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
     >
-      <!-- Breadcrumbs -->
       <Breadcrumbs items={breadcrumbItems} />
 
-      <!-- Body of the Results -->
       <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
-        <!-- Section Header -->
         <SectionHeaderMain
           title={classItem.name}
           subtitle="Celebrating our students hard work and achievements"
         />
 
-        <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
-          <!-- Years Filters -->
           <FilterBar showSearch={false} years={classItem.years} />
 
-          <!-- Results -->
-          <div
-            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
-          >
-            {
-              results?.map((resultItem) => (
-                <ResultsCard
-                  studentName={resultItem.studname}
-                  score={resultItem.percentage}
-                  image={resultItem.studprofilepic}
-                />
-              ))
-            }
-          </div>
+          <!-- Show the Results OR show Empty State -->
+          {
+            results && results.length > 0 ? (
+              <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                {results.map((student) => (
+                  <ResultsCard
+                    key={student.studentName}
+                    studentName={student.studentName}
+                    score={student.percentage}
+                    image={generateImagePath(
+                      student.studentProfilePic,
+                      "result",
+                    )}
+                  />
+                ))}
+              </div>
+            ) : (
+              <EmptyState />
+            )
+          }
         </div>
       </div>
     </div>

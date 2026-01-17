@@ -10,6 +10,7 @@ import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import FilterBar from "@/components/ui/FilterBar.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 
 // DATA //
 import {
@@ -21,12 +22,15 @@ import {
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
 
+// SERVICES //
+import { fetchStudentsByYearRequest } from "@/services/api/student-council.api.service";
+
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
   Number(Astro.url.searchParams.get("year")) || studentCouncil?.years[0];
 
 // Get the Students for the Year Selected
-const students = studentCouncil?.studentCouncil[year];
+const students = await fetchStudentsByYearRequest(year);
 ---
 
 <Layout meta={studentCouncilMeta}>

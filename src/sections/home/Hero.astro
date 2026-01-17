@@ -155,6 +155,15 @@ const grades = [
                 <div class="spinner"></div>
                 <span class="text-base font-medium">Submitting...</span>
               </div>
+
+              <!-- Success Message -->
+              <p
+                id="hero-success"
+                class="mt-2 hidden w-full rounded-lg border border-green-200 bg-green-50 px-3 py-2 text-sm font-medium text-green-700 md:text-base"
+              >
+                Form submitted successfully! You will receive the brochure on
+                your phone shortly.
+              </p>
             </form>
 
             <!-- Brochure Text -->
@@ -296,6 +305,10 @@ const grades = [
         .querySelectorAll("[data-error]")
         .forEach((p) => p.classList.add("hidden"));
 
+      // Hide previous success message
+      const successMessage = document.getElementById("hero-success");
+      successMessage?.classList.add("hidden");
+
       const studentName =
         form.querySelector('input[name="studentName"]')?.value.trim() || "";
       const grade =
@@ -340,7 +353,7 @@ const grades = [
           grade: grade,
           phone: phone,
         },
-        EVENTS.INTEREST_FORM_COMPLETED,
+        EVENTS.INTEREST_FORM_COMPLETED
       );
       // 🔥 Show loader & disable button
       loader?.classList.remove("hidden");
@@ -354,10 +367,8 @@ const grades = [
 
         await admissionEnquiryRequest(leadSquaredPayload);
 
-        // Success message
-        alert(
-          "Form submitted successfully! You will receive the brochure on your phone shortly."
-        );
+        // ✅ Show success message in form
+        successMessage?.classList.remove("hidden");
 
         // Reset fields
         form.reset();
@@ -380,7 +391,7 @@ const grades = [
   import { setupFormStartTracking } from "@/scripts/analytics";
 
   const form = document.querySelector(
-    "[data-hero-form]",
+    "[data-hero-form]"
   ) as HTMLFormElement | null;
 
   if (form) {

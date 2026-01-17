@@ -12,9 +12,14 @@ export const flagshipContent = [
       "An annual two-month series (August–September) honoring the founder’s vision, fostering deep reflection on values and principles to shape future, empathetic leaders.",
     img: "/images/flagship/founder-memorial-series.jpg",
     landscapeImg: "/images/flagship/founder-memorial-series.jpg",
-    content: `<p>In the months of August and September 2023, an aura of reverence and inspiration envelops the corridors of SAI International as the school community gathers to celebrate the Founder's Memorial Series. This poignant event stands as a testament to the vision and dedication of esteemed Founder-Chairman, SAI International, Dr. Bijaya Kumar Sahoo. It's not merely a commemoration, but a time of profound reflection, where his indomitable spirit and commitment to nurturing young minds and shaping future leaders are celebrated.</p>
-    <p>The Founder's Memorial Series, lovingly facilitated by SAI International, is an exceptional journey that spans two months annually as a humble tribute to the Founder. It beckons students, teachers, alumni, and staff to come together in a harmonious union to partake in a series of activities and events. These acts of tribute and celebration resonate with the cherished values and contributions of the Founder-Chairman, leaving an indelible impression on each participant.</p>
-    <p><strong>Vision - </strong>The prominent vision of this series is revisiting the values and principles professed by Founder-Chairman, Dr Bijay Kumar Sahoo, to be instilled in the students for nurturing the future stakeholders of the nation. The Founder Memorial Series is an endeavour by the school to embed the eternal learnings as envisioned by the Founder, to help raise rational, empathetic & resilient leaders who bring about a prolific positive change in the society.</p>`,
+    content: `<p><strong>Founder’s Memorial Series</strong></p>
+    <p>Every year, in <strong>August and September</strong>, SAI International comes alive with an aura of reverence and inspiration as the <strong>Founder’s Memorial Series</strong> unfolds. This poignant celebration honors the vision and dedication of our esteemed Founder,<strong> Dr. Bijaya Kumar Sahoo,</strong> whose indomitable spirit continues to guide and inspire generations of young minds. Far beyond a commemoration, it is a period of <strong>reflection, learning, and celebration</strong> of his enduring legacy in shaping future leaders.</p>
+
+    <p>Lovingly curated by the school, the Founder’s Memorial Series spans <strong>two months of meaningful engagement,</strong> inviting students, teachers, alumni, and staff to participate in a variety of activities that resonate with the <strong>values and principles championed by Dr. Sahoo.</strong> Through this series, the school community revisits his teachings, celebrates his contributions, and imbibes the spirit of empathy, resilience, and rational thinking.</p>
+
+    <p><strong>Vision </strong>– The Founder’s Memorial Series seeks to <strong>instill the timeless values of Dr. Bijaya Kumar Sahoo</strong> in our students, nurturing them into thoughtful, compassionate, and visionary leaders who are empowered to make a <strong>positive impact on society.</strong></p>
+    
+    `,
   },
   {
     id: 2,

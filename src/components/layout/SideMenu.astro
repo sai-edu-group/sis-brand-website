@@ -180,8 +180,10 @@ import Image from "astro/components/Image.astro";
     backdrop.classList.add("opacity-0", "invisible");
     backdrop.classList.remove("opacity-100", "visible");
     hamburgerBtn?.classList.remove("is-open");
+
     // ✅ Re-enable body scroll
     document.body.style.overflowY = "";
+
     // IMPORTANT
     lenis.start();
   }
@@ -249,7 +251,12 @@ import Image from "astro/components/Image.astro";
         getComputedStyle(submenu).height === "auto" ||
         submenu.style.height === "auto"
       ) {
-        submenu.style.height = submenu.scrollHeight + "px";
+        const inner = section.querySelector("[data-menu-submenu-inner]");
+        if (inner) {
+          submenu.style.height = inner.scrollHeight + "px";
+        } else {
+          submenu.style.height = submenu.scrollHeight + "px";
+        }
         submenu.offsetHeight; // reflow
       }
 
@@ -264,44 +271,84 @@ import Image from "astro/components/Image.astro";
     container.addEventListener("click", (e) => {
       const header = e.target.closest?.("[data-menu-header]");
       if (!header) return;
+
       const item = header.closest("[data-menu-item]");
       if (!item) return;
 
       const isOpen = item.getAttribute("data-open") === "true";
+
+      // Close all
       container.querySelectorAll("[data-menu-item]").forEach(closeSection);
+
+      // Open clicked one if it was closed
       if (!isOpen) openSection(item);
     });
+
+    // ✅ Utility: get current pathname + hash
+    function getCurrentUrlKey() {
+      return window.location.pathname + window.location.hash;
+    }
+
+    // ✅ Auto open submenu if current page matches any submenu link
+    function openActiveSubmenu() {
+      const current = getCurrentUrlKey();
+
+      const activeLink = Array.from(
+        document.querySelectorAll(".submenu-link")
+      ).find((link) => link.getAttribute("data-href") === current);
+
+      if (!activeLink) return;
+
+      const section = activeLink.closest("[data-menu-item]");
+      if (!section) return;
+
+      // Close all other sections
+      container.querySelectorAll("[data-menu-item]").forEach(closeSection);
+
+      // Open the active one
+      openSection(section);
+    }
+
+    // Run on first load + url changes
+    document.addEventListener("DOMContentLoaded", openActiveSubmenu);
+    window.addEventListener("hashchange", openActiveSubmenu);
+    window.addEventListener("popstate", openActiveSubmenu);
+
+    /** Update Active State + underline styles */
+    function updateActiveMenu() {
+      const current = getCurrentUrlKey();
+
+      document.querySelectorAll(".submenu-link").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+
+        const target = link.getAttribute("data-href");
+        const underline =
+          link.parentElement.querySelector(".submenu-underline");
+
+        // Reset old classes
+        link.classList.remove("font-semibold", "text-orange-500");
+        underline?.classList.remove("h-0.5", "bg-orange-500");
+
+        // Apply new ones
+        if (target === current) {
+          link.classList.add("font-semibold", "text-orange-500");
+          underline?.classList.add("h-0.5", "bg-orange-500");
+        }
+      });
+
+      // ✅ Also open the correct submenu
+      openActiveSubmenu();
+    }
+
+    // Trigger on first load
+    document.addEventListener("DOMContentLoaded", updateActiveMenu);
+
+    // Trigger when URL hash (#) changes
+    window.addEventListener("hashchange", updateActiveMenu);
+
+    // Trigger on browser back/forward
+    window.addEventListener("popstate", updateActiveMenu);
   }
-
-  /** Update Active State  */
-  function updateActiveMenu() {
-    const current = window.location.pathname + window.location.hash;
-
-    document.querySelectorAll(".submenu-link").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-      const target = link.getAttribute("data-href");
-      const underline = link.parentElement.querySelector(".submenu-underline");
-
-      // Reset old classes
-      link.classList.remove("font-semibold", "text-orange-500");
-      underline.classList.remove("h-0.5", "bg-orange-500");
-
-      // Apply new ones
-      if (target === current) {
-        link.classList.add("font-semibold", "text-orange-500");
-        underline.classList.add("h-0.5", "bg-orange-500");
-      }
-    });
-  }
-
-  // Trigger on first load
-  document.addEventListener("DOMContentLoaded", updateActiveMenu);
-
-  // Trigger when URL hash (#) changes
-  window.addEventListener("hashchange", updateActiveMenu);
-
-  // Trigger on browser back/forward
-  window.addEventListener("popstate", updateActiveMenu);
 </script>
 
 <style>

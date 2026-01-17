@@ -1,10 +1,21 @@
 ---
 import Button from "./Button.astro";
+
+/**
+ * Props
+ * - title: Heading text (optional)
+ * - description: Supporting text (optional)
+ */
+const {
+  title = "No Items Found",
+  description = "Oops! We lost you there. Please try again after some time.",
+} = Astro.props;
 ---
 
 <div
-  class="container mx-auto flex flex-col items-center justify-center gap-6 px-6 py-20"
+  class="container mx-auto flex w-full flex-col items-center justify-center gap-6 px-6 py-20"
 >
+  <!-- Illustration -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="162"
@@ -113,18 +124,22 @@ import Button from "./Button.astro";
       stroke-width="5"
       stroke-linecap="round"></path>
   </svg>
-
+  <!-- Text Content -->
   <div class="flex flex-col items-center gap-3">
+    <!-- Title -->
     <p class="text-n-800 text-3xl font-medium md:text-4xl lg:text-6xl">
-      No Items found
+      {title}
     </p>
+
+    <!-- Description -->
     <p
       class="font-secondary text-n-600 max-w-2xl text-center text-base md:text-xl lg:text-3xl"
     >
-      Oops! We lost you there. Please try again after some time.
+      {description}
     </p>
   </div>
 
+  <!-- Action -->
   <Button
     text="Reload"
     size="small"

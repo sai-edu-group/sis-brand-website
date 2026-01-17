@@ -13,25 +13,39 @@ import EmptyState from "@/components/ui/EmptyState.astro";
 import Pagination from "@/components/ui/Pagination.astro";
 import ArticleCard from "@/components/ui/ArticleCard.astro";
 
+// API SERVICES //
+import { fetchBlogsByYearRequest } from "@/services/api/news.api.service";
+
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
-// META //
-import newsMeta from "@/data/meta/media/news/news.json";
-
 // DATA //
+import newsMeta from "@/data/meta/media/news/news.json";
 import {
   newsDetails,
   newsBreadcrumbItems,
   newsSectionHeader,
 } from "@/data/media/news";
 
+// META //
+
 // Get the Year from the Search Params
 const year: number =
   Number(Astro.url.searchParams.get("year")) || newsDetails.years[0];
+
+// Get the Page from the Search Params
+const page = Number(Astro.url.searchParams.get("page")) || 1;
+const limit = 10;
+
+const newsResponse = await fetchBlogsByYearRequest(year, page, limit);
+const news = newsResponse.blogs;
+const totalCount = newsResponse.total_count;
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -43,12 +57,8 @@ if (!year) {
   });
 }
 
-const news: NewsItemData[] = newsDetails.news[year] ?? [];
-
 // Get this from API
-const totalItems = news.length;
-const totalPages = totalItems > 0 ? Math.ceil(totalItems / 10) : 0;
-
+const totalPages = Math.ceil(totalCount / limit);
 const shouldShowPagination = totalPages > 1;
 ---
 
@@ -80,21 +90,25 @@ const shouldShowPagination = totalPages > 1;
           {
             news && news.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-                {news.map((newsItem: NewsItemData, newsItemIndex) => (
+                {news.map((newsItem, newsItemIndex) => (
                   <div
                     class="card-anim"
                     style={`--delay: ${newsItemIndex * 0.2}s`}
                   >
                     <ArticleCard
                       title={newsItem.title}
-                      img={newsItem.img}
-                      topText={newsItem.topText}
-                      date={newsItem.date}
+                      img={generateImagePath(
+                        newsItem.thumbnail,
+                        "blog",
+                        newsItem.photo_path,
+                      )}
+                      topText={"SAI Admin"}
+                      date={newsItem.created_on}
                       href={URLS.MEDIA.NEWS.ITEM(
                         newsItem.id.toString(),
                         newsItem.title.toLowerCase().replaceAll(" ", "-"),
                       )}
-                      tags={newsItem.tags}
+                      tags={[newsItem.category_name]}
                     />
                   </div>
                 ))}

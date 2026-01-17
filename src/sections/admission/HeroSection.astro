@@ -5,7 +5,7 @@ import Image from "astro/components/Image.astro";
 ---
 
 <section
-  class="bg-n-50 relative bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-60"
+  class="bg-n-50 relative bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-60 overflow-hidden"
   data-section="Admission Hero"
 >
   <!-- Main Content -->
@@ -38,14 +38,14 @@ import Image from "astro/components/Image.astro";
 
   <!-- Inline image (mobile & tablet) -->
   <div
-    class="relative flex items-center justify-center lg:absolute lg:right-0 lg:bottom-0 lg:w-[55%] lg:justify-end"
+    class="relative flex items-center justify-center lg:absolute lg:-right-50 lg:bottom-0 lg:w-[55%] lg:justify-end"
   >
     <div class="relative">
       <!-- Main Parent image -->
 
       <div class="relative w-screen lg:w-full">
         <Image
-          src="/images/parent-hero.png"
+          src="/images/admission-hero.png"
           alt=""
           class="h-full w-full object-cover lg:max-h-[680px]"
           loading="lazy"
@@ -57,7 +57,7 @@ import Image from "astro/components/Image.astro";
 
       <!-- Decorative vectors -->
       <div
-        class="absolute -top-[31px] left-[47%] h-[100px] w-[75%] -translate-x-1/2 md:h-[170px] md:w-[80%]"
+        class="absolute -top-[31px] left-[30%] h-[100px] w-[40%] -translate-x-1/2 md:h-[170px] lg:w-[70%]"
       >
         <svg
           class="absolute bottom-0 left-0 size-9 sm:size-14 md:size-20"
