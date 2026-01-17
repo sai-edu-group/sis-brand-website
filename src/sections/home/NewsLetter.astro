@@ -56,6 +56,13 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
           </p>
         </div>
 
+        <!-- Success/Error Message -->
+        <div
+          id="newsletter-message"
+          class="hidden rounded-lg px-4 py-3 text-sm font-medium"
+        >
+        </div>
+
         <!-- Cta button -->
         <a href="/" data-subscribe-newsletter-button>
           <Button text="Subscribe to Newsletter" />
@@ -67,7 +74,30 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
 
 <script>
   import { subcribeNewsLetterRequest } from "@/services/api/form.api.service.ts";
-  
+
+  function showMessage(message, isSuccess = true) {
+    const messageEl = document.querySelector("#newsletter-message");
+    messageEl.textContent = message;
+    messageEl.classList.remove(
+      "hidden",
+      "bg-red-100",
+      "text-red-700",
+      "bg-green-100",
+      "text-green-700",
+    );
+
+    if (isSuccess) {
+      messageEl.classList.add("bg-green-100", "text-green-700");
+    } else {
+      messageEl.classList.add("bg-red-100", "text-red-700");
+    }
+
+    // Auto-hide after 4 seconds
+    setTimeout(() => {
+      messageEl.classList.add("hidden");
+    }, 4000);
+  }
+
   window.addEventListener("DOMContentLoaded", () => {
     const subscribeNewsletterButton = document.querySelector(
       "[data-subscribe-newsletter-button]",
@@ -92,15 +122,16 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
         }
 
         const response = await subcribeNewsLetterRequest({ email });
-        if (response.status) {
-          document.querySelector("#email-error").classList.add("hidden");
-          alert(
-            "Thank you for subscribing! You have been added to our newsletter.",
-          );
-        } else {
-          document.querySelector("#email-error").classList.remove("hidden");
-          alert("Something went wrong. Please try again later.");
-        }
+        document.querySelector("#email-error").classList.add("hidden");
+        showMessage(
+          "Thank you for subscribing! You have been added to our newsletter.",
+          true,
+        );
+        // if (response.status) {
+        //   document.querySelector('input[name="emailId"]').value = "";
+        // } else {
+        //   showMessage("Something went wrong. Please try again later.", false);
+        // }
       });
     }
   });

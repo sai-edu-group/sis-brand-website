@@ -28,7 +28,7 @@ export const learning360Content = [
         imageUrl: "/images/assessment.jpg",
       },
     ],
-    landscapeImg: "/images/learning.png",
+    landscapeImg: "/images/smart-classroom.jpg",
     content: `<p>Smart Academics is driven by the seamless integration of digital technology and IT across all levels of the curriculum, creating an engaging, future-focused learning environment. From its inception, the school has embraced ICT-enabled education to enrich classroom experiences, encourage exploration, and empower students with access to vast knowledge resources.
               </p>
               <ul>
@@ -78,7 +78,7 @@ export const learning360Content = [
         imageUrl: "/images/drama-theatre.jpg",
       },
     ],
-    landscapeImg: "/images/learning.png",
+    landscapeImg: "/images/music-360.jpg",
     content: `<p><strong>Creative Arts - </strong>At SAI International School, Creative Arts form an integral part of holistic education, nurturing imagination, expression, and innovation. Through SAI Nritya Sangeet Kala, SAI Natya Kala, and SAI Shilp Kala, the Visual and Performing Arts play a vital role in unlocking the infinite creative potential inherent in every child. The school places strong emphasis on creative thinking, self-expression, and aesthetic appreciation, complementing formal academics and contributing to the overall intellectual, emotional, and social development of students. A structured yet flexible approach ensures that learners not only discover their talents but also gain confidence, discipline, and cultural sensitivity.</p>
     <p><strong>Music & Dance - </strong>Music and dance provide students with a powerful medium of expression, rhythm, and emotional balance. Through classical, contemporary, and global forms, students explore movement and melody while developing coordination, creativity, and stage confidence. Clubs such as the Rhythm Club and Symphony Club further nurture talent and performance skills.</p>
     <p><strong>Visual Arts - </strong>Visual Arts encourage students to think creatively and translate ideas into visual expression. Through painting, sculpture, design, and mixed media, learners develop observation skills, originality, and artistic sensibility. The Different Strokes Club offers a platform to experiment, innovate, and refine artistic techniques.</p>
@@ -104,7 +104,7 @@ export const learning360Content = [
         imageUrl: "/images/yoga.jpg",
       },
     ],
-    landscapeImg: "/images/learning.png",
+    landscapeImg: "/images/sports-home.jpg",
     content: `<p>At SAI International School, Physical Education is an integral pillar of holistic development, nurturing physical fitness, mental strength, discipline, and sportsmanship. Through the SAI Sports Academy, students are exposed to a wide spectrum of sporting activities including swimming, horse riding, lawn tennis, table tennis, snooker, football, basketball, cricket, hockey, gymnastics, wall climbing, skating, karate, yoga, kho-kho, badminton, volleyball, chess, rifle shooting, and athletics. The school places strong emphasis on identifying and nurturing individual sporting talent, providing students the freedom to choose a sport of interest and the space to pursue it with passion. State-of-the-art infrastructure, including tennis courts, basketball courts, a full-sized football field, a well-equipped gymnasium, and four swimming pools, supports structured training and overall physical well-being. Sports at SAI foster teamwork, resilience, empathy, leadership, and a strong sense of belonging, preparing students to face both success and challenges with confidence.</p>
     
     <p><strong>Sports Training </strong> - The SAI Sports Academy offers professional training across multiple sports under the guidance of experienced coaches. Carefully designed facilities enable focused practice, competitive exposure, and skill enhancement. From team sports that build collaboration to individual disciplines that strengthen self-discipline and perseverance, students develop physical endurance, strategic thinking, and confidence. Specialized training in swimming and equestrian sports further enriches the sporting ecosystem, offering unique experiences that build balance, coordination, responsibility, and emotional strength.</p>
