@@ -62,10 +62,10 @@ const students = await fetchStudentsByYearRequest(year);
               students?.map((studentsItem) => (
                 <ResultsCard
                   image={generateImagePath(
-                    studentsItem.image,
+                    studentsItem.studentProfilePic,
                     "student_council",
                   )}
-                  studentName={studentsItem.name}
+                  studentName={studentsItem.studentName}
                   grade={studentsItem.designation}
                 />
               ))

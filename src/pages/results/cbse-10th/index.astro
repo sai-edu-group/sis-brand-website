@@ -28,9 +28,6 @@ import {
 } from "@/data/results/cbse-10th";
 import { URLS } from "@/infrastructure/constants/urls";
 
-// TYPES //
-import type { ResultData } from "@/types/results/results";
-
 // Get the Year from the Search Params
 const urlYear = Astro.url.searchParams.get("year");
 
@@ -39,7 +36,7 @@ const year: number = urlYear ? Number(urlYear) : cbseTenth.years[0];
 
 // Fetch Results from API (Hardcoded ID 7 for 10th Grade)
 // This replaces the old 'cbseTenth.results[year]' line
-const results = await fetchResultsRequest(year, "7");
+const results = await fetchResultsRequest(year, "7"); // 7 is the ID of 10th
 
 // If year is invalid — go back or redirect
 if (!year) {
@@ -79,7 +76,6 @@ if (!year) {
                     score={student.percentage}
                     /* Dynamic Image URL for 10th Results */
                     image={generateImagePath(
-                      "results",
                       student.studentProfilePic,
                       "result"
                     )}
