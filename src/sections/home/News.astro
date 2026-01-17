@@ -1,6 +1,5 @@
 ---
 import ArticleCard from "@/components/ui/ArticleCard.astro";
-import Button from "@/components/ui/Button.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 
 // DATA //
@@ -9,6 +8,12 @@ import {
   sectionHeaderContent,
 } from "../../data/home/news";
 import { URLS } from "@/infrastructure/constants/urls";
+
+// SERVICES //
+import { fetchlatestBlogsRequest } from "@/services/api/news.api.service";
+import { generateImagePath } from "@/utils/image.utils";
+
+const newsItems = await fetchlatestBlogsRequest();
 
 const uid = "embla-news";
 ---
@@ -27,14 +32,17 @@ const uid = "embla-news";
         <!-- Container -->
         <div class="flex gap-7" data-embla-container>
           {
-            articleCardsContent.map((articleCardsContentItem) => (
+            newsItems?.map((articleCardsContentItem) => (
               <div class="ns-slide cursor-pointer" data-embla-slide>
                 <ArticleCard
                   title={articleCardsContentItem.title}
-                  img={articleCardsContentItem.img}
-                  topText={articleCardsContentItem.topText}
-                  date={articleCardsContentItem.date}
-                  tags={articleCardsContentItem.tags}
+                  img={generateImagePath(
+                    articleCardsContentItem.thumbnail,
+                    "blog",
+                  )}
+                  topText={"SAI Admin"}
+                  date={articleCardsContentItem.created_on}
+                  tags={[articleCardsContentItem.category_name]}
                   href={URLS.MEDIA.NEWS.ROOT}
                 />
               </div>

@@ -39,7 +39,7 @@ export const generateImagePath = (
       break;
     // AWARDS
     case "awards":
-      finalPath = `uploads/blog/${path}${imageName}`;
+      finalPath = `uploads/sis_awards/${imageName}`;
       break;
     // GLOBAL SIONEERS
     case "global_sioneers":
