@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/beedies",
+      "destination": "https://pixoloproductions.com/beedies",
+      "permanent": true
+    },
+    {
+      "source": "/beedies/:path*",
+      "destination": "https://pixoloproductions.com/beedies/:path*",
+      "permanent": true
+    }
+  ]
+}
