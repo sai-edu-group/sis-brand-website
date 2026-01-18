@@ -1,7 +1,7 @@
 {
   "redirects": [
     {
-      "source": "/beedies",
+      "source": "/beedies/?",
       "destination": "https://pixoloproductions.com/beedies",
       "permanent": true
     },
