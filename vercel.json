@@ -89,6 +89,21 @@
       "source": "/kaleidoscope/:path*",
       "destination": "https://saiinternational.edu.in/kaleidoscope/:path*",
       "permanent": true
+    },
+    {
+      "source": "/mail",
+      "destination": "https://saiinternational.edu.in/mail",
+      "permanent": true
+    },
+    {
+      "source": "/mail/",
+      "destination": "https://saiinternational.edu.in/mail/",
+      "permanent": true
+    },
+    {
+      "source": "/mail/:path*",
+      "destination": "https://saiinternational.edu.in/mail/:path*",
+      "permanent": true
     }
   ]
 }
