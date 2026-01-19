@@ -30,6 +30,9 @@ const canonical = `${site.siteUrl}${Astro.url.pathname}`;
   <meta name="twitter:title" content={metaTitle} />
   <meta name="twitter:description" content={metaDesc} />
   <meta name="twitter:image" content={metaImg} />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://www.saiinternational.edu.in/" />
   <!--  -->
   {noIndex && <meta name="robots" content="noindex" />}
 </head>
