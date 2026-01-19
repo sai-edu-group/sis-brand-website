@@ -14,7 +14,7 @@ export const faqDetails = [
     pointers: [
       "Visit the Admissions Office to collect an Enquiry Form, or fill the Admission Form online at https://saiinternational.edu.in/admission/",
       "Contact the Admissions Counsellors at (0674) 7100200, 9338169966, or 9338336699.",
-      "Connect via WhatsApp at 9338169966 or 9338336699.",
+      "Connect via WhatsApp at <strong> 9338169966 or 9338336699.</strong>",
       "You can also email admissions@saiinternational.edu.in for any queries.",
     ],
   },
