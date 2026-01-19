@@ -61,18 +61,33 @@
       "permanent": true
     },
     {
-      "source": "/buddypr",
-      "destination": "https://saiinternational.edu.in/buddypr",
+      "source": "/buddypro",
+      "destination": "https://saiinternational.edu.in/buddypro",
       "permanent": true
     },
     {
-      "source": "/buddypr/",
-      "destination": "https://saiinternational.edu.in/buddypr/",
+      "source": "/buddypro/",
+      "destination": "https://saiinternational.edu.in/buddypro/",
       "permanent": true
     },
     {
       "source": "/buddypr/:path*",
-      "destination": "https://saiinternational.edu.in/buddypr/:path*",
+      "destination": "https://saiinternational.edu.in/buddypro/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/kaleidoscope",
+      "destination": "https://saiinternational.edu.in/kaleidoscope",
+      "permanent": true
+    },
+    {
+      "source": "/kaleidoscope/",
+      "destination": "https://saiinternational.edu.in/kaleidoscope/",
+      "permanent": true
+    },
+    {
+      "source": "/kaleidoscope/:path*",
+      "destination": "https://saiinternational.edu.in/kaleidoscope/:path*",
       "permanent": true
     }
   ]
