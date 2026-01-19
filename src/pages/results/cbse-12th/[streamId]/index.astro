@@ -33,7 +33,7 @@ if (!classItem) {
 
 const urlYear = Astro.url.searchParams.get("year");
 // Default to the first available year in the config if URL param is missing
-const currentYear = urlYear ? Number(urlYear) : new Date().getFullYear();
+const currentYear = urlYear ? Number(urlYear) : classItem.years[0];
 
 // We use the ID and Year to get real student data
 const results = await fetchResultsRequest(currentYear, streamId ?? "11");
@@ -63,7 +63,11 @@ const pageMeta = {
         />
 
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
-          <FilterBar showSearch={false} years={classItem.years} />
+          <FilterBar
+            showSearch={false}
+            years={classItem.years}
+            shouldIncludeCurrentYear={false}
+          />
 
           <!-- Show the Results OR show Empty State -->
           {

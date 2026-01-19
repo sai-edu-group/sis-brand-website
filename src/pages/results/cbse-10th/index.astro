@@ -33,7 +33,7 @@ import { IMAGE_TYPES } from "@/enums/image.enum";
 const urlYear = Astro.url.searchParams.get("year");
 
 // Default to the first available year in the config if URL param is missing
-const year: number = urlYear ? Number(urlYear) : new Date().getFullYear();
+const year: number = urlYear ? Number(urlYear) : cbseTenth.years[0];
 
 // Fetch Results from API (Hardcoded ID 7 for 10th Grade)
 // This replaces the old 'cbseTenth.results[year]' line
@@ -64,7 +64,7 @@ if (!year) {
         />
 
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
-          <FilterBar showSearch={false} years={cbseTenth.years} />
+          <FilterBar showSearch={false} years={cbseTenth.years} shouldIncludeCurrentYear={false} />
 
           {results && results.length > 0 ? (
           <div

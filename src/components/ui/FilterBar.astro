@@ -1,24 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
+
 const currentYear = new Date().getFullYear();
 
 const {
   showSearch = true,
   showSort = true,
   years = [2025, 2024, 2023, 2022, 2021],
+  shouldIncludeCurrentYear = true,
   sortOptions = [],
 } = Astro.props;
 
-// ✅ append current year if not already present
-const finalYears = years.includes(currentYear)
-  ? years
-  : [currentYear, ...years];
+const finalYears = shouldIncludeCurrentYear
+  ? Array.from(new Set([currentYear, ...years])) // ✅ current year first
+  : Array.from(new Set(years)); // ✅ keep as it is
 
-// ✅ optional: remove duplicates + sort desc (recommended)
-const uniqueSortedYears = Array.from(new Set(finalYears)).sort((a, b) => b - a);
-
-const visibleYears = uniqueSortedYears.slice(0, 2);
-const dropdownYears = uniqueSortedYears.slice(2);
+const visibleYears = finalYears.slice(0, 2);
+const dropdownYears = finalYears.slice(2);
 ---
 
 <section class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8">

@@ -6,6 +6,7 @@ export interface SubMenuItemData {
   title: string;
   href: string;
   active?: boolean;
+  target?: string;
 }
 export interface MenuItemData {
   title: string;
@@ -48,16 +49,14 @@ export const menu: MenuItemData[] = [
     ],
     icon: "about",
   },
-   {
+  {
     title: "SAI Entrance Test 26",
     submenu: [
       {
         title: "Registration",
         href: "https://saiinternational.edu.in/set/",
-        target:"_blank"
-        
+        target: "_blank",
       },
-      
     ],
     icon: "admissions",
   },

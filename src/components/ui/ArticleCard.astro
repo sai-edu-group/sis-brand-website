@@ -64,6 +64,18 @@ const formattedDate = new Date(date).toLocaleDateString("en-GB", {
     <div
       class="flex flex-col gap-4 px-4 pt-4 pb-8 md:px-6 md:pt-5 md:pb-9 lg:gap-6 lg:px-6 lg:pt-6 lg:pb-11"
     >
+      {
+        date && (
+          <div class="flex items-center gap-2">
+            <span class="text-orange-500">
+              <Icon name="calendar" class="color-orange-500 size-4 lg:size-5" />
+            </span>
+            <span class="font-secondary text-n-600 text-sm font-normal md:text-base">
+              {formattedDate}
+            </span>
+          </div>
+        )
+      }
       <!-- Article title -->
       <div class="flex flex-col gap-3 lg:gap-5">
         {
@@ -109,19 +121,6 @@ const formattedDate = new Date(date).toLocaleDateString("en-GB", {
           }
         </div>
       </div>
-
-      {
-        date && (
-          <div class="mt-4 flex items-center gap-2 md:mt-6">
-            <span class="text-orange-500">
-              <Icon name="calendar" class="color-orange-500 size-4 lg:size-5" />
-            </span>
-            <span class="font-secondary text-n-600 text-sm font-normal md:text-base">
-              {formattedDate}
-            </span>
-          </div>
-        )
-      }
 
       <!-- Icon Button  -->
       <div

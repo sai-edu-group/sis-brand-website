@@ -45,7 +45,7 @@ import { URLS } from "@/infrastructure/constants/urls";
               <CourseCard
                 title={`${course.name} Results`}
                 image={`results/12th/course-${course.id}.jpg`}
-                onCtaClick={`window.location.href = "${URLS.RESULTS.CBSE_12.STREAM(course.id.toString())}?year=${new Date().getFullYear()}"`}
+                onCtaClick={`window.location.href = "${URLS.RESULTS.CBSE_12.STREAM(course.id.toString())}?year=${course.years[0]}"`}
                 ctaText="Show Results"
               />
             ))
