@@ -14,6 +14,66 @@
       "source": "/beedies/:path*",
       "destination": "https://pixoloproductions.com/beedies/:path*",
       "permanent": true
+    },
+    {
+      "source": "/saimun",
+      "destination": "https://saiinternational.edu.in/saimun",
+      "permanent": true
+    },
+    {
+      "source": "/saimun/",
+      "destination": "https://saiinternational.edu.in/saimun/",
+      "permanent": true
+    },
+    {
+      "source": "/saimun/:path*",
+      "destination": "https://saiinternational.edu.in/saimun/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/set",
+      "destination": "https://saiinternational.edu.in/set",
+      "permanent": true
+    },
+    {
+      "source": "/set/",
+      "destination": "https://saiinternational.edu.in/set/",
+      "permanent": true
+    },
+    {
+      "source": "/set/:path*",
+      "destination": "https://saiinternational.edu.in/set/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/buddy",
+      "destination": "https://saiinternational.edu.in/buddy",
+      "permanent": true
+    },
+    {
+      "source": "/buddy/",
+      "destination": "https://saiinternational.edu.in/buddy/",
+      "permanent": true
+    },
+    {
+      "source": "/buddy/:path*",
+      "destination": "https://saiinternational.edu.in/buddy/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/buddypr",
+      "destination": "https://saiinternational.edu.in/buddypr",
+      "permanent": true
+    },
+    {
+      "source": "/buddypr/",
+      "destination": "https://saiinternational.edu.in/buddypr/",
+      "permanent": true
+    },
+    {
+      "source": "/buddypr/:path*",
+      "destination": "https://saiinternational.edu.in/buddypr/:path*",
+      "permanent": true
     }
   ]
 }
