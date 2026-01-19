@@ -50,10 +50,10 @@ export const menu: MenuItemData[] = [
     icon: "about",
   },
   {
-    title: "SAI Entrance Test 26",
+    title: "SAI Entrance Test 2026",
     submenu: [
       {
-        title: "Registration",
+        title: "Registrations",
         href: "https://saiinternational.edu.in/set/",
         target: "_blank",
       },
