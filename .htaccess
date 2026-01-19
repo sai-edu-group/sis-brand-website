@@ -1,19 +1,47 @@
+# BEGIN Pixolo Code
+
+<IfModule mod_rewrite.c>
 RewriteEngine On
 
-# -----------------------------------
-# Apply ONLY for root domain & www
-# -----------------------------------
-RewriteCond %{HTTP_HOST} ^(www\.)?saiinternationalschool\.com$ [NC]
+# =====================================================
+# 1️⃣ FORCE IGNORED PATHS TO NON-WWW (ABSOLUTE PRIORITY)
+# =====================================================
+RewriteCond %{REQUEST_URI} ^/(saimun|set|buddy|buddypr|buddypro|kaleidoscope)(/.*)?$ [NC]
+RewriteCond %{HTTP_HOST} ^www\.saiinternational\.edu\.in$ [NC]
+RewriteRule ^ https://saiinternational.edu.in%{REQUEST_URI} [R=301,L]
 
-# -----------------------------------
-# Do NOT proxy Astro assets & static files
-# -----------------------------------
-RewriteCond %{REQUEST_URI} ^/_astro/ [OR]
-RewriteCond %{REQUEST_URI} \.(js|css|png|jpg|jpeg|svg|webp|gif|ico|woff2?|ttf|json|map)$
-RewriteRule ^(.*)$ proxy.php?path=$1 [QSA,L]
+# =====================================================
+# 2️⃣ FORCE EVERYTHING ELSE TO WWW
+# =====================================================
+RewriteCond %{HTTP_HOST} ^saiinternational\.edu\.in$ [NC]
+RewriteCond %{REQUEST_URI} !^/(saimun|set|buddy|buddypr|buddypro|kaleidoscope)(/.*)?$ [NC]
+RewriteRule ^ https://www.saiinternational.edu.in%{REQUEST_URI} [R=301,L]
 
-# -----------------------------------
-# Proxy all other routes
-# -----------------------------------
-RewriteCond %{REQUEST_URI} !^/proxy.php$
-RewriteRule ^(.*)$ proxy.php?path=$1 [QSA,L]
+</IfModule>
+
+# END Pixolo Code
+
+
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+# RewriteEngine On
+#RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+#RewriteBase /
+#RewriteRule ^index\.php$ - [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php73” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
