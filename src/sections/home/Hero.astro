@@ -180,11 +180,11 @@ const grades = [
     </div>
   </div>
   <div
-    class="fade-in relative flex items-center justify-center lg:absolute lg:right-0 lg:bottom-0 lg:w-[55%] lg:justify-end"
+    class="relative flex items-center justify-center lg:absolute lg:right-0 lg:bottom-0 lg:w-[55%] lg:justify-end"
   >
     <div class="relative">
       <!-- Main children image -->
-      <div class="relative w-screen lg:w-full">
+      <div class="fade-in relative w-screen lg:w-full">
         <Image
           src={ChildrenImage}
           alt="Children learning"
@@ -254,9 +254,9 @@ const grades = [
 
 <style>
   .svg-draw {
-    stroke-dasharray: 130;
-    stroke-dashoffset: 130;
-    animation: drawLine 4s ease forwards infinite;
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: drawLine 4s 1s ease forwards;
   }
 
   @keyframes drawLine {
