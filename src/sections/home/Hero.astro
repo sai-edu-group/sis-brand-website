@@ -375,9 +375,9 @@ const grades = [
 
       try {
         const leadSquaredPayload = [
-          { Attribute: "Student's First", Value: studentName },
+          { Attribute: "FirstName", Value: studentName },
           { Attribute: "Phone", Value: phone },
-          { Attribute: "Class Name", Value: grade },
+          { Attribute: "mx_Grade", Value: grade },
         ];
 
         const response = await admissionEnquiryRequest(leadSquaredPayload);
