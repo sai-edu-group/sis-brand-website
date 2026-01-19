@@ -25,7 +25,7 @@ import Layout from "@/layouts/Layout.astro";
 import { newsDetails } from "@/data/media/news";
 
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || newsDetails.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
 const newsId = Astro.params.id;
 

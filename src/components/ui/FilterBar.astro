@@ -1,12 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-
-interface Props {
-  showSearch?: boolean;
-  showSort?: boolean;
-  years?: number[];
-  sortOptions?: { label: string; value: string }[];
-}
+const currentYear = new Date().getFullYear();
 
 const {
   showSearch = true,
@@ -15,8 +9,16 @@ const {
   sortOptions = [],
 } = Astro.props;
 
-const visibleYears = years.slice(0, 2);
-const dropdownYears = years.slice(2);
+// ✅ append current year if not already present
+const finalYears = years.includes(currentYear)
+  ? years
+  : [currentYear, ...years];
+
+// ✅ optional: remove duplicates + sort desc (recommended)
+const uniqueSortedYears = Array.from(new Set(finalYears)).sort((a, b) => b - a);
+
+const visibleYears = uniqueSortedYears.slice(0, 2);
+const dropdownYears = uniqueSortedYears.slice(2);
 ---
 
 <section class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8">

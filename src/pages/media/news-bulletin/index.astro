@@ -31,7 +31,7 @@ import {
 
 // Get the Year from the Search Params
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || newsBulletin.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -99,7 +99,10 @@ const shouldShowPagination = totalPages > 1;
                 )}
               </div>
             ) : (
-              <EmptyState title="No News Found" description="We couldn't find any news for the selected year. Please check back later." />
+              <EmptyState
+                title="No News Found"
+                description="We couldn't find any news for the selected year. Please check back later."
+              />
             )
           }
         </div>

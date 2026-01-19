@@ -40,7 +40,7 @@ import {
 
 // Get the Year from the Search Params
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || newsDetails.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
 // Get the Page from the Search Params
 const page = Number(Astro.url.searchParams.get("page")) || 1;
@@ -94,10 +94,7 @@ const shouldShowPagination = totalPages > 1;
             news && news.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
                 {news.map((newsItem, newsItemIndex) => (
-                  <div
-                    class="card-anim"
-                    style={`--delay: ${newsItemIndex * 0.01}s`}
-                  >
+                  <div class="card-anim">
                     <ArticleCard
                       title={newsItem.title}
                       img={generateImagePath(

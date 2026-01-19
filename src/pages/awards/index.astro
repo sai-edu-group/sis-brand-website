@@ -33,11 +33,10 @@ import {
 
 // META //
 
-
-
 // Get the Year from the Search Params
 const year: number =
-  parseInt(Astro.url.searchParams.get("year") as string) || awards.years[0];
+  parseInt(Astro.url.searchParams.get("year") as string) ||
+  new Date().getFullYear();
 
 // If streamId is missing or invalid — go back or redirect
 if (!year) {
@@ -82,13 +81,19 @@ const awardItems = await fetchAwardsRequest(year);
                   <AwardsCard
                     title={awardItem.awardName}
                     subTitle={awardItem.awardDesc}
-                    img={generateImagePath(awardItem.thumbnailImg, IMAGE_TYPES.AWARDS)}
+                    img={generateImagePath(
+                      awardItem.thumbnailImg,
+                      IMAGE_TYPES.AWARDS,
+                    )}
                     year={year.toString()}
                   />
                 ))
               ) : (
                 <div class="col-span-full">
-                  <EmptyState title="No Awards Found" description="We couldn't find any awards for the selected year. Please check back later." />
+                  <EmptyState
+                    title="No Awards Found"
+                    description="We couldn't find any awards for the selected year. Please check back later."
+                  />
                 </div>
               )
             }

@@ -5,7 +5,7 @@ export const prerender = false;
 import { newsBulletin } from "@/data/media/news-bulletin";
 
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || newsBulletin.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
 const newsId = Astro.params.newsBulletinId;
 

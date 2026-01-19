@@ -41,7 +41,8 @@ import {
 
 // Get the Year from the Search Params
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || pressRelease.years[0];
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
+
 const page = Number(Astro.url.searchParams.get("page")) || 1;
 
 // If year is missing or invalid — go back or redirect
@@ -114,7 +115,10 @@ const shouldShowPagination = totalPages > 1;
                 )}
               </div>
             ) : (
-              <EmptyState title="No Press Releases Found" description="We couldn't find any press releases for the selected year. Please check back later." />
+              <EmptyState
+                title="No Press Releases Found"
+                description="We couldn't find any press releases for the selected year. Please check back later."
+              />
             )
           }
         </div>

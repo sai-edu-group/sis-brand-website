@@ -37,8 +37,7 @@ import {
 
 // Get the Year from the URL - or - the latest year in Data
 const year: number =
-  Number(Astro.url.searchParams.get("year")) || globalSioneers?.years[0];
-
+  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 // Get the Students for the Year Selected
 const students = await fetchSioneersRequest(year.toString());
 ---

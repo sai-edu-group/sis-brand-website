@@ -54,7 +54,7 @@ export const generateImagePath = (
       break;
     // PRESS RELEASE
     case IMAGE_TYPES.GALLERY:
-      finalPath = `uploads/gallery/${path}${imageName}`;
+      finalPath = `${path}${imageName}`;
       break;
     // Add more cases as needed
     default:
