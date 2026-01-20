@@ -1,5 +1,5 @@
 export const grades = [
-  { label: "PlayGroup", value: "PlayGroup" },
+  { label: "PlayGroup", value: "Play Group" },
   { label: "Nursery", value: "Nursery" },
   { label: "KG I", value: "KG I" },
   { label: "KG II", value: "KG II" },
