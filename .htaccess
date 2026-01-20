@@ -6,7 +6,7 @@ RewriteEngine On
 # =====================================================
 # 1️⃣ FORCE IGNORED PATHS TO NON-WWW (ABSOLUTE PRIORITY)
 # =====================================================
-RewriteCond %{REQUEST_URI} ^/(saimun|set|buddy|buddypr|buddypro|kaleidoscope|mail)(/.*)?$ [NC]
+RewriteCond %{REQUEST_URI} ^/(saimun|set|buddy|buddypr|buddypro|kaleidoscope|mail|repertoire)(/.*)?$ [NC]
 RewriteCond %{HTTP_HOST} ^www\.saiinternational\.edu\.in$ [NC]
 RewriteRule ^ https://saiinternational.edu.in%{REQUEST_URI} [R=301,L]
 
@@ -14,7 +14,7 @@ RewriteRule ^ https://saiinternational.edu.in%{REQUEST_URI} [R=301,L]
 # 2️⃣ FORCE EVERYTHING ELSE TO WWW
 # =====================================================
 RewriteCond %{HTTP_HOST} ^saiinternational\.edu\.in$ [NC]
-RewriteCond %{REQUEST_URI} !^/(saimun|set|buddy|buddypr|buddypro|kaleidoscope|mail)(/.*)?$ [NC]
+RewriteCond %{REQUEST_URI} !^/(saimun|set|buddy|buddypr|buddypro|kaleidoscope|mail|repertoire)(/.*)?$ [NC]
 RewriteRule ^ https://www.saiinternational.edu.in%{REQUEST_URI} [R=301,L]
 
 </IfModule>

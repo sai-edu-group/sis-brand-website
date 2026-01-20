@@ -104,6 +104,21 @@
       "source": "/mail/:path*",
       "destination": "https://saiinternational.edu.in/mail/:path*",
       "permanent": true
+    },
+    {
+      "source": "/repertoire",
+      "destination": "https://saiinternational.edu.in/repertoire",
+      "permanent": true
+    },
+    {
+      "source": "/repertoire/",
+      "destination": "https://saiinternational.edu.in/repertoire/",
+      "permanent": true
+    },
+    {
+      "source": "/repertoire/:path*",
+      "destination": "https://saiinternational.edu.in/repertoire/:path*",
+      "permanent": true
     }
   ]
 }

@@ -9,6 +9,7 @@ export const initEmblaRoot = (root, options) => {
       containScroll: false,
       loop: true,
       dragFree: false,
+      duration: 15,
       ...options,
     },
     [EmblaCarouselAutoHeight(), EmblaCarouselFade()],

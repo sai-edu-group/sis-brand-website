@@ -15,7 +15,6 @@ export const grades = [
   { label: "Class XI - Science", value: "Class XI - Science" },
   { label: "Class XI - Commerce", value: "Class XI - Commerce" },
   { label: "Class XI - Humanities", value: "Class XI - Humanities" },
-  { label: "Class XI - IBCP", value: "Class XI - IBCP" },
   {
     label: "Class XI - Cambridge (A Level)",
     value: "Class XI - Cambridge (A Level)",

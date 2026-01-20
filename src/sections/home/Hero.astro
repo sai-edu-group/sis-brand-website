@@ -43,7 +43,6 @@ const grades = [
   "Class XI - Science",
   "Class XI - Commerce",
   "Class XI - Humanities",
-  "Class XI - IBCP",
   "Class XI - Cambridge (A Level)",
 ];
 ---
@@ -67,7 +66,7 @@ const grades = [
 
         <!-- Form Card -->
         <div
-          class="border-n-100 rounded-lg border bg-white p-3.5 md:px-6 md:py-5 lg:w-[55%]"
+          class="border-n-100 fade-in-left rounded-lg border bg-white p-3.5 delay-100 md:px-6 md:py-5 lg:w-[55%]"
         >
           <div class="space-y-3.5">
             <h2 class="animatedText text-n-800 text-xl md:text-3xl">
@@ -262,6 +261,19 @@ const grades = [
   @keyframes drawLine {
     to {
       stroke-dashoffset: 0;
+    }
+  }
+
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 0.8s 1.5s ease forwards;
+  }
+
+  @keyframes fadeInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
