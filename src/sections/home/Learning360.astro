@@ -181,10 +181,17 @@ import { learning360Content } from "@/data/home/learning-360";
       accordionRoot.__acc = null;
     }
 
+    const currentTabIndex = Number(sectionEl.dataset.index || 0);
+
     accordionRoot.__acc = initAccordion(accordionRoot, {
       autoplay: true,
       cycleMs: 6000,
       progressDurationMs: 6000,
+      loop: false,
+      onCycleEnd: () => {
+        const nextTab = (currentTabIndex + 1) % sectionEls.length;
+        activateTab(nextTab);
+      },
     });
 
     enableImageSync(sectionEl);

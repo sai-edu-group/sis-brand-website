@@ -1,6 +1,7 @@
 // accordion.js
 export function initAccordion(root, options = {}) {
   if (!root) return;
+
   const cfg = {
     autoplay:
       root.getAttribute("data-accordion-autoplay") === "true" ||
@@ -8,6 +9,10 @@ export function initAccordion(root, options = {}) {
       false,
     cycleMs: options.cycleMs || 2200,
     progressDurationMs: options.progressDurationMs || 2000,
+
+    // ✅ NEW
+    loop: options.loop ?? true,
+    onCycleEnd: options.onCycleEnd || null,
   };
 
   const items = Array.from(root.querySelectorAll("[data-accordion-item]"));
@@ -78,13 +83,32 @@ export function initAccordion(root, options = {}) {
     });
   };
 
+  // ✅ NEW autoplay: goes next item, and if finished last item -> calls onCycleEnd()
   const stepAutoplay = () => {
     if (!items.length) return;
+
     const i = openIndex < 0 ? 0 : openIndex;
     setOpen(i);
     animateProgress(panels[i]);
-    const next = (i + 1) % items.length;
+
     autoplayTimer = setTimeout(() => {
+      const isLast = i === items.length - 1;
+
+      if (isLast) {
+        if (typeof cfg.onCycleEnd === "function") cfg.onCycleEnd();
+
+        // ✅ if you DON'T want looping in same tab
+        if (!cfg.loop) return;
+
+        // loop back to first
+        setOpen(0);
+        animateProgress(panels[0]);
+        stepAutoplay();
+        return;
+      }
+
+      // normal next item
+      const next = i + 1;
       setOpen(next);
       animateProgress(panels[next]);
       stepAutoplay();
@@ -97,7 +121,6 @@ export function initAccordion(root, options = {}) {
     stepAutoplay();
   };
 
-  // init
   setOpen(0);
   if (cfg.autoplay) restartAutoplay();
 
