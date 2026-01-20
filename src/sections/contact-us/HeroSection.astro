@@ -18,7 +18,7 @@ import Image from "astro/components/Image.astro";
         <!-- Hero Text -->
         <div class="w-full md:w-[80%] lg:text-xl xl:w-[55%]">
           <h2
-            class="animatedText text-n-800 text-4xl leading-tight font-medium md:text-6xl md:font-semibold lg:text-7xl"
+            class="fade-in-up fade-title text-n-800 text-4xl leading-tight font-medium md:text-6xl md:font-semibold lg:text-7xl"
           >
             Let’s Start a Conversation
           </h2>
@@ -26,7 +26,7 @@ import Image from "astro/components/Image.astro";
 
         <!-- Supporting text -->
         <p
-          class="text-n-600 animatedText font-secondary w-full text-base leading-normal font-medium md:text-xl lg:w-[55%]"
+          class="text-n-600 fade-in-up fade-subtitle font-secondary w-full text-base leading-normal font-medium md:text-xl lg:w-[55%]"
         >
           Whether it’s about admissions, school life, or something specific —
           we’d love to hear from you.
@@ -119,6 +119,27 @@ import Image from "astro/components/Image.astro";
   @keyframes drawLine {
     to {
       stroke-dashoffset: 0;
+    }
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .fade-title {
+    animation-delay: 0.2s;
+  }
+
+  .fade-subtitle {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 </style>
