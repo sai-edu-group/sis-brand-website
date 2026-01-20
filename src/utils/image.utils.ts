@@ -34,7 +34,7 @@ export const generateImagePath = (
       break;
     // STUDENT COUNCIL
     case IMAGE_TYPES.STUDENT_COUNCIL:
-      finalPath = `uploads/sis_studentcouncil/${path}${imageName}`;
+      finalPath = `uploads/sis_studentcouncil/${imageName}`;
       break;
     // NEWS (BLOGS)
     case IMAGE_TYPES.BLOG:
@@ -46,11 +46,11 @@ export const generateImagePath = (
       break;
     // GLOBAL SIONEERS
     case IMAGE_TYPES.GLOBAL_SIONEERS:
-      finalPath = `uploads/sis_globalambassador/${path}${imageName}`;
+      finalPath = `uploads/sis_globalambassador/${imageName}`;
       break;
     // PRESS RELEASE
     case IMAGE_TYPES.PRESS_RELEASE:
-      finalPath = `uploads/sis_press/${path}${imageName}`;
+      finalPath = `uploads/sis_press/${imageName}`;
       break;
     // PRESS RELEASE
     case IMAGE_TYPES.GALLERY:

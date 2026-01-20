@@ -244,8 +244,25 @@ body {
 }
 
 /* Hide number input arrows */
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+  -webkit-text-fill-color: #000000 !important; /* Change text color if needed */
+  transition: background-color 5000s ease-in-out 0s; /* Prevents a flicker of the default color */
+}
+
+.scale-up-on-hover {
+  transition: transform 0.3s ease;
+}
+
+.scale-up-on-hover:hover {
+  transform: scale(1.05);
 }
