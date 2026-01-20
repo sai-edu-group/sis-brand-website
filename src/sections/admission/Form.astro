@@ -40,26 +40,24 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             <!-- Student Name Input -->
             <div data-field>
               <Input
-                label="Student’s Full Name"
-                name="name"
+                label="Student’s First Name"
+                name="firstName"
                 required
-                placeholder="Enter Full Name"
-                errorMessage="Student name is required and should not contain numbers.."
+                placeholder="Enter Student's First Name"
+                errorMessage="Student's First name is required and should not contain numbers.."
               />
             </div>
 
-            <!-- Academic Year Select -->
-            <Select
-              label="Admission for Academic Year"
-              name="academicyear_name"
-              placeholder="Select Year"
-              required
-              options={[
-                { label: "2025–2026", value: "2025-26" },
-                { label: "2026–2027", value: "2026-27" },
-              ]}
-              errorMessage="Please select the academic year."
-            />
+            <!-- Student Name Input -->
+            <div data-field>
+              <Input
+                label="Student’s Last Name"
+                name="lastName"
+                required
+                placeholder="Enter Student's Last Name"
+                errorMessage="Student's Last name is required and should not contain numbers.."
+              />
+            </div>
 
             <!-- DOB Input -->
             <div data-field>
@@ -194,8 +192,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
               required
               options={[
                 { label: "Not Sure Yet", value: "maybe" },
-                { label: "Yes", value: "yes" },
-                { label: "No", value: "no" },
+                { label: "Yes", value: "Yes" },
+                { label: "No", value: "No" },
               ]}
               errorMessage="Please select an option."
             />
@@ -496,16 +494,30 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 
     /** 🔥 Convert your form fields → LeadSquared Attribute/Value array  */
     const mapToLeadSquared = (formObj: any) => {
+      // Format date from YYYY-MM-DD to DD/MM/YYYY
+      const formatDate = (dateStr: string) => {
+        if (!dateStr) return "";
+        const [year, month, day] = dateStr.split("-");
+        return `${day}/${month}/${year}`;
+      };
+
       return [
-        { Attribute: "FirstName", Value: formObj.name || "" },
+        { Attribute: "FirstName", Value: formObj.firstName || "" },
+        { Attribute: "LastName", Value: formObj.lastName || "" },
         { Attribute: "EmailAddress", Value: formObj.emailId || "" },
         { Attribute: "Phone", Value: formObj.mobileNo || "" },
         { Attribute: "Student DOB", Value: formObj.dob || "" },
-        { Attribute: "Admission Year", Value: formObj.academicyear_name || "" },
         { Attribute: "mx_Grade", Value: formObj.className || "" },
-        { Attribute: "mx_Fathers_Name", Value: formObj.parentName || "" },
-        { Attribute: "mx_Hostel_Facility", Value: formObj.hostel || "" },
+        {
+          Attribute: "mx_Parent_Name",
+          Value: formObj.parentName || "",
+        },
+        {
+          Attribute: "mx_Hostel_Facility",
+          Value: formObj.hostel || "",
+        },
         { Attribute: "mx_Message", Value: formObj.message || "" },
+        { Attribute: "mx_Source_V2", Value: "SIS Admission Page" },
       ];
     };
 

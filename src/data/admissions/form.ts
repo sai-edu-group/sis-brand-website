@@ -1,5 +1,5 @@
 export const grades = [
-  { label: "PlayGroup", value: "Play Group" },
+  { label: "Play Group", value: "Play Group" },
   { label: "Nursery", value: "Nursery" },
   { label: "KG I", value: "KG I" },
   { label: "KG II", value: "KG II" },
@@ -12,11 +12,11 @@ export const grades = [
   { label: "Class VII", value: "Class VII" },
   { label: "Class VIII", value: "Class VIII" },
   { label: "Class IX", value: "Class IX" },
-  { label: "Class XI - Science", value: "Class XI - Science" },
-  { label: "Class XI - Commerce", value: "Class XI - Commerce" },
-  { label: "Class XI - Humanities", value: "Class XI - Humanities" },
+  { label: "Class XI - Science", value: "Class XI-Science" },
+  { label: "Class XI - Commerce", value: "Class XI-Commerce" },
+  { label: "Class XI - Humanities", value: "Class XI-Humanities" },
   {
     label: "Class XI - Cambridge (A Level)",
-    value: "Class XI - Cambridge (A Level)",
+    value: "Class XI-Cambridge (A-Level)",
   },
 ];
