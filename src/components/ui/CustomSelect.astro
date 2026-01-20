@@ -60,10 +60,19 @@ const { label, options = [], name, placeholder } = Astro.props;
   const hiddenInput = document.getElementById("dropdownValue");
   const arrow = document.getElementById("dropdownArrow");
 
+  const toggleBodyScroll = (disable) => {
+    if (disable) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+
   btn.addEventListener("click", () => {
     const open = !menu.classList.contains("hidden");
     menu.classList.toggle("hidden");
     arrow.style.transform = open ? "rotate(0deg)" : "rotate(180deg)";
+    toggleBodyScroll(!open);
   });
 
   menu.querySelectorAll("li").forEach((item) => {
@@ -72,6 +81,7 @@ const { label, options = [], name, placeholder } = Astro.props;
       hiddenInput.value = item.dataset.value;
       menu.classList.add("hidden");
       arrow.style.transform = "rotate(0deg)";
+      toggleBodyScroll(false);
     });
   });
 
@@ -80,6 +90,7 @@ const { label, options = [], name, placeholder } = Astro.props;
     if (!btn.contains(e.target) && !menu.contains(e.target)) {
       menu.classList.add("hidden");
       arrow.style.transform = "rotate(0deg)";
+      toggleBodyScroll(false);
     }
   });
 </script>
