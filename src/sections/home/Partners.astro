@@ -3,12 +3,12 @@ import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Image from "astro/components/Image.astro";
 
 const partnersImages = [
-  "/images/partners/ausa.png",
+  "/images/partners/access-usa.png",
   "/images/partners/leader.png",
   "/images/partners/sat.png",
-  "/images/partners/Univariety.png",
+  "/images/partners/univariety.png",
   "/images/partners/icai.png",
-  "/images/partners/IDS.png",
+  "/images/partners/ids.png",
   "/images/partners/microsoft.png",
   "/images/partners/roundsq.png",
   "/images/partners/showcase-sis.png",
@@ -38,7 +38,7 @@ const partnersImages = [
       {
         partnersImages.map((partner) => (
           // Partner image
-          <div class="w-28 md:w-32 lg:w-[170px]">
+          <div class="flex w-28 items-center justify-center md:w-32 lg:w-[170px]">
             <Image
               src={partner}
               alt=""
