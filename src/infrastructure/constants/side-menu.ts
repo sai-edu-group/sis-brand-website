@@ -78,7 +78,7 @@ export const menu: MenuItemData[] = [
       { title: "Global Partners", href: URLS.GLOBAL_CONNECT.PARTNERS.ROOT },
       {
         title: "Advanced Placements",
-        href: URLS.GLOBAL_CONNECT.ADVANCED_PLACEMENTS,
+        href: URLS.ADVANCED_PLACEMENTS,
       },
     ],
     icon: "globe",

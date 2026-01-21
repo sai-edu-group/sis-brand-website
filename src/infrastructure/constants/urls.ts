@@ -84,9 +84,9 @@ export const URLS = {
       ITEM: (partnerId: string) =>
         `/global-connect/global-partners/${partnerId}`,
     },
-
-    ADVANCED_PLACEMENTS: "/global-connect/advanced-placements",
   },
+
+  ADVANCED_PLACEMENTS: "/ap-exams",
 
   STUDENT_LEADERS: {
     ROOT: "/student-leaders",
