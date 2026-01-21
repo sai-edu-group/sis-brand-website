@@ -15,7 +15,7 @@ export const initEmblaRoot = (root, options) => {
     [EmblaCarouselAutoHeight(), EmblaCarouselFade()],
   );
 
-  const snaps = embla.snapList(); // 👈 length equals number of groups/pages
+  const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages
 
   // Prev/Next
   const prevBtn = root.querySelector("[data-embla-prev]");
@@ -24,9 +24,9 @@ export const initEmblaRoot = (root, options) => {
   if (snaps.length > 1) {
     prevBtn.style.display = "flex";
     nextBtn.style.display = "flex";
-    prevBtn?.addEventListener("click", () => embla.goToPrev());
+    prevBtn?.addEventListener("click", () => embla.scrollPrev());
     nextBtn?.addEventListener("click", () => {
-      embla.goToNext();
+      embla.scrollNext();
     });
   }
   // Build dots FROM SNAP LIST (groups), not slides
@@ -42,7 +42,7 @@ export const initEmblaRoot = (root, options) => {
         const btn = document.createElement("button");
         btn.className =
           "embla-dot bg-n-300 size-1.5 md:size-2.5 rounded-full transition-[background-color,transform] duration-150 aria-selected:scale-110 aria-selected:bg-orange-500";
-        btn.addEventListener("click", () => embla.goTo(i));
+        btn.addEventListener("click", () => embla.scrollTo(i));
         dotsHost.appendChild(btn);
         return btn;
       });
@@ -52,7 +52,7 @@ export const initEmblaRoot = (root, options) => {
   let dots = buildDots();
 
   const setSelectedDot = () => {
-    const selected = embla.selectedSnap();
+    const selected = embla.selectedScrollSnap();
     if (!dots) return;
     dots.forEach((dot, i) => {
       const active = i === selected;

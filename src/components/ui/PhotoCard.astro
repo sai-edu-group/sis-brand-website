@@ -16,6 +16,8 @@ const {
 ---
 
 <div
+  data-lightbox-index={index}
+  data-lightbox-src={image}
   class={`group relative flex w-full max-w-xl overflow-hidden rounded-2xl border-2 border-n-200 bg-cover bg-center ${classes}`}
 >
   <!-- IMAGE -->
@@ -39,8 +41,6 @@ const {
   >
     <button
       class="flex items-center gap-2 hover:cursor-pointer"
-      data-lightbox-index={index}
-      data-lightbox-src={image}
       aria-label="Expand image"
     >
       <Icon name="expand" class="fill-n-50" />
