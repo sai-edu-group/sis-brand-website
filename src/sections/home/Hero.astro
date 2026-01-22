@@ -23,7 +23,7 @@ const {
   title = "Shaping Learners who Inspire the world!",
   formTitle = "Get the SAI Experience in Your Hands",
   buttonText = "Get Brochure",
-  brochureText = "Get the brochure instantly on WhatsApp and discover why parents choose SAI.",
+  brochureText = "Our councellers will reach you",
 } = Astro.props as Props;
 
 const grades = [
@@ -387,7 +387,12 @@ const grades = [
         const leadSquaredPayload = [
           { Attribute: "FirstName", Value: studentName },
           { Attribute: "Phone", Value: phone },
-          { Attribute: "Class Name", Value: grade },
+          { Attribute: "mx_Grade", Value: grade },
+          {
+            Attribute: "mx_Hostel_Facility",
+            Value: "No",
+          },
+          { Attribute: "mx_Source_V2", Value: "SIS Website Home Page" },
         ];
 
         const response = await admissionEnquiryRequest(leadSquaredPayload);

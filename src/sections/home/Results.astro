@@ -125,6 +125,9 @@ import Image from "astro/components/Image.astro";
   import { initEmblaRoot } from "/js/embla.js";
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("results-slider");
-    initEmblaRoot(root);
+    initEmblaRoot(root, {
+      autoplay: true,
+      delay: 4000,
+    });
   });
 </script>

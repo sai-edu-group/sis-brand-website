@@ -12,7 +12,13 @@ export const initEmblaRoot = (root, options) => {
       duration: 15,
       ...options,
     },
-    [EmblaCarouselAutoHeight(), EmblaCarouselFade()],
+    [
+      EmblaCarouselAutoHeight(),
+      EmblaCarouselFade(),
+      EmblaCarouselAutoplay(
+        options?.autoplay ? { delay: options.delay || 3000 } : false,
+      ),
+    ],
   );
 
   const snaps = embla.scrollSnapList(); // 👈 length equals number of groups/pages

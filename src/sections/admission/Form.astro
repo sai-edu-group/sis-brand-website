@@ -79,20 +79,42 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
               options={grades}
               errorMessage="Please select the class for admission."
             />
-          </div>
 
-          <div class="flex flex-wrap items-end justify-between gap-8">
-            <p class="text-n-500 text-base font-normal md:text-xl">
-              We welcome learners from all backgrounds and cities.
-            </p>
-            <!-- Button: Continue to next step -->
-            <Button
-              id="next-1"
-              type="button"
-              text="Continue to Parent Info"
-              variant="solid"
-              size="medium"
-            />
+            <!-- Current School Input -->
+            <div data-field>
+              <Input
+                label="Current School"
+                name="currentSchool"
+                required
+                placeholder="Enter Current School"
+                errorMessage="Current school is required."
+              />
+            </div>
+
+            <!-- City Input -->
+            <div data-field>
+              <Input
+                label="City"
+                name="city"
+                required
+                placeholder="Enter City"
+                errorMessage="City is required and should not contain numbers."
+              />
+            </div>
+
+            <div class="flex flex-wrap items-end justify-between gap-8">
+              <p class="text-n-500 text-base font-normal md:text-xl">
+                We welcome learners from all backgrounds and cities.
+              </p>
+              <!-- Button: Continue to next step -->
+              <Button
+                id="next-1"
+                type="button"
+                text="Continue to Parent Info"
+                variant="solid"
+                size="medium"
+              />
+            </div>
           </div>
         </div>
       </StepCard>
@@ -191,7 +213,6 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
               placeholder="Select"
               required
               options={[
-                { label: "Not Sure Yet", value: "maybe" },
                 { label: "Yes", value: "Yes" },
                 { label: "No", value: "No" },
               ]}
@@ -440,6 +461,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
       const fields = stepEl.querySelectorAll("input, select, textarea");
       let valid = true;
 
+      console.log(fields, "heko");
+
       fields.forEach((el: any) => {
         const errorText = el
           .closest("[data-field]")
@@ -447,6 +470,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
         let fieldValid = true;
 
         if (el.hasAttribute("required") && !el.value.trim()) fieldValid = false;
+
+        console.log(fieldValid, "her");
 
         if (el.type === "email" && el.value.trim() !== "") {
           const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -468,6 +493,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
           if (notNumbers || el.value.length !== 10) fieldValid = false;
         }
 
+        console.log(fieldValid, "heko");
+
         if (!fieldValid) {
           valid = false;
           el.classList.add("border-red-500", "focus:ring-red-500");
@@ -484,6 +511,8 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
     // ✅ Step navigation
     document.getElementById("next-1")?.addEventListener("click", () => {
       if (validateStep(steps[0])) {
+        console.log("heo");
+
         const duration = (Date.now() - stepStartTime) / 1000; // in seconds
 
         showStep(1);
@@ -533,7 +562,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
         { Attribute: "LastName", Value: formObj.lastName || "" },
         { Attribute: "EmailAddress", Value: formObj.emailId || "" },
         { Attribute: "Phone", Value: formObj.mobileNo || "" },
-        { Attribute: "Student DOB", Value: formatDate(formObj.dob) || "" },
+        { Attribute: "mx_DOB", Value: formatDate(formObj.dob) || "" },
         { Attribute: "mx_Grade", Value: formObj.className || "" },
         {
           Attribute: "mx_Parent_Name",
@@ -543,8 +572,13 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
           Attribute: "mx_Hostel_Facility",
           Value: formObj.hostel || "",
         },
+        {
+          Attribute: "mx_Current_School",
+          Value: formObj.currentSchool || "",
+        },
+        { Attribute: "mx_City", Value: formObj.city || "" },
         { Attribute: "mx_Message", Value: formObj.message || "" },
-        { Attribute: "mx_Source_V2", Value: "SIS Admission Page" },
+        { Attribute: "mx_Source_V2", Value: "SIS Website Admission Page" },
       ];
     };
 
