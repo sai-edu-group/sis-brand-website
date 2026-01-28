@@ -443,7 +443,7 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
 
       // Track Step View
       const stepTitles = ["Student Info", "Parent Info", "Message"];
-      trackEvent(EVENTS.ADMISSION_FORM_STEP_N_VIEWED, {
+      trackEvent(`admission_form_step_${idx + 1}_viewed`, {
         step_number: idx + 1,
         step_title: stepTitles[idx],
         device_type: getDeviceType(),
