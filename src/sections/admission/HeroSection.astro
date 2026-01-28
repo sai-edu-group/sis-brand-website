@@ -2,6 +2,7 @@
 // COMPONENTS //
 import Button from "@/components/ui/Button.astro";
 import Image from "astro/components/Image.astro";
+import AdmissionHeroImage from "@/assets/images/admission-hero.png";
 ---
 
 <section
@@ -45,7 +46,7 @@ import Image from "astro/components/Image.astro";
 
       <div class="fade-in relative w-screen lg:w-full">
         <Image
-          src="/images/admission-hero.png"
+          src={AdmissionHeroImage}
           alt=""
           class="h-full w-full object-cover lg:max-h-[680px]"
           loading="lazy"
