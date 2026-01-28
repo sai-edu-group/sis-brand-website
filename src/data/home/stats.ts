@@ -27,7 +27,7 @@ export const statsCard = [
     id: 4,
     title: "sq.ft. of Square Feet of campus with world-class Sports Facilities",
     statsCount: "335K+",
-    img: "/images/sports-facilities.png",
+    img: "/images/sports-facilities.jpg",
   },
   {
     id: 5,
