@@ -33,10 +33,10 @@ import NewsLetter from "@/sections/home/NewsLetter.astro";
   <OurCampuses />
   <Ethos />
   <Founder />
-  <Testimonial />
+  <Testimonial client:idle />
   <div class="bg-n-100">
     <News />
   </div>
-  <NewsLetter />
-  <Partners />
+  <NewsLetter client:visible />
+  <Partners client:visible />
 </Layout>
