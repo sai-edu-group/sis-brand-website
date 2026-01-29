@@ -462,11 +462,11 @@ import { sectionHeaderDetails, teamMembers } from "@/data/about/members/team";
 </script>
 
 <!-- Component-level init: scoped to this slider only -->
-<script type="module">
-  import { initEmblaRoot } from "/js/embla.js";
-
+<script>
+  import { initEmblaRoot } from "@/scripts/embla";
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("team-slider");
+    if (!root) return;
     initEmblaRoot(root, {
       align: "start",
       dragFree: false,

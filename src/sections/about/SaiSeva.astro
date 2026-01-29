@@ -120,13 +120,14 @@ import { URLS } from "@/infrastructure/constants/urls";
   }
 </style>
 
-<script type="module">
-  import { initEmblaRoot } from "/js/embla.js";
+<script>
+  import { initEmblaRoot } from "@/scripts/embla";
 
   // On Document Content Load
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("sai-seva-slider");
 
+    if (!root) return;
     // Initialize the slider
     initEmblaRoot(root, {
       slidesToScroll: "auto",

@@ -3,8 +3,17 @@ import EmblaCarouselAutoplay from "embla-carousel-autoplay";
 import EmblaCarouselAutoHeight from "embla-carousel-auto-height";
 import EmblaCarouselFade from "embla-carousel-fade";
 
-export const initEmblaRoot = (root, options) => {
-  const viewport = root.querySelector < HTMLElement > "[data-embla-viewport]";
+type EmblaOptions = {
+  autoplay?: boolean;
+  delay?: number;
+  [key: string]: any;
+};
+
+export const initEmblaRoot = (
+  root: HTMLElement,
+  options: EmblaOptions = {},
+) => {
+  const viewport = root.querySelector<HTMLElement>("[data-embla-viewport]");
   if (!viewport) return;
 
   const embla = EmblaCarousel(
@@ -29,8 +38,8 @@ export const initEmblaRoot = (root, options) => {
   const snaps = embla.scrollSnapList();
 
   // Prev / Next
-  const prevBtn = root.querySelector < HTMLElement > "[data-embla-prev]";
-  const nextBtn = root.querySelector < HTMLElement > "[data-embla-next]";
+  const prevBtn = root.querySelector<HTMLElement>("[data-embla-prev]");
+  const nextBtn = root.querySelector<HTMLElement>("[data-embla-next]");
 
   if (snaps.length > 1) {
     prevBtn?.style.setProperty("display", "flex");
@@ -41,7 +50,7 @@ export const initEmblaRoot = (root, options) => {
   }
 
   // Dots
-  const dotsHost = root.querySelector < HTMLElement > "[data-embla-dots]";
+  const dotsHost = root.querySelector<HTMLElement>("[data-embla-dots]");
 
   const buildDots = () => {
     if (!dotsHost) return [];

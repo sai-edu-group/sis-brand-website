@@ -190,11 +190,12 @@ import { testimonials, sectionHeaderContent } from "@/data/home/testimonials";
 </section>
 
 <!-- Component-level init: scoped to this slider only -->
-<script type="module">
-  import { initEmblaRoot } from "/js/embla.js";
+<script>
+  import { initEmblaRoot } from "@/scripts/embla";
 
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("testimonial-slider");
+    if (!root) return;
 
     /** Init the slider */
     initEmblaRoot(root);

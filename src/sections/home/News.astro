@@ -161,11 +161,12 @@ const uid = "embla-news";
 </style>
 
 <!-- Component-level init: scoped to this slider only -->
-<script type="module">
-  import { initEmblaRoot } from "/js/embla.js";
+<script>
+  import { initEmblaRoot } from "@/scripts/embla";
 
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("embla-news");
+    if (!root) return;
     initEmblaRoot(root, {
       align: "start",
       dragFree: false,

@@ -121,10 +121,13 @@ import Image from "astro/components/Image.astro";
 </section>
 
 <!-- Component-level init: scoped to this slider only -->
-<script type="module">
-  import { initEmblaRoot } from "/js/embla.js";
+<script>
+  import { initEmblaRoot } from "@/scripts/embla";
+
   window.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("results-slider");
+    if (!root) return;
+
     initEmblaRoot(root, {
       autoplay: true,
       delay: 4000,
