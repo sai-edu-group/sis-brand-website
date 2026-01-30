@@ -28,7 +28,7 @@ export const admissionsGuidlinesContent = {
   <li>The Admission Enquiry form can be collected from the School Admissions Office.</li>
   <li>
     The Admission form can also be filled up Online.  
-    (URL – https://saiinternational.edu.in/admission/)
+    (URL – https://www.saiinternational.edu.in/admissions/)
   </li>
   <li>
     Admission counsellors can be contacted at (0674)-7100200,  
@@ -52,27 +52,27 @@ export const admissionsGuidlinesContent = {
     <tr>
       <td>1</td>
       <td>Play Group</td>
-      <td>Three Years (Age as on 30.09.2024)</td>
+      <td>Three Years (Age as on 30.09.2025)</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Nursery</td>
-      <td>Three and half Years (Age as on 30.09.2024)</td>
+      <td>Three and half Years (Age as on 30.09.2025)</td>
     </tr>
     <tr>
       <td>3</td>
       <td>KG I</td>
-      <td>Four Years (Age as on 30.09.2024)</td>
+      <td>Four Years (Age as on 30.09.2025)</td>
     </tr>
     <tr>
       <td>4</td>
       <td>KG II</td>
-      <td>Five Years (Age as on 30.09.2024)</td>
+      <td>Five Years (Age as on 30.09.2025)</td>
     </tr>
     <tr>
       <td>5</td>
       <td>Class I</td>
-      <td>Six Years (Age as on 30.09.2024)</td>
+      <td>Six Years (Age as on 30.09.2025)</td>
     </tr>
     <tr>
       <td>6</td>
