@@ -104,34 +104,48 @@ import NewsLetterImage from "@/assets/images/news-letter.png";
     if (subscribeNewsletterButton) {
       subscribeNewsletterButton.addEventListener("click", async (e) => {
         e.preventDefault();
-        // Hide all previous errors
 
+        // Initialize button for Disable Effect
+        const btn = subscribeNewsletterButton.querySelector("button") as HTMLButtonElement;
+        const originalText = btn.innerText;
+
+        // Hide all previous errors
         document
           .querySelectorAll("[data-error]")
           .forEach((p) => p.classList.add("hidden"));
-        const email = document.querySelector('input[name="emailId"]').value;
+
+        const emailInput = document.querySelector('input[name="emailId"]') as HTMLInputElement;
+        const email = emailInput.value;
+
         if (!email) {
           document.querySelector("#email-error").classList.remove("hidden");
           return;
         }
+
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (!emailPattern.test(email)) {
           document.querySelector("#email-error").classList.remove("hidden");
           return;
         }
 
-        const response = await subcribeNewsLetterRequest({ email });
-        document.querySelector('input[name="emailId"]').value = "";
-        document.querySelector("#email-error").classList.add("hidden");
-        showMessage(
-          "Thank you for subscribing! You have been added to our newsletter.",
-          true,
-        );
-        // if (response.status) {
-        //   document.querySelector('input[name="emailId"]').value = "";
-        // } else {
-        //   showMessage("Something went wrong. Please try again later.", false);
-        // }
+        // Disable button during request
+        btn.disabled = true;
+        btn.innerText = "Subscribing...";
+
+        try {
+          await subcribeNewsLetterRequest({ email });
+          emailInput.value = "";
+          document.querySelector("#email-error").classList.add("hidden");
+          showMessage(
+            "Thank you for subscribing! You have been added to our newsletter.",
+            true,
+          );
+        } catch (err) {
+          showMessage("Something went wrong. Please try again later.", false);
+        } finally {
+          btn.disabled = false;
+          btn.innerText = originalText;
+        }
       });
     }
   });

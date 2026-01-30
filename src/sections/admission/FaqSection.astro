@@ -71,7 +71,7 @@ import { faqDetails, sectionHeaderContent } from "@/data/home/faq";
 <script is:inline>
   const accordions = document.querySelectorAll("[data-faq-accordion]");
 
-  const initialHeight = content.scrollHeight;
+  
   accordions.forEach((accordion) => {
     const trigger = accordion.querySelector("[data-accordion-trigger]");
     const content = accordion.querySelector("[data-accordion-content]");
@@ -103,8 +103,7 @@ import { faqDetails, sectionHeaderContent } from "@/data/home/faq";
     
     // Initialize height if already open (Astro handles the initial rotation)
     if (accordion.getAttribute("data-open") === "true") {
-      
-      content.style.height = initialHeight + "px";
+      content.style.height = content.scrollHeight + "px";
     } else {
       content.style.height = 0;
     }
