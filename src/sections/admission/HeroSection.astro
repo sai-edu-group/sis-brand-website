@@ -49,7 +49,8 @@ import AdmissionHeroImage from "@/assets/images/admission-hero.png";
           src={AdmissionHeroImage}
           alt=""
           class="h-full w-full object-cover lg:max-h-[680px]"
-          loading="lazy"
+          loading="eager"
+          fetchpriority="high"
           decoding="async"
           width={1200}
           height={680}

@@ -71,14 +71,17 @@ const STEP_TITLES = ["About Student", "About Parent", "Boarding Preference"];
             </div>
 
             <!-- Class Select -->
+            <div data-field>
             <Select
-              label="Admission for Class"
-              name="className"
-              required
-              placeholder="Select Class"
-              options={grades}
-              errorMessage="Please select the class for admission."
+            label="Select Class"
+            name="className"
+            required
+            className="text-black"
+            placeholder="Select Class"
+            options={grades}
+            errorMessage="Please select the class for admission."
             />
+            </div>
 
             <!-- Current School Input -->
             <div data-field>
