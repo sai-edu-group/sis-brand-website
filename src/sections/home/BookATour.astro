@@ -6,6 +6,7 @@ import Image from "astro/components/Image.astro";
   class="relative w-full xl:h-screen"
   data-name="book-a-tour-section"
   data-section="Book a Tour"
+  id="book-a-tour"
 >
   <!-- YouTube Video Background -->
   <div class="bg-n-950 absolute inset-0 h-full w-full">
@@ -20,17 +21,12 @@ import Image from "astro/components/Image.astro";
       height={680}
     />
 
-    <iframe
-      id="tour-video"
-      src={`https://www.youtube.com/embed/26RLzXfQu4s?autoplay=1&loop=1&playlist=26RLzXfQu4s&mute=1&controls=0&disablekb=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&cc_load_policy=0&enablejsapi=1`}
-      class="pointer-events-none absolute inset-0 h-full w-full object-cover"
-      allow="autoplay; encrypted-media"
-      allowfullscreen
-      frameborder="0"
-      loading="lazy"
-      title="School Tour Video"
+    <div
+      id="video-container"
+      class="pointer-events-none absolute inset-0 h-full w-full"
     >
-    </iframe>
+    </div>
+
     <!-- Dark overlay -->
     <div class="bg-n-950/30 absolute inset-0"></div>
   </div>
@@ -60,54 +56,55 @@ import Image from "astro/components/Image.astro";
 </section>
 
 <script is:inline>
-  let player;
-  const fallback = document.getElementById("video-fallback");
+  window.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("book-a-tour");
+    const container = document.getElementById("video-container");
+    const fallback = document.getElementById("video-fallback");
 
-  function hideFallback() {
-    if (!fallback) return;
-    fallback.style.opacity = "0";
-    // fully remove from hit-testing after fade
-    fallback.style.display = "none";
-  }
+    if (!section || !container || !fallback) return;
 
-  // YouTube Iframe API callback
-  window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player("tour-video", {
-      events: {
-        onStateChange: (e) => {
-          // ensure muted autoplay & hide fallback once ready
-          if (e.data == 1) {
-            try {
-              e.target.mute();
-              e.target.playVideo();
-            } catch {}
-          }
-          hideFallback();
-        },
-        onError: hideFallback, // don't block UI if YT errors
+    let loaded = false;
+
+    const loadVideo = () => {
+      if (loaded) return;
+      loaded = true;
+
+      const iframe = document.createElement("iframe");
+      iframe.src =
+        "https://www.youtube.com/embed/26RLzXfQu4s" +
+        "?autoplay=1&mute=1&loop=1&playlist=26RLzXfQu4s" +
+        "&controls=0&rel=0&modestbranding=1&playsinline=1";
+
+      iframe.className = "absolute inset-0 h-full w-full object-cover";
+      iframe.allow = "autoplay; encrypted-media";
+      iframe.setAttribute("aria-hidden", "true");
+
+      iframe.onload = () => {
+        fallback.style.opacity = "0";
+        setTimeout(() => fallback.remove(), 500);
+      };
+
+      container.appendChild(iframe);
+    };
+
+    // Safety fallback for very old browsers
+    if (!("IntersectionObserver" in window)) {
+      loadVideo();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          loadVideo();
+          observer.disconnect();
+        }
       },
-    });
-  };
+      { rootMargin: "200px" },
+    );
 
-  // Load the Iframe API
-  const tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(tag);
-
-  // Play/Pause toggle
-  // toggleBtn?.addEventListener("click", () => {
-  //   if (!player) return;
-  //   if (isPlaying) {
-  //     player.pauseVideo();
-  //     playIcon?.classList.remove("hidden");
-  //     pauseIcon?.classList.add("hidden");
-  //   } else {
-  //     player.playVideo();
-  //     playIcon?.classList.add("hidden");
-  //     pauseIcon?.classList.remove("hidden");
-  //   }
-  //   isPlaying = !isPlaying;
-  // });
+    observer.observe(section);
+  });
 </script>
 
 <style>

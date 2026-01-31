@@ -20,8 +20,8 @@ const { meta = {} } = Astro.props;
       noIndex={meta.noIndex}
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
 
     <link
       rel="preconnect"
@@ -43,95 +43,97 @@ const { meta = {} } = Astro.props;
       gtag("config", "G-S13GRK6RM9");
     </script>
   </head>
-<body>
-  <main>
-    <div>
-      <Header />
-    </div>
-    <SideMenu />
-    <slot />
-    <!-- Footer -->
-    <Footer client:visible />
-  </main>
-  <SocialStickyBar />
+  <body>
+    <main>
+      <div>
+        <Header />
+      </div>
+      <SideMenu />
+      <slot />
+      <!-- Footer -->
+      <Footer client:visible />
+    </main>
+    <SocialStickyBar />
 
-  <script is:inline>
-    (function () {
-      const fontLink = document.createElement("link");
-      fontLink.rel = "stylesheet";
-      fontLink.href =
-        "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap";
+    <script is:inline>
+      (function () {
+        const fontLink = document.createElement("link");
+        fontLink.rel = "stylesheet";
+        fontLink.href =
+          "https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap";
 
-      requestAnimationFrame(() => {
-        document.head.appendChild(fontLink);
+        requestAnimationFrame(() => {
+          document.head.appendChild(fontLink);
+        });
+      })();
+    </script>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+            }
+          });
+        },
+        // reveal when 20% visible
+      );
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .querySelectorAll(
+            ".fade-in, .scale-in, .card-anim, .fade-in-down, .article-root > *",
+          )
+          .forEach((el) => {
+            observer.observe(el);
+          });
       });
-    })();
-  </script>
+    </script>
+    <script>
+      import { animate, stagger } from "motion";
 
-<script>
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        }
-      });
-    },
-    // reveal when 20% visible
-  );
+      const containers = Array.from(document.querySelectorAll(".animatedText"));
+      const once = new WeakSet();
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document
-      .querySelectorAll(
-        ".fade-in, .scale-in, .card-anim, .fade-in-down, .article-root > *",
-      )
-      .forEach((el) => {
-        observer.observe(el);
-      });
-  });
-</script>
-<script>
-  import { animate, stagger } from "motion";
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting || once.has(entry.target)) return;
+            once.add(entry.target);
 
-  const containers = Array.from(document.querySelectorAll(".animatedText"));
-  const once = new WeakSet();
+            const el = entry.target;
+            const children = el.querySelectorAll("span");
 
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting || once.has(entry.target)) return;
-        once.add(entry.target);
+            if (children.length > 0) {
+              // Animate child spans
+              animate(
+                children,
+                { opacity: [0, 1], y: [20, 0] },
+                { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
+              );
+            } else {
+              // Animate the container itself if it has no spans
+              animate(
+                el,
+                { opacity: [0, 1], y: [20, 0] },
+                { duration: 0.6, easing: "ease-out" },
+              );
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
 
-        const el = entry.target;
-        const children = el.querySelectorAll("span");
+      containers.forEach((el) => io.observe(el));
+    </script>
 
-        if (children.length > 0) {
-          // Animate child spans
-          animate(
-            children,
-            { opacity: [0, 1], y: [20, 0] },
-            { duration: 0.6, delay: stagger(0.08), easing: "ease-out" },
-          );
-        } else {
-          // Animate the container itself if it has no spans
-          animate(
-            el,
-            { opacity: [0, 1], y: [20, 0] },
-            { duration: 0.6, easing: "ease-out" },
-          );
-        }
-      });
-    },
-    { threshold: 0.3 },
-  );
-
-  containers.forEach((el) => io.observe(el));
-</script>
-
-<!-- Tracking Code by SAI -->
-<script type="text/javascript" src="https://web-in21.mxradon.com/t/Tracker.js"></script>
-<script type="text/javascript">
-      pidTracker('57648');
-</script>
-
-</body>
+    <!-- Tracking Code by SAI -->
+    <script
+      type="text/javascript"
+      src="https://web-in21.mxradon.com/t/Tracker.js"></script>
+    <script type="text/javascript">
+      pidTracker("57648");
+    </script>
+  </body>
+</html>
