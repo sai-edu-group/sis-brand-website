@@ -16,7 +16,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   output: "server",
   adapter: vercel(),
-  site: "https://uat.saicloudschool.in/",
+  site: "https://www.saiinternational.edu.in/",
   integrations: [astroIcon(), sitemap()],
   vite: {
     plugins: [tailwindcss()],
