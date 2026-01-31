@@ -322,26 +322,30 @@ import Image from "astro/components/Image.astro";
     next1?.addEventListener("click", async (e) => {
       e.preventDefault();
 
+      const btn = next1 as HTMLButtonElement;
+      const originalText = btn.innerText;
+
       // Validate step
       if (!validateStep(step1)) return;
 
       // Collect form data
       const form = document.querySelector("form");
-
       if (!form) return;
+
+      // Disable button during request
+      btn.disabled = true;
+      btn.innerText = "Sending...";
 
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData.entries());
-      console.log(step1, payload);
 
       try {
-        // Call API
         const response = await contactEnquiryRequest(payload);
 
         if (response.status === false) {
-          alert(
-            "Something went wrong while submitting your enquiry. Please try again.",
-          );
+          alert("Something went wrong while submitting your enquiry. Please try again.");
+          btn.disabled = false;
+          btn.innerText = originalText;
           return;
         }
 
@@ -353,9 +357,9 @@ import Image from "astro/components/Image.astro";
         thankYou?.classList.remove("hidden");
       } catch (err) {
         console.error("❌ Failed to submit enquiry:", err);
-        alert(
-          "Something went wrong while submitting your enquiry. Please try again.",
-        );
+        alert("Something went wrong while submitting your enquiry. Please try again.");
+        btn.disabled = false;
+        btn.innerText = originalText;
       }
     });
   });

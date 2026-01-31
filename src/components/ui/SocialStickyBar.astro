@@ -10,6 +10,7 @@ import { contactLinks } from "@/data/home/social-links";
   <a
     href={`mailto:${contactLinks[0].href}`}
     target="_blank"
+    aria-label="Mail"
     class="group data-track-social inline-flex items-center justify-center"
     data-social-type="email"
     data-social-value={contactLinks[0].href}
@@ -33,6 +34,7 @@ import { contactLinks } from "@/data/home/social-links";
   <!-- Linkedin Icon -->
   <a
     href={contactLinks[1].href}
+    aria-label="LinkedIn"
     target="_blank"
     class="group data-track-social inline-flex items-center justify-center"
     data-social-type="linkedin"
@@ -59,6 +61,7 @@ import { contactLinks } from "@/data/home/social-links";
   <a
     href={contactLinks[2].href}
     target="_blank"
+    aria-label="Instagram"
     class="group data-track-social inline-flex items-center justify-center"
     data-social-type="instagram"
     data-social-value={contactLinks[2].href}
@@ -85,6 +88,7 @@ import { contactLinks } from "@/data/home/social-links";
     href={`tel:${contactLinks[3].href}`}
     class="group data-track-social inline-flex items-center justify-center"
     data-social-type="phone"
+    aria-label="Phone"
     data-social-value={contactLinks[3].href}
     ><svg
       width="20"

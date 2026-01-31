@@ -71,6 +71,7 @@ import { faqDetails, sectionHeaderContent } from "@/data/home/faq";
 <script is:inline>
   const accordions = document.querySelectorAll("[data-faq-accordion]");
 
+  
   accordions.forEach((accordion) => {
     const trigger = accordion.querySelector("[data-accordion-trigger]");
     const content = accordion.querySelector("[data-accordion-content]");
@@ -78,6 +79,9 @@ import { faqDetails, sectionHeaderContent } from "@/data/home/faq";
 
     trigger.addEventListener("click", () => {
       const isOpen = accordion.getAttribute("data-open") === "true";
+
+      const openHeight = content.scrollHeight;
+      
 
       // Close all accordions first
       accordions.forEach((acc) => {
@@ -91,11 +95,12 @@ import { faqDetails, sectionHeaderContent } from "@/data/home/faq";
       // Toggle clicked accordion
       if (!isOpen) {
         accordion.setAttribute("data-open", "true");
-        content.style.height = content.scrollHeight + "px";
+        content.style.height = openHeight + "px";
         arrow.classList.add("rotate-45");
       }
     });
 
+    
     // Initialize height if already open (Astro handles the initial rotation)
     if (accordion.getAttribute("data-open") === "true") {
       content.style.height = content.scrollHeight + "px";
