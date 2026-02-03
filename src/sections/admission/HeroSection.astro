@@ -5,7 +5,7 @@ import Image from "astro/components/Image.astro";
 import AdmissionHeroImage from "@/assets/images/admission-hero.png";
 ---
 
-<!-- CRITICAL CSS: Inlined for instant render, no download delay -->
+<!-- CRITICAL CSS (Inline) -->
 <style is:inline>
   .hero-admission-critical {
     position: relative;
@@ -208,6 +208,8 @@ import AdmissionHeroImage from "@/assets/images/admission-hero.png";
     </div>
   </div>
 </section>
+
+<!-- Non Critical CSS -->
 <style>
   .svg-draw {
     stroke-dasharray: 400;
