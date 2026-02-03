@@ -33,6 +33,9 @@ const canonical = `${site.siteUrl}${Astro.url.pathname}`;
 
   <!-- Canonical URL -->
   <link rel="canonical" href={canonical} />
+
+  <!-- REFERRER POLICY -->
+  <meta name="referrer" content="no-referrer-when-downgrade" />
   <!--  -->
   {noIndex && <meta name="robots" content="noindex" />}
 </head>
