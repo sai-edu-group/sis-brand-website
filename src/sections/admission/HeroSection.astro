@@ -26,34 +26,46 @@ import AdmissionHeroImage from "@/assets/images/admission-hero.png";
   .hero-admission-container {
     position: relative;
     z-index: 10;
-    max-width: 1536px;
-    margin: 0 auto 3.75rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3.75rem;
     padding: 2.5rem 1rem 0;
   }
-  
+
+  @media (min-width: 640px) {
+    .hero-admission-container {
+      max-width: 640px;
+    }
+  }
+
   @media (min-width: 768px) {
     .hero-admission-container {
+      max-width: 768px;
       margin-bottom: 7.5rem;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .hero-admission-container {
+      max-width: 1024px;
       padding-bottom: 5.6875rem;
     }
   }
-  
+
   @media (min-width: 1280px) {
     .hero-admission-container {
+      max-width: 1280px;
       margin-bottom: 0;
     }
   }
-  
+
   @media (min-width: 1536px) {
     .hero-admission-container {
-      padding: 8rem 0 0;
+      max-width: 1536px;
+      padding-top: 8rem;
     }
   }
   
@@ -96,6 +108,7 @@ import AdmissionHeroImage from "@/assets/images/admission-hero.png";
     line-height: 1.5;
     font-weight: 500;
     color: #475569;
+    width: 100%;
   }
   
   @media (min-width: 1024px) {
