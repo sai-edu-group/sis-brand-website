@@ -135,5 +135,43 @@ const { meta = {} } = Astro.props;
     <script type="text/javascript">
       pidTracker("57648");
     </script>
+
+    <script is:inline>
+      function setProspectParameters(leadId, orgCode, trackingDomain) {
+        let expiryDate = new Date();
+        expiryDate.setTime(expiryDate.getTime() + 365 * 24 * 60 * 60 * 1000);
+
+        document.cookie =
+          "ORG" +
+          orgCode +
+          "=" +
+          leadId +
+          ";expires=" +
+          expiryDate.toUTCString() +
+          ";Domain=" +
+          trackingDomain +
+          ";path=/;";
+
+        window.MXCProspectId = leadId;
+        window.leadsquared = window.leadsquared || {};
+        window.leadsquared.tracker = window.leadsquared.tracker || {};
+        window.leadsquared.tracker.pids = window.leadsquared.tracker.pids || {};
+
+        window.leadsquared.tracker.pids[orgCode] = leadId;
+      }
+    </script>
+    <script is:inline>
+      (function waitForMXC() {
+        if (window.MXCProspectId) {
+          setProspectParameters(
+            window.MXCProspectId,
+            77318,
+            ".saiinternational.edu.in",
+          );
+        } else {
+          setTimeout(waitForMXC, 300);
+        }
+      })();
+    </script>
   </body>
 </html>

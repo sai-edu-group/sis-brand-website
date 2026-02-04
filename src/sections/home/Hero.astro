@@ -327,6 +327,8 @@ const grades = [
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
+      const prospectId = window.MXCProspectId || "";
+
       // Hide all previous errors
       form
         .querySelectorAll("[data-error]")
@@ -395,6 +397,10 @@ const grades = [
             Value: "No",
           },
           { Attribute: "mx_Source_V2", Value: "SIS Website Home Page" },
+          {
+            Attribute: "ProspectID",
+            Value: prospectId,
+          },
         ];
 
         const response = await admissionEnquiryRequest(leadSquaredPayload);
