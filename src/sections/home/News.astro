@@ -51,7 +51,10 @@ const uid = "embla-news";
                     )}
                     topText=""
                     date={article.created_on}
-                    href={URLS.MEDIA.NEWS.ROOT}
+                    href={URLS.MEDIA.NEWS.ITEM(
+                      article.id.toString(),
+                      article.title.toLowerCase().replaceAll(" ", "-"),
+                    )}
                   />
                 </div>
               ))}
