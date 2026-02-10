@@ -5,9 +5,15 @@ import HowItWorks from "@/sections/admission/HowItWorks.astro";
 import FaqSection from "@/sections/admission/FaqSection.astro";
 import Form from "@/sections/admission/Form.astro";
 import HeroSection from "@/sections/admission/HeroSection.astro";
+import { getSiteUrl } from "@/utils/siteUrl.util";
 ---
 
-<Layout meta={admissionsMeta}>
+<Layout
+  meta={{
+    ...admissionsMeta,
+    image: `${getSiteUrl()}/images/og/admission-og.jpg`,
+  }}
+>
   <HeroSection />
   <HowItWorks />
   <Form />

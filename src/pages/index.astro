@@ -20,9 +20,15 @@ import Results from "@/sections/home/Results.astro";
 import Placements from "@/sections/home/Placements.astro";
 import Hero from "@/sections/home/Hero.astro";
 import NewsLetter from "@/sections/home/NewsLetter.astro";
+import { getSiteUrl } from "@/utils/siteUrl.util";
 ---
 
-<Layout meta={homeMeta}>
+<Layout
+  meta={{
+    ...homeMeta,
+    image: `${getSiteUrl()}/images/og/home-og.jpg`,
+  }}
+>
   <Hero />
   <Stats />
   <Learning360 />

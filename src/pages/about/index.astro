@@ -14,6 +14,7 @@ import Founder from "@/sections/home/Founder.astro";
 // DATA //
 import aboutMeta from "@/data/meta/about/about.json";
 import LearningAndBeyond from "@/sections/about/LearningAndBeyond.astro";
+import { getSiteUrl } from "@/utils/siteUrl.util";
 
 const heroSectionDetails = {
   title: "Nurturing Global Citizens with Indian Values",
@@ -22,7 +23,12 @@ const heroSectionDetails = {
 };
 ---
 
-<Layout meta={aboutMeta}>
+<Layout
+  meta={{
+    ...aboutMeta,
+    image: `${getSiteUrl()}/images/og/about-us-og.jpg`,
+  }}
+>
   <Hero {...heroSectionDetails} />
   <Ethos />
   <Founder />
