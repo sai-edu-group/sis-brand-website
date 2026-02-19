@@ -4,12 +4,12 @@ export const contactLinks = [
     href: "info@saiinternational.edu.in",
   },
   {
-    svgName: "linkedin",
-    href: "https://www.linkedin.com/school/saiinternationalschool/",
+    svgName: "youtube",
+    href: "https://www.youtube.com/channel/UC93Gqtd_vT0EN4t_oNhTVQw",
   },
   {
-    svgName: "instagram",
-    href: "https://www.instagram.com/sai_international_edu_group/",
+    svgName: "facebook",
+    href: "https://www.facebook.com/saiinternationalschool",
   },
   {
     svgName: "phone",
