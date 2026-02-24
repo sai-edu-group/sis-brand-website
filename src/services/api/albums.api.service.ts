@@ -4,6 +4,7 @@ import axios from "axios";
 // Get default API URL from environment variables
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
+
 // TYPES //
 export type AlbumItem = {
   id: number | string;
