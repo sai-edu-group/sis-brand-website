@@ -16,7 +16,7 @@ export type NewsItemData = {
   thumbnail: string;
   banner: string;
   photo_path: string;
-  photo: string;
+  photos: string;
   created_on: string;
   category_name: string;
 };
@@ -95,12 +95,7 @@ export const fetchBlogByIdRequest = async (
 
     if (!blogItem) return null;
 
-    return {
-      ...blogItem,
-      photo: blogItem.photo
-        ? blogItem.photo.split(",").map((img: string) => img.trim())
-        : [],
-    };
+    return blogItem;
   } catch (error) {
     console.error("Failed to fetch news by id: ", error);
     return null;
