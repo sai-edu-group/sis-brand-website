@@ -16,7 +16,7 @@ export type NewsItemData = {
   thumbnail: string;
   banner: string;
   photo_path: string;
-  photos: string;
+  photos: string[];
   created_on: string;
   category_name: string;
 };
