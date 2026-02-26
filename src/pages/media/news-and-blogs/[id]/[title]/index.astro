@@ -52,6 +52,8 @@ const breadcrumbItems = [
       <!-- Radio Orange Section -->
       <Article
         title={newsItem?.title ?? "News"}
+        photos={newsItem?.photos}
+        photo_path={newsItem?.photo_path}
         metaStripDetails={{
           author: "",
           date: newsItem?.created_on
