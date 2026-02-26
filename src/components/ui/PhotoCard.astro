@@ -6,12 +6,14 @@ interface Props {
   image: string;
   classes?: string;
   index?: number;
+  showExpandButton?: boolean;
 }
 
 const {
   image = "/images/default/news-article-image.png",
   classes = "",
   index = 0,
+  showExpandButton = true,
 } = Astro.props as Props;
 ---
 
@@ -36,15 +38,17 @@ const {
   </div>
 
   <!-- BOTTOM BUTTON -->
-  <div
-    class="absolute right-0 bottom-0 z-1 hidden p-4 text-right transition-opacity duration-300 group-hover:block"
-  >
-    <button
-      class="flex items-center gap-2 hover:cursor-pointer"
-      aria-label="Expand image"
-    >
-      <Icon name="expand" class="fill-n-50" />
-      <p class="font-secondary text-n-50 text-xs sm:text-sm">Expand</p>
-    </button>
-  </div>
+  {
+    showExpandButton && (
+      <div class="absolute right-0 bottom-0 z-1 hidden p-4 text-right transition-opacity duration-300 group-hover:block">
+        <button
+          class="flex items-center gap-2 hover:cursor-pointer"
+          aria-label="Expand image"
+        >
+          <Icon name="expand" class="fill-n-50" />
+          <p class="font-secondary text-n-50 text-xs sm:text-sm">Expand</p>
+        </button>
+      </div>
+    )
+  }
 </div>

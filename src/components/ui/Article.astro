@@ -1,6 +1,7 @@
 ---
 // OTHERS //
 import MetaStrip from "./MetaStrip.astro";
+import PhotoHighlights from "./PhotoHighlights.astro";
 import SectionHeaderMain from "./SectionHeaderMain.astro";
 
 interface Props {
@@ -14,6 +15,8 @@ interface Props {
     readTimeMins?: number;
     onShare?: string;
   };
+  photos?: string[];
+  photo_path?: string;
 }
 
 const {
@@ -22,6 +25,8 @@ const {
   ctaText = "",
   eyebrowText = "",
   metaStripDetails,
+  photos,
+  photo_path,
 } = Astro.props as Props;
 ---
 
@@ -41,6 +46,13 @@ const {
   <div class="article-root">
     <slot />
   </div>
+
+  <!-- Photo Highlights -->
+  {
+    photos && photo_path && (
+      <PhotoHighlights photos={photos} photo_path={photo_path} />
+    )
+  }
 </div>
 
 <style is:global>
