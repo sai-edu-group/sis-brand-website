@@ -49,17 +49,17 @@ export const menu: MenuItemData[] = [
     ],
     icon: "about",
   },
-  {
-    title: "SAI Entrance Test 2026",
-    submenu: [
-      {
-        title: "Registrations",
-        href: "https://saiinternational.edu.in/set/",
-        target: "_blank",
-      },
-    ],
-    icon: "admissions",
-  },
+  // {
+  //   title: "SAI Entrance Test 2026",
+  //   submenu: [
+  //     {
+  //       title: "Registrations",
+  //       href: "https://saiinternational.edu.in/set/",
+  //       target: "_blank",
+  //     },
+  //   ],
+  //   icon: "admissions",
+  // },
   {
     title: "RESULTS",
     submenu: [
