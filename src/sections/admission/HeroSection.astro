@@ -5,31 +5,138 @@ import Image from "astro/components/Image.astro";
 import AdmissionHeroImage from "@/assets/images/admission-hero.png";
 ---
 
+<!-- CRITICAL CSS (Inline) -->
+<style is:inline>
+  .hero-admission-critical {
+    position: relative;
+    overflow: hidden;
+    background-color: #ffffff;
+    background-image: url('/images/school-background.png');
+    background-size: cover;
+    background-position: center;
+    padding-top: 6rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-admission-critical {
+      padding-top: 15rem;
+    }
+  }
+  
+  .hero-admission-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3.75rem;
+    padding: 2.5rem 1rem 0;
+  }
+
+  @media (min-width: 640px) {
+    .hero-admission-container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-admission-container {
+      max-width: 768px;
+      margin-bottom: 7.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+
+
+  @media (min-width: 1536px) {
+    .hero-admission-container {
+      max-width: 1536px;
+      padding-top: 8rem;
+      padding-left: 5rem;
+    }
+  }
+
+   @media (min-width: 1920px) {
+    .hero-admission-container {
+      max-width: 1536px;
+      padding-top: 8rem;
+      padding-left: 0rem;
+    }
+  }
+
+  
+
+  .hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-text-wrapper {
+      gap: 1.75rem; 
+      padding-bottom: 5rem;
+    }
+  }
+  
+  .hero-title {
+    font-size: 2.25rem;
+    line-height: 1.25;
+    font-weight: 500;
+    color: #1e293b;
+  }
+  
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3.75rem;
+      font-weight: 600;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 4.5rem;
+    }
+  }
+  
+  .hero-subtitle {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color: #475569;
+    width: 100%;
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-subtitle {
+      width: 45%;
+      font-size: 1.25rem;
+    }
+  }
+</style>
+
 <section
-  class="bg-n-50 relative overflow-hidden bg-[url('/images/school-background.png')] bg-cover bg-center pt-24 md:pt-60"
+  class="hero-admission-critical"
   data-section="Admission Hero"
 >
   <!-- Main Content -->
-  <div
-    class="relative z-10 container mx-auto mb-15 px-4 pt-10 md:mb-30 md:px-6 lg:pb-[91px] xl:mb-0 2xl:px-0 2xl:pt-32"
-  >
+  <div class="hero-admission-container">
     <div class="flex flex-col lg:flex-row lg:items-center lg:gap-0">
       <!-- Left column -->
-      <div class="flex flex-col gap-2 md:gap-7 md:pb-20">
+      <div class="hero-text-wrapper">
         <!-- Hero Text -->
         <div class="w-full md:w-[80%] lg:text-xl xl:w-[55%]">
-          <p
-            class="fade-in-up fade-title text-n-800 text-4xl leading-tight font-medium md:text-6xl md:font-semibold lg:text-7xl"
-          >
+          <p class="hero-title fade-in-up fade-title">
             Begin Your Child’s Journey
             <span class="text-orange-500"> at SAI </span>
           </p>
         </div>
 
         <!-- Supporting text -->
-        <p
-          class="text-n-600 font-secondary fade-in-up fade-subtitle w-full text-base leading-normal font-medium lg:w-[45%] lg:text-xl"
-        >
+        <p class="hero-subtitle fade-in-up fade-subtitle">
           We’re here to guide you every step of the way — from your first
           inquiry to the moment your child walks into our world.
         </p>
@@ -113,6 +220,8 @@ import AdmissionHeroImage from "@/assets/images/admission-hero.png";
     </div>
   </div>
 </section>
+
+<!-- Non Critical CSS -->
 <style>
   .svg-draw {
     stroke-dasharray: 400;
