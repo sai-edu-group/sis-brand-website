@@ -21,6 +21,11 @@
       "permanent": true
     },
     {
+      "source": "/saimun/adminlogin",
+      "destination": "https://saiinternational.edu.in/saimun/adminlogin",
+      "permanent": true
+    },
+    {
       "source": "/saimun/",
       "destination": "https://saiinternational.edu.in/saimun/",
       "permanent": true
