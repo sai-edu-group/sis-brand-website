@@ -60,6 +60,9 @@ const { totalCount, pressReleases } = await fetchPressReleasesRequest(
   year,
   page,
 );
+const pressReleaseItemsWithImage = pressReleases.filter(
+  (releaseItem) => !!(releaseItem.image || releaseItem.thumbnail),
+);
 
 // Pagination calculation
 const ITEMS_PER_PAGE = 10;
@@ -93,9 +96,9 @@ const shouldShowPagination = totalPages > 1;
 
           <!-- Press Release -->
           {
-            pressReleases && pressReleases.length > 0 ? (
+            pressReleaseItemsWithImage.length > 0 ? (
               <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-                {pressReleases.map(
+                {pressReleaseItemsWithImage.map(
                   (releaseItem: PressReleaseItem, releaseItemIndex) => (
                     <div
                       class="card-anim"
@@ -103,7 +106,7 @@ const shouldShowPagination = totalPages > 1;
                     >
                       <ImageCard
                         image={generateImagePath(
-                          releaseItem.image || "",
+                          releaseItem.image || releaseItem.thumbnail || "",
                           IMAGE_TYPES.PRESS_RELEASE,
                         )}
                         caption={releaseItem.title}
