@@ -9,6 +9,7 @@
 $ignoredPaths = [
     '/saimun',
     '/set',
+    '/saimun/adminlogin',
 ];
 
 // Requested path
