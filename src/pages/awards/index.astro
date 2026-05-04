@@ -19,6 +19,10 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+import {
+  buildAwardAcademicYearOptions,
+  formatAcademicYearLabel,
+} from "@/utils/year.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
@@ -50,6 +54,10 @@ if (!year) {
 
 // Extract the Results. TODO: Will be API Call
 const awardItems = await fetchAwardsRequest(year);
+const awardYearOptions = buildAwardAcademicYearOptions({
+  configuredYears: awards.years,
+  selectedYear: year,
+});
 ---
 
 <Layout meta={awardsMeta}>
@@ -71,13 +79,23 @@ const awardItems = await fetchAwardsRequest(year);
         <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
           <!-- Years Filters -->
-          <FilterBar showSearch={false} years={awards.years} />
+          <FilterBar
+            showSearch={false}
+            years={awardYearOptions}
+            shouldIncludeCurrentYear={false}
+          />
 
           <!-- Results -->
           <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
             {
               awardItems && awardItems.length > 0 ? (
-                awardItems.map((awardItem) => (
+                awardItems.map((awardItem) => {
+                  const awardYearNumber = Number(awardItem.year);
+                  const displayYear = Number.isInteger(awardYearNumber)
+                    ? formatAcademicYearLabel(awardYearNumber - 1)
+                    : formatAcademicYearLabel(year - 1);
+
+                  return (
                   <AwardsCard
                     title={awardItem.awardName}
                     subTitle={awardItem.awardDesc}
@@ -85,9 +103,10 @@ const awardItems = await fetchAwardsRequest(year);
                       awardItem.thumbnailImg,
                       IMAGE_TYPES.AWARDS,
                     )}
-                    year={year.toString()}
+                    year={displayYear}
                   />
-                ))
+                  );
+                })
               ) : (
                 <div class="col-span-full">
                   <EmptyState
