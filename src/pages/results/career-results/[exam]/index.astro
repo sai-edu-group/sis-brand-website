@@ -9,19 +9,30 @@ import FilterBar from "@/components/ui/FilterBar.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 
 // DATA //
 import { careerResults } from "@/data/results/career-results";
 import { URLS } from "@/infrastructure/constants/urls";
 
+// API SERVICES //
+import { fetchCareerResultsRequest } from "@/services/api/career-results.api.service";
+
+// ENUMS //
+import { IMAGE_TYPES } from "@/enums/image.enum";
+
+// UTILS //
+import { generateImagePath } from "@/utils/image.utils";
+
 // TYPES //
-import type { ClassData, ResultData } from "@/types/results/results";
+import type { ClassData } from "@/types/results/results";
 
 // Get the Props from the URL [stream]/[year]
 const { exam } = Astro.params;
 
 // Get the Year from the Search Params
-const year = Astro.url.searchParams.get("year");
+const yearParam = Astro.url.searchParams.get("year");
+const year = yearParam ? Number(yearParam) : NaN;
 
 // Get the Class Object from "chseClasses" data using the Stream ID
 // TODO: WIll be API Call here
@@ -31,7 +42,7 @@ const classItem: ClassData | undefined = careerResults.find(
 );
 
 // If streamId is missing or invalid — go back or redirect
-if (!exam || !year || !classItem) {
+if (!exam || !Number.isFinite(year) || !classItem) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -40,14 +51,14 @@ if (!exam || !year || !classItem) {
   });
 }
 
-const results: ResultData[] = classItem.results[parseInt(year)];
+const results = await fetchCareerResultsRequest(year, exam);
 
 // Breadcrumb Items
 const breadcrumbItems = [
   { label: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
   {
     label: classItem.name,
-    href: `${URLS.RESULTS.CAREER_RESULTS.EXAM(exam)}?year=${year}`,
+    href: `${URLS.RESULTS.CAREER_RESULTS.EXAM(exam)}?year=${year.toString()}`,
   },
 ];
 ---
@@ -74,19 +85,27 @@ const breadcrumbItems = [
           <FilterBar showSearch={false} years={classItem.years} />
 
           <!-- Results -->
-          <div
-            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
-          >
-            {
-              results?.map((resultItem) => (
+          {results && results.length > 0 ? (
+            <div
+              class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
+            >
+              {results.map((resultItem) => (
                 <ResultsCard
-                  studentName={resultItem.studname}
+                  studentName={resultItem.studentName}
                   score={resultItem.percentage}
-                  image={resultItem.studprofilepic}
+                  image={generateImagePath(
+                    resultItem.studentProfilePic,
+                    IMAGE_TYPES.RESULT,
+                  )}
                 />
-              ))
-            }
-          </div>
+              ))}
+            </div>
+          ) : (
+            <EmptyState
+              title="No Results Found"
+              description="We couldn't find any career results for the selected year. Please check back later."
+            />
+          )}
         </div>
       </div>
     </div>
