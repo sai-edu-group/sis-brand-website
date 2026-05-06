@@ -36,10 +36,9 @@ const selectedSessionName = requestedSessionName || fallbackSessionName;
 
 const careerExams = await fetchCareerExamsRequest();
 const currentExam = careerExams.find((examItem) => {
-  const examSlug = examItem.slug || examItem.test || "";
-  return examSlug === exam;
+  return examItem.slug === exam;
 });
-const currentExamName = currentExam?.name || currentExam?.examName || "";
+const currentExamName = currentExam?.name || "";
 
 // If streamId is missing or invalid — go back or redirect
 if (!exam || !selectedSessionName || !currentExamName) {

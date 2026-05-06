@@ -18,13 +18,9 @@ export type CareerSessionData = {
 };
 
 export type CareerExamData = {
-  examName?: string;
-  name?: string;
-  slug?: string;
-  test?: string;
-  availableSessions?: string[];
-  defaultSession?: string;
-  cardImage?: string;
+  name: string;
+  slug: string;
+  cardImage: string;
 };
 
 type CareerResultApiResponse = {
@@ -143,10 +139,10 @@ export const fetchCareerExamsRequest = async (): Promise<CareerExamData[]> => {
 };
 
 /**
- * Fetches career results for a given test slug (jee/neet) and session.
+ * Fetches career results for a given exam slug (jee/neet) and session.
  *
- * @param exam - Test slug from route params (for example: "jee", "neet")
- * @param sessionName - Session selected in the filter (for example: "2024-2025")
+ * @param exam - Exam slug from route params (for example: "jee", "neet")
+ * @param session - Session selected in the filter (for example: "2024-2025")
  * @returns Promise resolving to an array of career result items
  */
 export const fetchCareerResultsRequest = async (

@@ -51,14 +51,11 @@ const fallbackSession = careerSessions[0]?.sessionName ?? "";
           {
             careerExams.length > 0 ? (
               careerExams.map((examItem) => {
-                const examLabel = examItem.name || examItem.examName || "";
-                const examSlug = examItem.slug || examItem.test || "";
-
                 return (
                   <CourseCard
-                    title={`${examLabel} Results`}
-                    image={examItem.cardImage || `/results/career/${examSlug}.jpg`}
-                    onCtaClick={`window.location.href = "${URLS.RESULTS.CAREER_RESULTS.EXAM(examSlug)}?session=${encodeURIComponent(examItem.defaultSession || fallbackSession)}"`}
+                    title={`${examItem.name} Results`}
+                    image={examItem.cardImage}
+                    onCtaClick={`window.location.href = "${URLS.RESULTS.CAREER_RESULTS.EXAM(examItem.slug)}?session=${encodeURIComponent(fallbackSession)}"`}
                     ctaText="Show Results"
                   />
                 );
