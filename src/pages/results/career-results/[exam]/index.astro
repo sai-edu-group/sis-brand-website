@@ -11,12 +11,14 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 
-// DATA //
-import { careerResults } from "@/data/results/career-results";
 import { URLS } from "@/infrastructure/constants/urls";
 
 // API SERVICES //
-import { fetchCareerResultsRequest } from "@/services/api/career-results.api.service";
+import {
+  fetchCareerExamsRequest,
+  fetchCareerResultsRequest,
+  fetchCareerSessionsRequest,
+} from "@/services/api/career-results.api.service";
 
 // ENUMS //
 import { IMAGE_TYPES } from "@/enums/image.enum";
@@ -24,25 +26,23 @@ import { IMAGE_TYPES } from "@/enums/image.enum";
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
 
-// TYPES //
-import type { ClassData } from "@/types/results/results";
-
 // Get the Props from the URL [stream]/[year]
 const { exam } = Astro.params;
 
-// Get the Year from the Search Params
-const yearParam = Astro.url.searchParams.get("year");
-const year = yearParam ? Number(yearParam) : NaN;
+const allCareerSessions = await fetchCareerSessionsRequest();
+const requestedSessionName = Astro.url.searchParams.get("session")?.trim() ?? "";
+const fallbackSessionName = allCareerSessions[0]?.sessionName ?? "";
+const selectedSessionName = requestedSessionName || fallbackSessionName;
 
-// Get the Class Object from "chseClasses" data using the Stream ID
-// TODO: WIll be API Call here
-const classItem: ClassData | undefined = careerResults.find(
-  (careerResultItem) =>
-    careerResultItem.name.toLowerCase().replaceAll(" ", "-") === exam,
-);
+const careerExams = await fetchCareerExamsRequest();
+const currentExam = careerExams.find((examItem) => {
+  const examSlug = examItem.slug || examItem.test || "";
+  return examSlug === exam;
+});
+const currentExamName = currentExam?.name || currentExam?.examName || "";
 
 // If streamId is missing or invalid — go back or redirect
-if (!exam || !Number.isFinite(year) || !classItem) {
+if (!exam || !selectedSessionName || !currentExamName) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -51,14 +51,14 @@ if (!exam || !Number.isFinite(year) || !classItem) {
   });
 }
 
-const results = await fetchCareerResultsRequest(year, exam);
+const results = await fetchCareerResultsRequest(exam, selectedSessionName);
 
 // Breadcrumb Items
 const breadcrumbItems = [
   { label: "Career Results", href: URLS.RESULTS.CAREER_RESULTS.ROOT },
   {
-    label: classItem.name,
-    href: `${URLS.RESULTS.CAREER_RESULTS.EXAM(exam)}?year=${year.toString()}`,
+    label: currentExamName,
+    href: `${URLS.RESULTS.CAREER_RESULTS.EXAM(exam)}?session=${encodeURIComponent(selectedSessionName)}`,
   },
 ];
 ---
@@ -75,14 +75,22 @@ const breadcrumbItems = [
       <div class="flex flex-col gap-8 md:gap-12 lg:gap-14">
         <!-- Section Header -->
         <SectionHeaderMain
-          title={classItem.name}
+          title={currentExamName}
           subtitle="Celebrating our students hard work and achievements"
         />
 
         <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
           <!-- Years Filters -->
-          <FilterBar showSearch={false} years={classItem.years} />
+          <FilterBar
+            showSearch={false}
+            years={allCareerSessions.map((sessionItem) => ({
+              value: sessionItem.sessionName,
+              label: sessionItem.sessionName,
+            }))}
+            shouldIncludeCurrentYear={false}
+            queryParamName="session"
+          />
 
           <!-- Results -->
           {results && results.length > 0 ? (

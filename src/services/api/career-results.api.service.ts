@@ -11,24 +11,59 @@ export type CareerResultItemData = {
   className: string;
 };
 
+export type CareerSessionData = {
+  sessionId: number;
+  sessionName: string;
+  sessionEndDate: string;
+};
+
+export type CareerExamData = {
+  examName?: string;
+  name?: string;
+  slug?: string;
+  test?: string;
+  availableSessions?: string[];
+  defaultSession?: string;
+  cardImage?: string;
+};
+
 type CareerResultApiResponse = {
   status: boolean;
   statusCode: number;
-  data: CareerResultItemData[];
+  data?: {
+    results?: CareerResultItemData[];
+    exam?: {
+      sessions?: Array<{
+        sessionName: string;
+        results?: CareerResultItemData[];
+      }>;
+    };
+  };
+};
+
+type CareerSessionsApiResponse = {
+  status: boolean;
+  statusCode: number;
+  data: CareerSessionData[];
+};
+
+type CareerExamsApiResponse = {
+  status: boolean;
+  statusCode: number;
+  data:
+    | CareerExamData[]
+    | {
+        exams?: CareerExamData[];
+      };
 };
 
 const API_URL = import.meta.env.PUBLIC_API_URL;
-
-// Temporary exam-to-classId mapping used with the shared results endpoint.
-const EXAM_CLASS_ID_MAP: Record<string, string> = {
-  jee: "11",
-  neet: "12",
-};
+const REQUEST_TIMEOUT = 8000;
 
 /**
- * Builds a valid API endpoint URL from base URL and route path.
+ * Builds a safe API endpoint for career-results routes.
  */
-const buildApiEndpoint = (path: string): string => {
+const buildCareerResultsEndpoint = (path: string): string => {
   if (!API_URL || typeof API_URL !== "string") {
     throw new Error("Missing PUBLIC_API_URL environment variable.");
   }
@@ -40,53 +75,129 @@ const buildApiEndpoint = (path: string): string => {
 };
 
 /**
- * Returns backend classId from exam slug.
+ * Fetches available career-result sessions for filter options.
  */
-const getCareerClassIdByExam = (exam: string): string | null => {
-  const normalizedExam = exam.trim().toLowerCase();
-  return EXAM_CLASS_ID_MAP[normalizedExam] ?? null;
-};
+export const fetchCareerSessionsRequest = async (): Promise<
+  CareerSessionData[]
+> => {
+  let endpoint = "";
 
-/**
- * Fetches career results for a given year and exam slug.
- *
- * @param year - Academic year selected in the UI
- * @param exam - Exam slug from route params (for example: "jee", "neet")
- * @returns Promise resolving to an array of career result items
- */
-export const fetchCareerResultsRequest = async (
-  year: number,
-  exam: string,
-): Promise<CareerResultItemData[]> => {
-  // Resolve exam slug to backend classId used by current temporary endpoint.
-  const classId = getCareerClassIdByExam(exam);
-  if (!classId) {
+  try {
+    endpoint = buildCareerResultsEndpoint("career-results/get-sessions");
+  } catch {
     return [];
   }
 
-  // TODO: Replace this temporary endpoint mapping with the dedicated career-results endpoint from backend.
-  // Current implementation reuses the generic results API with classId mapping.
-  const endpoint = buildApiEndpoint(
-    `results/get-results?year=${year}&classId=${classId}`,
-  );
-
   try {
-    // Perform API request with explicit timeout and JSON headers.
-    const response = await axios.get<CareerResultApiResponse>(endpoint, {
+    const response = await axios.get<CareerSessionsApiResponse>(endpoint, {
       headers: { "Content-Type": "application/json" },
-      timeout: 8000,
+      timeout: REQUEST_TIMEOUT,
     });
 
     const responseData = response.data;
-
-    // Return only valid successful payloads; otherwise fallback to empty list.
     if (responseData.status && Array.isArray(responseData.data)) {
       return responseData.data;
     }
 
     return [];
   } catch {
-    // Safe fallback for network/runtime failures.
+    return [];
+  }
+};
+
+/**
+ * Fetches available career-result exams (for example: JEE, NEET).
+ */
+export const fetchCareerExamsRequest = async (): Promise<CareerExamData[]> => {
+  let endpoint = "";
+
+  try {
+    endpoint = buildCareerResultsEndpoint("career-results/exams");
+  } catch {
+    return [];
+  }
+
+  try {
+    const response = await axios.get<CareerExamsApiResponse>(endpoint, {
+      headers: { "Content-Type": "application/json" },
+      timeout: REQUEST_TIMEOUT,
+    });
+
+    const responseData = response.data;
+    if (!responseData.status) {
+      return [];
+    }
+
+    if (Array.isArray(responseData.data)) {
+      return responseData.data;
+    }
+
+    if (Array.isArray(responseData.data?.exams)) {
+      return responseData.data.exams;
+    }
+
+    return [];
+  } catch {
+    return [];
+  }
+};
+
+/**
+ * Fetches career results for a given test slug (jee/neet) and session.
+ *
+ * @param exam - Test slug from route params (for example: "jee", "neet")
+ * @param sessionName - Session selected in the filter (for example: "2024-2025")
+ * @returns Promise resolving to an array of career result items
+ */
+export const fetchCareerResultsRequest = async (
+  exam: string,
+  session: string,
+): Promise<CareerResultItemData[]> => {
+  const normalizedExam = exam.trim().toLowerCase();
+  if (!normalizedExam || !session) {
+    return [];
+  }
+
+  let endpoint = "";
+
+  try {
+    endpoint = buildCareerResultsEndpoint(
+      `career-results/${normalizedExam}?session=${encodeURIComponent(session)}`,
+    );
+  } catch {
+    return [];
+  }
+
+  try {
+    const response = await axios.get<CareerResultApiResponse>(endpoint, {
+      headers: { "Content-Type": "application/json" },
+      timeout: REQUEST_TIMEOUT,
+    });
+
+    const responseData = response.data;
+
+    if (!responseData.status) {
+      return [];
+    }
+
+    if (Array.isArray(responseData.data?.results)) {
+      return responseData.data.results;
+    }
+
+    const allSessionResults = responseData.data?.exam?.sessions;
+    if (!Array.isArray(allSessionResults)) {
+      return [];
+    }
+
+    const selectedSessionResults = allSessionResults.find(
+      (sessionItem) => sessionItem.sessionName === session,
+    );
+    if (Array.isArray(selectedSessionResults?.results)) {
+      return selectedSessionResults.results;
+    }
+
+    return [];
+  } catch {
     return [];
   }
 };
