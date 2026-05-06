@@ -10,7 +10,7 @@ export type AwardData = {
   awardDesc: string;
   thumbnailImg: string;
   year?: string | number;
-  session?: string;
+  sessionName?: string;
 };
 
 export type AwardSessionData = {
@@ -95,7 +95,7 @@ export const fetchAwardsRequest = async (
   }
 
   const config = {
-    endpoint: `${API_URL}awards/get-awards?sessionName=${sessionName}`,
+    endpoint: `${API_URL}awards/get-awards?session=${sessionName}`,
     method: "GET" as const,
     headers: {
       "Content-Type": "application/json",

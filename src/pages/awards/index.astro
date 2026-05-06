@@ -37,7 +37,7 @@ import {
 // META //
 
 const allAwardSessions = await fetchAwardSessionsRequest();
-const requestedSessionName = Astro.url.searchParams.get("sessionName") ?? "";
+const requestedSessionName = Astro.url.searchParams.get("session") ?? "";
 const fallbackSessionName = allAwardSessions[0]?.sessionName ?? "";
 const hasRequestedSession = allAwardSessions.some(
   (sessionItem) => sessionItem.sessionName === requestedSessionName,
@@ -88,7 +88,7 @@ const awardYearOptions: Array<number | YearOptionData> = allAwardSessions.map(
             showSearch={false}
             years={awardYearOptions}
             shouldIncludeCurrentYear={false}
-            queryParamName="sessionName"
+            queryParamName="session"
           />
 
           <!-- Results -->
@@ -97,8 +97,9 @@ const awardYearOptions: Array<number | YearOptionData> = allAwardSessions.map(
               awardItems && awardItems.length > 0 ? (
                 awardItems.map((awardItem) => {
                   const displayYear =
-                    awardItem.session && awardItem.session.trim().length > 0
-                      ? awardItem.session
+                    awardItem.sessionName &&
+                    awardItem.sessionName.trim().length > 0
+                      ? awardItem.sessionName
                       : selectedSessionName;
 
                   return (
