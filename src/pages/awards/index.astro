@@ -12,17 +12,17 @@ import AwardsCard from "@/components/ui/AwardsCard.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
-import { fetchAwardsRequest } from "@/services/api/awards.api.service";
+import {
+  fetchAwardsRequest,
+  fetchAwardSessionsRequest,
+} from "@/services/api/awards.api.service";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
-import {
-  buildAwardAcademicYearOptions,
-  formatAcademicYearLabel,
-} from "@/utils/year.utils";
+import type { YearOptionData } from "@/utils/year.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
@@ -30,20 +30,24 @@ import Layout from "@/layouts/Layout.astro";
 // DATA //
 import awardsMeta from "@/data/meta/awards/awards.json";
 import {
-  awards,
   awardsBreadcrumbItems,
   awardsSectionHeader,
 } from "@/data/awards/awards";
 
 // META //
 
-// Get the Year from the Search Params
-const year: number =
-  parseInt(Astro.url.searchParams.get("year") as string) ||
-  new Date().getFullYear();
+const allAwardSessions = await fetchAwardSessionsRequest();
+const requestedSessionName = Astro.url.searchParams.get("sessionName") ?? "";
+const fallbackSessionName = allAwardSessions[0]?.sessionName ?? "";
+const hasRequestedSession = allAwardSessions.some(
+  (sessionItem) => sessionItem.sessionName === requestedSessionName,
+);
+const selectedSessionName = hasRequestedSession
+  ? requestedSessionName
+  : fallbackSessionName;
 
 // If streamId is missing or invalid — go back or redirect
-if (!year) {
+if (!selectedSessionName) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -52,12 +56,13 @@ if (!year) {
   });
 }
 
-// Extract the Results. TODO: Will be API Call
-const awardItems = await fetchAwardsRequest(year);
-const awardYearOptions = buildAwardAcademicYearOptions({
-  configuredYears: awards.years,
-  selectedYear: year,
-});
+const awardItems = await fetchAwardsRequest(selectedSessionName);
+const awardYearOptions: Array<number | YearOptionData> = allAwardSessions.map(
+  (sessionItem) => ({
+    value: sessionItem.sessionName,
+    label: sessionItem.sessionName,
+  }),
+);
 ---
 
 <Layout meta={awardsMeta}>
@@ -83,6 +88,7 @@ const awardYearOptions = buildAwardAcademicYearOptions({
             showSearch={false}
             years={awardYearOptions}
             shouldIncludeCurrentYear={false}
+            queryParamName="sessionName"
           />
 
           <!-- Results -->
@@ -90,21 +96,21 @@ const awardYearOptions = buildAwardAcademicYearOptions({
             {
               awardItems && awardItems.length > 0 ? (
                 awardItems.map((awardItem) => {
-                  const awardYearNumber = Number(awardItem.year);
-                  const displayYear = Number.isInteger(awardYearNumber)
-                    ? formatAcademicYearLabel(awardYearNumber - 1)
-                    : formatAcademicYearLabel(year - 1);
+                  const displayYear =
+                    awardItem.session && awardItem.session.trim().length > 0
+                      ? awardItem.session
+                      : selectedSessionName;
 
                   return (
-                  <AwardsCard
-                    title={awardItem.awardName}
-                    subTitle={awardItem.awardDesc}
-                    img={generateImagePath(
-                      awardItem.thumbnailImg,
-                      IMAGE_TYPES.AWARDS,
-                    )}
-                    year={displayYear}
-                  />
+                    <AwardsCard
+                      title={awardItem.awardName}
+                      subTitle={awardItem.awardDesc}
+                      img={generateImagePath(
+                        awardItem.thumbnailImg,
+                        IMAGE_TYPES.AWARDS,
+                      )}
+                      year={displayYear}
+                    />
                   );
                 })
               ) : (

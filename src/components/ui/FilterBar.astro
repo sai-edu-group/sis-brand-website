@@ -10,6 +10,7 @@ const {
   years = [2025, 2024, 2023, 2022, 2021],
   shouldIncludeCurrentYear = true,
   sortOptions = [],
+  queryParamName = "year",
 } = Astro.props;
 
 const finalYears = buildFinalYearOptions({
@@ -22,7 +23,11 @@ const visibleYears = finalYears.slice(0, 2);
 const dropdownYears = finalYears.slice(2);
 ---
 
-<section class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8">
+<section
+  class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8"
+  data-filter-bar="true"
+  data-query-param={queryParamName}
+>
   <!-- Year Filter -->
   <div class="flex flex-col gap-2 md:gap-3">
     <p class="font-secondary text-n-600 text-base md:text-lg lg:text-3xl">
@@ -154,8 +159,11 @@ const dropdownYears = finalYears.slice(2);
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
+    const filterBarRoot = document.querySelector('[data-filter-bar="true"]');
+    const yearQueryParamName =
+      filterBarRoot?.getAttribute("data-query-param") || "year";
     const params = new URLSearchParams(window.location.search);
-    const currentYear = params.get("year") || "";
+    const currentYear = params.get(yearQueryParamName) || "";
     const currentSort = params.get("sort") || "recommended";
     const currentSearch = params.get("search");
 
@@ -196,7 +204,7 @@ const dropdownYears = finalYears.slice(2);
 
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        params.set("year", btn.dataset.year);
+        params.set(yearQueryParamName, btn.dataset.year);
         params.set("page", "1");
         window.location.href = `${window.location.pathname}?${params}`;
       });

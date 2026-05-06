@@ -10,6 +10,13 @@ export type AwardData = {
   awardDesc: string;
   thumbnailImg: string;
   year?: string | number;
+  session?: string;
+};
+
+export type AwardSessionData = {
+  sessionId: number;
+  sessionName: string;
+  sessionEndDate: string;
 };
 
 /** Fetch Latest Awards from API */
@@ -20,6 +27,7 @@ export const fetchLatestAwardsRequest = async (): Promise<AwardData[]> => {
     headers: {
       "Content-Type": "application/json",
     },
+    timeout: 8000,
   };
 
   try {
@@ -38,18 +46,56 @@ export const fetchLatestAwardsRequest = async (): Promise<AwardData[]> => {
         : [];
 
     return awards;
-  } catch (error) {
-    console.error("Failed to fetch awards data:", error);
+  } catch {
     return [];
   }
 };
 
-/** Fetch All Awards from API by year */
-export const fetchAwardsRequest = async (
-  year?: string | number,
-): Promise<AwardData[]> => {
+/** Fetch all awards sessions from API */
+export const fetchAwardSessionsRequest = async (): Promise<
+  AwardSessionData[]
+> => {
   const config = {
-    endpoint: `${API_URL}awards/get-awards?year=${year}`,
+    endpoint: `${API_URL}awards/get-sessions`,
+    method: "GET" as const,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    timeout: 8000,
+  };
+
+  try {
+    const response = await axios({
+      url: config.endpoint,
+      method: config.method,
+      headers: config.headers,
+      timeout: config.timeout,
+    });
+
+    const data = response.data;
+
+    const sessions: AwardSessionData[] = Array.isArray(data?.data)
+      ? data.data
+      : Array.isArray(data)
+        ? data
+        : [];
+
+    return sessions;
+  } catch {
+    return [];
+  }
+};
+
+/** Fetch all awards from API by session name */
+export const fetchAwardsRequest = async (
+  sessionName?: string,
+): Promise<AwardData[]> => {
+  if (!sessionName) {
+    return [];
+  }
+
+  const config = {
+    endpoint: `${API_URL}awards/get-awards?sessionName=${sessionName}`,
     method: "GET" as const,
     headers: {
       "Content-Type": "application/json",
@@ -74,8 +120,7 @@ export const fetchAwardsRequest = async (
         : [];
 
     return awards;
-  } catch (error) {
-    console.error("Failed to fetch awards data:", error);
+  } catch {
     return [];
   }
 };
