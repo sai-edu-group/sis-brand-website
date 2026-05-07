@@ -21,11 +21,11 @@ import { careerResultsBreadcrumbs } from "@/data/results/career-results";
 // API SERVICES //
 import {
   fetchCareerExamsRequest,
-  fetchCareerSessionsRequest,
 } from "@/services/api/career-results.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 const careerExams = await fetchCareerExamsRequest();
-const careerSessions = await fetchCareerSessionsRequest();
+const careerSessions = await fetchSessionsRequest("results");
 const fallbackSession = careerSessions[0]?.sessionName ?? "";
 ---
 

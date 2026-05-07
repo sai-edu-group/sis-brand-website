@@ -17,8 +17,8 @@ import { URLS } from "@/infrastructure/constants/urls";
 import {
   fetchCareerExamsRequest,
   fetchCareerResultsRequest,
-  fetchCareerSessionsRequest,
 } from "@/services/api/career-results.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 // ENUMS //
 import { IMAGE_TYPES } from "@/enums/image.enum";
@@ -29,7 +29,7 @@ import { generateImagePath } from "@/utils/image.utils";
 // Get the Props from the URL [stream]/[year]
 const { exam } = Astro.params;
 
-const allCareerSessions = await fetchCareerSessionsRequest();
+const allCareerSessions = await fetchSessionsRequest("results");
 const requestedSessionName = Astro.url.searchParams.get("session")?.trim() ?? "";
 const fallbackSessionName = allCareerSessions[0]?.sessionName ?? "";
 const selectedSessionName = requestedSessionName || fallbackSessionName;
