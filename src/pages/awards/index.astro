@@ -12,10 +12,8 @@ import AwardsCard from "@/components/ui/AwardsCard.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
-import {
-  fetchAwardsRequest,
-  fetchAwardSessionsRequest,
-} from "@/services/api/awards.api.service";
+import { fetchAwardsRequest } from "@/services/api/awards.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -36,7 +34,7 @@ import {
 
 // META //
 
-const allAwardSessions = await fetchAwardSessionsRequest();
+const allAwardSessions = await fetchSessionsRequest("awards");
 const requestedSessionName = Astro.url.searchParams.get("session") ?? "";
 const fallbackSessionName = allAwardSessions[0]?.sessionName ?? "";
 const hasRequestedSession = allAwardSessions.some(

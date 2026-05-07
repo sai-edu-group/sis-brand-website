@@ -16,7 +16,6 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
-import { formatAcademicYearLabel } from "@/utils/year.utils";
 
 // DATA //
 import { sectionHeaderContent } from "@/data/home/awards";
@@ -49,28 +48,19 @@ const awardsCardContent = await fetchLatestAwardsRequest();
         >
           {
             awardsCardContent && awardsCardContent.length > 0 ? (
-              awardsCardContent.map((awardsCardContentItem) =>
-                (() => {
-                  const awardYearNumber = Number(awardsCardContentItem.year);
-                  const displayYear = Number.isInteger(awardYearNumber)
-                    ? formatAcademicYearLabel(awardYearNumber - 1)
-                    : formatAcademicYearLabel(new Date().getFullYear() - 1);
-
-                  return (
-                    <div class="ns-slide" data-embla-slide>
-                      <AwardsCard
-                        title={awardsCardContentItem.awardName ?? ""}
-                        img={generateImagePath(
-                          awardsCardContentItem.thumbnailImg,
-                          IMAGE_TYPES.AWARDS,
-                        )}
-                        subTitle={awardsCardContentItem.awardDesc ?? ""}
-                        year={displayYear}
-                      />
-                    </div>
-                  );
-                })(),
-              )
+              awardsCardContent.map((awardsCardContentItem) => (
+                <div class="ns-slide" data-embla-slide>
+                  <AwardsCard
+                    title={awardsCardContentItem.awardName ?? ""}
+                    img={generateImagePath(
+                      awardsCardContentItem.thumbnailImg,
+                      IMAGE_TYPES.AWARDS,
+                    )}
+                    subTitle={awardsCardContentItem.awardDesc ?? ""}
+                    year={awardsCardContentItem.sessionName ?? ""}
+                  />
+                </div>
+              ))
             ) : (
               <EmptyState
                 title="No Awards Found"
