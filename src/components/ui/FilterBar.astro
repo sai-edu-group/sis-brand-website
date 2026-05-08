@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { buildFinalYearOptions } from "@/utils/year.utils";
 
 const currentYear = new Date().getFullYear();
 
@@ -9,17 +10,24 @@ const {
   years = [2025, 2024, 2023, 2022, 2021],
   shouldIncludeCurrentYear = true,
   sortOptions = [],
+  queryParamName = "year",
 } = Astro.props;
 
-const finalYears = shouldIncludeCurrentYear
-  ? Array.from(new Set([currentYear, ...years])) // ✅ current year first
-  : Array.from(new Set(years)); // ✅ keep as it is
+const finalYears = buildFinalYearOptions({
+  years,
+  shouldIncludeCurrentYear,
+  currentYear,
+});
 
 const visibleYears = finalYears.slice(0, 2);
 const dropdownYears = finalYears.slice(2);
 ---
 
-<section class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8">
+<section
+  class="bg-n-50 flex flex-col gap-3 rounded-2xl md:gap-7 lg:gap-8"
+  data-filter-bar="true"
+  data-query-param={queryParamName}
+>
   <!-- Year Filter -->
   <div class="flex flex-col gap-2 md:gap-3">
     <p class="font-secondary text-n-600 text-base md:text-lg lg:text-3xl">
@@ -29,12 +37,12 @@ const dropdownYears = finalYears.slice(2);
     <!-- Year Button wrapper -->
     <div class="flex flex-wrap items-center gap-2 md:gap-4 xl:gap-5">
       {
-        visibleYears.map((year) => (
+        visibleYears.map((yearOption) => (
           <button
             class="font-secondary bg-n-50 text-n-500 cursor-pointer rounded-xl px-4 py-3 text-sm leading-[21px] font-medium transition-colors duration-200 hover:bg-orange-50 md:rounded-2xl md:px-7 md:py-3.5 md:text-xl md:leading-[30px] xl:rounded-4xl xl:px-14 xl:py-4 xl:text-3xl xl:leading-[54px]"
-            data-year={year}
+            data-year={yearOption.value}
           >
-            {year}
+            {yearOption.label}
           </button>
         ))
       }
@@ -61,13 +69,13 @@ const dropdownYears = finalYears.slice(2);
               class="border-n-500 scrollbar-hide bg-n-50 absolute top-full left-0 z-10 mt-2 max-h-[250px] w-full overflow-y-auto rounded-xl border shadow-lg transition duration-300 ease-in-out"
               id="year-dropdown-list"
             >
-              {dropdownYears.map((year) => (
+              {dropdownYears.map((yearOption) => (
                 <li>
                   <button
                     class="font-secondary text-n-500 block w-full cursor-pointer px-6 py-3 text-left text-base font-medium hover:bg-orange-50"
-                    data-year={year}
+                    data-year={yearOption.value}
                   >
-                    {year}
+                    {yearOption.label}
                   </button>
                 </li>
               ))}
@@ -151,8 +159,11 @@ const dropdownYears = finalYears.slice(2);
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
+    const filterBarRoot = document.querySelector('[data-filter-bar="true"]');
+    const yearQueryParamName =
+      filterBarRoot?.getAttribute("data-query-param") || "year";
     const params = new URLSearchParams(window.location.search);
-    const currentYear = params.get("year") || "";
+    const currentYear = params.get(yearQueryParamName) || "";
     const currentSort = params.get("sort") || "recommended";
     const currentSearch = params.get("search");
 
@@ -187,13 +198,13 @@ const dropdownYears = finalYears.slice(2);
 
         // If year is from dropdown, update summary label
         if (dropdown?.contains(btn)) {
-          yearSelected.textContent = btn.dataset.year;
+          yearSelected.textContent = btn.textContent;
         }
       }
 
       btn.addEventListener("click", (e) => {
         e.preventDefault();
-        params.set("year", btn.dataset.year);
+        params.set(yearQueryParamName, btn.dataset.year);
         params.set("page", "1");
         window.location.href = `${window.location.pathname}?${params}`;
       });
