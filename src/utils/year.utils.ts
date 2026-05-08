@@ -6,18 +6,6 @@ export type YearOptionData = {
   label: string;
 };
 
-// En dash character used for academic ranges like 2025–2026.
-const ACADEMIC_YEAR_SEPARATOR = "\u2013";
-
-/**
- * Formats an academic year range from start year to next year.
- * Example: 2025 -> "2025–2026"
- */
-export const formatAcademicYearLabel = (year: number): string => {
-  // Build range label: start year + en dash + end year.
-  return `${year}${ACADEMIC_YEAR_SEPARATOR}${year + 1}`;
-};
-
 /**
  * Normalizes mixed year inputs into UI-safe string value/label objects.
  */
