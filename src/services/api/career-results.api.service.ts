@@ -5,10 +5,11 @@ import axios from "axios";
  * Represents one career result row returned by API.
  */
 export type CareerResultItemData = {
+  id?: number;
   studentName: string;
   studentProfilePic: string;
   percentage: string;
-  className: string;
+  className?: string;
 };
 
 export type CareerSessionData = {
@@ -26,15 +27,17 @@ export type CareerExamData = {
 type CareerResultApiResponse = {
   status: boolean;
   statusCode: number;
-  data?: {
-    results?: CareerResultItemData[];
-    exam?: {
-      sessions?: Array<{
-        sessionName: string;
+  data?:
+    | CareerResultItemData[]
+    | {
         results?: CareerResultItemData[];
-      }>;
-    };
-  };
+        exam?: {
+          sessions?: Array<{
+            sessionName: string;
+            results?: CareerResultItemData[];
+          }>;
+        };
+      };
 };
 
 type CareerSessionsApiResponse = {
@@ -174,6 +177,10 @@ export const fetchCareerResultsRequest = async (
 
     if (!responseData.status) {
       return [];
+    }
+
+    if (Array.isArray(responseData.data)) {
+      return responseData.data;
     }
 
     if (Array.isArray(responseData.data?.results)) {

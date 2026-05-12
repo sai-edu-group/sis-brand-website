@@ -29,8 +29,9 @@ import { generateImagePath } from "@/utils/image.utils";
 // Get the Props from the URL [stream]/[year]
 const { exam } = Astro.params;
 
-const allCareerSessions = await fetchSessionsRequest("results");
-const requestedSessionName = Astro.url.searchParams.get("session")?.trim() ?? "";
+const allCareerSessions = await fetchSessionsRequest("career-results");
+const requestedSessionName =
+  Astro.url.searchParams.get("session")?.trim() ?? "";
 const fallbackSessionName = allCareerSessions[0]?.sessionName ?? "";
 const selectedSessionName = requestedSessionName || fallbackSessionName;
 
@@ -92,27 +93,27 @@ const breadcrumbItems = [
           />
 
           <!-- Results -->
-          {results && results.length > 0 ? (
-            <div
-              class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
-            >
-              {results.map((resultItem) => (
-                <ResultsCard
-                  studentName={resultItem.studentName}
-                  score={resultItem.percentage}
-                  image={generateImagePath(
-                    resultItem.studentProfilePic,
-                    IMAGE_TYPES.RESULT,
-                  )}
-                />
-              ))}
-            </div>
-          ) : (
-            <EmptyState
-              title="No Results Found"
-              description="We couldn't find any career results for the selected year. Please check back later."
-            />
-          )}
+          {
+            results && results.length > 0 ? (
+              <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                {results.map((resultItem) => (
+                  <ResultsCard
+                    studentName={resultItem.studentName}
+                    score={resultItem.percentage}
+                    image={generateImagePath(
+                      resultItem.studentProfilePic,
+                      IMAGE_TYPES.RESULT,
+                    )}
+                  />
+                ))}
+              </div>
+            ) : (
+              <EmptyState
+                title="No Results Found"
+                description="We couldn't find any career results for the selected year. Please check back later."
+              />
+            )
+          }
         </div>
       </div>
     </div>

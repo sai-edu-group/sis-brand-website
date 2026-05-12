@@ -19,13 +19,11 @@ import { URLS } from "@/infrastructure/constants/urls";
 import { careerResultsBreadcrumbs } from "@/data/results/career-results";
 
 // API SERVICES //
-import {
-  fetchCareerExamsRequest,
-} from "@/services/api/career-results.api.service";
+import { fetchCareerExamsRequest } from "@/services/api/career-results.api.service";
 import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 const careerExams = await fetchCareerExamsRequest();
-const careerSessions = await fetchSessionsRequest("results");
+const careerSessions = await fetchSessionsRequest("career-results");
 const fallbackSession = careerSessions[0]?.sessionName ?? "";
 ---
 
