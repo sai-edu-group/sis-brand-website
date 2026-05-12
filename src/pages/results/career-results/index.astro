@@ -11,14 +11,20 @@ import careerResultsMeta from "@/data/meta/results/career-results/career-results
 // COMPONENTS //
 import CourseCard from "@/components/ui/CourseCard.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 
 // DATA //
-import {
-  careerResults,
-  careerResultsSectionHeader,
-} from "@/data/results/career-results";
+import { careerResultsSectionHeader } from "@/data/results/career-results";
 import { URLS } from "@/infrastructure/constants/urls";
 import { careerResultsBreadcrumbs } from "@/data/results/career-results";
+
+// API SERVICES //
+import { fetchCareerExamsRequest } from "@/services/api/career-results.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
+
+const careerExams = await fetchCareerExamsRequest();
+const careerSessions = await fetchSessionsRequest("career-results");
+const fallbackSession = careerSessions[0]?.sessionName ?? "";
 ---
 
 <Layout meta={careerResultsMeta}>
@@ -41,14 +47,23 @@ import { careerResultsBreadcrumbs } from "@/data/results/career-results";
           class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3"
         >
           {
-            careerResults.map((examItem) => (
-              <CourseCard
-                title={`${examItem.name} Results`}
-                image={`/results/career/${examItem.name.toLowerCase().replace(" ", "-")}.jpg`}
-                onCtaClick={`window.location.href = "${URLS.RESULTS.CAREER_RESULTS.EXAM(examItem.name.toLowerCase().replace(" ", "-"))}?year=${examItem.years[0]}"`}
-                ctaText="Show Results"
+            careerExams.length > 0 ? (
+              careerExams.map((examItem) => {
+                return (
+                  <CourseCard
+                    title={`${examItem.name} Results`}
+                    image={examItem.cardImage}
+                    onCtaClick={`window.location.href = "${URLS.RESULTS.CAREER_RESULTS.EXAM(examItem.slug)}?session=${encodeURIComponent(fallbackSession)}"`}
+                    ctaText="Show Results"
+                  />
+                );
+              })
+            ) : (
+              <EmptyState
+                title="No Career Exams Found"
+                description="We couldn't find any career exams right now. Please check back later."
               />
-            ))
+            )
           }
         </div>
       </div>
