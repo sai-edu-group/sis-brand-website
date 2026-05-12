@@ -17,7 +17,6 @@ export const formatAcademicYearLabel = (year: number): string => {
   // Build range label: start year + en dash + end year.
   return `${year}${ACADEMIC_YEAR_SEPARATOR}${year + 1}`;
 };
-
 /**
  * Normalizes mixed year inputs into UI-safe string value/label objects.
  */

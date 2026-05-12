@@ -6,6 +6,7 @@ import { IMAGE_TYPES } from "@/enums/image.enum";
 import AwardsCard from "@/components/ui/AwardsCard.astro";
 import SectionHeaderMain from "@/components/ui/SectionHeaderMain.astro";
 import Button from "@/components/ui/Button.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
 import { fetchLatestAwardsRequest } from "@/services/api/awards.api.service";
@@ -16,11 +17,8 @@ import { URLS } from "@/infrastructure/constants/urls";
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
 
-// OTHERS //
-
 // DATA //
 import { sectionHeaderContent } from "@/data/home/awards";
-import EmptyState from "@/components/ui/EmptyState.astro";
 
 // Unique ID per instance (so multiple sliders can live on the same page)
 const uid = "embla-awards";
@@ -59,7 +57,7 @@ const awardsCardContent = await fetchLatestAwardsRequest();
                       IMAGE_TYPES.AWARDS,
                     )}
                     subTitle={awardsCardContentItem.awardDesc ?? ""}
-                    year={(awardsCardContentItem.year ?? "2026").toString()}
+                    year={awardsCardContentItem.sessionName ?? ""}
                   />
                 </div>
               ))

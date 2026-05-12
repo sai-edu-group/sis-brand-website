@@ -13,12 +13,14 @@ import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
 import { fetchAwardsRequest } from "@/services/api/awards.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+import type { YearOptionData } from "@/utils/year.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
@@ -26,20 +28,24 @@ import Layout from "@/layouts/Layout.astro";
 // DATA //
 import awardsMeta from "@/data/meta/awards/awards.json";
 import {
-  awards,
   awardsBreadcrumbItems,
   awardsSectionHeader,
 } from "@/data/awards/awards";
 
 // META //
 
-// Get the Year from the Search Params
-const year: number =
-  parseInt(Astro.url.searchParams.get("year") as string) ||
-  new Date().getFullYear();
+const allAwardSessions = await fetchSessionsRequest("awards");
+const requestedSessionName = Astro.url.searchParams.get("session") ?? "";
+const fallbackSessionName = allAwardSessions[0]?.sessionName ?? "";
+const hasRequestedSession = allAwardSessions.some(
+  (sessionItem) => sessionItem.sessionName === requestedSessionName,
+);
+const selectedSessionName = hasRequestedSession
+  ? requestedSessionName
+  : fallbackSessionName;
 
 // If streamId is missing or invalid — go back or redirect
-if (!year) {
+if (!selectedSessionName) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -48,8 +54,13 @@ if (!year) {
   });
 }
 
-// Extract the Results. TODO: Will be API Call
-const awardItems = await fetchAwardsRequest(year);
+const awardItems = await fetchAwardsRequest(selectedSessionName);
+const awardYearOptions: Array<number | YearOptionData> = allAwardSessions.map(
+  (sessionItem) => ({
+    value: sessionItem.sessionName,
+    label: sessionItem.sessionName,
+  }),
+);
 ---
 
 <Layout meta={awardsMeta}>
@@ -71,23 +82,36 @@ const awardItems = await fetchAwardsRequest(year);
         <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
           <!-- Years Filters -->
-          <FilterBar showSearch={false} years={awards.years} />
+          <FilterBar
+            showSearch={false}
+            years={awardYearOptions}
+            shouldIncludeCurrentYear={false}
+            queryParamName="session"
+          />
 
           <!-- Results -->
           <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-8">
             {
               awardItems && awardItems.length > 0 ? (
-                awardItems.map((awardItem) => (
-                  <AwardsCard
-                    title={awardItem.awardName}
-                    subTitle={awardItem.awardDesc}
-                    img={generateImagePath(
-                      awardItem.thumbnailImg,
-                      IMAGE_TYPES.AWARDS,
-                    )}
-                    year={year.toString()}
-                  />
-                ))
+                awardItems.map((awardItem) => {
+                  const displayYear =
+                    awardItem.sessionName &&
+                    awardItem.sessionName.trim().length > 0
+                      ? awardItem.sessionName
+                      : selectedSessionName;
+
+                  return (
+                    <AwardsCard
+                      title={awardItem.awardName}
+                      subTitle={awardItem.awardDesc}
+                      img={generateImagePath(
+                        awardItem.thumbnailImg,
+                        IMAGE_TYPES.AWARDS,
+                      )}
+                      year={displayYear}
+                    />
+                  );
+                })
               ) : (
                 <div class="col-span-full">
                   <EmptyState

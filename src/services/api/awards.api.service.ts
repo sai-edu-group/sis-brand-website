@@ -10,6 +10,7 @@ export type AwardData = {
   awardDesc: string;
   thumbnailImg: string;
   year?: string | number;
+  sessionName?: string;
 };
 
 /** Fetch Latest Awards from API */
@@ -20,6 +21,7 @@ export const fetchLatestAwardsRequest = async (): Promise<AwardData[]> => {
     headers: {
       "Content-Type": "application/json",
     },
+    timeout: 8000,
   };
 
   try {
@@ -38,18 +40,21 @@ export const fetchLatestAwardsRequest = async (): Promise<AwardData[]> => {
         : [];
 
     return awards;
-  } catch (error) {
-    console.error("Failed to fetch awards data:", error);
+  } catch {
     return [];
   }
 };
 
-/** Fetch All Awards from API by year */
+/** Fetch all awards from API by session name */
 export const fetchAwardsRequest = async (
-  year?: string | number,
+  sessionName?: string,
 ): Promise<AwardData[]> => {
+  if (!sessionName) {
+    return [];
+  }
+
   const config = {
-    endpoint: `${API_URL}awards/get-awards?year=${year}`,
+    endpoint: `${API_URL}awards/get-awards?session=${sessionName}`,
     method: "GET" as const,
     headers: {
       "Content-Type": "application/json",
@@ -74,8 +79,7 @@ export const fetchAwardsRequest = async (
         : [];
 
     return awards;
-  } catch (error) {
-    console.error("Failed to fetch awards data:", error);
+  } catch {
     return [];
   }
 };
