@@ -99,10 +99,9 @@ const breadcrumbItems = [
                 {results.map((resultItem) => (
                   <ResultsCard
                     studentName={resultItem.studentName}
-                    score={resultItem.percentage}
                     image={generateImagePath(
                       resultItem.studentProfilePic,
-                      IMAGE_TYPES.RESULT,
+                      IMAGE_TYPES.CAREER_RESULT,
                     )}
                   />
                 ))}

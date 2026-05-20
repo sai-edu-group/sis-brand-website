@@ -28,6 +28,9 @@ export const generateImagePath = (
 
   // Handling different image types dynamically
   switch (imageType.toLowerCase()) {
+    // CAREER RESULT
+    case IMAGE_TYPES.CAREER_RESULT:
+      finalPath = `uploads/sis_careerresult/${imageName}`;
     // RESULT
     case IMAGE_TYPES.RESULT:
       finalPath = `uploads/sis_cbseresult/${imageName}`;
