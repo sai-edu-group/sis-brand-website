@@ -31,6 +31,7 @@ export const generateImagePath = (
     // CAREER RESULT
     case IMAGE_TYPES.CAREER_RESULT:
       finalPath = `uploads/sis_careerresult/${imageName}`;
+      break;
     // RESULT
     case IMAGE_TYPES.RESULT:
       finalPath = `uploads/sis_cbseresult/${imageName}`;
