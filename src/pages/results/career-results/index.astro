@@ -52,7 +52,7 @@ const fallbackSession = careerSessions[0]?.sessionName ?? "";
                 return (
                   <CourseCard
                     title={`${examItem.name} Results`}
-                    image={examItem.cardImage}
+                    image={"/results/career/clat.jpg"}
                     onCtaClick={`window.location.href = "${URLS.RESULTS.CAREER_RESULTS.EXAM(examItem.slug)}?session=${encodeURIComponent(fallbackSession)}"`}
                     ctaText="Show Results"
                   />

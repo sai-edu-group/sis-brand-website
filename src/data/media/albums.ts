@@ -7,7 +7,7 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 export const albums: AlbumsData = {
   id: 7,
-  years: [2025, 2024, 2023],
+  years: [2025, 2024, 2023, 2022, 2021],
   images: {
     2025: [
       {

@@ -49,7 +49,7 @@ const dropdownYears = finalYears.slice(2);
 
       {
         dropdownYears.length > 0 && (
-          <details class="group relative" id="modal">
+          <details class="group relative z-50" id="modal">
             <summary class="border-n-500 text-n-500 hover:bg-n-50 flex cursor-pointer list-none items-center gap-3 rounded-full border px-3.5 py-3 font-medium select-none md:gap-5 md:px-6 lg:px-8 lg:py-4">
               <span
                 id="year-selected"
@@ -66,7 +66,7 @@ const dropdownYears = finalYears.slice(2);
 
             {/* Year Dropdown List */}
             <ul
-              class="border-n-500 scrollbar-hide bg-n-50 absolute top-full left-0 z-10 mt-2 max-h-[250px] w-full overflow-y-auto rounded-xl border shadow-lg transition duration-300 ease-in-out"
+              class="border-n-500 scrollbar-hide bg-n-50 absolute top-full left-0 z-50 mt-2 max-h-[250px] w-full overflow-y-auto rounded-xl border shadow-lg transition duration-300 ease-in-out"
               id="year-dropdown-list"
             >
               {dropdownYears.map((yearOption) => (
