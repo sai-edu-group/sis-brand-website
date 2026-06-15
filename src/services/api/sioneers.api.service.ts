@@ -1,51 +1,71 @@
 // MODULES //
 import axios from "axios";
 
-// Get default API URL from environment variables
 const API_URL = import.meta.env.PUBLIC_API_URL;
+const REQUEST_TIMEOUT = 8000;
 
 export type SioneerItem = {
-  id?: number | string;
-  admissionNumber?: string;
-  universityName?: string;
-  className?: string;
-  profilePicture?: string;
-  countryName?: string;
+  id: number;
+  admissionNumber: string;
+  studentName: string;
+  universityName: string;
+  profilePicture: string;
+  countryName: string;
 };
 
-/** Fetch Sioneers list from API */
+type SioneersApiResponseData = {
+  status: boolean;
+  statusCode: number;
+  data: SioneerItem[];
+};
+
+const buildEndpoint = (path: string): string => {
+  if (!API_URL || typeof API_URL !== "string") {
+    throw new Error("Missing PUBLIC_API_URL environment variable.");
+  }
+
+  const base = API_URL.endsWith("/") ? API_URL : `${API_URL}/`;
+  const normalizedPath = path.startsWith("/") ? path.slice(1) : path;
+
+  return `${base}${normalizedPath}`;
+};
+
+/**
+ * Fetches global sioneers for a given academic session.
+ *
+ * @param session - Academic session name (for example: "2024-2025")
+ * @returns Promise resolving to an array of sioneer items
+ */
 export const fetchSioneersRequest = async (
-  year: string,
+  session: string,
 ): Promise<SioneerItem[]> => {
-  const config = {
-    endpoint: `${API_URL}sioneers/get-sioneers?year=${year}`,
-    method: "GET" as const,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    timeout: 8000,
-  };
+  if (!session) {
+    return [];
+  }
+
+  let endpoint = "";
 
   try {
-    const response = await axios({
-      url: config.endpoint,
-      method: config.method,
-      headers: config.headers,
-      timeout: config.timeout,
+    endpoint = buildEndpoint(
+      `sioneers/get-sioneers?session=${encodeURIComponent(session)}`,
+    );
+  } catch {
+    return [];
+  }
+
+  try {
+    const response = await axios.get<SioneersApiResponseData>(endpoint, {
+      headers: { "Content-Type": "application/json" },
+      timeout: REQUEST_TIMEOUT,
     });
 
-    const data = response.data;
+    const responseData = response.data;
+    if (responseData.status && Array.isArray(responseData.data)) {
+      return responseData.data;
+    }
 
-    // Response shape (as provided): { status, statusCode, data: [ ... ] }
-    const sioneers: SioneerItem[] = Array.isArray(data?.data)
-      ? data.data
-      : Array.isArray(data)
-        ? data
-        : [];
-
-    return sioneers;
-  } catch (error) {
-    console.error("Failed to fetch sioneers:", error);
+    return [];
+  } catch {
     return [];
   }
 };

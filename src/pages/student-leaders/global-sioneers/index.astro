@@ -14,6 +14,7 @@ import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
 import { fetchSioneersRequest } from "@/services/api/sioneers.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
@@ -24,22 +25,16 @@ import Layout from "@/layouts/Layout.astro";
 // DATA //
 import globalSioneersMeta from "@/data/meta/student-leaders/global-sioneers/global-sioneers.json";
 import {
-  globalSioneers,
   globalSioneersBreadcrumbItems,
   globalSioneersSectionHeader,
 } from "@/data/student-leaders/global-sioneers";
 
-// META //
+const allSessions = await fetchSessionsRequest("global-sioneers");
+const requestedSession = Astro.url.searchParams.get("session")?.trim() ?? "";
+const fallbackSession = allSessions[0]?.sessionName ?? "";
+const selectedSession = requestedSession || fallbackSession;
 
-
-
-
-
-// Get the Year from the URL - or - the latest year in Data
-const year: number =
-  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
-// Get the Students for the Year Selected
-const students = await fetchSioneersRequest(year.toString());
+const students = await fetchSioneersRequest(selectedSession);
 ---
 
 <Layout meta={globalSioneersMeta}>
@@ -60,34 +55,41 @@ const students = await fetchSioneersRequest(year.toString());
 
         <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
-          <!-- Years Filters -->
-          <FilterBar showSearch={false} years={globalSioneers.years} />
+          <!-- Session Filters -->
+          <FilterBar
+            showSearch={false}
+            years={allSessions.map((sessionItem) => ({
+              value: sessionItem.sessionName,
+              label: sessionItem.sessionName,
+            }))}
+            shouldIncludeCurrentYear={false}
+            queryParamName="session"
+          />
 
           <!-- Global Sioneers Images -->
-          <div
-            class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4"
-          >
-            {
-              students && students.length > 0 ? (
-                students.map((studentsItem) => (
+          {
+            students && students.length > 0 ? (
+              <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4">
+                {students.map((studentItem) => (
                   <ResultsCard
-                    /* Dynamic Image using 'sis_globalambassador' case in Utils */
                     image={generateImagePath(
-                      studentsItem.profilePicture || "",
-                      IMAGE_TYPES.GLOBAL_SIONEERS
+                      studentItem.profilePicture || "",
+                      IMAGE_TYPES.GLOBAL_SIONEERS,
                     )}
-                    /* Mapping className to StudentName as per your existing pattern */
-                    studentName={studentsItem.className}
-                    grade={studentsItem.universityName}
+                    studentName={studentItem.studentName}
+                    grade={studentItem.universityName}
                   />
-                ))
-              ) : (
-                <div class="col-span-full">
-                  <EmptyState title="No Sioneers Found" description="We couldn't find any global sioneers for the selected year. Please check back later." />
-                </div>
-              )
-            }
-          </div>
+                ))}
+              </div>
+            ) : (
+              <div class="col-span-full">
+                <EmptyState
+                  title="No Sioneers Found"
+                  description="We couldn't find any global sioneers for the selected session. Please check back later."
+                />
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
