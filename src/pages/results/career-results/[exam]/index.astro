@@ -30,10 +30,6 @@ import { generateImagePath } from "@/utils/image.utils";
 const { exam } = Astro.params;
 
 const allCareerSessions = await fetchSessionsRequest("career-results");
-const requestedSessionName =
-  Astro.url.searchParams.get("session")?.trim() ?? "";
-const fallbackSessionName = allCareerSessions[0]?.sessionName ?? "";
-const selectedSessionName = requestedSessionName || fallbackSessionName;
 
 const careerExams = await fetchCareerExamsRequest();
 const currentExam = careerExams.find((examItem) => {
@@ -41,8 +37,8 @@ const currentExam = careerExams.find((examItem) => {
 });
 const currentExamName = currentExam?.name || "";
 
-// If streamId is missing or invalid — go back or redirect
-if (!exam || !selectedSessionName || !currentExamName) {
+// If exam is missing or invalid — go back or redirect
+if (!exam || !currentExamName) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -51,7 +47,36 @@ if (!exam || !selectedSessionName || !currentExamName) {
   });
 }
 
-const results = await fetchCareerResultsRequest(exam, selectedSessionName);
+// Fetch results for all sessions in parallel, keep only sessions with data
+const sessionResults = await Promise.all(
+  allCareerSessions.map(async (sessionItem) => ({
+    session: sessionItem,
+    results: await fetchCareerResultsRequest(exam, sessionItem.sessionName),
+  })),
+);
+
+const activeSessions = sessionResults.filter(
+  (entry) => entry.results.length > 0,
+);
+
+const requestedSessionName =
+  Astro.url.searchParams.get("session")?.trim() ?? "";
+const fallbackSessionName = activeSessions[0]?.session.sessionName ?? "";
+const selectedSessionName = requestedSessionName || fallbackSessionName;
+
+if (!selectedSessionName) {
+  return new Response(null, {
+    status: 302,
+    headers: {
+      Location: Astro.request.headers.get("referer") || URLS.HOME,
+    },
+  });
+}
+
+const results =
+  activeSessions.find(
+    (entry) => entry.session.sessionName === selectedSessionName,
+  )?.results ?? [];
 
 // Breadcrumb Items
 const breadcrumbItems = [
@@ -84,9 +109,9 @@ const breadcrumbItems = [
           <!-- Years Filters -->
           <FilterBar
             showSearch={false}
-            years={allCareerSessions.map((sessionItem) => ({
-              value: sessionItem.sessionName,
-              label: sessionItem.sessionName,
+            years={activeSessions.map((entry) => ({
+              value: entry.session.sessionName,
+              label: entry.session.sessionName,
             }))}
             shouldIncludeCurrentYear={false}
             queryParamName="session"

@@ -30,11 +30,26 @@ import {
 } from "@/data/student-leaders/global-sioneers";
 
 const allSessions = await fetchSessionsRequest("global-sioneers");
+
+// Fetch sioneers for all sessions in parallel, keep only sessions with data
+const sessionResults = await Promise.all(
+  allSessions.map(async (sessionItem) => ({
+    session: sessionItem,
+    students: await fetchSioneersRequest(sessionItem.sessionName),
+  })),
+);
+
+const activeSessions = sessionResults.filter(
+  (result) => result.students.length > 0,
+);
+
 const requestedSession = Astro.url.searchParams.get("session")?.trim() ?? "";
-const fallbackSession = allSessions[0]?.sessionName ?? "";
+const fallbackSession = activeSessions[0]?.session.sessionName ?? "";
 const selectedSession = requestedSession || fallbackSession;
 
-const students = await fetchSioneersRequest(selectedSession);
+const students =
+  activeSessions.find((result) => result.session.sessionName === selectedSession)
+    ?.students ?? [];
 ---
 
 <Layout meta={globalSioneersMeta}>
@@ -58,9 +73,9 @@ const students = await fetchSioneersRequest(selectedSession);
           <!-- Session Filters -->
           <FilterBar
             showSearch={false}
-            years={allSessions.map((sessionItem) => ({
-              value: sessionItem.sessionName,
-              label: sessionItem.sessionName,
+            years={activeSessions.map((result) => ({
+              value: result.session.sessionName,
+              label: result.session.sessionName,
             }))}
             shouldIncludeCurrentYear={false}
             queryParamName="session"
