@@ -19,13 +19,13 @@ export const statsCard = [
   },
   {
     id: 3,
-    title: "Rank No.1 School for 5 Consecutive Years",
+    title: "Rank No.1 School for 7 Consecutive Years",
     statsCount: "#1",
     img: "/images/stats-image-3.jpg",
   },
   {
     id: 4,
-    title: "sq.ft. of Square Feet of campus with world-class Sports Facilities",
+    title: "sq.ft. of campus with world-class Sports Facilities",
     statsCount: "335K+",
     img: "/images/sports-facilities (1).jpg",
   },
