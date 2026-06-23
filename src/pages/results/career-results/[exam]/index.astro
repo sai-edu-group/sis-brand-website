@@ -11,14 +11,15 @@ import Breadcrumbs from "@/components/ui/Breadcrumbs.astro";
 import ResultsCard from "@/components/ui/ResultsCard.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 
-import { URLS } from "@/infrastructure/constants/urls";
-
 // API SERVICES //
 import {
   fetchCareerExamsRequest,
   fetchCareerResultsRequest,
 } from "@/services/api/career-results.api.service";
 import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
+
+// CONSTANTS //
+import { URLS } from "@/infrastructure/constants/urls";
 
 // ENUMS //
 import { IMAGE_TYPES } from "@/enums/image.enum";
@@ -62,9 +63,8 @@ const activeSessions = sessionResults.filter(
 const requestedSessionName =
   Astro.url.searchParams.get("session")?.trim() ?? "";
 const fallbackSessionName = activeSessions[0]?.session.sessionName ?? "";
-const selectedSessionName = requestedSessionName || fallbackSessionName;
 
-if (!selectedSessionName) {
+if (!fallbackSessionName) {
   return new Response(null, {
     status: 302,
     headers: {
@@ -72,6 +72,19 @@ if (!selectedSessionName) {
     },
   });
 }
+
+// If requested session has no results, redirect to first session that does
+const isValidSession = activeSessions.some(
+  (entry) => entry.session.sessionName === requestedSessionName,
+);
+
+if (!requestedSessionName || !isValidSession) {
+  return Astro.redirect(
+    `${Astro.url.pathname}?session=${encodeURIComponent(fallbackSessionName)}`,
+  );
+}
+
+const selectedSessionName = requestedSessionName;
 
 const results =
   activeSessions.find(
@@ -88,7 +101,7 @@ const breadcrumbItems = [
 ];
 ---
 
-<Layout>
+<Layout meta={{ title: `${currentExamName} Results`, description: "Celebrating our students hard work and achievements" }}>
   <section class="bg-n-50 relative w-full overflow-hidden">
     <div
       class="container m-auto flex flex-col gap-10 px-5 pt-32 pb-14 md:gap-14 lg:gap-16 lg:pt-40"
