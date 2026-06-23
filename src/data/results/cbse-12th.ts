@@ -9,7 +9,7 @@ export const cbseClasses: ClassData[] = [
   {
     id: 11,
     name: "Class XII Science",
-    years: [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
+    years: [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
     results: {
       2025: [
         {
@@ -152,7 +152,7 @@ export const cbseClasses: ClassData[] = [
   {
     id: 12,
     name: "Class XII Commerce",
-    years: [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
+    years: [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
     results: {
       2025: [
         {
@@ -271,7 +271,7 @@ export const cbseClasses: ClassData[] = [
   {
     id: 13,
     name: "Class XII Humanities",
-    years: [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
+    years: [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
     results: {
       2025: [
         {

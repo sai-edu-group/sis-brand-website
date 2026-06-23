@@ -8,7 +8,7 @@ import type { ClassData } from "@/types/results/results";
 export const cbseTenth: ClassData = {
   id: 7,
   name: "Class X",
-  years: [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
+  years: [2026, 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018],
   results: {
     2025: [
       {
