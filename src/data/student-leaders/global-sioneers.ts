@@ -12,19 +12,19 @@ export const globalSioneersBreadcrumbItems: BreadcrumbData[] = [
     href: URLS.STUDENT_LEADERS.ROOT,
   },
   {
-    label: "Global Sioneers",
+    label: "Global SAIoneers",
     href: URLS.STUDENT_LEADERS.GLOBAL_SIONEERS,
   },
 ];
 
 // Section Header
 export const globalSioneersSectionHeader = {
-  title: "Global Sioneers",
+  title: "Global SAIoneers",
   subtitle:
     "Celebrating students who secured admissions to leading universities across the world.",
 };
 
-// Global Sioneers - Items (Every Year)
+// Global SAIoneers - Items (Every Year)
 export const globalSioneers: GlobalSioneersData = {
   years: [2025, 2024, 2023, 2022, 2021, 2020],
   globalSioneers: {
