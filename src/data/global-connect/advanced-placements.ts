@@ -77,9 +77,3 @@ export const advancedPlacementsContent = {
   `,
   landscapeImg: "",
 };
-
-export const metaData = {
-  author: "",
-  date: "2025-11-06T21:14:00+05:30",
-  readTimeMins: 8,
-};
