@@ -15,7 +15,7 @@ export const statsCard = [
     title: "National and International competitive examinations",
     statsCount: "335+",
     subTitle: "(JEE/NEET/CLAT/SAT)",
-    img: "/images/stats-image-2.jpg",
+    img: "/images/stats-image-6.jpg",
   },
   {
     id: 3,
