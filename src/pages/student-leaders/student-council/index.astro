@@ -1,4 +1,6 @@
 ---
+export const prerender = false; // Render on Server
+
 // LAYOUT //
 // ENUMS //
 import { IMAGE_TYPES } from "@/enums/image.enum";
@@ -11,7 +13,8 @@ import FilterBar from "@/components/ui/FilterBar.astro";
 import EmptyState from "@/components/ui/EmptyState.astro";
 
 // API SERVICES //
-import { fetchStudentsByYearRequest } from "@/services/api/student-council.api.service";
+import { fetchStudentsBySessionRequest } from "@/services/api/student-council.api.service";
+import { fetchSessionsRequest } from "@/services/api/sessions.api.service";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
@@ -22,19 +25,22 @@ import Layout from "@/layouts/Layout.astro";
 // DATA //
 import studentCouncilMeta from "@/data/meta/student-leaders/student-council/student-council.json";
 import {
-  studentCouncil,
   studentCouncilBreadcrumbItems,
   studentCouncilSectionHeader,
 } from "@/data/student-leaders/student-council";
 
-// META //
+// The sessions API already returns only sessions that have council members,
+// so the session list needs no further filtering.
+const allSessions = await fetchSessionsRequest("student-council");
 
-// Get the Year from the URL - or - the latest year in Data
-const year: number =
-  Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
+const requestedSession = Astro.url.searchParams.get("session")?.trim() ?? "";
+const selectedSession = allSessions.some(
+  (sessionItem) => sessionItem.sessionName === requestedSession,
+)
+  ? requestedSession
+  : (allSessions[0]?.sessionName ?? "");
 
-// Get the Students for the Year Selected
-const students = await fetchStudentsByYearRequest(year);
+const students = await fetchStudentsBySessionRequest(selectedSession);
 ---
 
 <Layout meta={studentCouncilMeta}>
@@ -55,8 +61,16 @@ const students = await fetchStudentsByYearRequest(year);
 
         <!-- Filter & Students -->
         <div class="flex flex-col gap-7 md:gap-8 lg:gap-11">
-          <!-- Years Filters -->
-          <FilterBar showSearch={false} years={studentCouncil.years} />
+          <!-- Session Filters -->
+          <FilterBar
+            showSearch={false}
+            years={allSessions.map((sessionItem) => ({
+              value: sessionItem.sessionName,
+              label: sessionItem.sessionName,
+            }))}
+            shouldIncludeCurrentYear={false}
+            queryParamName="session"
+          />
 
           <!-- Student Council Images -->
           <div
@@ -78,7 +92,7 @@ const students = await fetchStudentsByYearRequest(year);
                 <div class="col-span-full">
                   <EmptyState
                     title="No Student Leaders Found"
-                    description="We couldn't find any student leaders for the selected year. Please check back later."
+                    description="We couldn't find any student leaders for the selected session. Please check back later."
                   />
                 </div>
               )
