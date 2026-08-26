@@ -31,7 +31,7 @@ import Layout from "@/layouts/Layout.astro";
 // DATA //
 import newsMeta from "@/data/meta/media/news/news.json";
 import {
-  newsDetails,
+  newsYears,
   newsBreadcrumbItems,
   newsSectionHeader,
 } from "@/data/media/news";
@@ -86,7 +86,7 @@ const shouldShowPagination = totalPages > 1;
         <div class="fade-in flex flex-col gap-7 md:gap-8 lg:gap-11">
           <!-- Years Filters -->
           <div class="fade-in">
-            <FilterBar showSearch={false} years={newsDetails.years} />
+            <FilterBar showSearch={false} years={newsYears} />
           </div>
 
           <!-- News -->

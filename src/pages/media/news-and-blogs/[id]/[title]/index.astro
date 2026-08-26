@@ -21,9 +21,6 @@ import { generateImagePath } from "@/utils/image.utils";
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
 
-// DATA //
-import { newsDetails } from "@/data/media/news";
-
 const year: number =
   Number(Astro.url.searchParams.get("year")) || new Date().getFullYear();
 
