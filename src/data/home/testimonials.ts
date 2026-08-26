@@ -64,18 +64,9 @@ export const testimonials = [
     message:
       "I am extremely satisfied with the performance of my daughter and the atmosphere of the school. Youngsters should work hard and, if any doubt arises, they should ask their parents as well as teachers. They should not hide anything; that is my suggestion.",
   },
+
   {
     id: 7,
-    videoUrl:
-      "https://www.youtube.com/watch?v=ZBIAutp0uY0&list=PLu5iW33-MlPMoNxx17ck6aqLd4NY9Ls-m&index=1",
-    thumbnail: "images/testimonials/mrs-gupta.jpg",
-    parentName: "Mrs. Gupta",
-    designation: "Mother of Aarav & Arnav Gupta ",
-    message:
-      "We can see many positive changes, like improved discipline and academics. The younger one is doing very well, and the elder one has significantly improved his focus and time management.",
-  },
-  {
-    id: 8,
     videoUrl:
       "https://www.youtube.com/watch?v=dVsZwBlhsfk&list=PLu5iW33-MlPMoNxx17ck6aqLd4NY9Ls-m&index=5",
     thumbnail: "images/testimonials/mr-agrawal.jpg",
