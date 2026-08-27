@@ -19,7 +19,7 @@ export const statsCard = [
   },
   {
     id: 3,
-    title: "Rank No.1 School for 7 Consecutive Years",
+    title: "Ranked No.1 School for 7 Consecutive Years",
     statsCount: "#1",
     img: "/images/stats-image-3.jpg",
   },
