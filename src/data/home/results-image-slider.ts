@@ -1,22 +1,32 @@
 export const imageBasedSlider = [
-  // {
-  //   src: "/images/admission-2627.jpg",
-  //   alt: "Result Image 1",
-  //   url: "https://www.saiinternational.edu.in/admissions",
-  // },
   {
-    src: "/images/admission-2627_1.jpg",
+    src: "/images/310826-1.jpg",
+    alt: "Result Image 1",
+    url: "https://www.saiinternational.edu.in/admissions",
+  },
+  {
+    src: "/images/310826-2.jpg",
     alt: "Result Image 2",
     url: "https://www.saiinternational.edu.in/admissions",
   },
   {
-    src: "/images/admission-2627_2.jpg",
+    src: "/images/310826-3.jpg",
     alt: "Result Image 3",
     url: "https://www.saiinternational.edu.in/admissions",
   },
   {
-    src: "/images/admission-2627_3.jpg",
+    src: "/images/310826-4.jpg",
     alt: "Result Image 4",
+    url: "https://www.saiinternational.edu.in/admissions",
+  },
+   {
+    src: "/images/310826-6.jpg",
+    alt: "Result Image 5",
+    url: "https://www.saiinternational.edu.in/admissions",
+  },
+   {
+    src: "/images/310826-7.jpg",
+    alt: "Result Image 6",
     url: "https://www.saiinternational.edu.in/admissions",
   },
  
