@@ -11,7 +11,7 @@ export const advancedPlacementsContent = {
 </p>
 
 <p class="fade-in">
-  Nearly all colleges and universities in the United States—as well as more than 500 universities in 75 countries such as the U.K., Canada, and Australia—consider AP participation favorably for admission and have policies around AP credit and placement.
+  Nearly all colleges and universities in the United States-as well as more than 500 universities in 75 countries such as the U.K., Canada, and Australia- consider AP participation favorably for admission and have policies around AP credit and placement.
 </p>
 
 <p class="fade-in"> 
@@ -38,42 +38,30 @@ export const advancedPlacementsContent = {
   <li>Earn higher first-year grades at university (per Research)</li>
 </ul>
 
-   <table class="fade-in">
-      <thead>
-        <tr>
-          <th>Week 1</th>
-          <th>8 a.m. Local Time</th>
-          <th>12 p.m. Local Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Tuesday, May 5, 2026</td>
-          <td>Chemistry Algebra II</td>
-          <td>World Literature Environmental Science</td>
-        </tr>
-        <tr>
-          <td>Wednesday, May 6, 2026</td>
-          <td>Physics Geometry</td>
-          <td>American Government Statistics</td>
-        </tr>
-        <tr>
-          <td>Thursday, May 7, 2026</td>
-          <td>Computer Science History</td>
-          <td>Psychology Art Appreciation</td>
-        </tr>
-        <tr>
-          <td>Saturday, May 9, 2026</td>
-          <td>Astronomy Trigonometry</td>
-          <td>Ethics Theater Arts</td>
-        </tr>
-        <tr>
-          <td>Friday, May 8, 2026</td>
-          <td>Advanced Biology Calculus</td>
-          <td>Sociology Music Theory</td>
-        </tr>
-      </tbody>
-    </table>
+<p class="fade-in">
+  Read how AP helped these students.:
+  <a href="https://timesofindia.indiatimes.com/spotlight/heres-how-students-benefit-from-the-advanced-placement-program/articleshow/81147892.cms?upcache=2" target="_blank">Click here</a>
+</p>
+<p class="fade-in">
+  Review the AP course descriptions for the subject(s) you want to test in. Each description explains which topics are covered in the AP course and what might be on the exam.:
+  <a href="https://apstudents.collegeboard.org/course-index-page" target="_blank">Click here</a>
+</p>
+
+<h3 class="fade-in">Authorized AP Test Center –</h3>
+<p class="fade-in"><strong>SAI INTERNATIONAL SCHOOL</strong> is authorized by the AP Program to administer 2027 AP Exams. However, test centers and schools set their own exam pricing, registration timeline and payment policies.</p>
+
+<h3 class="fade-in">2027 AP Exam Schedule –</h3>
+<p class="fade-in">The 2027 AP Exams will be administered in schools over two weeks in May: May 3–7 and May 10–14. AP coordinators are responsible for notifying students when and where to report for the exams. Early testing or testing at times other than those published by College Board is not permitted under any circumstances. Late-testing dates are available if students cannot test during the first two weeks of May. Our center currently does not offer AP Exams that require additional equipment or that have a course portfolio component (language exams, Music Theory, Art and Design, Seminar and Research). Below is a list of the exams that we offer: </p>
+
+<p class="fade-in">
+  Exam Details (Schedule):
+  <a href="/images/AP-Exams-2026-27.pdf" target="_blank">Click here</a>
+</p>
+
+<p class="fade-in">
+  Registraion Details:
+  <a href="/images/registraion-policy.pdf" target="_blank">Click here</a>
+</p>
   `,
   landscapeImg: "",
 };
