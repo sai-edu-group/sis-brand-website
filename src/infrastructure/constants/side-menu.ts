@@ -125,7 +125,7 @@ export const menu: MenuItemData[] = [
       },
       { title: "Admissions Guidelines", href: URLS.ADMISSIONS.GUIDELINE },
       { title: "EWS Admissions", href: URLS.ADMISSIONS.EWS },
-      { title: "Apply Now", href: `${URLS.ADMISSIONS.ROOT}#how-to-apply` },
+      { title: "Apply Now", href: URLS.ADMISSIONS.APPLY_NOW, target: "_blank" },
     ],
     icon: "admissions",
   },

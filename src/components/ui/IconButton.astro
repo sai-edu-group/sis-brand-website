@@ -3,12 +3,14 @@ interface Props {
   href: string;
   extraClasses?: string;
   iconClasses?: string;
+  target?: string;
 }
-const { href = "#", extraClasses, iconClasses } = Astro.props as Props;
+const { href = "#", extraClasses, iconClasses, target } = Astro.props as Props;
 ---
 
 <a
   href={href}
+  target={target}
   class=`${extraClasses} group flex lg:flex size-9 items-center justify-center rounded-3xl bg-orange-500 md:size-14 md:scale-75 lg:opacity-0 md:transition-all md:duration-300 md:ease-out md:group-hover:scale-100 md:group-hover:opacity-100 lg:size-16 lg:rounded-3xl`
 >
   <span

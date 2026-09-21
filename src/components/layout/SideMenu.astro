@@ -6,7 +6,7 @@ import Image from "astro/components/Image.astro";
 <!-- Backdrop --><!-- This is the dark overlay behind the sidebar when open -->
 <div
   id="menu-backdrop"
-  class="bg-n-950/50 invisible fixed inset-0 z-51 overflow-y-auto! opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
+  class="bg-n-950/50 invisible fixed inset-0 z-[110] overflow-y-auto! opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out"
 >
 </div>
 
@@ -14,7 +14,7 @@ import Image from "astro/components/Image.astro";
 <!-- The main sidebar navigation -->
 <aside
   id="modal"
-  class="fixed inset-y-0 right-0 z-52 w-full translate-x-full transform overflow-y-scroll bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
+  class="fixed inset-y-0 right-0 z-[120] w-full translate-x-full transform overflow-y-scroll bg-violet-600 transition-transform duration-300 ease-in-out xl:max-w-[704px]"
 >
   <nav class="flex h-full flex-col" data-accordion>
     <div class="py-10">

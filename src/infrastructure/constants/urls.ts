@@ -133,5 +133,6 @@ export const URLS = {
     GUIDELINE: "/admissions/guideline",
     EWS: "/admissions/ews-admission",
     TRANSFER_CERTIFICATES: "/admissions/transfer-certificates",
+    APPLY_NOW: "https://saiinternational.edu.in/set/",
   },
 } as const;
