@@ -1,5 +1,12 @@
 ---
-const { eyebrowText, title } = Astro.props;
+interface Props {
+  eyebrowText?: string;
+  /** Element used for the eyebrow text, e.g. "h1" when it is the page heading */
+  eyebrowTag?: "p" | "h1";
+  title?: string;
+}
+
+const { eyebrowText, eyebrowTag: EyebrowTag = "p", title } = Astro.props;
 
 // Split the title into words safely
 const words = title ? title.trim().split(" ") : [];
@@ -10,9 +17,9 @@ const firstPart = words.join(" ");
 <div class="relative inline-block">
   {
     eyebrowText && (
-      <p class="text-n-600 mb-2.5 text-sm font-light md:mb-1 md:text-xl">
+      <EyebrowTag class="text-n-600 mb-2.5 text-sm font-light md:mb-1 md:text-xl">
         {eyebrowText}
-      </p>
+      </EyebrowTag>
     )
   }
 

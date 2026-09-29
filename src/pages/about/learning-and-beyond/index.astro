@@ -13,7 +13,6 @@ import Curriculum from "@/sections/about/Curriculum.astro";
 import Amenities from "@/sections/about/Amenities.astro";
 import SaiSeva from "@/sections/about/SaiSeva.astro";
 import Flagship from "@/sections/about/Flagship.astro";
-import { getSiteUrl } from "@/utils/siteUrl.util";
 
 const heroSectionDetails = {
   title: "Learning & Beyond",
@@ -23,12 +22,7 @@ const heroSectionDetails = {
 };
 ---
 
-<Layout
-  meta={{
-    ...learningBeyondMeta,
-    image: `${getSiteUrl()}/images/og/learning-and-beyond.jpg`,
-  }}
->
+<Layout meta={learningBeyondMeta}>
   <Hero {...heroSectionDetails} />
   <Curriculum />
   <Amenities />

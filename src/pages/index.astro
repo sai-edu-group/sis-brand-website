@@ -2,9 +2,6 @@
 // LAYOUT //
 import Layout from "@/layouts/Layout.astro";
 
-// META //
-import homeMeta from "@/data/meta/site.json";
-
 // SECTIONS //
 import Awards from "@/sections/home/Awards.astro";
 import BookATour from "@/sections/home/BookATour.astro";
@@ -20,15 +17,13 @@ import Results from "@/sections/home/Results.astro";
 import Placements from "@/sections/home/Placements.astro";
 import Hero from "@/sections/home/Hero.astro";
 import NewsLetter from "@/sections/home/NewsLetter.astro";
-import { getSiteUrl } from "@/utils/siteUrl.util";
+
+// DATA //
+// Home has no own title/description: Meta falls back to site.json defaults
+import homeSchema from "@/data/meta/home-schema.json";
 ---
 
-<Layout
-  meta={{
-    ...homeMeta,
-    image: `${getSiteUrl()}/images/og/home-og.jpg`,
-  }}
->
+<Layout meta={{ schema: homeSchema }}>
   <Hero />
   <Stats />
   <Learning360 />

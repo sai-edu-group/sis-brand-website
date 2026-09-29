@@ -1,5 +1,7 @@
+/** Header for the home Stats section; its eyebrow is the home page's only <h1> */
 export const sectionHeaderDetails = {
-  eyebrowText: "Why Choose SAI",
+  eyebrowText: "Top CBSE School in Bhubaneswar Odisha",
+  eyebrowTag: "h1" as const,
   title: "Where Excellence Meets Belonging",
 };
 

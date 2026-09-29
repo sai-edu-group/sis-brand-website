@@ -1,71 +1,24 @@
 ---
+// COMPONENTS //
 import SectionHeader from "@/components/ui/SectionHeader.astro";
 import AdmissionStepsCard from "@/components/ui/AdmissionStepsCard.astro";
 
-const steps = [
-  {
-    id: 1,
-    number: "1",
-    icon: "/icons/form.svg", // or keep inline SVG if you want
-    title: "Fill In An Inquiry Form",
-    description:
-      "Your journey begins here — just a few quick details so we can guide you better.",
-  },
-  {
-    id: 2,
-    number: "2",
-    icon: "/icons/headphone.svg",
-    title: "Get Tailor Made Counselling",
-    description:
-      "Our friendly admissions team will reach out to understand your needs and answer any questions.",
-  },
-  {
-    id: 3,
-    number: "3",
-    icon: "/icons/campus.svg",
-    title: "Welcomed to experience the world class campus of SAI",
-    description:
-      "Experience SAI first-hand — in person or online — and see where your child will thrive.",
-  },
-  {
-    id: 4,
-    number: "4",
-    icon: "/icons/doc.svg",
-    title: "Application & Documents",
-    description:
-      "We’ll provide the application form, checklist, and everything you need to proceed with ease.",
-  },
-  {
-    id: 5,
-    number: "5",
-    icon: "/icons/interaction.svg",
-    title: "Assessment & Interaction",
-    description:
-      "A warm, age-appropriate conversation to get to know your child and help them feel at home.",
-  },
-  {
-    id: 6,
-    number: "6",
-    icon: "/icons/offer-letter.svg",
-    title: "Offer of admission",
-    description:
-      "We’ll share the final outcome and guide you through the next steps — warmly and clearly.",
-  },
-];
+// DATA //
+import {
+  admissionSteps,
+  sectionHeaderContent,
+} from "@/data/admissions/how-it-works";
 ---
 
 <section id="how-to-apply" data-section="How It Works">
   <div class="container mx-auto px-6 py-16 lg:py-24 2xl:px-0">
-    <SectionHeader
-      title="How it Works"
-      subtitle="We’re here to guide you every step of the way - from your first inquiry to the moment your child walks into our world."
-    />
+    <SectionHeader {...sectionHeaderContent} />
 
     <div
       class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:gap-8 xl:grid-cols-3"
     >
       {
-        steps.map((step) => (
+        admissionSteps.map((step) => (
           <AdmissionStepsCard
             icon={step.icon}
             number={step.number}
