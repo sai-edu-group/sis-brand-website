@@ -7,6 +7,16 @@ import SideMenu from "@/components/layout/SideMenu.astro";
 
 import "@/styles/global.css";
 
+interface Props {
+  meta?: {
+    title?: string;
+    description?: string;
+    noIndex?: boolean;
+    /** JSON-LD structured data rendered in <head> */
+    schema?: Record<string, unknown>;
+  };
+}
+
 const { meta = {} } = Astro.props;
 ---
 
@@ -16,8 +26,8 @@ const { meta = {} } = Astro.props;
     <Meta
       title={meta.title}
       description={meta.description}
-      image={meta.image}
       noIndex={meta.noIndex}
+      schema={meta.schema}
     />
 
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
