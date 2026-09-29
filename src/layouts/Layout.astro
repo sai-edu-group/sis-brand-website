@@ -5,7 +5,6 @@ import Footer from "@/components/layout/Footer.astro";
 import SocialStickyBar from "@/components/ui/SocialStickyBar.astro";
 import SideMenu from "@/components/layout/SideMenu.astro";
 
-import "@/styles/global.css";
 
 const { meta = {} } = Astro.props;
 ---
@@ -20,8 +19,8 @@ const { meta = {} } = Astro.props;
       noIndex={meta.noIndex}
     />
 
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+  <link rel="preload" href="/src/styles/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/src/styles/global.css"></noscript>
 
     <link
       rel="preconnect"
