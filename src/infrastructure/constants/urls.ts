@@ -135,4 +135,6 @@ export const URLS = {
     TRANSFER_CERTIFICATES: "/admissions/transfer-certificates",
     APPLY_NOW: "https://saiinternational.edu.in/set/",
   },
+
+  MANDATORY_DISCLOSURE: "/mandatory-disclosure",
 } as const;
