@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SectionHeader from "@/components/ui/SectionHeader.astro";
+import Image from "astro/components/Image.astro";
+
+// DATA
+const pdfDocuments = [
+  { title: "Affidavit", path: "Affidavit.pdf" },
+  { title: "Building Safety Certificate", path: "Building Safety Certificate.pdf" },
+  { title: "CBSE Affli Letter", path: "CBSE Affli Letter.pdf" },
+  { title: "Certificate Of Land", path: "Certificate Of Land.pdf" },
+  { title: "Fees Structure 2026-27", path: "Fees Structure 2026-27.pdf" },
+  { title: "Fire Certificate", path: "Fire Certificate.pdf" },
+  { title: "List of PTA", path: "List of PTA.pdf" },
+  { title: "Managing Committee", path: "Managing Committee.pdf" },
+  { title: "NOC", path: "NOC.pdf" },
+  { title: "Recognition Certificate", path: "Recognition Certificate.pdf" },
+  { title: "Result", path: "Result.pdf" },
+  { title: "Society Registration Certificate", path: "Society Registration Certificate.pdf" },
+  { title: "Water and Health & Sanitation Certificates", path: "Water and Health & Sanitation Certificates.pdf" },
+  { title: "Academic Calendar 2026-27", path: "academic-calendar-2026-27.pdf" }
+];
+
+const meta = {
+  title: "Mandatory Disclosure | SAI International School",
+  description: "Mandatory disclosures and CBSE certificates of SAI International School.",
+  keywords: "mandatory disclosure, cbse, certificates, sai international school",
+};
+---
+
+<Layout meta={meta}>
+  <section data-section="Mandatory Disclosure" class="pt-32 pb-16 lg:pt-48 lg:pb-24">
+    <div class="container mx-auto px-6 lg:px-6">
+      <!-- Section Header -->
+      <SectionHeader title="Mandatory Disclosure" />
+
+      <!-- PDF Cards Grid -->
+      <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:gap-6">
+        {
+          pdfDocuments.map((doc) => (
+            <a
+              href={`/pdfs/cbse/${doc.path}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-n-200 relative flex h-full flex-col gap-2 overflow-hidden rounded-3xl border px-4 py-6 transition-all hover:shadow-lg md:gap-6 2xl:gap-9 2xl:px-8 2xl:py-9"
+            >
+              <!-- Foreground icon -->
+              <div>
+                <Image
+                  src="/icons/doc.svg"
+                  alt=""
+                  class="h-12 w-12 object-contain"
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden="true"
+                  width="48"
+                  height="48"
+                />
+              </div>
+
+              <!-- Content -->
+              <div class="text-n-800 z-10 space-y-5 md:space-y-6 2xl:space-y-9">
+                <!-- Card title -->
+                <p class="text-xl font-semibold xl:text-2xl 2xl:text-4xl">{doc.title}</p>
+                <div class="font-secondary text-n-500 text-base font-semibold underline xl:text-lg 2xl:text-xl">
+                  View Document
+                </div>
+              </div>
+
+              <!-- Backdrop icon -->
+              <Image
+                src="/icons/doc.svg"
+                alt=""
+                aria-hidden="true"
+                class="pointer-events-none absolute -right-12 -bottom-12 w-[200px] select-none object-contain opacity-[0.1] md:-right-20 md:w-[230px] 2xl:w-[300px]"
+                width="300"
+                height="300"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
