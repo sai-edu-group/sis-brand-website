@@ -7,16 +7,26 @@ import site from "@/data/meta/site.json";
 interface Props {
   title?: string;
   description?: string;
+  /** Absolute URL or a path resolved against site.siteUrl */
+  image?: string;
   noIndex?: boolean;
   /** JSON-LD structured data rendered as application/ld+json */
   schema?: Record<string, unknown>;
 }
 
 // PROPS //
-const { title, description, noIndex = false, schema } = Astro.props;
+const { title, description, image, noIndex = false, schema } = Astro.props;
 
-const metaTitle = title ? `${title} | ${site.siteName}` : site.defaultTitle;
+// SEO copy is authored as a finished title, so only add the brand when it is
+// missing — otherwise "…| SAI International" rows would gain a second suffix.
+const brand = "SAI International";
+const metaTitle = title
+  ? title.includes(brand)
+    ? title
+    : `${title} | ${site.siteName}`
+  : site.defaultTitle;
 const metaDesc = description || site.defaultDescription;
+const metaImg = image ? new URL(image, site.siteUrl).href : site.defaultImage;
 
 // "/admissions" and "/admissions/" share one canonical URL
 const canonicalPath =
@@ -33,6 +43,22 @@ const canonical = new URL(canonicalPath, site.siteUrl).href;
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonical} />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={site.siteName} />
+<meta property="og:title" content={metaTitle} />
+<meta property="og:description" content={metaDesc} />
+<meta property="og:image" content={metaImg} />
+<meta property="og:image:alt" content={metaTitle} />
+<meta property="og:url" content={canonical} />
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={site.twitterHandle} />
+<meta name="twitter:title" content={metaTitle} />
+<meta name="twitter:description" content={metaDesc} />
+<meta name="twitter:image" content={metaImg} />
 
 <!-- REFERRER POLICY -->
 <meta name="referrer" content="no-referrer-when-downgrade" />

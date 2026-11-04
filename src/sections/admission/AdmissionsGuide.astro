@@ -1,0 +1,93 @@
+---
+// DATA //
+import { admissionsGuide } from "@/data/admissions/seo-content";
+
+const { h1, whyParentsSearch, process, eligibility } = admissionsGuide;
+---
+
+<section id="admission-guide" data-section="Admission Guide">
+  <div class="container mx-auto px-6 py-16 lg:py-24 2xl:px-0">
+    <div class="mx-auto max-w-4xl space-y-14">
+      <h1
+        class="text-n-800 text-3xl leading-tight font-medium md:text-4xl lg:text-5xl"
+      >
+        {h1}
+      </h1>
+
+      <!-- Why parents search -->
+      <article class="space-y-6">
+        <h2
+          class="text-2xl leading-snug font-medium text-orange-500 md:text-3xl lg:text-4xl"
+        >
+          {whyParentsSearch.title}
+        </h2>
+        {
+          whyParentsSearch.paragraphs.map((text) => (
+            <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+              {text}
+            </p>
+          ))
+        }
+      </article>
+
+      <!-- Admission process -->
+      <article class="space-y-6">
+        <h2
+          class="text-2xl leading-snug font-medium text-orange-500 md:text-3xl lg:text-4xl"
+        >
+          {process.title}
+        </h2>
+        <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+          {process.intro}
+        </p>
+        <ul class="space-y-3">
+          {
+            process.steps.map((item) => (
+              <li class="text-n-600 font-secondary relative pl-6 text-base leading-relaxed md:text-lg">
+                <span
+                  class="absolute top-[0.6em] left-0 size-1.5 rounded-full bg-orange-500"
+                  aria-hidden="true"
+                />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+          {process.outro}
+        </p>
+      </article>
+
+      <!-- Eligibility -->
+      <article class="space-y-6">
+        <h2
+          class="text-2xl leading-snug font-medium text-orange-500 md:text-3xl lg:text-4xl"
+        >
+          {eligibility.title}
+        </h2>
+        <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+          {eligibility.intro}
+        </p>
+        <p class="text-n-800 font-secondary text-base font-medium md:text-lg">
+          {eligibility.lead}
+        </p>
+        <ul class="space-y-3">
+          {
+            eligibility.points.map((item) => (
+              <li class="text-n-600 font-secondary relative pl-6 text-base leading-relaxed md:text-lg">
+                <span
+                  class="absolute top-[0.6em] left-0 size-1.5 rounded-full bg-orange-500"
+                  aria-hidden="true"
+                />
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+          {eligibility.outro}
+        </p>
+      </article>
+    </div>
+  </div>
+</section>

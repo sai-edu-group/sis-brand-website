@@ -12,6 +12,7 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
+import { findPageSeo } from "@/data/meta/dynamic-page-seo";
 
 // SECTIONS //
 import MemberConsumption from "@/sections/member-consumption/MemberConsumption.astro";
@@ -111,7 +112,7 @@ const sectionHeaderDetails = {
 };
 ---
 
-<Layout>
+<Layout meta={findPageSeo(Astro.url.pathname)}>
   <!-- Breadcrumbs Section -->
   <div class="bg-n-50 relative w-full overflow-hidden">
     <div

@@ -8,6 +8,7 @@ import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import { ethosDetails } from "@/data/about/ethos";
+import ethosMeta from "@/data/meta/about/ethos.json";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -26,7 +27,7 @@ const sectionHeaderDetails = {
 };
 ---
 
-<Layout>
+<Layout meta={ethosMeta}>
   <!-- Breadcrumbs Section -->
   <div class="bg-n-50 relative w-full overflow-hidden">
     <div

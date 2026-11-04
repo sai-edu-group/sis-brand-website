@@ -5,12 +5,15 @@ interface Props {
   title: string;
   subtitle?: string;
   ctaText?: string;
+  /** "h1" when this header is the page's main heading */
+  titleTag?: "p" | "h1";
 }
 const {
   eyebrowText = "",
   title = "",
   subtitle = "",
   ctaText = "",
+  titleTag: TitleTag = "p",
 } = Astro.props;
 ---
 
@@ -27,11 +30,11 @@ const {
     }
     <div class="relative flex flex-col gap-2.5 md:gap-1.5 lg:gap-4">
       <!-- Section title -->
-      <p
+      <TitleTag
         class="animatedText text-n-800 text-4xl leading-[112%] font-medium md:text-5xl lg:leading-tight"
       >
         {title}
-      </p>
+      </TitleTag>
       <!-- Section subtitle -->
       {
         subtitle && (
