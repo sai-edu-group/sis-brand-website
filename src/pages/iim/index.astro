@@ -1,12 +1,22 @@
-<div id="flipbook-wrapper">
-  <div id="book"></div>
+---
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
 
-  <!-- Navigation Buttons -->
-  <div class="nav-buttons">
-    <button id="prevPage" class="flip-btn">Prev</button>
-    <button id="nextPage" class="flip-btn">Next</button>
+// META //
+import iimMeta from "@/data/meta/iim/iim.json";
+---
+
+<Layout meta={iimMeta}>
+  <div id="flipbook-wrapper">
+    <div id="book"></div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <button id="prevPage" class="flip-btn">Prev</button>
+      <button id="nextPage" class="flip-btn">Next</button>
+    </div>
   </div>
-</div>
+</Layout>
 
 <script>
   import { PageFlip } from "page-flip";
@@ -40,9 +50,9 @@
 </script>
 
 <style>
-  /* Full-screen wrapper */
+  /* Full-screen wrapper — leaves room for the site header the Layout adds */
   #flipbook-wrapper {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
 
@@ -52,7 +62,7 @@
     justify-content: center;
 
     background: #f0f0f0;
-    padding: 20px;
+    padding: 120px 20px 20px;
     box-sizing: border-box;
   }
 
@@ -61,7 +71,7 @@
     width: 100%;
     height: 100%;
     max-width: 100vw;
-    max-height: 100vh;
+    max-height: calc(100vh - 200px);
 
     border-radius: 12px;
     overflow: hidden;

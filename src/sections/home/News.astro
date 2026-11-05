@@ -5,13 +5,13 @@ import EmptyState from "@/components/ui/EmptyState.astro";
 
 // DATA //
 import { sectionHeaderContent } from "../../data/home/news";
-import { URLS } from "@/infrastructure/constants/urls";
 
 // SERVICES //
 import { fetchlatestBlogsRequest } from "@/services/api/news.api.service";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+import { newsArticlePath } from "@/utils/seo.utils";
 import { IMAGE_TYPES } from "@/enums/image.enum";
 
 const newsItems = await fetchlatestBlogsRequest();
@@ -48,10 +48,7 @@ const uid = "embla-news";
                     )}
                     topText=""
                     date={article.created_on}
-                    href={URLS.MEDIA.NEWS.ITEM(
-                      article.id.toString(),
-                      article.title.toLowerCase().replaceAll(" ", "-"),
-                    )}
+                    href={newsArticlePath(article.id, article.title)}
                   />
                 </div>
               ))}

@@ -24,6 +24,7 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+import { newsArticlePath } from "@/utils/seo.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
@@ -104,10 +105,7 @@ const shouldShowPagination = totalPages > 1;
                       )}
                       topText={""}
                       date={newsItem.created_on}
-                      href={URLS.MEDIA.NEWS.ITEM(
-                        newsItem.id.toString(),
-                        newsItem.title.toLowerCase().replaceAll(" ", "-"),
-                      )}
+                      href={newsArticlePath(newsItem.id, newsItem.title)}
                     />
                   </div>
                 ))}

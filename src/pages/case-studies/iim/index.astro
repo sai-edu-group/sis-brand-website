@@ -1,1 +1,22 @@
-<p>Content coming soon.</p>
+---
+// OTHERS //
+import Layout from "@/layouts/Layout.astro";
+
+// META //
+import caseStudyMeta from "@/data/meta/case-studies/iim.json";
+---
+
+<Layout meta={{ ...caseStudyMeta, noIndex: true }}>
+  <section class="bg-n-50 relative w-full overflow-hidden">
+    <div
+      class="container mx-auto px-6 pt-30 pb-30 md:pt-40 md:pb-40 2xl:px-0"
+    >
+      <h1 class="text-n-800 text-3xl font-medium md:text-4xl lg:text-5xl">
+        IIM Case Study
+      </h1>
+      <p class="text-n-600 font-secondary mt-4 text-base md:text-lg">
+        Content coming soon.
+      </p>
+    </div>
+  </section>
+</Layout>

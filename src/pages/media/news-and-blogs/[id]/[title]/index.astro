@@ -17,6 +17,7 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // UTILS //
 import { generateImagePath } from "@/utils/image.utils";
+import { articleSeo, newsArticlePath } from "@/utils/seo.utils";
 
 // OTHERS //
 import Layout from "@/layouts/Layout.astro";
@@ -34,6 +35,19 @@ if (!newsId) {
 }
 const newsItem = await fetchBlogByIdRequest(newsId);
 
+// Articles are addressed by id; the slug is decoration. Old links carrying a
+// truncated or retitled slug would otherwise sit beside the canonical one as a
+// duplicate, so send them to the path the listing page and sitemap use.
+if (newsItem?.title) {
+  const canonicalPath = newsArticlePath(newsId, newsItem.title);
+  if (decodeURI(Astro.url.pathname) !== decodeURI(canonicalPath)) {
+    return new Response(null, {
+      status: 301,
+      headers: { Location: canonicalPath },
+    });
+  }
+}
+
 // Prepare breadcrumb items based on personType
 const breadcrumbItems = [
   { label: "News & Blogs", href: URLS.MEDIA.NEWS.ROOT },
@@ -41,7 +55,7 @@ const breadcrumbItems = [
 ];
 ---
 
-<Layout meta={findPageSeo(Astro.url.pathname)}>
+<Layout meta={findPageSeo(Astro.url.pathname) ?? articleSeo(newsItem)}>
   <section class="bg-n-50 relative w-full overflow-hidden">
     <div
       class="container mx-auto flex flex-col gap-5 px-6 pt-34 pb-30 md:gap-8 md:px-8 md:pt-40 md:pb-40 lg:gap-9 2xl:px-0"

@@ -48,7 +48,7 @@ export const URLS = {
 
   CASE_STUDIES: {
     ROOT: "/case-studies",
-    IIM: "/case/studies/iim",
+    IIM: "/case-studies/iim",
   },
 
   RESULTS: {
