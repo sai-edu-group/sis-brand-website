@@ -11,6 +11,8 @@ interface Props {
   ctaText?: string;
   variant?: "plain" | "withBg";
   imageName?: string;
+  /** "h1" when the hero title is the page's main heading */
+  titleTag?: "p" | "h1";
 }
 
 const {
@@ -19,6 +21,7 @@ const {
   ctaText = "",
   variant = "plain",
   imageName = "contact-hero",
+  titleTag = "p",
 } = Astro.props as Props;
 ---
 
@@ -32,7 +35,12 @@ const {
     <!-- Left Content -->
     <!-- Hero Text -->
     <div class="flex flex-1 lg:py-12">
-      <SectionHeaderMain title={title} subtitle={subtitle} ctaText={ctaText} />
+      <SectionHeaderMain
+        title={title}
+        subtitle={subtitle}
+        ctaText={ctaText}
+        titleTag={titleTag}
+      />
     </div>
 
     <!-- Right Content - Image -->

@@ -8,6 +8,7 @@ import { URLS } from "@/infrastructure/constants/urls";
 
 // DATA //
 import { affiliationsDetails } from "@/data/about/affiliations";
+import { affiliationsGuide } from "@/data/about/affiliations-seo-content";
 ---
 
 <section class="bg-n-100 relative w-full overflow-hidden">
@@ -15,7 +16,18 @@ import { affiliationsDetails } from "@/data/about/affiliations";
     class="container mx-auto flex flex-col gap-10 p-6 md:gap-14 md:py-9 md:pb-18 lg:gap-20 lg:pb-24"
   >
     <!-- Section header title -->
-    <SectionHeaderMain {...affiliationsDetails.sectionHeaderContent} />
+    <SectionHeaderMain
+      title={affiliationsGuide.h1}
+      subtitle={affiliationsDetails.sectionHeaderContent.subtitle}
+      titleTag="h1"
+    />
+
+    <!-- Affiliations intro -->
+    <p
+      class="text-n-600 font-secondary max-w-4xl text-base leading-relaxed md:text-lg"
+    >
+      {affiliationsGuide.intro}
+    </p>
 
     <!-- Affiliations Cards wrapper -->
     <div
@@ -32,6 +44,7 @@ import { affiliationsDetails } from "@/data/about/affiliations";
               <ArticleCard
                 title={affiliationsContentItem.title}
                 img={affiliationsContentItem.img}
+                objectFit="contain"
                 href={URLS.ABOUT.AFFILIATIONS.ITEM(
                   affiliationsContentItem.title
                     .toLowerCase()
@@ -43,6 +56,24 @@ import { affiliationsDetails } from "@/data/about/affiliations";
             </div>
           ),
         )
+      }
+    </div>
+
+    <!-- Affiliation details -->
+    <div class="mx-auto flex w-full max-w-4xl flex-col gap-10 md:gap-14">
+      {
+        [affiliationsGuide.cbse, affiliationsGuide.caie].map((block) => (
+          <article class="space-y-5">
+            <h2 class="text-2xl leading-snug font-medium text-orange-500 md:text-3xl lg:text-4xl">
+              {block.heading}
+            </h2>
+            {block.paragraphs.map((text) => (
+              <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+                {text}
+              </p>
+            ))}
+          </article>
+        ))
       }
     </div>
   </div>

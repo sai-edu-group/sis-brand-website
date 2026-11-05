@@ -1,15 +1,28 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import admissionsMeta from "@/data/meta/admissions/admissions.json";
-import HowItWorks from "@/sections/admission/HowItWorks.astro";
-import FaqSection from "@/sections/admission/FaqSection.astro";
-import Form from "@/sections/admission/Form.astro";
+import { faqDetails } from "@/data/home/faq";
 import HeroSection from "@/sections/admission/HeroSection.astro";
+import HowItWorks from "@/sections/admission/HowItWorks.astro";
+import AdmissionsGuide from "@/sections/admission/AdmissionsGuide.astro";
+import Form from "@/sections/admission/Form.astro";
+import FaqSection from "@/sections/admission/FaqSection.astro";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqDetails.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 ---
 
-<Layout meta={admissionsMeta}>
+<Layout meta={{ ...admissionsMeta, schema: faqSchema }}>
   <HeroSection />
   <HowItWorks />
+  <AdmissionsGuide />
   <Form />
   <FaqSection />
 </Layout>

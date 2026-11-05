@@ -8,6 +8,7 @@ import Layout from "@/layouts/Layout.astro";
 
 // DATA //
 import { guruShishyaParamparaDetails } from "@/data/about/guru-shishya-parampara";
+import guruShishyaMeta from "@/data/meta/about/guru-shishya-parampara.json";
 
 // CONSTANTS //
 import { URLS } from "@/infrastructure/constants/urls";
@@ -25,7 +26,7 @@ const sectionHeaderDetails = {
 };
 ---
 
-<Layout>
+<Layout meta={guruShishyaMeta}>
   <!-- Breadcrumbs Section -->
   <div class="bg-n-50 relative w-full overflow-hidden">
     <div

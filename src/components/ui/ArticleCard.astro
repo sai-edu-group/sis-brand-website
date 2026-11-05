@@ -15,6 +15,8 @@ interface Props {
   date?: string;
   href?: string;
   badgeText?: string;
+  /** "none" keeps the image filling the frame, which distorts non-card-ratio artwork */
+  objectFit?: "cover" | "contain" | "none";
 }
 const {
   img = "/images/default/news-article-image.png",
@@ -25,6 +27,7 @@ const {
   href = "#",
   date = "",
   badgeText = "",
+  objectFit = "none",
 } = Astro.props as Props;
 
 // Format the Date
@@ -44,7 +47,11 @@ const formattedDate = new Date(date).toLocaleDateString("en-GB", {
       <Image
         src={img}
         alt=""
-        class="scale-up-on-hover h-[215px] w-full lg:h-[276px]"
+        class:list={[
+          "scale-up-on-hover h-[215px] w-full lg:h-[276px]",
+          objectFit === "cover" && "object-cover",
+          objectFit === "contain" && "object-contain",
+        ]}
         loading="lazy"
         decoding="async"
         width={500}
