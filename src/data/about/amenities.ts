@@ -1,10 +1,11 @@
 export const amenitiesDetails = {
   sectionHeaderContent: {
     title: "Spaces that Inspire Learning",
-    subtitle:
-      "The campus is designed to support learning, creativity, and well-being.",
     eyebrowText: "Campus Life",
   },
+  /** Campus copy the SEO brief asked for in this section. */
+  seoNote:
+    "Spread across a sprawling, green campus, SAI International School offers spacious classrooms, well-stocked libraries, sports arenas, hostels, and dining spaces that are built with students' comfort in mind. Every corner of the campus is created to help children feel safe, inspired, and genuinely excited to learn something new each day.",
   amenitiesCards: [
     {
       id: 1,

@@ -1,10 +1,11 @@
 export const curriculumDetails = {
   sectionHeaderContent: {
     title: "Education that Shapes Every Side of a Child",
-    subtitle:
-      "Our curriculum balances intellectual curiosity, emotional growth, and creative learning.",
     eyebrowText: "Academic Framework",
   },
+  /** Curriculum copy the SEO brief asked for in this section. */
+  seoNote:
+    "We believe real education goes beyond textbooks — it's about building thinkers, not just scorers. From hands-on labs to performing arts and STEAM projects, every part of the day is designed to help students discover what they're good at. This is what sets top CBSE schools in Odisha apart, and it's the foundation of everything we do at SAI.",
   curriculumContent: [
     {
       id: 1,

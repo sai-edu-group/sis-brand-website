@@ -1,7 +1,5 @@
 /** SEO copy blocks for /admissions, placed after the "How It Works" section */
 export const admissionsGuide = {
-  h1: "CBSE School Admission in Bhubaneswar 2027-28",
-
   whyParentsSearch: {
     title: "Why do parents search for CBSE school admission in Bhubaneswar?",
     paragraphs: [

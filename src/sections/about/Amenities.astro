@@ -15,7 +15,12 @@ import { amenitiesDetails } from "@/data/about/amenities";
     class="container mx-auto flex flex-col gap-10 px-6 py-14 md:gap-14 md:py-20 lg:gap-20 lg:py-24 2xl:px-0"
   >
     <!-- Section header title -->
-    <SectionHeaderMain {...amenitiesDetails.sectionHeaderContent} />
+    <div class="space-y-4">
+      <SectionHeaderMain {...amenitiesDetails.sectionHeaderContent} />
+      <p class="text-n-600 font-secondary max-w-4xl text-base leading-relaxed md:text-lg">
+        {amenitiesDetails.seoNote}
+      </p>
+    </div>
 
     <!-- Ammenities Cards wrapper -->
     <div

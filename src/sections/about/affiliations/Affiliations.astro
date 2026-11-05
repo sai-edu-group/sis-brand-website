@@ -9,71 +9,65 @@ import { URLS } from "@/infrastructure/constants/urls";
 // DATA //
 import { affiliationsDetails } from "@/data/about/affiliations";
 import { affiliationsGuide } from "@/data/about/affiliations-seo-content";
+
+/** Board copy shown inside each affiliation card, keyed by card title */
+const boardCopy = {
+  CBSE: affiliationsGuide.cbse,
+  IGCSE: affiliationsGuide.caie,
+} as const;
 ---
 
 <section class="bg-n-100 relative w-full overflow-hidden">
   <div
     class="container mx-auto flex flex-col gap-10 p-6 md:gap-14 md:py-9 md:pb-18 lg:gap-20 lg:pb-24"
   >
-    <!-- Section header title -->
-    <SectionHeaderMain
-      title={affiliationsGuide.h1}
-      subtitle={affiliationsDetails.sectionHeaderContent.subtitle}
-      titleTag="h1"
-    />
+    <!-- Section header title and intro -->
+    <div class="space-y-4">
+      <SectionHeaderMain
+        title={affiliationsGuide.h1}
+        subtitle={affiliationsDetails.sectionHeaderContent.subtitle}
+        titleTag="h1"
+      />
 
-    <!-- Affiliations intro -->
-    <p
-      class="text-n-600 font-secondary max-w-4xl text-base leading-relaxed md:text-lg"
-    >
-      {affiliationsGuide.intro}
-    </p>
+      <p
+        class="text-n-600 font-secondary max-w-4xl text-base leading-relaxed md:text-lg"
+      >
+        {affiliationsGuide.intro}
+      </p>
+    </div>
 
     <!-- Affiliations Cards wrapper -->
-    <div
-      class="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-8 xl:grid-cols-3 xl:gap-9"
-    >
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-8">
       <!-- Affiliations Cards -->
       {
         affiliationsDetails.affiliationsContent.map(
-          (affiliationsContentItem, cardIndex) => (
-            <div
-              class="card-anim card-bottom"
-              style={`--delay: ${cardIndex * 0.1}s`}
-            >
-              <ArticleCard
-                title={affiliationsContentItem.title}
-                img={affiliationsContentItem.img}
-                objectFit="contain"
-                href={URLS.ABOUT.AFFILIATIONS.ITEM(
-                  affiliationsContentItem.title
-                    .toLowerCase()
-                    .replaceAll("-", " "),
-                )}
-                description={affiliationsContentItem.description}
-                badgeText=""
-              />
-            </div>
-          ),
+          (affiliationsContentItem, cardIndex) => {
+            const board =
+              boardCopy[affiliationsContentItem.title as keyof typeof boardCopy];
+            return (
+              <div
+                class="card-anim card-bottom"
+                style={`--delay: ${cardIndex * 0.1}s`}
+              >
+                <ArticleCard
+                  title={board?.heading ?? affiliationsContentItem.title}
+                  titleTag="h2"
+                  img={affiliationsContentItem.img}
+                  objectFit="contain"
+                  href={URLS.ABOUT.AFFILIATIONS.ITEM(
+                    affiliationsContentItem.title
+                      .toLowerCase()
+                      .replaceAll("-", " "),
+                  )}
+                  description={
+                    board ? board.paragraphs.join(" ") : affiliationsContentItem.description
+                  }
+                  badgeText=""
+                />
+              </div>
+            );
+          },
         )
-      }
-    </div>
-
-    <!-- Affiliation details -->
-    <div class="mx-auto flex w-full max-w-4xl flex-col gap-10 md:gap-14">
-      {
-        [affiliationsGuide.cbse, affiliationsGuide.caie].map((block) => (
-          <article class="space-y-5">
-            <h2 class="text-2xl leading-snug font-medium text-orange-500 md:text-3xl lg:text-4xl">
-              {block.heading}
-            </h2>
-            {block.paragraphs.map((text) => (
-              <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
-                {text}
-              </p>
-            ))}
-          </article>
-        ))
       }
     </div>
   </div>

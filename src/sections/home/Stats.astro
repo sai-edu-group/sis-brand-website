@@ -3,7 +3,7 @@ import CommonHeader from "@/components/ui/CommonHeader.astro";
 import StatsCard from "@/components/ui/StatsCard.astro";
 
 // DATA //
-import { sectionHeaderDetails, statsCard } from "../../data/home/stats";
+import { sectionCopy, sectionHeaderDetails, statsCard } from "../../data/home/stats";
 ---
 
 <!-- Stats Card Component -->
@@ -33,29 +33,44 @@ import { sectionHeaderDetails, statsCard } from "../../data/home/stats";
     class="relative z-4 container mx-auto flex w-full flex-col items-center gap-12 px-6 py-16 md:gap-20 md:py-20 2xl:px-0"
   >
     <!-- Header with Lines -->
-    <div class="self-start">
+    <div class="self-start space-y-6 md:space-y-8">
       <CommonHeader {...sectionHeaderDetails} />
+
+      <div class="max-w-4xl space-y-4 md:space-y-5">
+        <p class="text-n-600 font-secondary text-base leading-relaxed md:text-lg">
+          {sectionCopy.intro}
+        </p>
+        <p class="text-n-800 text-lg font-medium md:text-2xl">
+          {sectionCopy.leadIn}
+        </p>
+      </div>
     </div>
 
     <!-- Stats Cards Grid -->
-    <div
-      class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 md:gap-x-6 xl:grid-cols-3 2xl:gap-x-10 2xl:gap-y-8"
-    >
-      {
-        statsCard.map((statsCardItem, statsCardIndex) => (
-          <div
-            class="card-anim card-bottom"
-            style={`--delay: ${statsCardIndex * 0.1}s`}
-          >
-            <StatsCard
-              img={statsCardItem.img}
-              title={statsCardItem.title}
-              statsCount={statsCardItem.statsCount}
-              subTitle={statsCardItem.subTitle}
-            />
-          </div>
-        ))
-      }
+    <div class="w-full self-start space-y-10 md:space-y-14">
+      <div
+        class="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-8 md:gap-x-6 xl:grid-cols-3 2xl:gap-x-10 2xl:gap-y-8"
+      >
+        {
+          statsCard.map((statsCardItem, statsCardIndex) => (
+            <div
+              class="card-anim card-bottom"
+              style={`--delay: ${statsCardIndex * 0.1}s`}
+            >
+              <StatsCard
+                img={statsCardItem.img}
+                title={statsCardItem.title}
+                statsCount={statsCardItem.statsCount}
+                subTitle={statsCardItem.subTitle}
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <p class="text-n-600 font-secondary max-w-4xl text-base leading-relaxed md:text-lg">
+        {sectionCopy.outro}
+      </p>
     </div>
   </div>
 </section>

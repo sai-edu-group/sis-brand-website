@@ -1,20 +1,5 @@
 import type { FaqItemData } from "@/data/home/faq";
 
-export const learningBeyondGuide = {
-  curriculum: {
-    heading: "Learning that goes beyond the syllabus",
-    paragraphs: [
-      "Our curriculum balances intellectual curiosity, emotional growth, and creative learning. We believe real education goes beyond textbooks — it's about building thinkers, not just scorers. From hands-on labs to performing arts and STEAM projects, every part of the day is designed to help students discover what they're good at. This is what sets top CBSE schools in Odisha apart, and it's the foundation of everything we do at SAI.",
-    ],
-  },
-  campus: {
-    heading: "A campus built around the student",
-    paragraphs: [
-      "The campus is designed to support learning, creativity, and well-being. Spread across a sprawling, green campus, SAI International School offers spacious classrooms, well-stocked libraries, sports arenas, hostels, and dining spaces that are built with students' comfort in mind. Every corner of the campus is created to help children feel safe, inspired, and genuinely excited to learn something new each day.",
-    ],
-  },
-};
-
 export const learningBeyondFaqs: FaqItemData[] = [
   {
     question: "What makes SAI International one of the top schools in Odisha?",

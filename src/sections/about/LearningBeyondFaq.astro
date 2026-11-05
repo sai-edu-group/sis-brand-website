@@ -1,0 +1,34 @@
+---
+// COMPONENTS //
+import FaqItem from "@/components/ui/FaqItem.astro";
+import SectionHeader from "@/components/ui/SectionHeader.astro";
+
+// DATA //
+import { learningBeyondFaqs } from "@/data/about/learning-and-beyond/seo-content";
+---
+
+<section data-section="Learning Beyond FAQ">
+  <div class="container mx-auto space-y-10 px-6 pb-16 lg:pb-24">
+    <!-- Section header component -->
+    <SectionHeader title="Frequently Asked Questions" />
+
+    <div id="faq" class="mx-auto max-w-4xl space-y-2 md:space-y-4">
+      {
+        learningBeyondFaqs.map((faq, i) => (
+          <FaqItem
+            question={faq.question}
+            answer={faq.answer}
+            pointers={faq.pointers}
+            isOpen={i === 0}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initFaqAccordions } from "@/scripts/faq-accordion";
+
+  initFaqAccordions();
+</script>
